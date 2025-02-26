@@ -39,9 +39,9 @@
 
 /* Read-Back Command */
 
-#define TIMER_RB_COUNT  BIT(4)            /**< @brief Read Count Value */
-#define TIMER_RB_STATUS BIT(5)            /**< @brief Read Status Value */
-#define TIMER_RB_SEL(n) BIT((n) + 1)      /**< @brief Select Timer for Read-Back */
+#define TIMER_RB_COUNT_  BIT(5)           /**< @brief Read Count Value */
+#define TIMER_RB_STATUS_ BIT(4)           /**< @brief Read Status Value */
+#define TIMER_RB_SEL(n)  BIT((n) + 1)     /**< @brief Select Timer for Read-Back */
 #define TIMER_RB_CMD    (BIT(7) | BIT(6)) /**< @brief Read Back Command */
 
 #endif /* _LCOM_I8254_H_ */
