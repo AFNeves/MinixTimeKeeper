@@ -1,4 +1,4 @@
 lab2
 *.o
 *.txt
-*.gbinit
+*.gdbinit
