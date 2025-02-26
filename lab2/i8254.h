@@ -9,13 +9,17 @@
 /* Port Addresses */
 
 #define TIMER_0    0x40 /**< @brief Timer 0 register */
+#define TIMER_1    0x41 /**< @brief Timer 1 register */
+#define TIMER_2    0x42 /**< @brief Timer 2 register */
 #define TIMER_CTRL 0x43 /**< @brief Control register */
 
 /* Timer Control */
 
 /* Timer Selection: Bits 7 and 6 */
 
-#define TIMER_SEL0 0x00 /**< @brief Control Word for Timer 0 */
+#define TIMER_SEL0 0x00   /**< @brief Control Word for Timer 0 */
+#define TIMER_SEL1 BIT(6) /**< @brief Control Word for Timer 1 */
+#define TIMER_SEL2 BIT(7) /**< @brief Control Word for Timer 2 */
 
 /* Register Selection: Bits 5 and 4 */
 
@@ -35,9 +39,9 @@
 
 /* Read-Back Command */
 
-#define TIMER_RB_SEL0   BIT(1)            /**< @brief Select Timer 0 */
 #define TIMER_RB_COUNT  BIT(4)            /**< @brief Read Count Value */
 #define TIMER_RB_STATUS BIT(5)            /**< @brief Read Status Value */
+#define TIMER_RB_SEL(n) BIT((n) + 1)      /**< @brief Select Timer for Read-Back */
 #define TIMER_RB_CMD    (BIT(7) | BIT(6)) /**< @brief Read Back Command */
 
 #endif /* _LCOM_I8254_H_ */
