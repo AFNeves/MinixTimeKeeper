@@ -49,7 +49,6 @@ int (timer_test_int)(uint8_t time)
 
     uint8_t irq_set;
     if (timer_subscribe_int(&irq_set) != 0) return 1;
-    irq_set = BIT(irq_set);
     
     while (time > 0) {
         if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
@@ -60,7 +59,7 @@ int (timer_test_int)(uint8_t time)
         if (is_ipc_notify(ipc_status)) { /* received notification */
             switch (_ENDPOINT_P(msg.m_source)) {
                 case HARDWARE: /* hardware interrupt notification */                
-                    if (msg.m_notify.interrupts & irq_set) /* subscribed interrupt */
+                    if (msg.m_notify.interrupts & BIT(irq_set)) /* subscribed interrupt */
                     {
                         timer_int_handler();
 

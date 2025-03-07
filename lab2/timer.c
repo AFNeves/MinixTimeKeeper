@@ -61,7 +61,7 @@ int (timer_subscribe_int)(uint8_t *bit_no)
 
 int (timer_unsubscribe_int)()
 {
-    return (sys_irqrmpolicy(&hook_id) == 0) ? 0 : 1;
+    return sys_irqrmpolicy(&hook_id);
 }
 
 void (timer_int_handler)()
