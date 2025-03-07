@@ -49,7 +49,8 @@ int (timer_test_int)(uint8_t time)
 
     uint8_t irq_set;
     if (timer_subscribe_int(&irq_set) != 0) return 1;
-
+    irq_set = BIT(irq_set);
+    
     while (time > 0) {
         if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
             printf("driver_receive failed with: %d", r);
@@ -63,7 +64,7 @@ int (timer_test_int)(uint8_t time)
                     {
                         timer_int_handler();
 
-                        if (counter % 60 == 0)
+                        if (counter % sys_hz() == 0) 
                         {
                             timer_print_elapsed_time();
                             time--;
