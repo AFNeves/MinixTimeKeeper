@@ -8,6 +8,7 @@
 #include "keyboard.c"
 
 extern uint8_t scancode;
+extern uint8_t counter_SYS_INB;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -63,6 +64,7 @@ int (kbd_test_scan)()
     }
 
     if (keyboard_unsubscribe_int() != 0) return 1;
+    if (kbd_print_no_sysinb(counter_SYS_INB) != 0) return 1;
 
     return 0;
 }
