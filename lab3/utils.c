@@ -48,13 +48,7 @@ int (util_sys_inb)(int port, uint8_t *value) {
     if (value == NULL) return 1;
 
     uint32_t val;
-
-    #define LAB3
-    int ret = sys_inb(port, &val);
-    #ifdef LAB3
-    counter++;
-    #endif
-    
+    int ret = sys_inb(port, &val); counter_SYS_INB++;
     *value = (uint8_t) val;
 
     return ret;
