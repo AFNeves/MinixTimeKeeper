@@ -52,18 +52,28 @@ int (read_KBC_output)()
     return 1;
 }
 
-int (write_to_KBC)()
+int (write_to_KBC)(uint8_t port, uint8_t command)
 {
-    while( 1 ) {
-        sys_inb(KBC_ST_REG, &stat); /* assuming it returns OK */
-        /* loop while 8042 output buffer is empty */
-        if( stat & KBC_OBF ) {
-            sys_inb(KBC_OUT_BUF, &data); /* ass. it returns OK */
-            if ( (stat &(KBC_PAR_ERR | KBC_TO_ERR)) == 0 )
-                return data;
-            else
-                return -1;
+    uint8_t status;
+    uint8_t attempts = MAX_ATTEMPTS;
+
+    while (attempts)
+    {
+        // Read KBC to see if there is data to read
+        if (util_sys_inb(KBC_STATUS_REG, &status) != 0) return 1;
+
+        // Check if we can write to the KBC
+        if ((status & FULL_IN_BUF) == 0)
+        {
+            // Write to the KBC
+            if (sys_outb(port, command) != 0) return 1;
+
+            return 0;
         }
-        delay(WAIT_KBC); // e.g. tickdelay()
+
+        tickdelay(micros_to_ticks(KB_DELAY));
+		attempts--;
     }
+
+    return 1;
 }
