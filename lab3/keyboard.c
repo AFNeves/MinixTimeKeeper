@@ -51,3 +51,16 @@ int (read_KBC_output)()
 
     return 1;
 }
+
+int (write_to_KBC)()
+{
+    while( 1 ) {
+        sys_inb(KBC_ST_REG, &stat); /* assuming it returns OK */
+        /* loop while 8042 input buffer is not empty */
+        if( (stat & KBC_ST_IBF) == 0 ) {
+            sys_outb(KBC_CMD_REG, cmd); /* no args command */
+            return 0;
+        }
+        delay(WAIT_KBC); // e.g. tickdelay()
+    }
+}
