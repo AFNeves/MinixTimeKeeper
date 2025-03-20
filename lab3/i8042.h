@@ -25,4 +25,9 @@
 #define FULL_IN_BUF BIT(1)   /**< @brief Full input buffer bit */
 #define FULL_OUT_BUF BIT(0)  /**< @brief Full output buffer bit */
 
+/* KBC Commands Values */
+
+#define KBC_READ_CMD 0x20 /**< @brief Read command for the KBC */
+#define KBC_WRITE_CMD 0x60 /**< @brief Write command for the KBC */
+
 #endif /* _LCOM_I8042_H */
