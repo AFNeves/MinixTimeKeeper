@@ -30,4 +30,8 @@
 #define KBC_READ_CMD 0x20 /**< @brief Read command for the KBC */
 #define KBC_WRITE_CMD 0x60 /**< @brief Write command for the KBC */
 
+/* KBC Command Byte */
+
+#define KBC_KB_INT BIT(0) /**< @brief Keyboard interrupt enable bit */
+
 #endif /* _LCOM_I8042_H */
