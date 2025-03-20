@@ -71,7 +71,13 @@ int (kbd_test_scan)()
 
 int (kbd_test_poll)()
 {
-    return 1;
+    while (scancode != ESC_BREAKCODE)
+    {
+        if (read_KBC_output(&scancode) == 0)
+            kbd_print_scancode(!(scancode & BREAK_CODE_BIT), 1, &scancode);
+    }
+
+    return 1; // Restore keyboard to Minix's default state ?
 }
 
 int (kbd_test_timed_scan)(uint8_t n)
