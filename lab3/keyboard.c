@@ -1,7 +1,7 @@
 #include "keyboard.h"
 
+uint8_t scancode;
 int kb_hook_id = 1;
-uint8_t scancode = 0;
 
 int (keyboard_subscribe_int)(uint8_t *bit_no)
 {
@@ -19,10 +19,10 @@ int (keyboard_unsubscribe_int)()
 
 void (kbc_ih)()
 {
-    read_KBC_output();
+    read_KBC_output(&scancode);
 }
 
-int (read_KBC_output)()
+int (read_KBC_output)(uint8_t *byte)
 {
     uint8_t status;
     uint8_t attempts = MAX_ATTEMPTS;
@@ -36,7 +36,7 @@ int (read_KBC_output)()
         if ((status & FULL_OUT_BUF) != 0)
         {
             // Retrieve scancode from the output buffer
-            if (util_sys_inb(KBC_OUT_BUF, &scancode) != 0) return 1;
+            if (util_sys_inb(KBC_OUT_BUF, byte) != 0) return 1;
 
             // Check if there was an error
             if ((status & (PARITY_ERROR | TIMEOUT_ERROR)) != 0) return 1;
@@ -86,10 +86,10 @@ int (keyboard_poll_restore)()
     if (write_to_KBC(KBC_IN_BUF, KBC_READ_CMD) != 0) return 1;
 
     // Read the command byte
-    if (read_KBC_output() != 0) return 1;
+    if (read_KBC_output(&command) != 0) return 1;
 
     // Enable interrupts via bit masking
-    command = scancode | KBC_KB_INT;
+    command |= KBC_KB_INT;
 
     // Ask permission to write the command byte
     if (write_to_KBC(KBC_IN_BUF, KBC_WRITE_CMD) != 0) return 1;
