@@ -18,4 +18,6 @@ int (read_KBC_output)();
 
 int (write_to_KBC)(uint8_t port, uint8_t command);
 
+int (keyboard_poll_restore)();
+
 #endif /* _LCOM_KEYBOARD_H_ */

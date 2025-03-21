@@ -83,7 +83,11 @@ int (kbd_test_poll)()
             kbd_print_scancode(!(scancode & BREAK_CODE_BIT), 1, &scancode);
     }
 
-    return 1; // Restore keyboard to Minix's default state ?
+    #ifdef LAB3
+    if (kbd_print_no_sysinb(counter_SYS_INB) != 0) return 1;
+    #endif
+
+    return keyboard_poll_restore();
 }
 
 int (kbd_test_timed_scan)(uint8_t n)

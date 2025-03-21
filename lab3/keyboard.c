@@ -77,3 +77,25 @@ int (write_to_KBC)(uint8_t port, uint8_t command)
 
     return 1;
 }
+
+int (keyboard_poll_restore)()
+{
+    uint8_t command;
+
+    // Ask permission to read the command byte
+    if (write_to_KBC(KBC_IN_BUF, KBC_READ_CMD) != 0) return 1;
+
+    // Read the command byte
+    if (read_KBC_output() != 0) return 1;
+
+    // Enable interrupts via bit masking
+    command = scancode | KBC_KB_INT;
+
+    // Ask permission to write the command byte
+    if (write_to_KBC(KBC_IN_BUF, KBC_WRITE_CMD) != 0) return 1;
+
+    // Write the command byte
+    if (write_to_KBC(KBC_IN_BUF_ARG, command) != 0) return 1;
+
+    return 0;
+}
