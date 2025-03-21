@@ -14,7 +14,7 @@ int (keyboard_unsubscribe_int)();
 
 void (kbc_ih)();
 
-int (read_KBC_output)();
+int (read_KBC_output)(uint8_t *byte);
 
 int (write_to_KBC)(uint8_t port, uint8_t command);
 
