@@ -8,6 +8,7 @@
 #include "keyboard.h"
 
 extern uint8_t scancode;
+extern int timer_counter;
 
 #ifdef LAB3
 extern uint32_t counter_SYS_INB;
@@ -92,5 +93,47 @@ int (kbd_test_poll)()
 
 int (kbd_test_timed_scan)(uint8_t n)
 {
-    return 1;
+    message msg;
+    int ipc_status;
+
+    uint8_t timer_irq_set, kbd_irq_set;
+    if (timer_subscribe_int(&timer_irq_set) != 0) return 1;
+    if (keyboard_subscribe_int(&kbd_irq_set) != 0) return 1;
+
+    uint8_t kbd_int_bit = BIT(kbd_irq_set);
+    uint8_t timer0_int_bit = BIT(timer_irq_set);
+    
+    uint8_t seconds = 0;
+    while (scancode != ESC_BREAKCODE && seconds < n)
+    {
+        if (driver_receive(ANY, &msg, &ipc_status) != 0 ) continue;
+
+        if (is_ipc_notify(ipc_status))
+        {
+            switch (_ENDPOINT_P(msg.m_source))
+            {
+                case HARDWARE:
+                    if (msg.m_notify.interrupts & kbd_int_bit)
+                    {
+                        kbc_ih();
+                        kbd_print_scancode(!(scancode & BREAK_CODE_BIT), 1, &scancode);
+                        seconds = 0;
+                        timer_counter = 0;
+                    }
+                    if (msg.m_notify.interrupts & timer0_int_bit)
+                    {
+                        timer_int_handler();
+                        if (timer_counter % 60 == 0) seconds++;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    if (timer_unsubscribe_int() != 0) return 1;
+    if (keyboard_unsubscribe_int() != 0) return 1;
+
+    return 0;
 }
