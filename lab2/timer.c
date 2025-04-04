@@ -5,8 +5,8 @@
 
 #include "i8254.h"
 
-int hook_id = 0;
-int counter = 0;
+int timer_hook_id = 0;
+int timer_counter = 0;
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq)
 {
@@ -14,38 +14,16 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq)
 
     uint8_t controlWord;
     if (timer_get_conf(timer, &controlWord) != 0) return 1;
-    controlWord = (controlWord & 0x0F) | TIMER_LSB_MSB;
+    controlWord = (controlWord & 0xCF) | TIMER_LSB_MSB;
 
     uint16_t val = TIMER_FREQ / freq;
     uint8_t LSB, MSB;
     util_get_LSB(val, &LSB);
     util_get_MSB(val, &MSB);
 
-    uint8_t selectedTimer;
-    switch (timer)
-    {
-        case 0:
-            controlWord |= TIMER_SEL0;
-            selectedTimer = TIMER_0;
-            break;
-
-        case 1:
-            controlWord |= TIMER_SEL1;
-            selectedTimer = TIMER_1;
-            break;
-
-        case 2:
-            controlWord |= TIMER_SEL2;
-            selectedTimer = TIMER_2;
-            break;
-
-        default:
-            return 1;
-    }
-
     if (sys_outb(TIMER_CTRL, controlWord) != 0) return 1;
-    if (sys_outb(selectedTimer, LSB) != 0) return 1;
-    if (sys_outb(selectedTimer, MSB) != 0) return 1;
+    if (sys_outb(TIMER_0 + timer, LSB) != 0) return 1;
+    if (sys_outb(TIMER_0 + timer, MSB) != 0) return 1;
 
     return 0;
 }
@@ -54,19 +32,19 @@ int (timer_subscribe_int)(uint8_t *bit_no)
 {
     if (bit_no == NULL) return 1;
 
-    *bit_no = hook_id;
+    *bit_no = timer_hook_id;
 
-    return sys_irqsetpolicy(TIMER_IRQ, IRQ_REENABLE, &hook_id);
+    return sys_irqsetpolicy(TIMER_IRQ, IRQ_REENABLE, &timer_hook_id);
 }
 
 int (timer_unsubscribe_int)()
 {
-    return sys_irqrmpolicy(&hook_id);
+    return sys_irqrmpolicy(&timer_hook_id);
 }
 
 void (timer_int_handler)()
 {
-    counter++;
+    timer_counter++;
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st)

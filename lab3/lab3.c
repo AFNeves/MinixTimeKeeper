@@ -14,30 +14,21 @@ extern int timer_counter;
 extern uint32_t counter_SYS_INB;
 #endif
 
-int main(int argc, char *argv[]) {
-  // sets the language of LCF messages (can be either EN-US or PT-PT)
-  lcf_set_language("EN-US");
+int main(int argc, char *argv[])
+{
+    lcf_set_language("EN-US");
 
-  // enables to log function invocations that are being "wrapped" by LCF
-  // [comment this out if you don't want/need it]
-  lcf_trace_calls("/home/lcom/labs/lab3/trace.txt");
+    lcf_trace_calls("/home/lcom/labs/lab2/trace.txt");
 
-  // enables to save the output of printf function calls on a file
-  // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/labs/lab3/output.txt");
+    lcf_log_output("/home/lcom/labs/lab2/output.txt");
+    
+    if (lcf_start(argc, argv))
+        return 1;
 
-  // handles control over to LCF
-  // [LCF handles command line arguments and invokes the right function]
-  if (lcf_start(argc, argv))
-    return 1;
+    lcf_cleanup();
 
-  // LCF clean up tasks
-  // [must be the last statement before return]
-  lcf_cleanup();
-
-  return 0;
+    return 0;
 }
-
 int (kbd_test_scan)()
 {
     message msg;
@@ -99,9 +90,6 @@ int (kbd_test_timed_scan)(uint8_t n)
     uint8_t timer_irq_set, kbd_irq_set;
     if (timer_subscribe_int(&timer_irq_set) != 0) return 1;
     if (keyboard_subscribe_int(&kbd_irq_set) != 0) return 1;
-
-    uint8_t kbd_int_bit = BIT(kbd_irq_set);
-    uint8_t timer0_int_bit = BIT(timer_irq_set);
     
     uint8_t seconds = 0;
     while (scancode != ESC_BREAKCODE && seconds < n)
@@ -113,17 +101,17 @@ int (kbd_test_timed_scan)(uint8_t n)
             switch (_ENDPOINT_P(msg.m_source))
             {
                 case HARDWARE:
-                    if (msg.m_notify.interrupts & kbd_int_bit)
+                    if (msg.m_notify.interrupts & BIT(kbd_irq_set))
                     {
                         kbc_ih();
                         kbd_print_scancode(!(scancode & BREAK_CODE_BIT), 1, &scancode);
                         seconds = 0;
                         timer_counter = 0;
                     }
-                    if (msg.m_notify.interrupts & timer0_int_bit)
+                    if (msg.m_notify.interrupts & BIT(timer_irq_set))
                     {
                         timer_int_handler();
-                        if (timer_counter % 60 == 0) seconds++;
+                        if (timer_counter % sys_hz() == 0) seconds++;
                     }
                     break;
                 default:
