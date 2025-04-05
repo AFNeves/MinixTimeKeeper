@@ -7,7 +7,7 @@
 
 #include "i8042.h"
 
-int (read_KBC_output)(uint8_t *byte);
+int (read_KBC_output)(uint8_t *byte, uint8_t mouse);
 
 int (write_to_KBC)(uint8_t port, uint8_t command);
 

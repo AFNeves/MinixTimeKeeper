@@ -1,6 +1,6 @@
 #include "KBC.h"
 
-int (read_KBC_output)(uint8_t *byte)
+int (read_KBC_output)(uint8_t *byte, uint8_t mouse)
 {
     uint8_t status;
     uint8_t attempts = MAX_ATTEMPTS;
@@ -18,6 +18,12 @@ int (read_KBC_output)(uint8_t *byte)
 
             // Check if there was an error
             if ((status & (PARITY_ERROR | TIMEOUT_ERROR)) != 0) return 1;
+
+            // Check if the data is from the mouse
+            if (mouse && !(status & MOUSE_DATA_BIT)) return 1;
+
+            // Check if the data is from the keyboard
+            if (!mouse && (status & MOUSE_DATA_BIT)) return 1;
 
             return 0;
         }
