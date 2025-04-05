@@ -40,20 +40,20 @@
 
 /* Mouse Macros */
 
-#define MOUSE_ACK  0xFA /**< @brief Mouse Acknowledgment byte */
+#define MOUSE_ACK 0xFA  /**< @brief Mouse Acknowledgment byte */
 #define MOUSE_NACK 0xFE /**< @brief Mouse Error byte */
 
-#define MOUSE_DATA_STREAM_MODE    0xEA /**< @brief Set Stream Mode */
-#define MOUSE_DATA_REPORT_ENABLE  0xF4 /**< @brief Enable Data Reporting */
+#define MOUSE_DATA_STREAM_MODE 0xEA    /**< @brief Set Stream Mode */
+#define MOUSE_DATA_REPORT_ENABLE 0xF4  /**< @brief Enable Data Reporting */
 #define MOUSE_DATA_REPORT_DISABLE 0xF5 /**< @brief Disable Data Reporting */
 
 #define MOUSE_OVERFLOW_Y BIT(7) /**< @brief Y Overflow */
 #define MOUSE_OVERFLOW_X BIT(6) /**< @brief X Overflow */
-#define MOUSE_SIGNAL_Y   BIT(5) /**< @brief Y Sign */
-#define MOUSE_SIGNAL_X   BIT(4) /**< @brief X Sign */
-#define FIRST_BYTE       BIT(3) /**< @brief First Byte */
-#define MOUSE_MB         BIT(2) /**< @brief Middle Button */
-#define MOUSE_RB         BIT(1) /**< @brief Right Button */
-#define MOUSE_LB         BIT(0) /**< @brief Left Button */
+#define MOUSE_SIGNAL_Y BIT(5)   /**< @brief Y Sign */
+#define MOUSE_SIGNAL_X BIT(4)   /**< @brief X Sign */
+#define FIRST_BYTE BIT(3)       /**< @brief First Byte */
+#define MOUSE_MB BIT(2)         /**< @brief Middle Button */
+#define MOUSE_RB BIT(1)         /**< @brief Right Button */
+#define MOUSE_LB BIT(0)         /**< @brief Left Button */
 
 #endif /* _LCOM_I8042_H */
