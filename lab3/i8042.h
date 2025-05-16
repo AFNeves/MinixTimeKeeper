@@ -8,8 +8,8 @@
 #define KB_DELAY 20000 /**< @brief Delay between each attempt */
 #define MAX_ATTEMPTS 5 /**< @brief Maximum number of attempts */
 
-#define ESC_BREAKCODE 0x81     /**< @brief Breakcode for the ESC key */
-#define BREAK_CODE_BIT BIT(7)  /**< @brief Bit that indicates if a key is being pressed or released */
+#define ESC_BREAKCODE 0x81    /**< @brief Breakcode for the ESC key */
+#define BREAK_CODE_BIT BIT(7) /**< @brief Bit that indicates if a key is being pressed or released */
 
 /* KBC REGISTERS */
 
@@ -27,7 +27,7 @@
 
 /* KBC Commands Values */
 
-#define KBC_READ_CMD 0x20 /**< @brief Read command for the KBC */
+#define KBC_READ_CMD 0x20  /**< @brief Read command for the KBC */
 #define KBC_WRITE_CMD 0x60 /**< @brief Write command for the KBC */
 
 /* KBC Command Byte */
