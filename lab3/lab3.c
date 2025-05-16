@@ -1,5 +1,4 @@
 #include <lcom/lcf.h>
-
 #include <lcom/lab3.h>
 
 #include <stdbool.h>
@@ -18,17 +17,17 @@ int main(int argc, char *argv[])
 {
     lcf_set_language("EN-US");
 
-    lcf_trace_calls("/home/lcom/labs/lab2/trace.txt");
+    lcf_trace_calls("/home/lcom/labs/lab3/trace.txt");
 
-    lcf_log_output("/home/lcom/labs/lab2/output.txt");
+    lcf_log_output("/home/lcom/labs/lab3/output.txt");
     
-    if (lcf_start(argc, argv))
-        return 1;
+    if (lcf_start(argc, argv)) return 1;
 
     lcf_cleanup();
 
     return 0;
 }
+
 int (kbd_test_scan)()
 {
     message msg;

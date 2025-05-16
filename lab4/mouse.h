@@ -15,4 +15,10 @@ int (mouse_unsubscribe_int)();
 
 void (mouse_ih)();
 
+void (mouse_sync)();
+
+void (mouse_make_packet)();
+
+int (mouse_write_command)(uint8_t command);
+
 #endif /* _LCOM_MOUSE_H_ */
