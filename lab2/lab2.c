@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-extern int counter;
+extern int timer_counter;
 
 int main(int argc, char *argv[])
 {
@@ -63,7 +63,7 @@ int (timer_test_int)(uint8_t time)
                     {
                         timer_int_handler();
 
-                        if (counter % sys_hz() == 0) 
+                        if (timer_counter % sys_hz() == 0) 
                         {
                             timer_print_elapsed_time();
                             time--;

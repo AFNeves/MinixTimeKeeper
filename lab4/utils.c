@@ -2,10 +2,6 @@
 
 #include <stdint.h>
 
-#ifdef LAB3
-uint32_t counter_SYS_INB = 0;
-#endif
-
 /**
  * @brief Retrieves the least significant byte of a 16-bit value.
  * 
@@ -53,10 +49,6 @@ int (util_sys_inb)(int port, uint8_t *value) {
 
     int ret = sys_inb(port, &val);
 
-    #ifdef LAB3
-    counter_SYS_INB++;
-    #endif
-    
     *value = (uint8_t) val;
 
     return ret;
