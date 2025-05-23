@@ -1,7 +1,7 @@
 #include "keyboard.h"
 
 int kb_hook_id = 1;
-
+uint8_t scancode;
 int (keyboard_subscribe_int)(uint8_t *bit_no)
 {
     if (bit_no == NULL) return 1;
@@ -18,5 +18,5 @@ int (keyboard_unsubscribe_int)()
 
 void (kbc_ih)()
 {
-    read_KBC_output(&scancode);
+    read_KBC_output(&scancode, 0);
 }

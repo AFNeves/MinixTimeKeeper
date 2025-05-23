@@ -52,6 +52,34 @@ int (set_frame_buffer)(uint16_t mode)
     return frame_buffer == NULL ? 1 : 0;
 }
 
+int (draw_pixel)(uint16_t x, uint16_t y, uint32_t color)
+{
+    if (x > vbe_info.XResolution || y > vbe_info.YResolution) return 1;
+
+    unsigned int bytes_per_pixel = (vbe_info.BitsPerPixel + 7) / 8;
+
+    unsigned int index = (vbe_info.XResolution * y + x) * bytes_per_pixel;
+
+    memcpy(&frame_buffer[index], &color, bytes_per_pixel);
+
+    return 0;
+}
+
+int (draw_line)(uint16_t x, uint16_t y, uint16_t len, uint32_t color)
+{
+    for (unsigned int i = 0; i < len; i++)
+        if (draw_pixel(x + i, y, color) != 0) return 1;
+    return 0;
+}
+
+int (draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color)
+{
+    for (unsigned int i = 0; i < height; i++)
+        if (draw_line(x, y + i, width, color) != 0) return 1;
+    return 0;
+}
+
+
 int (draw_XPM)(xpm_map_t xpm, uint16_t x, uint16_t y)
 {
     xpm_image_t img;

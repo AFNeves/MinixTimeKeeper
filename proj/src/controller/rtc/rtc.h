@@ -2,7 +2,6 @@
 #define _LCOM_RTC_H_
 
 #include <lcom/lcf.h>
-
 #include <stdint.h>
 
 #include "../utils.h"

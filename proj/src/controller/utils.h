@@ -6,6 +6,9 @@
 #include <stdint.h>
 
 /* ---------- Data Structures ---------- */
+#ifndef BIT
+#define BIT(n) (1 << (n))
+#endif
 
 /**
  * @brief Data structure that holds the time data.
