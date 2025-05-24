@@ -1,14 +1,12 @@
 #ifndef _LCOM_MOUSE_H_
 #define _LCOM_MOUSE_H_
 
+#define MOUSE_MASK BIT(2)
+
 #include <lcom/lcf.h>
-
 #include <stdint.h>
-
 #include "../utils.h"
-
 #include "i8042.h"
-
 #include "KBC.h"
 
 typedef struct {
@@ -21,11 +19,9 @@ extern MouseInfo mouse_info;
 /**
  * @brief Subscribes the Mouse interrupts
  * 
- * @param bit_no Pointer to store the bit number
- * 
  * @return Return 0 upon success and non-zero otherwise
  */
-int (mouse_subscribe_int)(uint8_t *bit_no);
+int (mouse_subscribe_interrupts)();
 
 /**
  * @brief Unsubscribes the Mouse interrupts

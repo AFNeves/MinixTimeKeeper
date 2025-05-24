@@ -3,12 +3,8 @@
 int timer_hook_id = 0;
 int timer_counter = 0;
 
-int (timer_subscribe_int)(uint8_t *bit_no)
+int (timer_subscribe_interrupts)()
 {
-    if (bit_no == NULL) return 1;
-
-    *bit_no = timer_hook_id;
-
     return sys_irqsetpolicy(TIMER_IRQ, IRQ_REENABLE, &timer_hook_id);
 }
 

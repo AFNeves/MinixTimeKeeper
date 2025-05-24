@@ -24,8 +24,8 @@ int timer_interrupts = 0;
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
     mouse = create_sprite_xpm((xpm_map_t) mouse_xpm);
-    hand = create_sprite_xpm((xpm_map_t) hand_xpm);
-    smile = create_sprite_xpm((xpm_map_t) smile_xpm);
+    //hand = create_sprite_xpm((xpm_map_t) hand_xpm);
+    //smile = create_sprite_xpm((xpm_map_t) smile_xpm);
     button1 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, ORANGE);
     button2 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, BLUE);
     button3 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, GREEN);

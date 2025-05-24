@@ -7,12 +7,8 @@ uint8_t mouse_data[3];
 struct packet mouse_packet;
 MouseInfo mouse_info;
 
-int (mouse_subscribe_int)(uint8_t *bit_no)
+int (mouse_subscribe_interrupts)()
 {
-    if (bit_no == NULL) return 1;
-
-    *bit_no = mouse_hook_id;
-
     return sys_irqsetpolicy(MOUSE_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &mouse_hook_id);
 }
 

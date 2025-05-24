@@ -1,22 +1,19 @@
 #ifndef _LCOM_KEYBOARD_H_
 #define _LCOM_KEYBOARD_H_
 
+#define KEYBOARD_MASK BIT(1)
+
 #include <lcom/lcf.h>
-
 #include <stdint.h>
-
 #include "../utils.h"
-
 #include "KBC.h"
 
 /**
  * @brief Subscribes the Keyboard interrupts
  * 
- * @param bit_no Pointer to store the bit number
- * 
  * @return Return 0 upon success and non-zero otherwise
  */
-int (keyboard_subscribe_int)(uint8_t *bit_no);
+int (keyboard_subscribe_interrupts)();
 
 /**
  * @brief Unsubscribes the Keyboard interrupts

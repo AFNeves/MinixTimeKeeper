@@ -3,7 +3,6 @@
 
 #include <lcom/lcf.h>
 #include <stdint.h>
-
 #include "../utils.h"
 
 typedef struct {
@@ -18,6 +17,7 @@ extern real_time_info time_info;
 /* General Macros */
 
 #define RTC_IRQ 8 /**< @brief RTC IRQ line */
+#define RTC_MASK            5 /**< @brief RTC Interrupt Mask */
 
 #define RTC_DELAY        1000 /**< @brief Standard Delay value */
 #define RTC_MAX_ATTEMPTS 5    /**< @brief Maximum number of attempts */
@@ -69,11 +69,9 @@ extern real_time_info time_info;
 /**
  * @brief Subscribes the RTC's interrupts
  * 
- * @param bit_no Pointer to store the bit number
- * 
  * @return Return 0 upon success and non-zero otherwise
  */
-int (rtc_subscribe_int)(uint8_t *bit_no);
+int (rtc_subscribe_interrupts)();
 
 /**
  * @brief Unsubscribes the RTC's interrupts

@@ -2,13 +2,13 @@
 #define _LCOM_UTILS_H_
 
 #include <lcom/lcf.h>
-
 #include <stdint.h>
 
-/* ---------- Data Structures ---------- */
 #ifndef BIT
 #define BIT(n) (1 << (n))
 #endif
+
+/* ---------- Data Structures ---------- */
 
 /**
  * @brief Data structure that holds the time data.

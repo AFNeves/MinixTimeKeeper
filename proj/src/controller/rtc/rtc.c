@@ -9,12 +9,8 @@ time_struct rtc_time;
 date_struct rtc_date;
 real_time_info time_info;
 
-int (rtc_subscribe_int)(uint8_t *bit_no)
+int (rtc_subscribe_interrupts)()
 {
-    if (bit_no == NULL) return 1;
-
-    *bit_no = rtc_hook_id;
-
     return sys_irqsetpolicy(RTC_IRQ, IRQ_REENABLE, &rtc_hook_id);
 }
 

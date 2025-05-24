@@ -1,0 +1,7 @@
+**/.vscode/
+**/.clang-format
+**/*.gdb-init
+**/*.o
+**/*.d
+**/*.depend
+**/proj
