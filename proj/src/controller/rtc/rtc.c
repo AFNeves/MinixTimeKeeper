@@ -3,10 +3,11 @@
 uint8_t rtc_mode;
 uint8_t rtc_time_format;
 uint8_t rtc_int_cause;
-uint8_t rtc_hook_id = 4;
+int rtc_hook_id = 4;
 uint8_t rtc_original_config;
 time_struct rtc_time;
 date_struct rtc_date;
+real_time_info time_info;
 
 int (rtc_subscribe_int)(uint8_t *bit_no)
 {
@@ -87,6 +88,15 @@ int (rtc_update)()
             rtc_date.dayNumber = rtc_mode ? output : bcd_to_bin(output);
 
             if (!rtc_time_format) convert_to_24h();
+
+            time_info.seconds  = rtc_time.seconds;
+            time_info.minutes  = rtc_time.minutes;
+            time_info.hours    = rtc_time.hours;
+            time_info.day      = rtc_date.day;
+            time_info.month    = rtc_date.month;
+            time_info.year     = rtc_date.year;
+            time_info.dayNumber = rtc_date.dayNumber;
+
 
             return 0;
         }

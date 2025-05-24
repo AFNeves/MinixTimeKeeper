@@ -11,6 +11,13 @@
 
 #include "KBC.h"
 
+typedef struct {
+    int x, y;
+    bool left_click, right_click;
+} MouseInfo;
+
+extern MouseInfo mouse_info;
+
 /**
  * @brief Subscribes the Mouse interrupts
  * 
