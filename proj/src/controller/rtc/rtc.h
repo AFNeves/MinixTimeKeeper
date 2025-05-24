@@ -6,6 +6,13 @@
 
 #include "../utils.h"
 
+typedef struct {
+    uint8_t hours, minutes, seconds, dayNumber;
+    uint8_t day, month, year;
+} real_time_info;
+
+extern real_time_info time_info;
+
 /* ---------- Macros ---------- */
 
 /* General Macros */

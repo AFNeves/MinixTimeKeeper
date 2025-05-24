@@ -52,7 +52,7 @@ void update_timer_state() {
 // Como o Real Time Clock é um módulo mais pesado, 
 // devemos só atualizar os valores quando passa um segundo
 void update_rtc_state() {
-    if (timer_interrupts % GAME_FREQUENCY == 0) rtc_update_time();
+    if (timer_interrupts % GAME_FREQUENCY == 0) rtc_update();
 }
 
 // Sempre que uma nova tecla é pressionada há avaliação do scancode.
@@ -84,9 +84,9 @@ void update_keyboard_state() {
 // - pode mudar o estado do botão por baixo dele - update_buttons_state();
 void update_mouse_state() {
     (mouse_ih)();
-    mouse_sync_bytes();
+    mouse_sync();
     if (byte_index == 3) {
-        mouse_sync_info();
+        mouse_make_packet();
         update_buttons_state();
         draw_new_frame();
         byte_index = 0;

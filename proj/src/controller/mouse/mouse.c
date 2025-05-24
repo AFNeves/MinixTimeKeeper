@@ -5,6 +5,7 @@ uint8_t byte_index = 0;
 uint8_t mouse_byte;
 uint8_t mouse_data[3];
 struct packet mouse_packet;
+MouseInfo mouse_info;
 
 int (mouse_subscribe_int)(uint8_t *bit_no)
 {
