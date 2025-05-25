@@ -8,7 +8,7 @@ MenuState menuState = START;
 extern MouseInfo mouse_info;
 extern vbe_mode_info_t mode_info;
 extern real_time_info time_info;
-extern bool rtc_ready;
+
 // Objetos a construir e manipular com a mudança de estados
 Sprite *mouse;
 Sprite *button1;
@@ -65,8 +65,15 @@ void destroy_sprites() {
 
 // Na altura da interrupção há troca dos buffers e incremento do contador
 void update_timer_state() {
-    if (DOUBLE_BUFFER) swap_buffers();
     timer_interrupts++;
+
+    // Apenas a cada segundo (ou seja, 60 vezes por segundo -> 1 vez por segundo)
+    if (timer_interrupts % GAME_FREQUENCY == 0) {
+        rtc_update();        
+        draw_new_frame();     
+    }
+
+    if (DOUBLE_BUFFER) swap_buffers();
 }
 
 // Como o Real Time Clock é um módulo mais pesado, 
@@ -74,7 +81,6 @@ void update_timer_state() {
 void update_rtc_state() {
     if (timer_interrupts % GAME_FREQUENCY == 0) {
         rtc_update();
-        rtc_ready = true;
     }
 }
 
