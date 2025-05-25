@@ -10,15 +10,16 @@ extern vbe_mode_info_t mode_info;
 extern MouseInfo mouse_info;
 extern real_time_info time_info;
 extern MenuState menuState;
+bool rtc_ready = false;
 
 // Objetos
 extern Sprite *mouse;
-extern Sprite *hand;
-extern Sprite *smile;
 extern Sprite *button1;
 extern Sprite *button2;
 extern Sprite *button3;
 extern Sprite *button4;
+extern Sprite *digit_sprites[10];
+extern Sprite *colon_sprite;
 
 // Alocação de memória ao(s) buffer(s)
 // Se houver só um buffer, esse é o principal
@@ -45,8 +46,8 @@ int set_frame_buffers(uint16_t mode) {
 // B) só vale a pena dar display do RTC quando passa um segundo
 void swap_buffers() {
     memcpy(main_frame_buffer, secondary_frame_buffer, frame_buffer_size);
-    if (timer_interrupts % GAME_FREQUENCY == 0) display_real_time();
-}
+    if (timer_interrupts % GAME_FREQUENCY == 0 && rtc_ready)
+        display_real_time();}
 
 // A construção de um novo frame é baseado:
 // - no estado atual do modelo (menuState, mouse_info, mode_info, buttonX->pressed...);
@@ -66,12 +67,14 @@ void draw_new_frame() {
             break;
     }
     draw_mouse();
+
+    if(DOUBLE_BUFFER) swap_buffers();
 }
 
 // O menu inicial é apenas um retângulo com tamanho máximo, com um smile ao centro
 void draw_initial_menu() {
     draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, RED, drawing_frame_buffer);
-    draw_sprite_xpm(smile, mode_info.XResolution/2 - 100, mode_info.YResolution/2 - 100);
+    draw_sprite_xpm(mouse, mode_info.XResolution/2 - 100, mode_info.YResolution/2 - 100);
 }
 
 // O menu do jogo é constituído por quatro botões
@@ -85,7 +88,7 @@ void draw_game_menu() {
 // O menu final é apenas um retângulo com tamanho máximo, com um smile ao centro
 void draw_finish_menu() {
     draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, DARKBLUE, drawing_frame_buffer);
-    draw_sprite_xpm(smile, mode_info.XResolution/2 - 100, mode_info.YResolution/2 - 100);
+    draw_sprite_xpm(mouse, mode_info.XResolution/2 - 100, mode_info.YResolution/2 - 100);
 }
 
 // O cursor mode ter dois estados:
@@ -97,7 +100,7 @@ void draw_mouse() {
             draw_sprite_xpm(mouse, mouse_info.x, mouse_info.y);
             break;
         case GAME:
-            draw_sprite_xpm(hand, mouse_info.x, mouse_info.y);
+            draw_sprite_xpm(mouse, mouse_info.x, mouse_info.y);
             break;
     }
 }
@@ -106,6 +109,10 @@ void draw_mouse() {
 // Usa as cores dinamicamente alocadas na altura da construção
 // A função ignora a cor transparente do XPM para não modificar o fundo quando não é preciso
 int draw_sprite_xpm(Sprite *sprite, int x, int y) { 
+    if(sprite == NULL){
+        printf("Sprite is NULL! (draw_sprite_xpm)\n");
+        return 1;
+    }
     uint16_t height = sprite->height;
     uint16_t width = sprite->width;
     uint32_t current_color;
@@ -138,5 +145,24 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 // No caso do Template esta função apenas retorna uma string para o ficheiro output.txt
 // Em projetos pode ser mudada para invocar sprites que coloquem no ecrã os respetivos dígitos
 void display_real_time() {
-    printf("NOW: %d/%d/%d @%d:%d:%d\n", 2000 + time_info.year, time_info.month, time_info.day, time_info.hours, time_info.minutes, time_info.seconds);
+    int x = 50, y = 50; // posição no ecrã
+    int digits[6] = {
+        time_info.hours / 10, time_info.hours % 10,
+        time_info.minutes / 10, time_info.minutes % 10,
+        time_info.seconds / 10, time_info.seconds % 10
+    };
+
+    // HH
+    draw_sprite_xpm(digit_sprites[digits[0]], x, y);
+    draw_sprite_xpm(digit_sprites[digits[1]], x + 20, y);
+    // :
+    draw_sprite_xpm(colon_sprite, x + 40, y);
+    // MM
+    draw_sprite_xpm(digit_sprites[digits[2]], x + 60, y);
+    draw_sprite_xpm(digit_sprites[digits[3]], x + 80, y);
+    // :
+    draw_sprite_xpm(colon_sprite, x + 100, y);
+    // SS
+    draw_sprite_xpm(digit_sprites[digits[4]], x + 120, y);
+    draw_sprite_xpm(digit_sprites[digits[5]], x + 140, y);
 }

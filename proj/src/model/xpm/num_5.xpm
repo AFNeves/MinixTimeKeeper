@@ -1,10 +1,10 @@
 /* XPM */
-static char *_fecdf334e82417b9a5ce1695d561ba33o3fugueSdlJcDcr[] = {
+static char *digit_5_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "50 70 3 1 ",
 "  c None",
-". c black",
-"X c white",
+". c #00000000",
+"X c #FFFFFFFF",
 /* pixels */
 "           ............................           ",
 "            .XXXXXXXXXXXXXXXXXXXXXXXX.            ",

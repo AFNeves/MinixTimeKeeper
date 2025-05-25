@@ -8,15 +8,15 @@ MenuState menuState = START;
 extern MouseInfo mouse_info;
 extern vbe_mode_info_t mode_info;
 extern real_time_info time_info;
-
+extern bool rtc_ready;
 // Objetos a construir e manipular com a mudança de estados
 Sprite *mouse;
-Sprite *hand;
-Sprite *smile;
 Sprite *button1;
 Sprite *button2;
 Sprite *button3;
 Sprite *button4;
+Sprite *digit_sprites[10];
+Sprite *colon_sprite;
 
 // Contador de interrupções do timer
 int timer_interrupts = 0;
@@ -30,17 +30,37 @@ void setup_sprites() {
     button2 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, BLUE);
     button3 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, GREEN);
     button4 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, YELLOW);
+
+        printf("Loading digit 0\n");
+        digit_sprites[0] = create_sprite_xpm((xpm_map_t) digit_0_xpm);
+        if (!digit_sprites[0]) printf("Failed to load digit 0\n");
+
+        printf("Loading digit 1\n");
+        digit_sprites[1] = create_sprite_xpm((xpm_map_t) digit_1_xpm);
+        if (!digit_sprites[1]) printf("Failed to load digit 1\n");
+
+        digit_sprites[2] = create_sprite_xpm((xpm_map_t) digit_2_xpm);
+        digit_sprites[3] = create_sprite_xpm((xpm_map_t) digit_3_xpm);
+        digit_sprites[4] = create_sprite_xpm((xpm_map_t) digit_4_xpm);
+        digit_sprites[5] = create_sprite_xpm((xpm_map_t) digit_5_xpm);
+        digit_sprites[6] = create_sprite_xpm((xpm_map_t) digit_6_xpm);
+        digit_sprites[7] = create_sprite_xpm((xpm_map_t) digit_7_xpm);
+        digit_sprites[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
+        digit_sprites[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
+        colon_sprite = create_sprite_xpm((xpm_map_t) colon_xpm);
 }
 
 // É boa prática antes de acabar o programa libertar a memória alocada
 void destroy_sprites() {
     destroy_sprite(mouse);
-    destroy_sprite(hand);
-    destroy_sprite(smile);
     destroy_sprite(button1);
     destroy_sprite(button2);
     destroy_sprite(button3);
     destroy_sprite(button4);
+
+    for (int i = 0; i < 10; i++)
+        destroy_sprite(digit_sprites[i]);
+    destroy_sprite(colon_sprite);
 }
 
 // Na altura da interrupção há troca dos buffers e incremento do contador
@@ -52,7 +72,10 @@ void update_timer_state() {
 // Como o Real Time Clock é um módulo mais pesado, 
 // devemos só atualizar os valores quando passa um segundo
 void update_rtc_state() {
-    if (timer_interrupts % GAME_FREQUENCY == 0) rtc_update();
+    if (timer_interrupts % GAME_FREQUENCY == 0) {
+        rtc_update();
+        rtc_ready = true;
+    }
 }
 
 // Sempre que uma nova tecla é pressionada há avaliação do scancode.

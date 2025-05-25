@@ -1,0 +1,3 @@
+A chamar setup_sprites
+Loading digit 0
+Loading digit 1

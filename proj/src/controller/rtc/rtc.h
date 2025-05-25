@@ -17,7 +17,7 @@ extern real_time_info time_info;
 /* General Macros */
 
 #define RTC_IRQ 8 /**< @brief RTC IRQ line */
-#define RTC_MASK            5 /**< @brief RTC Interrupt Mask */
+#define RTC_MASK BIT(5) /**< @brief RTC Interrupt Mask */
 
 #define RTC_DELAY        1000 /**< @brief Standard Delay value */
 #define RTC_MAX_ATTEMPTS 5    /**< @brief Maximum number of attempts */

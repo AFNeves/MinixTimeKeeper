@@ -14,6 +14,18 @@
 #include "model/sprite.h"
 #include "config.h"
 
+#include "xpm/num_0.xpm"
+#include "xpm/num_1.xpm"
+#include "xpm/num_2.xpm"
+#include "xpm/num_3.xpm"
+#include "xpm/num_4.xpm"
+#include "xpm/num_5.xpm"
+#include "xpm/num_6.xpm"
+#include "xpm/num_7.xpm"
+#include "xpm/num_8.xpm"
+#include "xpm/num_9.xpm"
+#include "xpm/colon.xpm"
+
 typedef enum {
     RUNNING,
     EXIT,
