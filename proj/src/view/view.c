@@ -66,15 +66,12 @@ void draw_new_frame() {
             break;
     }
     draw_mouse();
-
-    if(DOUBLE_BUFFER) swap_buffers();
 }
 
 // O menu inicial é apenas um retângulo com tamanho máximo, com um smile ao centro
 void draw_initial_menu() {
     draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, RED, drawing_frame_buffer);
     display_real_time();
-    draw_sprite_xpm(mouse, mode_info.XResolution/2 - 100, mode_info.YResolution/2 - 100);
 }
 
 // O menu do jogo é constituído por quatro botões

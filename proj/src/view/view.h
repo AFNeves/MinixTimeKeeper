@@ -10,6 +10,9 @@
 #include "model/sprite.h"
 #include "model/model.h"
 
+extern uint8_t *drawing_frame_buffer;
+extern uint8_t *main_frame_buffer;
+
 void draw_new_frame();
 void draw_initial_menu();
 void draw_game_menu();

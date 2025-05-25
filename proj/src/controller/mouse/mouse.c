@@ -1,4 +1,5 @@
 #include "mouse.h"
+#include "../video/graphic.h"
 
 int mouse_hook_id = 2;
 uint8_t byte_index = 0;
@@ -6,6 +7,7 @@ uint8_t mouse_byte;
 uint8_t mouse_data[3];
 struct packet mouse_packet;
 MouseInfo mouse_info;
+extern vbe_mode_info_t mode_info;
 
 int (mouse_subscribe_interrupts)()
 {
@@ -50,6 +52,18 @@ void (mouse_make_packet)()
 												 (mouse_data[1] | 0xFF00) : mouse_data[1];
 	mouse_packet.delta_y = (mouse_data[0] & MOUSE_SIGNAL_Y) ?
 												 (mouse_data[2] | 0xFF00) : mouse_data[2];
+
+    mouse_info.x += mouse_packet.delta_x;
+    mouse_info.y -= mouse_packet.delta_y;
+
+    if (mouse_info.x < 0) mouse_info.x = 0;
+    if (mouse_info.y < 0) mouse_info.y = 0;
+    if (mouse_info.x > mode_info.XResolution - 1) mouse_info.x = mode_info.XResolution - 1;
+    if (mouse_info.y > mode_info.YResolution - 1) mouse_info.y = mode_info.YResolution - 1;
+
+    // Atualizar cliques
+    mouse_info.left_click = mouse_packet.lb;
+    mouse_info.right_click = mouse_packet.rb;
 }
 
 int (mouse_write_command)(uint8_t command)

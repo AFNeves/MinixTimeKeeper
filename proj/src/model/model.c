@@ -1,4 +1,5 @@
 #include "model.h"
+#include "../view/view.h"
 
 // Variáveis externas importantes à construção e manipulação do modelo
 extern uint8_t scancode;
@@ -8,6 +9,7 @@ MenuState menuState = START;
 extern MouseInfo mouse_info;
 extern vbe_mode_info_t mode_info;
 extern real_time_info time_info;
+int prev_mouse_x = -1, prev_mouse_y = -1;
 
 // Objetos a construir e manipular com a mudança de estados
 Sprite *mouse;
@@ -114,10 +116,13 @@ void update_keyboard_state() {
 void update_mouse_state() {
     (mouse_ih)();
     mouse_sync();
+
     if (byte_index == 3) {
         mouse_make_packet();
         update_buttons_state();
+
         draw_new_frame();
+        if (DOUBLE_BUFFER) swap_buffers();
         byte_index = 0;
     }
 }
