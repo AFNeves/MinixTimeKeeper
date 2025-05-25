@@ -39,7 +39,6 @@ int setup() {
   if (set_graphic_mode(VIDEO_MODE) != 0) return 1;
 
   // Inicialização dos sprites
-  printf("A chamar setup_sprites\n");
   setup_sprites();
 
   // Ativação das interrupções dos dispositivos

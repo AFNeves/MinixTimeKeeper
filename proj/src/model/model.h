@@ -37,6 +37,16 @@ typedef enum {
     END
 } MenuState;
 
+typedef enum {
+    CRONO_STOPPED,
+    CRONO_RUNNING,
+    CRONO_PAUSED
+} ChronoState;
+
+extern ChronoState chronoState;
+extern int chrono_seconds;
+
+
 void update_timer_state();
 void update_keyboard_state();
 void update_mouse_state();

@@ -10,6 +10,7 @@ extern vbe_mode_info_t mode_info;
 extern MouseInfo mouse_info;
 extern real_time_info time_info;
 extern MenuState menuState;
+extern int chrono_seconds;
 
 // Objetos
 extern Sprite *mouse;
@@ -17,13 +18,26 @@ extern Sprite *button1;
 extern Sprite *button2;
 extern Sprite *button3;
 extern Sprite *button4;
+Sprite *buttonStart;
+Sprite *buttonPause;
+Sprite *buttonReset;
 extern Sprite *digit_sprites[10];
 extern Sprite *colon_sprite;
 
-// Alocação de memória ao(s) buffer(s)
-// Se houver só um buffer, esse é o principal
-// Se houver double buffering, há um secundário a alocar a mesma quantidade de memória que serve
-// exclusivamente para o desenho
+int buttonStart_x = 100, buttonStart_y = 400;
+int buttonPause_x = 400, buttonPause_y = 400;
+int buttonReset_x = 700, buttonReset_y = 400;
+
+static const uint8_t font8x8_basic[128][8] = {
+  ['A'] = {0x18,0x24,0x42,0x7E,0x42,0x42,0x42,0x00},
+  ['E'] = {0x7E,0x40,0x40,0x7C,0x40,0x40,0x7E,0x00},
+  ['P'] = {0x7C,0x42,0x42,0x7C,0x40,0x40,0x40,0x00},
+  ['R'] = {0x7C,0x42,0x42,0x7C,0x48,0x44,0x42,0x00},
+  ['S'] = {0x3C,0x40,0x40,0x3C,0x02,0x02,0x7C,0x00},
+  ['T'] = {0x7E,0x18,0x18,0x18,0x18,0x18,0x18,0x00},
+  ['U'] = {0x42,0x42,0x42,0x42,0x42,0x42,0x3C,0x00},
+};
+
 int set_frame_buffers(uint16_t mode) {
     if (set_frame_buffer(mode, &main_frame_buffer)) return 1;
     frame_buffer_size = mode_info.XResolution * mode_info.YResolution * ((mode_info.BitsPerPixel + 7) / 8);
@@ -36,22 +50,10 @@ int set_frame_buffers(uint16_t mode) {
     return 0;
 }
 
-// Double buffering
-// Cópia para o frame buffer principal do frame construído desde a última atualização
-// Otimizaçṍes: 
-// A) como o swap é uma operação muito frequente, é melhor não estar  a calcular frame_buffer_size sempre. 
-// Assim opta-se por uma variável global, que é constante ao longo da execução e calculada 1 vez na linha 30.
-// Poupa-se (frequência * (2 multiplicações + 1 soma + 1 divisão)) operações por cada segundo.
-// B) só vale a pena dar display do RTC quando passa um segundo
 void swap_buffers() {
     memcpy(main_frame_buffer, secondary_frame_buffer, frame_buffer_size);
 }
 
-// A construção de um novo frame é baseado:
-// - no estado atual do modelo (menuState, mouse_info, mode_info, buttonX->pressed...);
-// - no Algoritmo do Pintor - https://pt.wikipedia.org/wiki/Algoritmo_do_pintor
-// A ideia é colocar no buffer primeiro o plano mais longe do observador (a cor do fundo) e só depois 
-// os objetos em cima, no caso do cursor e / ou dos botões
 void draw_new_frame() {
     switch (menuState) {
         case START:
@@ -68,13 +70,11 @@ void draw_new_frame() {
     draw_mouse();
 }
 
-// O menu inicial é apenas um retângulo com tamanho máximo, com um smile ao centro
 void draw_initial_menu() {
     draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, RED, drawing_frame_buffer);
     display_real_time();
 }
 
-// O menu do jogo é constituído por quatro botões
 void draw_game_menu() {
     draw_sprite_button(button1, 0, 0);
     draw_sprite_button(button2, mode_info.XResolution/2, 0);
@@ -82,30 +82,36 @@ void draw_game_menu() {
     draw_sprite_button(button4, mode_info.XResolution/2, mode_info.YResolution/2);
 }
 
-// O menu final é apenas um retângulo com tamanho máximo, com um smile ao centro
 void draw_finish_menu() {
     draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, DARKBLUE, drawing_frame_buffer);
-    draw_sprite_xpm(mouse, mode_info.XResolution/2 - 100, mode_info.YResolution/2 - 100);
+
+    draw_sprite_button(buttonStart, buttonStart_x, buttonStart_y);
+    draw_text("START", buttonStart_x + 10, buttonStart_y + 10, WHITE);
+
+    draw_sprite_button(buttonPause, buttonPause_x, buttonPause_y);
+    draw_text("PAUSE", buttonPause_x + 10, buttonPause_y + 10, WHITE);
+
+    draw_sprite_button(buttonReset, buttonReset_x, buttonReset_y);
+    draw_text("RESET", buttonReset_x + 10, buttonReset_y + 10, WHITE);
+
+    int minutes = chrono_seconds / 60;
+    int seconds = chrono_seconds % 60;
+
+    int x = mode_info.XResolution / 2 - 4 * 55;
+    int y = 100;
+
+    draw_sprite_xpm(digit_sprites[minutes / 10], x, y);
+    draw_sprite_xpm(digit_sprites[minutes % 10], x + 55, y);
+    draw_sprite_xpm(colon_sprite, x + 110, y);
+    draw_sprite_xpm(digit_sprites[seconds / 10], x + 165, y);
+    draw_sprite_xpm(digit_sprites[seconds % 10], x + 220, y);
 }
 
-// O cursor mode ter dois estados:
-// - "normal", quando está no menu de início ou de fim
-// - "mão", quando está no menu com os botões
 void draw_mouse() {
-    switch (menuState) {
-        case START: case END:
-            draw_sprite_xpm(mouse, mouse_info.x, mouse_info.y);
-            break;
-        case GAME:
-            draw_sprite_xpm(mouse, mouse_info.x, mouse_info.y);
-            break;
-    }
+    draw_sprite_xpm(mouse, mouse_info.x, mouse_info.y);
 }
 
-// A função recebe um objeto Sprite proveniente de um XPM e mostra-o nas coordenadas (x, y)
-// Usa as cores dinamicamente alocadas na altura da construção
-// A função ignora a cor transparente do XPM para não modificar o fundo quando não é preciso
-int draw_sprite_xpm(Sprite *sprite, int x, int y) { 
+int draw_sprite_xpm(Sprite *sprite, int x, int y) {
     if(sprite == NULL){
         printf("Sprite is NULL! (draw_sprite_xpm)\n");
         return 1;
@@ -120,13 +126,10 @@ int draw_sprite_xpm(Sprite *sprite, int x, int y) {
         if (draw_pixel(x + w, y + h, current_color, drawing_frame_buffer) != 0) return 1;
       }
     }
-    return 0; 
+    return 0;
 }
 
-// A função recebe um objeto Sprite de cor constante e mostra-o nas coordenadas (x, y)
-// Usa apenas uma cor, alocada na altura da construção
-// A função ignora a cor transparente do XPM para não modificar o fundo quando não é preciso
-int draw_sprite_button(Sprite *sprite, int x, int y) { 
+int draw_sprite_button(Sprite *sprite, int x, int y) {
     uint16_t height = sprite->height;
     uint16_t width = sprite->width;
     uint32_t color = sprite->pressed ? PRESSED : sprite->color;
@@ -135,17 +138,12 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
         if (draw_pixel(x + w, y + h, color, drawing_frame_buffer) != 0) return 1;
       }
     }
-    return 0; 
+    return 0;
 }
 
-// Faz o display do tempo real num formato amigável
-// No caso do Template esta função apenas retorna uma string para o ficheiro output.txt
-// Em projetos pode ser mudada para invocar sprites que coloquem no ecrã os respetivos dígitos
 void display_real_time() {
-
-
     int x = 50, y = 50;
-    int dx = 55; // distância horizontal entre cada dígito
+    int dx = 55;
 
     int digits[6] = {
         time_info.hours / 10, time_info.hours % 10,
@@ -161,4 +159,16 @@ void display_real_time() {
     draw_sprite_xpm(colon_sprite, x + 5*dx, y);
     draw_sprite_xpm(digit_sprites[digits[4]], x + 6*dx, y);
     draw_sprite_xpm(digit_sprites[digits[5]], x + 7*dx, y);
+}
+
+void draw_text(const char *text, int x, int y, uint32_t color) {
+    for (int i = 0; text[i] != '\0'; i++) {
+        for (int dy = 0; dy < 8; dy++) {
+            for (int dx = 0; dx < 6; dx++) {
+                if ((font8x8_basic[(unsigned char)text[i]][dy] >> dx) & 1) {
+                    draw_pixel(x + i * 8 + dx, y + dy, color, drawing_frame_buffer);
+                }
+            }
+        }
+    }
 }

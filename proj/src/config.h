@@ -10,6 +10,8 @@
 #define DARKBLUE 0x00008B
 #define TRANSPARENT 0xFFFFFFFF
 #define PRESSED 0x888888
+#define BLACK 0x000000
+#define WHITE 0xFFFFFF
 
 #define Q_KEY 0x10
 #define S_KEY 0x1F

@@ -12,6 +12,10 @@
 
 extern uint8_t *drawing_frame_buffer;
 extern uint8_t *main_frame_buffer;
+extern Sprite *buttonStart;
+extern Sprite *buttonPause;
+extern Sprite *buttonReset;
+
 
 void draw_new_frame();
 void draw_initial_menu();
@@ -23,5 +27,6 @@ void display_real_time();
 int draw_sprite_xpm(Sprite *sprite, int x, int y);
 int draw_sprite_button(Sprite *sprite, int x, int y);
 int set_frame_buffers(uint16_t mode);
+void draw_text(const char *text, int x, int y, uint32_t color);
 
 #endif

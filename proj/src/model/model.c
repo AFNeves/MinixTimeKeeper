@@ -9,7 +9,8 @@ MenuState menuState = START;
 extern MouseInfo mouse_info;
 extern vbe_mode_info_t mode_info;
 extern real_time_info time_info;
-int prev_mouse_x = -1, prev_mouse_y = -1;
+ChronoState chronoState = CRONO_STOPPED;
+int chrono_seconds = 0;
 
 // Objetos a construir e manipular com a mudança de estados
 Sprite *mouse;
@@ -31,25 +32,24 @@ void setup_sprites() {
     button1 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, ORANGE);
     button2 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, BLUE);
     button3 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, GREEN);
-    button4 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, YELLOW);
+    button4 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, YELLOW);        
+    
+    digit_sprites[0] = create_sprite_xpm((xpm_map_t) digit_0_xpm);
+    digit_sprites[1] = create_sprite_xpm((xpm_map_t) digit_1_xpm);
+    digit_sprites[2] = create_sprite_xpm((xpm_map_t) digit_2_xpm);
+    digit_sprites[3] = create_sprite_xpm((xpm_map_t) digit_3_xpm);
+    digit_sprites[4] = create_sprite_xpm((xpm_map_t) digit_4_xpm);
+    digit_sprites[5] = create_sprite_xpm((xpm_map_t) digit_5_xpm);
+    digit_sprites[6] = create_sprite_xpm((xpm_map_t) digit_6_xpm);
+    digit_sprites[7] = create_sprite_xpm((xpm_map_t) digit_7_xpm);
+    digit_sprites[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
+    digit_sprites[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
+    colon_sprite = create_sprite_xpm((xpm_map_t) colon_xpm);
 
-        printf("Loading digit 0\n");
-        digit_sprites[0] = create_sprite_xpm((xpm_map_t) digit_0_xpm);
-        if (!digit_sprites[0]) printf("Failed to load digit 0\n");
+    buttonStart = create_sprite_button(0, 0, GREEN);
+    buttonPause = create_sprite_button(0, 0, YELLOW);
+    buttonReset = create_sprite_button(0, 0, RED);
 
-        printf("Loading digit 1\n");
-        digit_sprites[1] = create_sprite_xpm((xpm_map_t) digit_1_xpm);
-        if (!digit_sprites[1]) printf("Failed to load digit 1\n");
-
-        digit_sprites[2] = create_sprite_xpm((xpm_map_t) digit_2_xpm);
-        digit_sprites[3] = create_sprite_xpm((xpm_map_t) digit_3_xpm);
-        digit_sprites[4] = create_sprite_xpm((xpm_map_t) digit_4_xpm);
-        digit_sprites[5] = create_sprite_xpm((xpm_map_t) digit_5_xpm);
-        digit_sprites[6] = create_sprite_xpm((xpm_map_t) digit_6_xpm);
-        digit_sprites[7] = create_sprite_xpm((xpm_map_t) digit_7_xpm);
-        digit_sprites[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
-        digit_sprites[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
-        colon_sprite = create_sprite_xpm((xpm_map_t) colon_xpm);
 }
 
 // É boa prática antes de acabar o programa libertar a memória alocada
@@ -68,6 +68,9 @@ void destroy_sprites() {
 // Na altura da interrupção há troca dos buffers e incremento do contador
 void update_timer_state() {
     timer_interrupts++;
+    if (chronoState == CRONO_RUNNING && timer_interrupts % GAME_FREQUENCY == 0) {
+        chrono_seconds++;
+    }
 
     // Apenas a cada segundo (ou seja, 60 vezes por segundo -> 1 vez por segundo)
     if (timer_interrupts % GAME_FREQUENCY == 0) {
@@ -110,6 +113,21 @@ void update_keyboard_state() {
     draw_new_frame();
 }
 
+void update_chrono_buttons() {
+    if (mouse_info.left_click) {
+        if (mouse_info.x < mode_info.XResolution / 3)
+            chronoState = CRONO_RUNNING;
+
+        else if (mouse_info.x < 2 * mode_info.XResolution / 3)
+            chronoState = CRONO_PAUSED; 
+
+        else {
+            chronoState = CRONO_STOPPED;
+            chrono_seconds = 0;
+        }
+    }
+}
+
 // Sempre que há um novo pacote completo do rato
 // - muda o seu estado interno (x, y, left_pressed, right_pressed) - mouse_sync_info();
 // - pode mudar o estado do botão por baixo dele - update_buttons_state();
@@ -125,6 +143,13 @@ void update_mouse_state() {
         if (DOUBLE_BUFFER) swap_buffers();
         byte_index = 0;
     }
+
+    if (menuState == END) {
+        update_chrono_buttons();
+        draw_new_frame();
+        if (DOUBLE_BUFFER) swap_buffers();
+    }
+
 }
 
 // Se o rato tiver o botão esquerdo pressionado (mouse_info.left_click) então
