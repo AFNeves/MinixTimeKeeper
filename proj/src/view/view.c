@@ -56,6 +56,7 @@ void draw_new_frame() {
     switch (menuState) {
         case START:
             draw_initial_menu();
+            display_real_time();
             break;
         case GAME:
             draw_game_menu();
@@ -144,9 +145,7 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 // No caso do Template esta função apenas retorna uma string para o ficheiro output.txt
 // Em projetos pode ser mudada para invocar sprites que coloquem no ecrã os respetivos dígitos
 void display_real_time() {
-    static int last_drawn_second = -1;
-    if (time_info.seconds == last_drawn_second) return;
-    last_drawn_second = time_info.seconds;
+
 
     int x = 50, y = 50;
     int dx = 55; // distância horizontal entre cada dígito
