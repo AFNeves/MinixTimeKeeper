@@ -180,6 +180,14 @@ void display_real_time() {
     draw_sprite_xpm(colon, x + 5 * dx, y);
     draw_sprite_xpm(digits[digits_time[4]], x + 6 * dx, y);
     draw_sprite_xpm(digits[digits_time[5]], x + 7 * dx, y);
+
+    // ---- DIA DA SEMANA ----
+int day_index = (time_info.dayNumber + 6) % 7;
+int x_day = x - days_of_week[day_index]->width - 20; // à esquerda da hora
+int y_day = y + 20;  // mesma altura que a hora
+
+draw_sprite_xpm(days_of_week[day_index], x_day, y_day - 10); // ligeiramente acima
+
 }
 
 
