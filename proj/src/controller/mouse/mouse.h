@@ -1,28 +1,20 @@
 #ifndef _LCOM_MOUSE_H_
 #define _LCOM_MOUSE_H_
 
-#define MOUSE_MASK BIT(2)
-
 #include <lcom/lcf.h>
+
 #include <stdint.h>
-#include "../utils.h"
-#include "i8042.h"
-#include "KBC.h"
 
-typedef struct {
-    int x, y;
-    bool left_click, right_click;
-} MouseInfo;
+#include "../KBC.h"
 
-extern uint8_t byte_index;
-extern MouseInfo mouse_info;
+#include "../video/graphic.h"
 
 /**
  * @brief Subscribes the Mouse interrupts
  * 
  * @return Return 0 upon success and non-zero otherwise
  */
-int (mouse_subscribe_interrupts)();
+int (mouse_subscribe_int)();
 
 /**
  * @brief Unsubscribes the Mouse interrupts
@@ -46,11 +38,11 @@ void (mouse_ih)();
 void (mouse_sync)();
 
 /**
- * @brief Makes a mouse packet
+ * @brief Builds the MouseInfo structure
  * 
- * Creates a mouse packet from the mouse data
+ * Builds the MouseInfo structure based on the mouse data
  */
-void (mouse_make_packet)();
+void (update_mouse_info)();
 
 /**
  * @brief Writes a command to the mouse

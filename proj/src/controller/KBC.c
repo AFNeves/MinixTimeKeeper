@@ -56,7 +56,7 @@ int (write_to_KBC)(uint8_t port, uint8_t command)
         }
 
         tickdelay(micros_to_ticks(KB_DELAY));
-		attempts--;
+        attempts--;
     }
 
     return 1;
