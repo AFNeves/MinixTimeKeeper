@@ -2,7 +2,7 @@
 
 // Variáveis externas importantes à construção e manipulação do modelo
 SystemState systemState = RUNNING;
-MenuState menuState = START;
+MenuState menuState = RUNNING_CLOCK;
 ChronoState chronoState = OFF;
 int chrono_seconds = 0;
 
@@ -13,6 +13,7 @@ Sprite *buttonPause;
 Sprite *buttonReset;
 Sprite *colon;
 Sprite *digit_sprites[10];
+Sprite *toolbar_button_sprites[3];
 
 
 // Criação dos objetos via XPM e via comum
@@ -31,9 +32,13 @@ void setup_sprites() {
     digit_sprites[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
     digit_sprites[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
 
-    buttonStart = create_sprite_button(60, 40, GREEN);
-    buttonPause = create_sprite_button(60, 40, YELLOW);
-    buttonReset = create_sprite_button(60, 40, RED);
+    buttonStart = create_sprite_button(60, 30, GREEN);
+    buttonPause = create_sprite_button(60, 30, YELLOW);
+    buttonReset = create_sprite_button(60, 30, RED);
+
+    toolbar_button_sprites[0] = create_sprite_xpm((xpm_map_t) clock_xpm);
+    toolbar_button_sprites[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
+    toolbar_button_sprites[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
 
 }
 
@@ -43,9 +48,14 @@ void destroy_sprites() {
     destroy_sprite(buttonStart);
     destroy_sprite(buttonPause);
     destroy_sprite(buttonReset);
+    destroy_sprite(colon);
 
     for (int i = 0; i < 10; i++)
         destroy_sprite(digit_sprites[i]);
+    
+    for (int i = 0; i < 3; i++)
+        destroy_sprite(toolbar_button_sprites[i]);
+
 }
 
 // Na altura da interrupção há troca dos buffers e incremento do contador
@@ -80,11 +90,15 @@ void update_keyboard_state() {
             systemState = EXIT;
             break;
         case S_KEY:
-            menuState = START;
+            menuState = RUNNING_CLOCK;
             break;
         case C_KEY:
             menuState = CHRONO;
             break;
+        case T_KEY:
+            menuState = TIMER;
+            break;
+
         default:
             break;
     }
@@ -104,7 +118,8 @@ void update_mouse_state() {
         byte_index = 0;
         if (menuState == CHRONO) {
             update_chrono_buttons();
-        }
+        } 
+        update_toolbar_buttons();
         draw_new_frame();
     } 
     
@@ -124,6 +139,18 @@ void update_chrono_buttons() {
         }
     }
 }
+
+void update_toolbar_buttons() {
+    if (mouse_info.left_click) {
+        if (is_mouse_over_button(toolbar_button_sprites[0], mode_info.XResolution / 4 - 0.5 * dx, 8 * mode_info.YResolution / 10)) {
+            menuState = RUNNING_CLOCK;
+        } else if (is_mouse_over_button(toolbar_button_sprites[1], 2 * mode_info.XResolution / 4 - 0.5 * dx, 8 * mode_info.YResolution / 10)) {
+            menuState = CHRONO;
+        } else if (is_mouse_over_button(toolbar_button_sprites[2], 3 * mode_info.XResolution / 4 - 0.5 * dx, 8 * mode_info.YResolution / 10)) {
+            menuState = TIMER;
+        }
+    }
+}   
 
 
 

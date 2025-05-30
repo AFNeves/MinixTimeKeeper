@@ -18,5 +18,6 @@
 #define G_KEY 0x22
 #define E_KEY 0x12
 #define C_KEY 0x2E
+#define T_KEY 0x2C
 
 
