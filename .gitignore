@@ -1,8 +1,14 @@
+# VSCode settings
 **/.vscode/
-**/debug/
 **/.clang-format
-**/*.gdb-init
+
+# Build and debug files
 **/*.o
 **/*.d
 **/*.depend
+**/*.gdbinit
+**/debug/
 **/proj
+
+# MACOS specific file
+.DS_Store
