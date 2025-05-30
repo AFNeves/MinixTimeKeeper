@@ -20,6 +20,9 @@ extern Sprite *digit_sprites[10];
 // Mouse Information
 extern MouseInfo mouse_info;
 
+// Graphical Information
+extern vbe_mode_info_t vbe_info;
+
 // RTC Data Structures
 extern time_struct rtc_time;
 extern date_struct rtc_date;
@@ -40,7 +43,7 @@ static const uint8_t font8x8_basic[128][8] = {
 
 int set_frame_buffers(uint16_t mode) {
     if (set_frame_buffer(mode, &main_frame_buffer)) return 1;
-    frame_buffer_size = mode_info.XResolution * mode_info.YResolution * ((mode_info.BitsPerPixel + 7) / 8);
+    frame_buffer_size = vbe_info.XResolution * vbe_info.YResolution * ((vbe_info.BitsPerPixel + 7) / 8);
     if (DOUBLE_BUFFER) {
         secondary_frame_buffer = (uint8_t *) malloc(frame_buffer_size);
         drawing_frame_buffer = secondary_frame_buffer;
@@ -70,19 +73,19 @@ void draw_new_frame() {
 }
 
 void draw_initial_menu() {
-    draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, RED, drawing_frame_buffer);
+    draw_rectangle(0, 0, vbe_info.XResolution, vbe_info.YResolution, RED, drawing_frame_buffer);
     display_real_time();
 }
 
 
 void draw_chrono_menu() {
-    draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, DARKBLUE, drawing_frame_buffer);
+    draw_rectangle(0, 0, vbe_info.XResolution, vbe_info.YResolution, DARKBLUE, drawing_frame_buffer);
     draw_chrono_buttons();
 
     int minutes = chrono_seconds / 60;
     int seconds = chrono_seconds % 60;
 
-    int x = mode_info.XResolution / 2 - 4 * 55;
+    int x = vbe_info.XResolution / 2 - 4 * 55;
     int y = 100;
 
     draw_sprite_xpm(digit_sprites[minutes / 10], x, y);
@@ -138,7 +141,7 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 }
 
 void display_real_time() {
-    int midX = mode_info.XResolution / 2;
+    int midX = vbe_info.XResolution / 2;
     int dx = 55;
     int y = 50;
 

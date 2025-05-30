@@ -5,7 +5,7 @@ uint8_t byte_index = 0;
 uint8_t mouse_byte;
 uint8_t mouse_data[3];
 MouseInfo mouse_info;
-extern vbe_mode_info_t mode_info;
+extern vbe_mode_info_t vbe_info;
 
 int (mouse_subscribe_int)()
 {
@@ -45,8 +45,8 @@ void (update_mouse_info)()
     // Normalize Mouse Position
     if (mouse_info.x < 0) mouse_info.x = 0;
     if (mouse_info.y < 0) mouse_info.y = 0;
-    if (mouse_info.x > mode_info.XResolution - 1) mouse_info.x = mode_info.XResolution - 1;
-    if (mouse_info.y > mode_info.YResolution - 1) mouse_info.y = mode_info.YResolution - 1;
+    if (mouse_info.x > vbe_info.XResolution - 1) mouse_info.x = vbe_info.XResolution - 1;
+    if (mouse_info.y > vbe_info.YResolution - 1) mouse_info.y = vbe_info.YResolution - 1;
 }
 
 int (mouse_write_command)(uint8_t command)
