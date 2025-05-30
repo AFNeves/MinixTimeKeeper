@@ -73,11 +73,11 @@ void draw_chrono_menu() {
     int x = mode_info.XResolution / 2 - 2.5 * dx;
     int y = 100;
 
-    draw_sprite_xpm(digit_sprites[minutes / 10], x, y);
-    draw_sprite_xpm(digit_sprites[minutes % 10], x + dx, y);
+    draw_sprite_xpm(digits[minutes / 10], x, y);
+    draw_sprite_xpm(digits[minutes % 10], x + dx, y);
     draw_sprite_xpm(colon, x + 2 * dx, y);
-    draw_sprite_xpm(digit_sprites[seconds / 10], x + 3*dx, y);
-    draw_sprite_xpm(digit_sprites[seconds % 10], x + 4*dx, y);
+    draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
+    draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
 }
 
 void draw_chrono_buttons() {
@@ -127,8 +127,11 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 }
 
 void display_real_time() {
+    
     int x = mode_info.XResolution / 2 - 5 * dx;
     int y = 50;
+    int midX = mode_info.XResolution / 2;
+    int y_date = y + 75;
 
     // ---- DATA ---- (DIA/MÊS/ANO)
     int year = time_info.year;
@@ -140,20 +143,20 @@ void display_real_time() {
 
 
     // desenhar dia
-    draw_sprite_xpm(digit_sprites[digits_date[0]], midX - 6 * dx, y_date);
-    draw_sprite_xpm(digit_sprites[digits_date[1]], midX - 5 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[0]], midX - 6 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[1]], midX - 5 * dx, y_date);
     draw_sprite_xpm(slash, midX - 4 * dx, y_date);
 
     // desenhar mês
-    draw_sprite_xpm(digit_sprites[digits_date[2]], midX - 3 * dx, y_date);
-    draw_sprite_xpm(digit_sprites[digits_date[3]], midX - 2 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[2]], midX - 3 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[3]], midX - 2 * dx, y_date);
     draw_sprite_xpm(slash, midX - dx, y_date);
 
     // desenhar ano completo (YYYY)
-    draw_sprite_xpm(digit_sprites[digits_date[4]], midX, y_date);
-    draw_sprite_xpm(digit_sprites[digits_date[5]], midX + dx, y_date);
-    draw_sprite_xpm(digit_sprites[digits_date[6]], midX + 2 * dx, y_date);
-    draw_sprite_xpm(digit_sprites[digits_date[7]], midX + 3 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[4]], midX, y_date);
+    draw_sprite_xpm(digits[digits_date[5]], midX + dx, y_date);
+    draw_sprite_xpm(digits[digits_date[6]], midX + 2 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[7]], midX + 3 * dx, y_date);
 
     // ---- HORA ---- (HH:MM:SS)
     int digits_time[6] = {
@@ -162,14 +165,14 @@ void display_real_time() {
         time_info.seconds / 10, time_info.seconds % 10
     };
 
-    draw_sprite_xpm(digit_sprites[digits[0]], x +  dx, y);
-    draw_sprite_xpm(digit_sprites[digits[1]], x + 2 * dx, y);
+    draw_sprite_xpm(digits[digits_time[0]], x +  dx, y);
+    draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y);
     draw_sprite_xpm(colon, x + 3 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[2]],x + 4 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[3]],x + 5 * dx, y);
+    draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y);
+    draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y);
     draw_sprite_xpm(colon, x + 6 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[4]], x + 7 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[5]], x + 8 * dx, y);
+    draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y);
+    draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y);
 }
 
 void draw_toolbar() {

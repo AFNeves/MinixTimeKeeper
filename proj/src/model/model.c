@@ -1,4 +1,5 @@
 #include "model.h"
+#include "sprite.h"
 
 // Variáveis externas importantes à construção e manipulação do modelo
 SystemState systemState = RUNNING;
@@ -12,7 +13,7 @@ Sprite *buttonStart;
 Sprite *buttonPause;
 Sprite *buttonReset;
 Sprite *colon;
-Sprite *digit_sprites[10];
+Sprite *digits[10];
 Sprite *slash;
 Sprite *toolbar_button_sprites[3];
 
@@ -22,16 +23,16 @@ void setup_sprites() {
     mouse = create_sprite_xpm((xpm_map_t) mouse_xpm);
     colon = create_sprite_xpm((xpm_map_t) colon_xpm);
 
-    digit_sprites[0] = create_sprite_xpm((xpm_map_t) digit_0_xpm);
-    digit_sprites[1] = create_sprite_xpm((xpm_map_t) digit_1_xpm);
-    digit_sprites[2] = create_sprite_xpm((xpm_map_t) digit_2_xpm);
-    digit_sprites[3] = create_sprite_xpm((xpm_map_t) digit_3_xpm);
-    digit_sprites[4] = create_sprite_xpm((xpm_map_t) digit_4_xpm);
-    digit_sprites[5] = create_sprite_xpm((xpm_map_t) digit_5_xpm);
-    digit_sprites[6] = create_sprite_xpm((xpm_map_t) digit_6_xpm);
-    digit_sprites[7] = create_sprite_xpm((xpm_map_t) digit_7_xpm);
-    digit_sprites[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
-    digit_sprites[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
+    digits[0] = create_sprite_xpm((xpm_map_t) digit_0_xpm);
+    digits[1] = create_sprite_xpm((xpm_map_t) digit_1_xpm);
+    digits[2] = create_sprite_xpm((xpm_map_t) digit_2_xpm);
+    digits[3] = create_sprite_xpm((xpm_map_t) digit_3_xpm);
+    digits[4] = create_sprite_xpm((xpm_map_t) digit_4_xpm);
+    digits[5] = create_sprite_xpm((xpm_map_t) digit_5_xpm);
+    digits[6] = create_sprite_xpm((xpm_map_t) digit_6_xpm);
+    digits[7] = create_sprite_xpm((xpm_map_t) digit_7_xpm);
+    digits[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
+    digits[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
     slash = create_sprite_xpm((xpm_map_t) slash_xpm);
 
     buttonStart = create_sprite_button(60, 30, GREEN);
@@ -41,7 +42,6 @@ void setup_sprites() {
     toolbar_button_sprites[0] = create_sprite_xpm((xpm_map_t) clock_xpm);
     toolbar_button_sprites[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
     toolbar_button_sprites[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
-
 }
 
 // É boa prática antes de acabar o programa libertar a memória alocada
@@ -50,14 +50,11 @@ void destroy_sprites() {
     destroy_sprite(buttonStart);
     destroy_sprite(buttonPause);
     destroy_sprite(buttonReset);
-<<<<<<< HEAD
     destroy_sprite(slash);
-=======
     destroy_sprite(colon);
->>>>>>> 77e2143d52529035ff98778676ff216b8b97a29a
 
     for (int i = 0; i < 10; i++)
-        destroy_sprite(digit_sprites[i]);
+        destroy_sprite(digits[i]);
     
     for (int i = 0; i < 3; i++)
         destroy_sprite(toolbar_button_sprites[i]);

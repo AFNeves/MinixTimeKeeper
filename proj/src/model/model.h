@@ -35,9 +35,9 @@ extern Sprite *buttonStart;
 extern Sprite *buttonPause;
 extern Sprite *buttonReset;
 extern Sprite *colon;
-extern Sprite *digit_sprites[10];
+extern Sprite *digits[10];
 extern Sprite *toolbar_button_sprites[3];
-
+extern Sprite *slash;
 
 
 typedef enum {
