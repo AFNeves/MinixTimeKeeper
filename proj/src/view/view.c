@@ -95,16 +95,11 @@ void draw_timer_menu() {
     draw_rectangle(0, 0, vbe_info.XResolution, vbe_info.YResolution, ORANGE, drawing_frame_buffer);
     draw_chrono_buttons();
 
-    if (timerState == OFF) {
-        if (timer_input_length > 0) draw_timer_input();
-        else draw_blocks();
-
-    }   
+    if (timer_input_length > 0) draw_timer_input();
+    else draw_blocks();
     
 
 }
-
-
 
 
 void draw_blocks() {
@@ -138,10 +133,10 @@ void draw_timer_input() {
 
 
 
+
 void draw_mouse() {
     draw_sprite_xpm(mouse, mouse_info.x, mouse_info.y);
 }
-
 
 
 

@@ -115,6 +115,21 @@ void update_timer_state() {
         if (timerState == ON) timer_seconds--;
 
         if (menuState == RUNNING_CLOCK) rtc_update();
+
+        if (menuState == TIMER && timerState == ON ) {
+            int hours = timer_seconds / 3600;
+            int minutes = (timer_seconds % 3600) / 60;
+            int seconds = timer_seconds % 60;
+
+            timer_input[0] = hours / 10;
+            timer_input[1] = hours % 10;
+            timer_input[2] = minutes / 10;
+            timer_input[3] = minutes % 10;
+            timer_input[4] = seconds / 10;
+            timer_input[5] = seconds % 10;
+            
+        }
+
     }
 
     draw_new_frame();
@@ -148,7 +163,7 @@ void update_keyboard_state() {
     }
 
 
-    if (menuState == TIMER) {
+    if (menuState == TIMER && timerState == OFF) {
         int digit = -1;
         switch (scancode) {
             case ONE_KEY: digit = 1; break;
@@ -211,6 +226,7 @@ void update_mouse_state() {
         byte_index = 0;
 
         if (menuState == CHRONO)  update_chrono_buttons();
+        if (menuState == TIMER) update_timer_buttons();
         update_toolbar_buttons();
     } 
     
@@ -227,6 +243,31 @@ void update_chrono_buttons() {
         else if (is_mouse_over_button(chrono_buttons[2])) {
             chronoState = OFF;
             chrono_seconds = 0;
+        }
+    }
+}
+
+void update_timer_buttons() {
+    if (mouse_info.lb) {
+        if (is_mouse_over_button(chrono_buttons[0])) {
+            timerState = ON;
+            timer_seconds = timer_input[0] * 10 * 3600 + 
+                            timer_input[1] * 3600 + 
+                            timer_input[2] * 10 * 60 + 
+                            timer_input[3] * 60 + 
+                            timer_input[4] * 10 + 
+                            timer_input[5]; 
+
+        } else if (is_mouse_over_button(chrono_buttons[1])) {
+            timerState = OFF;
+
+        } else if (is_mouse_over_button(chrono_buttons[2])) {
+            timerState = OFF;
+            timer_seconds = 0;
+            timer_input_length = 0;
+            for (int i = 0; i < 6; i++) {
+                timer_input[i] = 0;
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ void draw_chrono_buttons();
 void draw_timer_menu();
 void draw_blocks();
 void draw_timer_input();
+void draw_timer();
 //void draw_timer_buttons();
 void draw_toolbar();
 void draw_mouse();

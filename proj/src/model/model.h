@@ -83,6 +83,7 @@ void update_keyboard_state();
 void update_mouse_state();
 void update_chrono_buttons();
 void update_toolbar_buttons();
+void update_timer_buttons();
 void setup_sprites();
 void destroy_sprites();
 void insert_new_input(int new_input);
