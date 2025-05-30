@@ -13,13 +13,6 @@
 
 extern uint8_t *drawing_frame_buffer;
 extern uint8_t *main_frame_buffer;
-extern int buttonStart_x;
-extern int buttonStart_y;
-extern int buttonPause_x;
-extern int buttonPause_y;
-extern int buttonReset_x;
-extern int buttonReset_y;
-extern int dx;
 
 
 void draw_new_frame();

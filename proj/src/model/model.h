@@ -24,18 +24,21 @@
 #include "xpm/num_7.xpm"
 #include "xpm/num_8.xpm"
 #include "xpm/num_9.xpm"
+#include "xpm/slash.xpm"
 #include "xpm/timer.xpm"
 #include "xpm/chrono.xpm"
 #include "xpm/clock.xpm"
+#include "xpm/start.xpm"
+#include "xpm/pause.xpm"
+#include "xpm/reset.xpm"
 
 
 extern Sprite *mouse;
-extern Sprite *buttonStart;
-extern Sprite *buttonPause;
-extern Sprite *buttonReset;
 extern Sprite *colon;
-extern Sprite *digit_sprites[10];
-extern Sprite *toolbar_button_sprites[3];
+extern Sprite *digits[10];
+extern Sprite *toolbar_buttons[3];
+extern Sprite* chrono_buttons[3];
+extern Sprite *slash;
 
 
 

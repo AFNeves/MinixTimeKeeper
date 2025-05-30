@@ -9,11 +9,7 @@ uint32_t frame_buffer_size;
 extern MenuState menuState;
 extern int chrono_seconds;
 
-int buttonStart_x = 100, buttonStart_y = 400;
-int buttonPause_x = 400, buttonPause_y = 400;
-int buttonReset_x = 700, buttonReset_y = 400;
 
-int dx = 55;
 
 static const uint8_t font8x8_basic[128][8] = {
   ['A'] = {0x18,0x24,0x42,0x7E,0x42,0x42,0x42,0x00},
@@ -70,25 +66,22 @@ void draw_chrono_menu() {
     int minutes = chrono_seconds / 60;
     int seconds = chrono_seconds % 60;
 
+    int dx = 55;
     int x = mode_info.XResolution / 2 - 2.5 * dx;
     int y = 100;
 
-    draw_sprite_xpm(digit_sprites[minutes / 10], x, y);
-    draw_sprite_xpm(digit_sprites[minutes % 10], x + dx, y);
+    draw_sprite_xpm(digits[minutes / 10], x, y);
+    draw_sprite_xpm(digits[minutes % 10], x + dx, y);
     draw_sprite_xpm(colon, x + 2 * dx, y);
-    draw_sprite_xpm(digit_sprites[seconds / 10], x + 3*dx, y);
-    draw_sprite_xpm(digit_sprites[seconds % 10], x + 4*dx, y);
+    draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
+    draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
 }
 
 void draw_chrono_buttons() {
-    draw_sprite_button(buttonStart, buttonStart_x, buttonStart_y);
-    draw_text("START", buttonStart_x + 10, buttonStart_y + 10, WHITE);
+    for (int i = 0; i < 3; i++) {
+        draw_sprite_xpm(chrono_buttons[i], chrono_buttons[i]->x, chrono_buttons[i]->y);
+    }
 
-    draw_sprite_button(buttonPause, buttonPause_x, buttonPause_y);
-    draw_text("PAUSE", buttonPause_x + 10, buttonPause_y + 10, WHITE);
-
-    draw_sprite_button(buttonReset, buttonReset_x, buttonReset_y);
-    draw_text("RESET", buttonReset_x + 10, buttonReset_y + 10, WHITE);
 }
 
 
@@ -127,33 +120,61 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 }
 
 void display_real_time() {
+    
+    int dx = 55;
     int x = mode_info.XResolution / 2 - 5 * dx;
     int y = 50;
+    int midX = mode_info.XResolution / 2;
+    int y_date = y + 75;
 
-    int digits[6] = {
+    // ---- DATA ---- (DIA/MÊS/ANO)
+    int year = time_info.year;
+    int digits_date[8] = {
+        time_info.day / 10, time_info.day % 10,
+        time_info.month / 10, time_info.month % 10,
+        (year / 1000) % 10, (year / 100) % 10, (year / 10) % 10, year % 10
+    };
+
+
+    // desenhar dia
+    draw_sprite_xpm(digits[digits_date[0]], midX - 6 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[1]], midX - 5 * dx, y_date);
+    draw_sprite_xpm(slash, midX - 4 * dx, y_date);
+
+    // desenhar mês
+    draw_sprite_xpm(digits[digits_date[2]], midX - 3 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[3]], midX - 2 * dx, y_date);
+    draw_sprite_xpm(slash, midX - dx, y_date);
+
+    // desenhar ano completo (YYYY)
+    draw_sprite_xpm(digits[digits_date[4]], midX, y_date);
+    draw_sprite_xpm(digits[digits_date[5]], midX + dx, y_date);
+    draw_sprite_xpm(digits[digits_date[6]], midX + 2 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[7]], midX + 3 * dx, y_date);
+
+    // ---- HORA ---- (HH:MM:SS)
+    int digits_time[6] = {
         time_info.hours / 10, time_info.hours % 10,
         time_info.minutes / 10, time_info.minutes % 10,
         time_info.seconds / 10, time_info.seconds % 10
     };
 
-    draw_sprite_xpm(digit_sprites[digits[0]], x +  dx, y);
-    draw_sprite_xpm(digit_sprites[digits[1]], x + 2 * dx, y);
+    draw_sprite_xpm(digits[digits_time[0]], x +  dx, y);
+    draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y);
     draw_sprite_xpm(colon, x + 3 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[2]],x + 4 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[3]],x + 5 * dx, y);
+    draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y);
+    draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y);
     draw_sprite_xpm(colon, x + 6 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[4]], x + 7 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[5]], x + 8 * dx, y);
+    draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y);
+    draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y);
 }
 
 void draw_toolbar() {
-    int x = mode_info.XResolution / 4;
-    int y = 8 * mode_info.YResolution / 10;
-
     for (int i = 0; i < 3; i++) {
-        draw_sprite_xpm(toolbar_button_sprites[i], (x + i * x) - 0.5 * dx, y);
+        draw_sprite_xpm(toolbar_buttons[i], toolbar_buttons[i]->x, toolbar_buttons[i]->y);
     }
 }
+
 
 void draw_text(const char *text, int x, int y, uint32_t color) {
     for (int i = 0; text[i] != '\0'; i++) {
