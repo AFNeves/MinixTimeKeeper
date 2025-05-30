@@ -16,7 +16,7 @@ Sprite *colon;
 Sprite *digits[10];
 Sprite *slash;
 Sprite *toolbar_button_sprites[3];
-
+Sprite *days_of_week[7];
 
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
@@ -42,6 +42,15 @@ void setup_sprites() {
     toolbar_button_sprites[0] = create_sprite_xpm((xpm_map_t) clock_xpm);
     toolbar_button_sprites[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
     toolbar_button_sprites[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
+
+    days_of_week[0] = create_sprite_xpm((xpm_map_t) mon_xpm);
+    days_of_week[1] = create_sprite_xpm((xpm_map_t) tue_xpm);
+    days_of_week[2] = create_sprite_xpm((xpm_map_t) wed_xpm);
+    days_of_week[3] = create_sprite_xpm((xpm_map_t) thu_xpm);
+    days_of_week[4] = create_sprite_xpm((xpm_map_t) fri_xpm);
+    days_of_week[5] = create_sprite_xpm((xpm_map_t) sat_xpm);
+    days_of_week[6] = create_sprite_xpm((xpm_map_t) sun_xpm);
+
 }
 
 // É boa prática antes de acabar o programa libertar a memória alocada
@@ -58,6 +67,9 @@ void destroy_sprites() {
     
     for (int i = 0; i < 3; i++)
         destroy_sprite(toolbar_button_sprites[i]);
+
+    for (int i = 0; i < 7; i++)
+        destroy_sprite(days_of_week[i]);
 
 }
 

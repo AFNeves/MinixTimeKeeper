@@ -127,11 +127,12 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 }
 
 void display_real_time() {
-    
-    int x = mode_info.XResolution / 2 - 5 * dx;
-    int y = 100;
     int midX = mode_info.XResolution / 2;
-    int y_date = y - 75;
+    int y_date = 100;
+    int y_time = y_date + 80;
+    int y_day  = y_time + 80;
+
+    int x = midX - 5 * dx;
 
     // ---- DATA ---- (DIA/MÊS/ANO)
     int year = time_info.year;
@@ -140,7 +141,6 @@ void display_real_time() {
         time_info.month / 10, time_info.month % 10,
         (year / 1000) % 10, (year / 100) % 10, (year / 10) % 10, year % 10
     };
-
 
     // desenhar dia
     draw_sprite_xpm(digits[digits_date[0]], midX - 6 * dx, y_date);
@@ -165,15 +165,23 @@ void display_real_time() {
         time_info.seconds / 10, time_info.seconds % 10
     };
 
-    draw_sprite_xpm(digits[digits_time[0]], x +  dx, y);
-    draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y);
-    draw_sprite_xpm(colon, x + 3 * dx, y);
-    draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y);
-    draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y);
-    draw_sprite_xpm(colon, x + 6 * dx, y);
-    draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y);
-    draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y);
+    draw_sprite_xpm(digits[digits_time[0]], x +  dx, y_time);
+    draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y_time);
+    draw_sprite_xpm(colon, x + 3 * dx, y_time);
+    draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y_time);
+    draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y_time);
+    draw_sprite_xpm(colon, x + 6 * dx, y_time);
+    draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y_time);
+    draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y_time);
+
+    // ---- DIA DA SEMANA ----
+    int day_index = (time_info.dayNumber + 5) % 7;
+
+    int x_day = midX - days_of_week[day_index]->width / 2;
+
+    draw_sprite_xpm(days_of_week[day_index], x_day, y_day);
 }
+
 
 void draw_toolbar() {
     int x = mode_info.XResolution / 4;

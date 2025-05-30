@@ -28,7 +28,13 @@
 #include "xpm/timer.xpm"
 #include "xpm/chrono.xpm"
 #include "xpm/clock.xpm"
-
+#include "xpm/sun.xpm"
+#include "xpm/mon.xpm"
+#include "xpm/tue.xpm"
+#include "xpm/wed.xpm"
+#include "xpm/thu.xpm"
+#include "xpm/fri.xpm"
+#include "xpm/sat.xpm"
 
 extern Sprite *mouse;
 extern Sprite *buttonStart;
@@ -38,6 +44,7 @@ extern Sprite *colon;
 extern Sprite *digits[10];
 extern Sprite *toolbar_button_sprites[3];
 extern Sprite *slash;
+extern Sprite *days_of_week[7];
 
 
 typedef enum {
