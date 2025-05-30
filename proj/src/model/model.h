@@ -25,6 +25,20 @@
 #include "xpm/num_8.xpm"
 #include "xpm/num_9.xpm"
 #include "xpm/slash.xpm"
+#include "xpm/timer.xpm"
+#include "xpm/chrono.xpm"
+#include "xpm/clock.xpm"
+
+
+extern Sprite *mouse;
+extern Sprite *buttonStart;
+extern Sprite *buttonPause;
+extern Sprite *buttonReset;
+extern Sprite *colon;
+extern Sprite *digit_sprites[10];
+extern Sprite *toolbar_button_sprites[3];
+
+
 
 typedef enum {
     RUNNING,
@@ -32,7 +46,7 @@ typedef enum {
 } SystemState;
 
 typedef enum {
-    START,
+    RUNNING_CLOCK,
     CHRONO,
     TIMER
 } MenuState;
@@ -44,11 +58,13 @@ typedef enum {
 
 
 
+
 void update_timer_state();
 void update_keyboard_state();
 void update_mouse_state();
 void update_rtc_state();
 void update_chrono_buttons();
+void update_toolbar_buttons();
 void setup_sprites();
 void destroy_sprites();
 

@@ -9,18 +9,11 @@ uint32_t frame_buffer_size;
 extern MenuState menuState;
 extern int chrono_seconds;
 
-// Objetos
-extern Sprite *mouse;
-extern Sprite *buttonStart;
-extern Sprite *buttonPause;
-extern Sprite *buttonReset;
-extern Sprite *colon;
-extern Sprite *digit_sprites[10];
-extern Sprite *slash;
-
 int buttonStart_x = 100, buttonStart_y = 400;
 int buttonPause_x = 400, buttonPause_y = 400;
 int buttonReset_x = 700, buttonReset_y = 400;
+
+int dx = 55;
 
 static const uint8_t font8x8_basic[128][8] = {
   ['A'] = {0x18,0x24,0x42,0x7E,0x42,0x42,0x42,0x00},
@@ -50,8 +43,8 @@ void swap_buffers() {
 
 void draw_new_frame() {
     switch (menuState) {
-        case START:
-            draw_initial_menu();
+        case RUNNING_CLOCK:
+            draw_time();
             break;
         case CHRONO:
             draw_chrono_menu();
@@ -60,11 +53,12 @@ void draw_new_frame() {
             // draw_timer_menu();
             break;
     }
+    draw_toolbar();
     draw_mouse();
 }
 
-void draw_initial_menu() {
-    draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, RED, drawing_frame_buffer);
+void draw_time() {
+    draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, PRESSED, drawing_frame_buffer);
     display_real_time();
 }
 
@@ -72,17 +66,18 @@ void draw_initial_menu() {
 void draw_chrono_menu() {
     draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, DARKBLUE, drawing_frame_buffer);
     draw_chrono_buttons();
-
+    
     int minutes = chrono_seconds / 60;
     int seconds = chrono_seconds % 60;
 
-    int x = mode_info.XResolution / 2 - 4 * 55;
+    int x = mode_info.XResolution / 2 - 2.5 * dx;
     int y = 100;
 
     draw_sprite_xpm(digit_sprites[minutes / 10], x, y);
-    draw_sprite_xpm(digit_sprites[minutes % 10], x + 55, y);
-    draw_sprite_xpm(digit_sprites[seconds / 10], x + 165, y);
-    draw_sprite_xpm(digit_sprites[seconds % 10], x + 220, y);
+    draw_sprite_xpm(digit_sprites[minutes % 10], x + dx, y);
+    draw_sprite_xpm(colon, x + 2 * dx, y);
+    draw_sprite_xpm(digit_sprites[seconds / 10], x + 3*dx, y);
+    draw_sprite_xpm(digit_sprites[seconds % 10], x + 4*dx, y);
 }
 
 void draw_chrono_buttons() {
@@ -132,10 +127,8 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 }
 
 void display_real_time() {
-    int midX = mode_info.XResolution / 2;
-    int dx = 55;
-    int y_date = 20; // data
-    int y_time = 100; // hora
+    int x = mode_info.XResolution / 2 - 5 * dx;
+    int y = 50;
 
     // ---- DATA ---- (DIA/MÊS/ANO)
     int year = time_info.year;
@@ -169,14 +162,23 @@ void display_real_time() {
         time_info.seconds / 10, time_info.seconds % 10
     };
 
-    draw_sprite_xpm(digit_sprites[digits_time[0]], midX - 3 * dx, y_time);
-    draw_sprite_xpm(digit_sprites[digits_time[1]], midX - 2 * dx, y_time);
-    draw_sprite_xpm(colon, midX - dx, y_time);
-    draw_sprite_xpm(digit_sprites[digits_time[2]], midX, y_time);
-    draw_sprite_xpm(digit_sprites[digits_time[3]], midX + dx, y_time);
-    draw_sprite_xpm(colon, midX + 2 * dx, y_time);
-    draw_sprite_xpm(digit_sprites[digits_time[4]], midX + 3 * dx, y_time);
-    draw_sprite_xpm(digit_sprites[digits_time[5]], midX + 4 * dx, y_time);
+    draw_sprite_xpm(digit_sprites[digits[0]], x +  dx, y);
+    draw_sprite_xpm(digit_sprites[digits[1]], x + 2 * dx, y);
+    draw_sprite_xpm(colon, x + 3 * dx, y);
+    draw_sprite_xpm(digit_sprites[digits[2]],x + 4 * dx, y);
+    draw_sprite_xpm(digit_sprites[digits[3]],x + 5 * dx, y);
+    draw_sprite_xpm(colon, x + 6 * dx, y);
+    draw_sprite_xpm(digit_sprites[digits[4]], x + 7 * dx, y);
+    draw_sprite_xpm(digit_sprites[digits[5]], x + 8 * dx, y);
+}
+
+void draw_toolbar() {
+    int x = mode_info.XResolution / 4;
+    int y = 8 * mode_info.YResolution / 10;
+
+    for (int i = 0; i < 3; i++) {
+        draw_sprite_xpm(toolbar_button_sprites[i], (x + i * x) - 0.5 * dx, y);
+    }
 }
 
 
