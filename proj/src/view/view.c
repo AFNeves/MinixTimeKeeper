@@ -17,6 +17,9 @@ extern Sprite *buttonReset;
 extern Sprite *colon;
 extern Sprite *digit_sprites[10];
 
+// Mouse Information
+extern MouseInfo mouse_info;
+
 // RTC Data Structures
 extern time_struct rtc_time;
 extern date_struct rtc_date;

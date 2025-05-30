@@ -20,6 +20,10 @@ extern int timer_counter;
 // Keyboard Scancode
 extern uint8_t scancode;
 
+// Mouse Information
+extern uint8_t byte_index;
+extern MouseInfo mouse_info;
+
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
     mouse = create_sprite_xpm((xpm_map_t) mouse_xpm);
@@ -94,11 +98,11 @@ void update_keyboard_state() {
 // - muda o seu estado interno (x, y, left_pressed, right_pressed) - mouse_sync_info();
 // - pode mudar o estado do botão por baixo dele - update_buttons_state();
 void update_mouse_state() {
-    (mouse_ih)();
+    mouse_ih();
     mouse_sync();
 
     if (byte_index == 3) {
-        mouse_make_packet();
+        update_mouse_info();
         byte_index = 0;
         if (menuState == CHRONO) {
             update_chrono_buttons();
@@ -108,7 +112,7 @@ void update_mouse_state() {
 }
 
 void update_chrono_buttons() {
-    if (mouse_info.left_click) {
+    if (mouse_info.lb) {
         if (is_mouse_over_button(buttonStart, buttonStart_x, buttonStart_y))
             chronoState = ON;
 
