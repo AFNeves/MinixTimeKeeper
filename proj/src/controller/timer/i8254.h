@@ -3,15 +3,16 @@
 
 /* General Macros */
 
-#define TIMER_IRQ  0       /**< @brief Timer IRQ line */
-#define TIMER_FREQ 1193182 /**< @brief Default Timer frequency */
+#define TIMER_IRQ  0       /**< @brief Timer IRQ Line */
+#define TIMER_MASK BIT(0)  /**< @brief Timer IRQ Mask */
+#define TIMER_FREQ 1193182 /**< @brief Default Timer Frequency */
 
 /* Port Addresses */
 
-#define TIMER_0    0x40 /**< @brief Timer 0 register */
-#define TIMER_1    0x41 /**< @brief Timer 1 register */
-#define TIMER_2    0x42 /**< @brief Timer 2 register */
-#define TIMER_CTRL 0x43 /**< @brief Control register */
+#define TIMER_0    0x40 /**< @brief Timer 0 Register */
+#define TIMER_1    0x41 /**< @brief Timer 1 Register */
+#define TIMER_2    0x42 /**< @brief Timer 2 Register */
+#define TIMER_CTRL 0x43 /**< @brief Control Register */
 
 /* Timer Control */
 

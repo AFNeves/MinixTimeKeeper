@@ -1,9 +1,9 @@
 #include "timer.h"
 
-int timer_hook_id =  0;
+int timer_hook_id = 0;
 int timer_counter = 0;
 
-int (timer_subscribe_interrupts)()
+int (timer_subscribe_int)()
 {
     return sys_irqsetpolicy(TIMER_IRQ, IRQ_REENABLE, &timer_hook_id);
 }

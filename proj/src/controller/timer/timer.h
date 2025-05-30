@@ -1,20 +1,20 @@
 #ifndef _LCOM_TIMER_H_
 #define _LCOM_TIMER_H_
 
-#define TIMER_MASK BIT(0)
-
 #include <lcom/lcf.h>
-#include "../utils.h"
-#include "i8254.h"
 
-extern int timer_counter; 
+#include <stdint.h>
+
+#include "../utils.h"
+
+#include "i8254.h"
 
 /**
  * @brief Subscribes the Timer interrupts
  * 
  * @return Return 0 upon success and non-zero otherwise
  */
-int (timer_subscribe_interrupts)();
+int (timer_subscribe_int)();
 
 /**
  * @brief Unsubscribes the Timer interrupts
