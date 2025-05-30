@@ -8,7 +8,7 @@
 **/*.depend
 **/*.gdbinit
 **/debug/
-**/proj
+
 
 # MACOS specific file
 .DS_Store
