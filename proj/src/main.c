@@ -1,4 +1,5 @@
 #include <lcom/lcf.h>
+
 #include "model/model.h"
 #include "view/view.h"
 
@@ -11,101 +12,101 @@ int (main)(int argc, char *argv[])
     lcf_trace_calls("/home/lcom/labs/proj/src/debug/trace.txt");
 
     lcf_log_output("/home/lcom/labs/proj/src/debug/output.txt");
-    
-    if (lcf_start(argc, argv))
-        return 1;
+
+    if (lcf_start(argc, argv)) return 1;
 
     lcf_cleanup();
 
     return 0;
 }
 
-int setup() {
+int setup()
+{
+    // Setup the Timer frequency
+    if (timer_set_frequency(0, GAME_FREQUENCY) != 0) return 1;
 
-  // Atualização da frequência
-  if (timer_set_frequency(0, GAME_FREQUENCY) != 0) return 1; // Frequencia do timer(60 interrupts por segundo)
+    // Setup the frame buffers
+    if (set_frame_buffers(VIDEO_MODE) != 0) return 1;
 
-  // Inicialização dos buffers de vídeo (double buffering)
-  if (set_frame_buffers(VIDEO_MODE) != 0) return 1;
+    // Set the video mode
+    if (set_graphic_mode(VIDEO_MODE) != 0) return 1;
 
-  // Inicialização do modo gráfico
-  if (set_graphic_mode(VIDEO_MODE) != 0) return 1;
+    // Setup the Sprites
+    setup_sprites();
 
-  // Inicialização dos sprites
-  setup_sprites();
+    // Subscribe to interrupts
+    if (timer_subscribe_ints() != 0) return 1;
+    if (keyboard_subscribe_int() != 0) return 1;
+    if (mouse_subscribe_int() != 0) return 1;
+    if (rtc_subscribe_int() != 0) return 1;
 
-  // Ativação das interrupções dos dispositivos
-  if (timer_subscribe_ints() != 0) return 1;
-  if (keyboard_subscribe_int() != 0) return 1;
-  if (mouse_subscribe_int() != 0) return 1;
-  if (rtc_subscribe_int() != 0) return 1;
+    // Enable Mouse Stream and Data Reporting
+    if (mouse_write_command(MOUSE_DATA_STREAM_MODE) != 0) return 1;
+    if (mouse_write_command(MOUSE_DATA_REPORT_ENABLE) != 0) return 1;
 
-  // Ativar stream-mode e report de dados do rato
-  if (mouse_write_command(MOUSE_DATA_STREAM_MODE) != 0) return 1;
-  if (mouse_write_command(MOUSE_DATA_REPORT_ENABLE) != 0) return 1;
+    // Start the RTC
+    rtc_start();
 
-  // Liga o RTC
-  rtc_start();
-
-  return 0;
+    return 0;
 }
 
-int teardown() {
+int cleanup()
+{
+    // Return to Text Mode
+    if (vg_exit() != 0) return 1;
 
-  // Volta ao modo de texto
-  if (vg_exit() != 0) return 1;
+    // Destroy all Sprites
+    destroy_sprites();
 
-  // Destruição dos sprites
-  destroy_sprites();
+    // Unsubscribe from interrupts
+    if (timer_unsubscribe_int() != 0) return 1;
+    if (keyboard_unsubscribe_int() != 0) return 1;
+    if (mouse_unsubscribe_int() != 0) return 1;
+    if (rtc_unsubscribe_int() != 0) return 1;
 
-  // Desativa todas as interrupções
-  if (timer_unsubscribe_int() != 0) return 1;
-  if (keyboard_unsubscribe_int() != 0) return 1;
-  if (mouse_unsubscribe_int() != 0) return 1;
-  if (rtc_unsubscribe_int() != 0) return 1;
+    // Disable Data Reporting
+    if (mouse_write_command(MOUSE_DATA_REPORT_DISABLE) != 0) return 1;
 
-  // Desliga o RTC
-  rtc_stop();
+    // Stops the RTC
+    rtc_stop();
 
-  // Desativar o report de dados do rato
-  if (mouse_write_command(MOUSE_DATA_REPORT_DISABLE) != 0) return 1;
-
-  return 0;
+    return 0;
 }
 
-int (proj_main_loop)(int argc, char *argv[]) {
+int (proj_main_loop)(int argc, char *argv[])
+{
+    // Minix Initialization
+    if (setup() != 0) return cleanup();
 
-  // Setup do Minix
-  if (setup() != 0) return teardown();
+    // Draw the initial frame
+    draw_new_frame();
 
-  // Desenha a primeira frame
-  draw_new_frame();
+    // Interruption Variables
+    message msg;
+    int ipc_status;
 
-  // Tratamento das interrupções
-  int ipc_status;
-  message msg;
+    while (systemState == RUNNING)
+    {
+        if (driver_receive(ANY, &msg, &ipc_status) != 0) continue;
 
-
-  while (systemState == RUNNING) {
-    
-    if (driver_receive(ANY, &msg, &ipc_status) != 0) {
-      printf("Error");
-      continue;
-    }
-
-    if (is_ipc_notify(ipc_status)) {
-      switch(_ENDPOINT_P(msg.m_source)) {
-        case HARDWARE: 
-          if (msg.m_notify.interrupts & TIMER_MASK)    update_timer_state();
-          if (msg.m_notify.interrupts & KB_MASK)       update_keyboard_state();
-          if (msg.m_notify.interrupts & MOUSE_MASK)    update_mouse_state();
-          if (msg.m_notify.interrupts & RTC_MASK)      rtc_ih();
+        if (is_ipc_notify(ipc_status))
+        {
+            switch(_ENDPOINT_P(msg.m_source))
+            {
+                case HARDWARE: 
+                    if (msg.m_notify.interrupts & TIMER_MASK)    update_timer_state();
+                    if (msg.m_notify.interrupts & KB_MASK)       update_keyboard_state();
+                    if (msg.m_notify.interrupts & MOUSE_MASK)    update_mouse_state();
+                    if (msg.m_notify.interrupts & RTC_MASK)      rtc_ih();
+                    break;
+                default:
+                    break;
+            }
         }
     }
-  }
-  
-  // Tear-down do Minix
-  if (teardown() != 0) return 1;
 
-  return 0;
+    // Minix Cleanup
+    if (cleanup() != 0) return 1;
+
+    return 0;
 }

@@ -11,10 +11,10 @@ PROG=proj
 .PATH: ${.CURDIR}/model/
 .PATH: ${.CURDIR}/view/
 
-# Ficheiros ".c" a compilar. Têm de estar contidos nas pastas indicadas no passo anterior.
-SRCS = 	main.c timer.c utils.c graphic.c KBC.c keyboard.c mouse.c sprite.c model.c view.c rtc.c
+# Source files to be compiled
+SRCS = main.c utils.c timer.c KBC.c keyboard.c mouse.c graphic.c rtc.c model.c sprite.c view.c
 
-# Flags de compilação
+# Compilation flags
 CFLAGS += -pedantic -D_LCOM_OPTIMIZED_ -O2
 
 # Dependências
