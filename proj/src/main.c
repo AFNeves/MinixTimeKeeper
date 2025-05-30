@@ -35,7 +35,7 @@ int setup() {
   setup_sprites();
 
   // Ativação das interrupções dos dispositivos
-  if (timer_subscribe_interrupts() != 0) return 1;
+  if (timer_subscribe_ints() != 0) return 1;
   if (keyboard_subscribe_interrupts() != 0) return 1;
   if (mouse_subscribe_interrupts() != 0) return 1;
   if (rtc_subscribe_int() != 0) return 1;

@@ -14,6 +14,8 @@ Sprite *buttonReset;
 Sprite *colon;
 Sprite *digit_sprites[10];
 
+// Timer Counter
+extern int timer_counter;
 
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
