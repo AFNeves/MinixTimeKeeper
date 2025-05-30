@@ -9,7 +9,7 @@ ChronoState timerState = OFF;
 int chrono_seconds = 0;
 int timer_seconds = 0;
 int timer_input[6] = {0, 0, 0, 0, 0, 0};
-int timer_input_index = 5;
+int timer_input_length = 0;
 
 // Objetos a construir e manipular com a mudança de estados
 Sprite *mouse;
@@ -128,7 +128,6 @@ void update_timer_state() {
 // - o menuState: se S, C, T forem pressionados, leva a um dos menus (start, chrono, timer) disponíveis
 void update_keyboard_state() {
     (kbc_ih)();
-    printf("Scancode: 0x%02X\n", scancode);
 
     switch (scancode) {
         case Q_KEY:
@@ -177,26 +176,29 @@ void update_keyboard_state() {
 
 
 void insert_new_input(uint8_t new_input) {
-    if (timer_input_index > -1) {  // if it's -1, it's full
+    if (timer_input_length < 6) {
+        // Shift existing input to the left
         for (int i = 0; i < 5; i++) {
             timer_input[i] = timer_input[i + 1];
         }
+        // Put the new input at the end
         timer_input[5] = new_input;
-        timer_input_index--;
-        printf("Input %d added to timer input\n", new_input);
+        timer_input_length++;
     }
 }
-
 
 void delete_last_input() {
-    if (timer_input_index < 5) { // if it's 5, it's empty
-        for (int i = 5; i >= 0 ; i--) {
+    if (timer_input_length > 0) {
+        // Shift existing input to the right
+        for (int i = 5; i > 0; i--) {
             timer_input[i] = timer_input[i - 1];
         }
-        timer_input[0] = 0; 
-        timer_input_index++;
+        // Clear the first spot
+        timer_input[0] = 0;
+        timer_input_length--;
     }
 }
+
 
 
 // Sempre que há um novo pacote completo do rato

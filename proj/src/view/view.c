@@ -89,8 +89,9 @@ void draw_timer_menu() {
     draw_chrono_buttons();
 
     if (timerState == OFF) {
-        if (timer_input_index < 6) draw_timer_input();
+        if (timer_input_length > 0) draw_timer_input();
         else draw_blocks();
+
     }   
     
 
@@ -116,9 +117,13 @@ void draw_timer_input() {
     int x = vbe_info.XResolution / 2 - 4 * dx;
     int y = 50;
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8 ; i++) {
+        int j = i;
+        if (i > 2) j = i - 1;
+        if (i > 5) j = i - 2;
+        
         if (i == 2 || i == 5)  draw_sprite_xpm(colon, x + i * dx, y);
-        else  draw_sprite_xpm(digits[timer_input[i]], x + i * dx, y);
+        else  draw_sprite_xpm(digits[timer_input[j - 1]], x + i * dx, y);
     }
 
 }   
