@@ -2,6 +2,7 @@
 #define _LCOM_UTILS_H_
 
 #include <lcom/lcf.h>
+
 #include <stdint.h>
 
 #ifndef BIT
@@ -9,6 +10,11 @@
 #endif
 
 /* ---------- Data Structures ---------- */
+
+typedef struct {
+    int16_t x, y;
+    uint8_t lb, rb;
+} MouseInfo;
 
 /**
  * @brief Data structure that holds the time data.
