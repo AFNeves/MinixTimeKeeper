@@ -35,17 +35,19 @@
 #include "xpm/thu.xpm"
 #include "xpm/fri.xpm"
 #include "xpm/sat.xpm"
+#include "xpm/start.xpm"
+#include "xpm/pause.xpm"
+#include "xpm/reset.xpm"
+
 
 extern Sprite *mouse;
-extern Sprite *buttonStart;
-extern Sprite *buttonPause;
-extern Sprite *buttonReset;
 extern Sprite *colon;
-extern Sprite *digits[10];
-extern Sprite *toolbar_button_sprites[3];
 extern Sprite *slash;
 extern Sprite *days_of_week[7];
 
+extern Sprite *digits[10];
+extern Sprite *toolbar_buttons[3];
+extern Sprite *chrono_buttons[3];
 
 typedef enum {
     RUNNING,

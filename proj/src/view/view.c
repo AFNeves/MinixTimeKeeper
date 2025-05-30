@@ -9,11 +9,7 @@ uint32_t frame_buffer_size;
 extern MenuState menuState;
 extern int chrono_seconds;
 
-int buttonStart_x = 100, buttonStart_y = 400;
-int buttonPause_x = 400, buttonPause_y = 400;
-int buttonReset_x = 700, buttonReset_y = 400;
 
-int dx = 55;
 
 static const uint8_t font8x8_basic[128][8] = {
   ['A'] = {0x18,0x24,0x42,0x7E,0x42,0x42,0x42,0x00},
@@ -70,25 +66,26 @@ void draw_chrono_menu() {
     int minutes = chrono_seconds / 60;
     int seconds = chrono_seconds % 60;
 
+    int dx = 55;
     int x = mode_info.XResolution / 2 - 2.5 * dx;
     int y = 100;
 
     draw_sprite_xpm(digits[minutes / 10], x, y);
     draw_sprite_xpm(digits[minutes % 10], x + dx, y);
+    draw_sprite_xpm(digits[minutes / 10], x, y);
+    draw_sprite_xpm(digits[minutes % 10], x + dx, y);
     draw_sprite_xpm(colon, x + 2 * dx, y);
+    draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
+    draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
     draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
     draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
 }
 
 void draw_chrono_buttons() {
-    draw_sprite_button(buttonStart, buttonStart_x, buttonStart_y);
-    draw_text("START", buttonStart_x + 10, buttonStart_y + 10, WHITE);
+    for (int i = 0; i < 3; i++) {
+        draw_sprite_xpm(chrono_buttons[i], chrono_buttons[i]->x, chrono_buttons[i]->y);
+    }
 
-    draw_sprite_button(buttonPause, buttonPause_x, buttonPause_y);
-    draw_text("PAUSE", buttonPause_x + 10, buttonPause_y + 10, WHITE);
-
-    draw_sprite_button(buttonReset, buttonReset_x, buttonReset_y);
-    draw_text("RESET", buttonReset_x + 10, buttonReset_y + 10, WHITE);
 }
 
 
@@ -127,12 +124,12 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 }
 
 void display_real_time() {
+    
+    int dx = 55;
+    int x = mode_info.XResolution / 2 - 5 * dx;
+    int y = 50;
     int midX = mode_info.XResolution / 2;
-    int y_date = 100;
-    int y_time = y_date + 80;
-    int y_day  = y_time + 80;
-
-    int x = midX - 5 * dx;
+    int y_date = y + 75;
 
     // ---- DATA ---- (DIA/MÊS/ANO)
     int year = time_info.year;
@@ -184,13 +181,11 @@ void display_real_time() {
 
 
 void draw_toolbar() {
-    int x = mode_info.XResolution / 4;
-    int y = 8 * mode_info.YResolution / 10;
-
     for (int i = 0; i < 3; i++) {
-        draw_sprite_xpm(toolbar_button_sprites[i], (x + i * x) - 0.5 * dx, y);
+        draw_sprite_xpm(toolbar_buttons[i], toolbar_buttons[i]->x, toolbar_buttons[i]->y);
     }
 }
+
 
 
 void draw_text(const char *text, int x, int y, uint32_t color) {

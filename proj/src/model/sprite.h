@@ -4,9 +4,9 @@
 #include "controller/video/graphic.h"
 
 typedef struct {
-    uint16_t x, y, height, width;
+    uint16_t height, width;
     uint32_t *colors;
-    uint32_t color;
+    uint32_t color, x, y;
     bool pressed;
 } Sprite; 
 

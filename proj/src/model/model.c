@@ -9,14 +9,14 @@ int chrono_seconds = 0;
 
 // Objetos a construir e manipular com a mudança de estados
 Sprite *mouse;
-Sprite *buttonStart;
-Sprite *buttonPause;
-Sprite *buttonReset;
 Sprite *colon;
-Sprite *digits[10];
 Sprite *slash;
 Sprite *toolbar_button_sprites[3];
 Sprite *days_of_week[7];
+Sprite *digits[10];
+Sprite *toolbar_buttons[3];
+Sprite *chrono_buttons[3];
+
 
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
@@ -35,9 +35,9 @@ void setup_sprites() {
     digits[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
     slash = create_sprite_xpm((xpm_map_t) slash_xpm);
 
-    buttonStart = create_sprite_button(60, 30, GREEN);
-    buttonPause = create_sprite_button(60, 30, YELLOW);
-    buttonReset = create_sprite_button(60, 30, RED);
+    toolbar_buttons[0] = create_sprite_xpm((xpm_map_t) clock_xpm);
+    toolbar_buttons[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
+    toolbar_buttons[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
 
     toolbar_button_sprites[0] = create_sprite_xpm((xpm_map_t) clock_xpm);
     toolbar_button_sprites[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
@@ -51,14 +51,31 @@ void setup_sprites() {
     days_of_week[5] = create_sprite_xpm((xpm_map_t) sat_xpm);
     days_of_week[6] = create_sprite_xpm((xpm_map_t) sun_xpm);
 
+    int toolbar_dx = 55;
+    int toolbarX = mode_info.XResolution / 4;
+    int toolbarY = 4 * mode_info.YResolution / 5;
+    for (int i = 0; i < 3; i++) {
+        toolbar_buttons[i]->x = (toolbarX + i * toolbarX) - 0.5 * toolbar_dx;
+        toolbar_buttons[i]->y = toolbarY;
+    }
+
+    chrono_buttons[0] = create_sprite_xpm((xpm_map_t) start_xpm);
+    chrono_buttons[1] = create_sprite_xpm((xpm_map_t) pause_xpm);
+    chrono_buttons[2] = create_sprite_xpm((xpm_map_t) reset_xpm);
+
+    int chrono_x = mode_info.XResolution / 5;
+    int chrono_y = mode_info.YResolution / 2;
+    int chrono_dx = 100;
+
+    for (int i = 0; i < 3; i++) {
+        chrono_buttons[i]->x = (chrono_x +  2* i * chrono_x) - chrono_dx;
+        chrono_buttons[i]->y = chrono_y;
+    }
 }
 
 // É boa prática antes de acabar o programa libertar a memória alocada
 void destroy_sprites() {
     destroy_sprite(mouse);
-    destroy_sprite(buttonStart);
-    destroy_sprite(buttonPause);
-    destroy_sprite(buttonReset);
     destroy_sprite(slash);
     destroy_sprite(colon);
 
@@ -66,7 +83,7 @@ void destroy_sprites() {
         destroy_sprite(digits[i]);
     
     for (int i = 0; i < 3; i++)
-        destroy_sprite(toolbar_button_sprites[i]);
+        destroy_sprite(toolbar_buttons[i]);
 
     for (int i = 0; i < 7; i++)
         destroy_sprite(days_of_week[i]);
@@ -142,13 +159,13 @@ void update_mouse_state() {
 
 void update_chrono_buttons() {
     if (mouse_info.left_click) {
-        if (is_mouse_over_button(buttonStart, buttonStart_x, buttonStart_y))
+        if (is_mouse_over_button(chrono_buttons[0],chrono_buttons[0]->x, chrono_buttons[0]->y))
             chronoState = ON;
 
-        else if (is_mouse_over_button(buttonPause, buttonPause_x, buttonPause_y))
+        else if (is_mouse_over_button(chrono_buttons[1], chrono_buttons[1]->x, chrono_buttons[1]->y))
             chronoState = OFF; 
 
-        else if (is_mouse_over_button(buttonReset, buttonReset_x, buttonReset_y)) {
+        else if (is_mouse_over_button(chrono_buttons[2], chrono_buttons[2]->x, chrono_buttons[2]->y)) {
             chronoState = OFF;
             chrono_seconds = 0;
         }
@@ -157,11 +174,11 @@ void update_chrono_buttons() {
 
 void update_toolbar_buttons() {
     if (mouse_info.left_click) {
-        if (is_mouse_over_button(toolbar_button_sprites[0], mode_info.XResolution / 4 - 0.5 * dx, 8 * mode_info.YResolution / 10)) {
+        if (is_mouse_over_button(toolbar_buttons[0], toolbar_buttons[0]->x, toolbar_buttons[0]->y)) {
             menuState = RUNNING_CLOCK;
-        } else if (is_mouse_over_button(toolbar_button_sprites[1], 2 * mode_info.XResolution / 4 - 0.5 * dx, 8 * mode_info.YResolution / 10)) {
+        } else if (is_mouse_over_button(toolbar_buttons[1], toolbar_buttons[0]->x, toolbar_buttons[0]->y)) {
             menuState = CHRONO;
-        } else if (is_mouse_over_button(toolbar_button_sprites[2], 3 * mode_info.XResolution / 4 - 0.5 * dx, 8 * mode_info.YResolution / 10)) {
+        } else if (is_mouse_over_button(toolbar_buttons[2], toolbar_buttons[0]->x, toolbar_buttons[0]->y)) {
             menuState = TIMER;
         }
     }
