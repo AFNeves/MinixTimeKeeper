@@ -38,7 +38,6 @@ int setup() {
   if (timer_subscribe_interrupts() != 0) return 1;
   if (keyboard_subscribe_interrupts() != 0) return 1;
   if (mouse_subscribe_interrupts() != 0) return 1;
-  if (rtc_subscribe_interrupts() != 0) return 1;
 
   // Ativar stream-mode e report de dados do rato
   if (mouse_write_command(MOUSE_DATA_STREAM_MODE) != 0) return 1;
@@ -62,7 +61,6 @@ int teardown() {
   if (timer_unsubscribe_int() != 0) return 1;
   if (keyboard_unsubscribe_int() != 0) return 1;
   if (mouse_unsubscribe_int() != 0) return 1;
-  if (rtc_unsubscribe_int() != 0) return 1;
 
   // Desativar o report de dados do rato
   if (mouse_write_command(MOUSE_DATA_REPORT_DISABLE) != 0) return 1;
@@ -96,7 +94,6 @@ int (proj_main_loop)(int argc, char *argv[]) {
           if (msg.m_notify.interrupts & TIMER_MASK)    update_timer_state();
           if (msg.m_notify.interrupts & KEYBOARD_MASK) update_keyboard_state();
           if (msg.m_notify.interrupts & MOUSE_MASK)    update_mouse_state();
-          if (msg.m_notify.interrupts & RTC_MASK)      update_rtc_state();
         }
     }
   }

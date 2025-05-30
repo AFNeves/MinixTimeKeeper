@@ -54,7 +54,7 @@ void update_timer_state() {
         if (chronoState == ON) {
             chrono_seconds++;
         }
-        draw_new_frame();
+        update_rtc_state();
     }
 
     if (DOUBLE_BUFFER) swap_buffers();
@@ -63,11 +63,8 @@ void update_timer_state() {
 // Como o Real Time Clock é um módulo mais pesado, 
 // devemos só atualizar os valores quando passa um segundo
 void update_rtc_state() {
-    printf("%d", timer_counter);
-    if (timer_counter % GAME_FREQUENCY == 0) {
-        rtc_ih();
-        draw_new_frame();
-    }
+    rtc_update();
+    draw_new_frame();
 }
 
 // Sempre que uma nova tecla é pressionada há avaliação do scancode.

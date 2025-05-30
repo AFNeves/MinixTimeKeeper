@@ -1,6 +1,6 @@
 #include "rtc.h"
 
-int rtc_hook_id = 4;
+int rtc_hook_id = 3;
 uint8_t rtc_mode;
 uint8_t rtc_time_format;
 uint8_t rtc_int_cause;
