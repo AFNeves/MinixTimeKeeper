@@ -1,7 +1,7 @@
-# Nome do binário. Tem de ser "proj".
+# Project Name
 PROG=proj
 
-# Indicar as pastas de todos os ficheiros a compilar.
+# Source directories
 .PATH: ${.CURDIR}/controller/
 .PATH: ${.CURDIR}/controller/keyboard
 .PATH: ${.CURDIR}/controller/mouse
