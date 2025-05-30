@@ -2,6 +2,7 @@
 #define _LCOM_UTILS_H_
 
 #include <lcom/lcf.h>
+
 #include <stdint.h>
 
 #ifndef BIT
@@ -9,6 +10,14 @@
 #endif
 
 /* ---------- Data Structures ---------- */
+
+/**
+ * @brief Data structure that holds the information about the mouse.
+ */
+typedef struct {
+    int16_t x, y;   /**< @brief Mouse X and Y Coordinates */
+    uint8_t lb, rb; /**< @brief Mouse Left and Right Button States */
+} MouseInfo;
 
 /**
  * @brief Data structure that holds the time data.
@@ -25,7 +34,7 @@ typedef struct {
 typedef struct {
     uint8_t day;       /**< @brief Day */
     uint8_t month;     /**< @brief Month */
-    uint16_t year;      /**< @brief Year */
+    uint16_t year;     /**< @brief Year */
     uint8_t dayNumber; /**< @brief Day of the Week */
 } date_struct;
 

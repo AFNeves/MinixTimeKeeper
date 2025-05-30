@@ -1,17 +1,13 @@
 #include "mouse.h"
-#include "../video/graphic.h"
-#include "KBC.h"
-#include "i8042.h"
 
 int mouse_hook_id = 2;
 uint8_t byte_index = 0;
 uint8_t mouse_byte;
 uint8_t mouse_data[3];
-struct packet mouse_packet;
-extern vbe_mode_info_t mode_info;
 MouseInfo mouse_info;
+extern vbe_mode_info_t vbe_info;
 
-int (mouse_subscribe_interrupts)()
+int (mouse_subscribe_int)()
 {
     return sys_irqsetpolicy(MOUSE_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &mouse_hook_id);
 }
@@ -36,36 +32,21 @@ void (mouse_sync)()
     }
 }
 
-void (mouse_make_packet)()
+void (update_mouse_info)()
 {
-    // Mouse Packet Bytes
-    mouse_packet.bytes[0] = mouse_data[0];
-    mouse_packet.bytes[1] = mouse_data[1];
-    mouse_packet.bytes[2] = mouse_data[2];
     // Mouse Buttons
-    mouse_packet.lb = mouse_data[0] & MOUSE_LB;
-    mouse_packet.mb = mouse_data[0] & MOUSE_MB;
-	mouse_packet.rb = mouse_data[0] & MOUSE_RB;
-    // Mouse Overflow
-    mouse_packet.x_ov = mouse_data[0] & MOUSE_OVERFLOW_X;
-    mouse_packet.y_ov = mouse_data[0] & MOUSE_OVERFLOW_Y;
-	// Mouse Position Delta
-    mouse_packet.delta_x = (mouse_data[0] & MOUSE_SIGNAL_X) ?
-												 (mouse_data[1] | 0xFF00) : mouse_data[1];
-	mouse_packet.delta_y = (mouse_data[0] & MOUSE_SIGNAL_Y) ?
-												 (mouse_data[2] | 0xFF00) : mouse_data[2];
+    mouse_info.lb = mouse_data[0] & MOUSE_LB;
+    mouse_info.rb = mouse_data[0] & MOUSE_RB;
 
-    mouse_info.x += mouse_packet.delta_x;
-    mouse_info.y -= mouse_packet.delta_y;
+    // Mouse Position
+    mouse_info.x += (mouse_data[0] & MOUSE_SIGNAL_X) ? (mouse_data[1] | 0xFF00) : mouse_data[1];
+    mouse_info.y -= (mouse_data[0] & MOUSE_SIGNAL_Y) ? (mouse_data[2] | 0xFF00) : mouse_data[2];
 
+    // Normalize Mouse Position
     if (mouse_info.x < 0) mouse_info.x = 0;
     if (mouse_info.y < 0) mouse_info.y = 0;
-    if (mouse_info.x > mode_info.XResolution - 1) mouse_info.x = mode_info.XResolution - 1;
-    if (mouse_info.y > mode_info.YResolution - 1) mouse_info.y = mode_info.YResolution - 1;
-
-    // Atualizar cliques
-    mouse_info.left_click = mouse_packet.lb;
-    mouse_info.right_click = mouse_packet.rb;
+    if (mouse_info.x > vbe_info.XResolution - 1) mouse_info.x = vbe_info.XResolution - 1;
+    if (mouse_info.y > vbe_info.YResolution - 1) mouse_info.y = vbe_info.YResolution - 1;
 }
 
 int (mouse_write_command)(uint8_t command)

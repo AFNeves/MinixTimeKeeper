@@ -7,9 +7,8 @@ uint8_t rtc_int_cause;
 uint8_t rtc_original_config;
 time_struct rtc_time;
 date_struct rtc_date;
-real_time_info time_info;
 
-int (rtc_subscribe_interrupts)()
+int (rtc_subscribe_int)()
 {
     return sys_irqsetpolicy(RTC_IRQ, IRQ_REENABLE, &rtc_hook_id);
 }
@@ -35,7 +34,7 @@ int (rtc_start)()
     uint8_t output;
     if (rtc_read(RTC_REG_B, &output)) return 1;
 
-    rtc_mode = (output & RTC_DM) ? 1 : 0;
+    rtc_mode = output & RTC_DM;
     rtc_time_format = output & RTC_24HR;
 
     rtc_original_config = output; // Save original config
@@ -78,27 +77,15 @@ int (rtc_update)()
             rtc_date.month = rtc_mode ? output : bcd_to_bin(output);
 
             if (rtc_read(RTC_YEAR, &output)) return 1;
-            rtc_date.year = bcd_to_bin(output);
+            rtc_date.year = rtc_mode ? output : bcd_to_bin(output);
 
-            // Corrige o ano para 4 dígitos
-            if (rtc_date.year < 50)
-                rtc_date.year += 2000;
-            else
-                rtc_date.year += 1900;
-            
             if (rtc_read(RTC_DAY_OF_WEEK, &output)) return 1;
             rtc_date.dayNumber = rtc_mode ? output : bcd_to_bin(output);
 
+            rtc_date.year += (rtc_date.year < 50) ? 2000 : 1900;
+
             if (!rtc_time_format) convert_to_24h();
 
-            time_info.seconds  = rtc_time.seconds;
-            time_info.minutes  = rtc_time.minutes;
-            time_info.hours    = rtc_time.hours;
-            time_info.day      = rtc_date.day;
-            time_info.month    = rtc_date.month;
-            time_info.year     = rtc_date.year;
-            time_info.dayNumber = rtc_date.dayNumber;
-            
             return 0;
         }
 
