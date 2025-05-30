@@ -3,7 +3,7 @@
 int timer_hook_id = 0;
 int timer_counter = 0;
 
-int (timer_subscribe_int)()
+int (timer_subscribe_ints)()
 {
     return sys_irqsetpolicy(TIMER_IRQ, IRQ_REENABLE, &timer_hook_id);
 }

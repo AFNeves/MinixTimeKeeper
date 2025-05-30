@@ -60,7 +60,7 @@
  *
  * @return Return 0 upon success and non-zero otherwise
  */
-int (timer_subscribe_int)();
+int (timer_subscribe_ints)();
 
 /**
  * @brief Unsubscribes the Timer interrupts
