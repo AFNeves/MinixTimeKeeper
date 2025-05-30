@@ -2,21 +2,16 @@
 #define _LCOM_RTC_H_
 
 #include <lcom/lcf.h>
+
 #include <stdint.h>
+
 #include "../utils.h"
-
-typedef struct {
-    uint8_t hours, minutes, seconds, dayNumber;
-    uint8_t day, month, year;
-} real_time_info;
-
-extern real_time_info time_info;
 
 /* ---------- Macros ---------- */
 
 /* General Macros */
 
-#define RTC_IRQ 8 /**< @brief RTC IRQ line */
+#define RTC_IRQ  8      /**< @brief RTC IRQ Line */
 #define RTC_MASK BIT(3) /**< @brief RTC Interrupt Mask */
 
 #define RTC_DELAY        1000 /**< @brief Standard Delay value */
@@ -68,10 +63,10 @@ extern real_time_info time_info;
 
 /**
  * @brief Subscribes the RTC's interrupts
- * 
+ *
  * @return Return 0 upon success and non-zero otherwise
  */
-int (rtc_subscribe_interrupts)();
+int (rtc_subscribe_int)();
 
 /**
  * @brief Unsubscribes the RTC's interrupts
