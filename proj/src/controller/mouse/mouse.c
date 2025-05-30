@@ -23,12 +23,7 @@ int (mouse_unsubscribe_int)()
 
 void (mouse_ih)()
 {
-    uint8_t status;
-    util_sys_inb(KBC_STATUS_REG, &status);
-
-    if((status & FULL_OUT_BUF) && (status & MOUSE_DATA_BIT)){
-        read_KBC_output(&mouse_byte, 1);
-    }
+    read_KBC_output(&mouse_byte, 1);
 }
 
 void (mouse_sync)()

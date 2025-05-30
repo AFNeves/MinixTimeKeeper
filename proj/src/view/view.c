@@ -6,20 +6,7 @@ uint8_t *secondary_frame_buffer;
 uint8_t *drawing_frame_buffer;
 uint32_t frame_buffer_size;
 
-extern MenuState menuState;
-extern int chrono_seconds;
 
-
-
-static const uint8_t font8x8_basic[128][8] = {
-  ['A'] = {0x18,0x24,0x42,0x7E,0x42,0x42,0x42,0x00},
-  ['E'] = {0x7E,0x40,0x40,0x7C,0x40,0x40,0x7E,0x00},
-  ['P'] = {0x7C,0x42,0x42,0x7C,0x40,0x40,0x40,0x00},
-  ['R'] = {0x7C,0x42,0x42,0x7C,0x48,0x44,0x42,0x00},
-  ['S'] = {0x3C,0x40,0x40,0x3C,0x02,0x02,0x7C,0x00},
-  ['T'] = {0x7E,0x18,0x18,0x18,0x18,0x18,0x18,0x00},
-  ['U'] = {0x42,0x42,0x42,0x42,0x42,0x42,0x3C,0x00},
-};
 
 int set_frame_buffers(uint16_t mode) {
     if (set_frame_buffer(mode, &main_frame_buffer)) return 1;
@@ -46,7 +33,7 @@ void draw_new_frame() {
             draw_chrono_menu();
             break;
         case TIMER:
-            // draw_timer_menu();
+            draw_timer_menu();
             break;
     }
     draw_toolbar();
@@ -70,16 +57,15 @@ void draw_chrono_menu() {
     int x = mode_info.XResolution / 2 - 2.5 * dx;
     int y = 100;
 
-    draw_sprite_xpm(digits[minutes / 10], x, y);
-    draw_sprite_xpm(digits[minutes % 10], x + dx, y);
+
     draw_sprite_xpm(digits[minutes / 10], x, y);
     draw_sprite_xpm(digits[minutes % 10], x + dx, y);
     draw_sprite_xpm(colon, x + 2 * dx, y);
     draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
     draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
-    draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
-    draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
 }
+
+
 
 void draw_chrono_buttons() {
     for (int i = 0; i < 3; i++) {
@@ -89,9 +75,124 @@ void draw_chrono_buttons() {
 }
 
 
+
+void draw_timer_menu() {
+    draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, ORANGE, drawing_frame_buffer);
+    draw_chrono_buttons();
+
+    if (timerState == OFF) {
+        draw_blocks();
+        if (timer_input_index < 5) draw_timer_input();
+        
+    } //else {
+    
+        //int minutes = timer_seconds / 60;
+        //int seconds = timer_seconds % 60;
+
+        //int dx = 55;
+        //int x = mode_info.XResolution / 2 - 4 * dx;
+        //int y = 100;
+    //}
+}
+
+
+
+
+void draw_blocks() {
+    int dx = 55;
+    int x = mode_info.XResolution / 2 - 4 * dx;
+    int y = 50;
+
+    for (int i = 0; i < 8; i++) {
+        if (i == 2 || i == 5)  draw_sprite_xpm(colon, x + i * dx, y);
+        else  draw_sprite_button(block, x + i * dx, y);
+    }
+}
+
+
+void draw_timer_input() {
+    int dx = 55;
+    int x = mode_info.XResolution / 2 - 4 * dx;
+    int y = 50;
+
+    for (int i = 0; i < 8; i++) {
+        if (i == 2 || i == 5)  draw_sprite_xpm(colon, x + i * dx, y);
+        else  draw_sprite_xpm(digits[timer_input[i]], x + i * dx, y);
+    }
+
+}   
+
+
+
+
 void draw_mouse() {
     draw_sprite_xpm(mouse, mouse_info.x, mouse_info.y);
 }
+
+
+
+
+void display_real_time() {
+    
+    int dx = 55;
+    int x = mode_info.XResolution / 2 - 4 * dx;
+    int y = 50;
+    int midX = mode_info.XResolution / 2;
+    int y_date = y + 75;
+    
+    // ---- DATA ---- (DIA/MÊS/ANO)
+    int year = time_info.year;
+    int digits_date[8] = {
+        time_info.day / 10, time_info.day % 10,
+        time_info.month / 10, time_info.month % 10,
+        (year / 1000) % 10, (year / 100) % 10, (year / 10) % 10, year % 10
+    };
+    
+    
+    // desenhar dia
+    draw_sprite_xpm(digits[digits_date[0]], midX - 6 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[1]], midX - 5 * dx, y_date);
+    draw_sprite_xpm(slash, midX - 4 * dx, y_date);
+    
+    // desenhar mês
+    draw_sprite_xpm(digits[digits_date[2]], midX - 3 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[3]], midX - 2 * dx, y_date);
+    draw_sprite_xpm(slash, midX - dx, y_date);
+    
+    // desenhar ano completo (YYYY)
+    draw_sprite_xpm(digits[digits_date[4]], midX, y_date);
+    draw_sprite_xpm(digits[digits_date[5]], midX + dx, y_date);
+    draw_sprite_xpm(digits[digits_date[6]], midX + 2 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[7]], midX + 3 * dx, y_date);
+    
+    // ---- HORA ---- (HH:MM:SS)
+    int digits_time[6] = {
+        time_info.hours / 10, time_info.hours % 10,
+        time_info.minutes / 10, time_info.minutes % 10,
+        time_info.seconds / 10, time_info.seconds % 10
+    };
+    
+    draw_sprite_xpm(digits[digits_time[0]], x , y);
+    draw_sprite_xpm(digits[digits_time[1]], x +  dx, y);
+    draw_sprite_xpm(colon, x + 2 * dx, y);
+    draw_sprite_xpm(digits[digits_time[2]],x + 3 * dx, y);
+    draw_sprite_xpm(digits[digits_time[3]],x + 4 * dx, y);
+    draw_sprite_xpm(colon, x + 5 * dx, y);
+    draw_sprite_xpm(digits[digits_time[4]], x + 6 * dx, y);
+    draw_sprite_xpm(digits[digits_time[5]], x + 7 * dx, y);
+}
+
+
+
+
+void draw_toolbar() {
+    for (int i = 0; i < 3; i++) {
+        draw_sprite_xpm(toolbar_buttons[i], toolbar_buttons[i]->x, toolbar_buttons[i]->y);
+    }
+}
+
+
+
 
 int draw_sprite_xpm(Sprite *sprite, int x, int y) {
     if(sprite == NULL){
@@ -111,6 +212,9 @@ int draw_sprite_xpm(Sprite *sprite, int x, int y) {
     return 0;
 }
 
+
+
+
 int draw_sprite_button(Sprite *sprite, int x, int y) {
     uint16_t height = sprite->height;
     uint16_t width = sprite->width;
@@ -121,80 +225,4 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
       }
     }
     return 0;
-}
-
-void display_real_time() {
-    
-    int dx = 55;
-    int x = mode_info.XResolution / 2 - 5 * dx;
-    int y = 50;
-    int midX = mode_info.XResolution / 2;
-    int y_date = y + 75;
-
-    // ---- DATA ---- (DIA/MÊS/ANO)
-    int year = time_info.year;
-    int digits_date[8] = {
-        time_info.day / 10, time_info.day % 10,
-        time_info.month / 10, time_info.month % 10,
-        (year / 1000) % 10, (year / 100) % 10, (year / 10) % 10, year % 10
-    };
-
-
-    // desenhar dia
-    draw_sprite_xpm(digits[digits_date[0]], midX - 6 * dx, y_date);
-    draw_sprite_xpm(digits[digits_date[1]], midX - 5 * dx, y_date);
-    draw_sprite_xpm(slash, midX - 4 * dx, y_date);
-
-    // desenhar mês
-    draw_sprite_xpm(digits[digits_date[2]], midX - 3 * dx, y_date);
-    draw_sprite_xpm(digits[digits_date[3]], midX - 2 * dx, y_date);
-    draw_sprite_xpm(slash, midX - dx, y_date);
-
-    // desenhar ano completo (YYYY)
-    draw_sprite_xpm(digits[digits_date[4]], midX, y_date);
-    draw_sprite_xpm(digits[digits_date[5]], midX + dx, y_date);
-    draw_sprite_xpm(digits[digits_date[6]], midX + 2 * dx, y_date);
-    draw_sprite_xpm(digits[digits_date[7]], midX + 3 * dx, y_date);
-
-    // ---- HORA ---- (HH:MM:SS)
-    int digits_time[6] = {
-        time_info.hours / 10, time_info.hours % 10,
-        time_info.minutes / 10, time_info.minutes % 10,
-        time_info.seconds / 10, time_info.seconds % 10
-    };
-
-    draw_sprite_xpm(digits[digits_time[0]], x +  dx, y);
-    draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y);
-    draw_sprite_xpm(digits[digits_time[0]], x +  dx, y);
-    draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y);
-    draw_sprite_xpm(colon, x + 3 * dx, y);
-    draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y);
-    draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y);
-    draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y);
-    draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y);
-    draw_sprite_xpm(colon, x + 6 * dx, y);
-    draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y);
-    draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y);
-    draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y);
-    draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y);
-}
-
-void draw_toolbar() {
-    for (int i = 0; i < 3; i++) {
-        draw_sprite_xpm(toolbar_buttons[i], toolbar_buttons[i]->x, toolbar_buttons[i]->y);
-    }
-}
-
-
-
-void draw_text(const char *text, int x, int y, uint32_t color) {
-    for (int i = 0; text[i] != '\0'; i++) {
-        for (int dy = 0; dy < 8; dy++) {
-            for (int dx = 0; dx < 6; dx++) {
-                if ((font8x8_basic[(unsigned char)text[i]][dy] >> dx) & 1) {
-                    draw_pixel(x + i * 8 + dx, y + dy, color, drawing_frame_buffer);
-                }
-            }
-        }
-    }
 }
