@@ -1,0 +1,9 @@
+<map id="bcd_to_bin" name="bcd_to_bin">
+<area shape="rect" id="node1" title="Converts a BCD number to binary." alt="" coords="577,56,663,83"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#acb1eb50cf24b1160c8bd0ef35882cbc6" title="Updates the RTC&#39;s data structures." alt="" coords="447,56,529,83"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#a0b9ae809cf571f61e54712a23c65348e" title="RTC Interrupt Handler." alt="" coords="163,5,217,32"/>
+<area shape="rect" id="node5" href="$rtc_8c.html#a33cc7a29b9fec623ccc69bfffcdea8ed" title="Starts the RTC." alt="" coords="297,56,367,83"/>
+<area shape="rect" id="node7" href="$model_8c.html#a2e7983abedd3fae94a24b4775a97210f" title=" " alt="" coords="265,107,399,133"/>
+<area shape="rect" id="node4" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,56,115,83"/>
+<area shape="rect" id="node6" href="$main_8c.html#a099d48038e444c2f3e69904477527798" title=" " alt="" coords="163,56,217,83"/>
+</map>

@@ -1,0 +1,378 @@
+\hypertarget{rtc_8c}{}\doxysection{/home/neves/reps/\+LCOM/shared/proj/src/controller/rtc/rtc.c File Reference}
+\label{rtc_8c}\index{/home/neves/reps/LCOM/shared/proj/src/controller/rtc/rtc.c@{/home/neves/reps/LCOM/shared/proj/src/controller/rtc/rtc.c}}
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{rtc_8c_a7f383813134493bf424f952da8f3f196}{rtc\+\_\+subscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Subscribes the RTC\textquotesingle{}s interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8c_a9d4850bb2a488644672d43287f160622}{rtc\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes the RTC\textquotesingle{}s interrupts. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{rtc_8c_a0b9ae809cf571f61e54712a23c65348e}{rtc\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em RTC Interrupt Handler. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8c_a33cc7a29b9fec623ccc69bfffcdea8ed}{rtc\+\_\+start}} ()
+\begin{DoxyCompactList}\small\item\em Starts the RTC. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8c_a966f4118c6b9a3af163048f6a754d703}{rtc\+\_\+stop}} ()
+\begin{DoxyCompactList}\small\item\em Stops the RTC. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8c_acb1eb50cf24b1160c8bd0ef35882cbc6}{rtc\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Updates the RTC\textquotesingle{}s data structures. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8c_a45c0aad3f329944c25b4552236e773ea}{rtc\+\_\+set\+\_\+alarm}} (\mbox{\hyperlink{structtime__struct}{time\+\_\+struct}} alarm\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Sets the RTC\textquotesingle{}s alarm. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8c_a139a4b66fab389f13b1d27f49b28a8d6}{rtc\+\_\+disable\+\_\+alarm}} ()
+\begin{DoxyCompactList}\small\item\em Disables the RTC\textquotesingle{}s alarm. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8c_aa05f63a90e87f4df35611289739876fa}{rtc\+\_\+read}} (uint8\+\_\+t port, uint8\+\_\+t $\ast$output)
+\begin{DoxyCompactList}\small\item\em Reads a RTC register. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8c_acc17643bf3781c3442b8b7555d3f7e4c}{rtc\+\_\+write}} (uint8\+\_\+t port, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Writes to a RTC register. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{rtc_8c_ad7b616dc7fec7d48a4eb577d971d44c2}{bcd\+\_\+to\+\_\+bin}} (uint8\+\_\+t bcd)
+\begin{DoxyCompactList}\small\item\em Converts a BCD number to binary. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{rtc_8c_a46ea16a06054ae769df1742907290242}{bin\+\_\+to\+\_\+bcd}} (uint8\+\_\+t bin)
+\begin{DoxyCompactList}\small\item\em Converts a binary number to BCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{rtc_8c_af0a82bcb25c7a23c1e08333084c771f0}{convert\+\_\+to\+\_\+24h}} ()
+\begin{DoxyCompactList}\small\item\em Converts the RTC\textquotesingle{}s time data to 24h format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rtc_8c_a6c52a1d32571a429369253ce7c3a3d7a}{rtc\+\_\+hook\+\_\+id}} = 3
+\item 
+uint8\+\_\+t \mbox{\hyperlink{rtc_8c_a6502416e03b5be5c1b6e21836811978d}{rtc\+\_\+mode}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{rtc_8c_aba4487bd8c0908eea1f65c690a1a824e}{rtc\+\_\+time\+\_\+format}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{rtc_8c_a20f9b7984a4258127b47ed07facc7ff3}{rtc\+\_\+int\+\_\+cause}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{rtc_8c_ad9c148f1d535cf298a3489e4fca5eaec}{rtc\+\_\+original\+\_\+config}}
+\item 
+\mbox{\hyperlink{structtime__struct}{time\+\_\+struct}} \mbox{\hyperlink{rtc_8c_a83584b4bcf9fc72ecf17c5d20309825b}{rtc\+\_\+time}}
+\item 
+\mbox{\hyperlink{structdate__struct}{date\+\_\+struct}} \mbox{\hyperlink{rtc_8c_a253dcdf218cd3d461ec40cbc0064a2c5}{rtc\+\_\+date}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rtc_8c_ad7b616dc7fec7d48a4eb577d971d44c2}\label{rtc_8c_ad7b616dc7fec7d48a4eb577d971d44c2}} 
+\index{rtc.c@{rtc.c}!bcd\_to\_bin@{bcd\_to\_bin}}
+\index{bcd\_to\_bin@{bcd\_to\_bin}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{bcd\_to\_bin()}{bcd\_to\_bin()}}
+{\footnotesize\ttfamily uint8\+\_\+t bcd\+\_\+to\+\_\+bin (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bcd }\end{DoxyParamCaption})}
+
+
+
+Converts a BCD number to binary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bcd} & BCD number to convert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Converted binary number 
+\end{DoxyReturn}
+
+
+Definition at line 167 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a46ea16a06054ae769df1742907290242}\label{rtc_8c_a46ea16a06054ae769df1742907290242}} 
+\index{rtc.c@{rtc.c}!bin\_to\_bcd@{bin\_to\_bcd}}
+\index{bin\_to\_bcd@{bin\_to\_bcd}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{bin\_to\_bcd()}{bin\_to\_bcd()}}
+{\footnotesize\ttfamily uint8\+\_\+t bin\+\_\+to\+\_\+bcd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bin }\end{DoxyParamCaption})}
+
+
+
+Converts a binary number to BCD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & Binary number to convert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Converted BCD number 
+\end{DoxyReturn}
+
+
+Definition at line 172 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_af0a82bcb25c7a23c1e08333084c771f0}\label{rtc_8c_af0a82bcb25c7a23c1e08333084c771f0}} 
+\index{rtc.c@{rtc.c}!convert\_to\_24h@{convert\_to\_24h}}
+\index{convert\_to\_24h@{convert\_to\_24h}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{convert\_to\_24h()}{convert\_to\_24h()}}
+{\footnotesize\ttfamily void convert\+\_\+to\+\_\+24h (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Converts the RTC\textquotesingle{}s time data to 24h format. 
+
+
+
+Definition at line 177 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a139a4b66fab389f13b1d27f49b28a8d6}\label{rtc_8c_a139a4b66fab389f13b1d27f49b28a8d6}} 
+\index{rtc.c@{rtc.c}!rtc\_disable\_alarm@{rtc\_disable\_alarm}}
+\index{rtc\_disable\_alarm@{rtc\_disable\_alarm}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_disable\_alarm()}{rtc\_disable\_alarm()}}
+{\footnotesize\ttfamily int() rtc\+\_\+disable\+\_\+alarm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disables the RTC\textquotesingle{}s alarm. 
+
+Disables the RTC\textquotesingle{}s alarm interrupt
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a0b9ae809cf571f61e54712a23c65348e}\label{rtc_8c_a0b9ae809cf571f61e54712a23c65348e}} 
+\index{rtc.c@{rtc.c}!rtc\_ih@{rtc\_ih}}
+\index{rtc\_ih@{rtc\_ih}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_ih()}{rtc\_ih()}}
+{\footnotesize\ttfamily void() rtc\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+RTC Interrupt Handler. 
+
+Reads the RTC\textquotesingle{}s C Register and performs the necessary actions given the interrupt cause 
+
+Definition at line 21 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_aa05f63a90e87f4df35611289739876fa}\label{rtc_8c_aa05f63a90e87f4df35611289739876fa}} 
+\index{rtc.c@{rtc.c}!rtc\_read@{rtc\_read}}
+\index{rtc\_read@{rtc\_read}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_read()}{rtc\_read()}}
+{\footnotesize\ttfamily int() rtc\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+Reads a RTC register. 
+
+Reads a given RTC register and stores the output in the given pointer
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Address to be read from \\
+\hline
+{\em output} & Pointer to store the output\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 149 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a45c0aad3f329944c25b4552236e773ea}\label{rtc_8c_a45c0aad3f329944c25b4552236e773ea}} 
+\index{rtc.c@{rtc.c}!rtc\_set\_alarm@{rtc\_set\_alarm}}
+\index{rtc\_set\_alarm@{rtc\_set\_alarm}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_set\_alarm()}{rtc\_set\_alarm()}}
+{\footnotesize\ttfamily int() rtc\+\_\+set\+\_\+alarm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtime__struct}{time\+\_\+struct}}}]{alarm\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Sets the RTC\textquotesingle{}s alarm. 
+
+Enables the RTC\textquotesingle{}s alarm interrupt and sets the alarm time
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a33cc7a29b9fec623ccc69bfffcdea8ed}\label{rtc_8c_a33cc7a29b9fec623ccc69bfffcdea8ed}} 
+\index{rtc.c@{rtc.c}!rtc\_start@{rtc\_start}}
+\index{rtc\_start@{rtc\_start}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_start()}{rtc\_start()}}
+{\footnotesize\ttfamily int() rtc\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starts the RTC. 
+
+Reads the RTC\textquotesingle{}s modes and sets the RTC\textquotesingle{}s data structures
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a966f4118c6b9a3af163048f6a754d703}\label{rtc_8c_a966f4118c6b9a3af163048f6a754d703}} 
+\index{rtc.c@{rtc.c}!rtc\_stop@{rtc\_stop}}
+\index{rtc\_stop@{rtc\_stop}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_stop()}{rtc\_stop()}}
+{\footnotesize\ttfamily int() rtc\+\_\+stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops the RTC. 
+
+Restores the RTC\textquotesingle{}s original configuration
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a7f383813134493bf424f952da8f3f196}\label{rtc_8c_a7f383813134493bf424f952da8f3f196}} 
+\index{rtc.c@{rtc.c}!rtc\_subscribe\_int@{rtc\_subscribe\_int}}
+\index{rtc\_subscribe\_int@{rtc\_subscribe\_int}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_subscribe\_int()}{rtc\_subscribe\_int()}}
+{\footnotesize\ttfamily int() rtc\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Subscribes the RTC\textquotesingle{}s interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 11 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a9d4850bb2a488644672d43287f160622}\label{rtc_8c_a9d4850bb2a488644672d43287f160622}} 
+\index{rtc.c@{rtc.c}!rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}}
+\index{rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_unsubscribe\_int()}{rtc\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() rtc\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes the RTC\textquotesingle{}s interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_acb1eb50cf24b1160c8bd0ef35882cbc6}\label{rtc_8c_acb1eb50cf24b1160c8bd0ef35882cbc6}} 
+\index{rtc.c@{rtc.c}!rtc\_update@{rtc\_update}}
+\index{rtc\_update@{rtc\_update}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_update()}{rtc\_update()}}
+{\footnotesize\ttfamily int() rtc\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the RTC\textquotesingle{}s data structures. 
+
+Reads the RTC\textquotesingle{}s date and time and updates the RTC structures
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_acc17643bf3781c3442b8b7555d3f7e4c}\label{rtc_8c_acc17643bf3781c3442b8b7555d3f7e4c}} 
+\index{rtc.c@{rtc.c}!rtc\_write@{rtc\_write}}
+\index{rtc\_write@{rtc\_write}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_write()}{rtc\_write()}}
+{\footnotesize\ttfamily int() rtc\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Writes to a RTC register. 
+
+Writes a byte to a given RTC register
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Address to be written to \\
+\hline
+{\em value} & Value to be written\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file rtc.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{rtc_8c_a253dcdf218cd3d461ec40cbc0064a2c5}\label{rtc_8c_a253dcdf218cd3d461ec40cbc0064a2c5}} 
+\index{rtc.c@{rtc.c}!rtc\_date@{rtc\_date}}
+\index{rtc\_date@{rtc\_date}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_date}{rtc\_date}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structdate__struct}{date\+\_\+struct}} rtc\+\_\+date}
+
+
+
+Definition at line 9 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a6c52a1d32571a429369253ce7c3a3d7a}\label{rtc_8c_a6c52a1d32571a429369253ce7c3a3d7a}} 
+\index{rtc.c@{rtc.c}!rtc\_hook\_id@{rtc\_hook\_id}}
+\index{rtc\_hook\_id@{rtc\_hook\_id}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_hook\_id}{rtc\_hook\_id}}
+{\footnotesize\ttfamily int rtc\+\_\+hook\+\_\+id = 3}
+
+
+
+Definition at line 3 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a20f9b7984a4258127b47ed07facc7ff3}\label{rtc_8c_a20f9b7984a4258127b47ed07facc7ff3}} 
+\index{rtc.c@{rtc.c}!rtc\_int\_cause@{rtc\_int\_cause}}
+\index{rtc\_int\_cause@{rtc\_int\_cause}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_int\_cause}{rtc\_int\_cause}}
+{\footnotesize\ttfamily uint8\+\_\+t rtc\+\_\+int\+\_\+cause}
+
+
+
+Definition at line 6 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a6502416e03b5be5c1b6e21836811978d}\label{rtc_8c_a6502416e03b5be5c1b6e21836811978d}} 
+\index{rtc.c@{rtc.c}!rtc\_mode@{rtc\_mode}}
+\index{rtc\_mode@{rtc\_mode}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_mode}{rtc\_mode}}
+{\footnotesize\ttfamily uint8\+\_\+t rtc\+\_\+mode}
+
+
+
+Definition at line 4 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_ad9c148f1d535cf298a3489e4fca5eaec}\label{rtc_8c_ad9c148f1d535cf298a3489e4fca5eaec}} 
+\index{rtc.c@{rtc.c}!rtc\_original\_config@{rtc\_original\_config}}
+\index{rtc\_original\_config@{rtc\_original\_config}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_original\_config}{rtc\_original\_config}}
+{\footnotesize\ttfamily uint8\+\_\+t rtc\+\_\+original\+\_\+config}
+
+
+
+Definition at line 7 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_a83584b4bcf9fc72ecf17c5d20309825b}\label{rtc_8c_a83584b4bcf9fc72ecf17c5d20309825b}} 
+\index{rtc.c@{rtc.c}!rtc\_time@{rtc\_time}}
+\index{rtc\_time@{rtc\_time}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_time}{rtc\_time}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtime__struct}{time\+\_\+struct}} rtc\+\_\+time}
+
+
+
+Definition at line 8 of file rtc.\+c.
+
+\mbox{\Hypertarget{rtc_8c_aba4487bd8c0908eea1f65c690a1a824e}\label{rtc_8c_aba4487bd8c0908eea1f65c690a1a824e}} 
+\index{rtc.c@{rtc.c}!rtc\_time\_format@{rtc\_time\_format}}
+\index{rtc\_time\_format@{rtc\_time\_format}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_time\_format}{rtc\_time\_format}}
+{\footnotesize\ttfamily uint8\+\_\+t rtc\+\_\+time\+\_\+format}
+
+
+
+Definition at line 5 of file rtc.\+c.
+

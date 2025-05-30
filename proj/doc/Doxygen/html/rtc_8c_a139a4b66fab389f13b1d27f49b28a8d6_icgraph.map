@@ -1,0 +1,5 @@
+<map id="rtc_disable_alarm" name="rtc_disable_alarm">
+<area shape="rect" id="node1" title="Disables the RTC&#39;s alarm." alt="" coords="265,5,389,32"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#a0b9ae809cf571f61e54712a23c65348e" title="RTC Interrupt Handler." alt="" coords="163,5,217,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

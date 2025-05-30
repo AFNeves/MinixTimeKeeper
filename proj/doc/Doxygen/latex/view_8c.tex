@@ -1,0 +1,279 @@
+\hypertarget{view_8c}{}\doxysection{/home/neves/reps/\+LCOM/shared/proj/src/view/view.c File Reference}
+\label{view_8c}\index{/home/neves/reps/LCOM/shared/proj/src/view/view.c@{/home/neves/reps/LCOM/shared/proj/src/view/view.c}}
+{\ttfamily \#include \char`\"{}view.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{view_8c_a3ad9f04212e7602618a0dd7ad4afbd4e}{set\+\_\+frame\+\_\+buffers}} (uint16\+\_\+t mode)
+\item 
+void \mbox{\hyperlink{view_8c_a0d157d997329169f936545f9985e334b}{swap\+\_\+buffers}} ()
+\item 
+void \mbox{\hyperlink{view_8c_a8fe6fe827e29e6b0cb98cda00dc38355}{draw\+\_\+new\+\_\+frame}} ()
+\item 
+void \mbox{\hyperlink{view_8c_a4f3d01370e91e93f6b4fe1f9d8201e9f}{draw\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{view_8c_ae8af2748ebe21f0f3b88222e8b2e01e4}{draw\+\_\+chrono\+\_\+menu}} ()
+\item 
+void \mbox{\hyperlink{view_8c_ab2228f2ccfcd83918d3ba2db2075b3da}{draw\+\_\+chrono\+\_\+buttons}} ()
+\item 
+void \mbox{\hyperlink{view_8c_a51eb7b324ebbbd5826cd3ea58cc78b93}{draw\+\_\+timer\+\_\+menu}} ()
+\item 
+void \mbox{\hyperlink{view_8c_aaf8d2823d69671157906d7886a1e7a88}{draw\+\_\+blocks}} ()
+\item 
+void \mbox{\hyperlink{view_8c_a4d706a974ca5b3414d1335d482649851}{draw\+\_\+timer\+\_\+input}} ()
+\item 
+void \mbox{\hyperlink{view_8c_a42f4903ab89aff9e3ee0206c52cf710a}{draw\+\_\+mouse}} ()
+\item 
+void \mbox{\hyperlink{view_8c_a39ad944a9c99eecebef79b21fc740a51}{display\+\_\+real\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{view_8c_a35fdaef5ab3741f883fd8ed9dcac5c71}{draw\+\_\+toolbar}} ()
+\item 
+int \mbox{\hyperlink{view_8c_a6db4230a0003a09515d78b790d8ec52d}{draw\+\_\+sprite\+\_\+xpm}} (\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$sprite, int x, int y)
+\item 
+int \mbox{\hyperlink{view_8c_a22b96eaa3619b65051c90472dcd7c815}{draw\+\_\+sprite\+\_\+button}} (\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$sprite, int x, int y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{view_8c_a9c4d5f857a98e5753d9a1b65a5b237e8}{main\+\_\+frame\+\_\+buffer}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{view_8c_aa0b878733cd01083e20d9c85310285b7}{secondary\+\_\+frame\+\_\+buffer}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{view_8c_a5d7d41c450228146c9c902c582f0c289}{drawing\+\_\+frame\+\_\+buffer}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{view_8c_a0edf3f8c28b403daaa9927c7e883696a}{frame\+\_\+buffer\+\_\+size}}
+\item 
+\mbox{\hyperlink{struct_mouse_info}{Mouse\+Info}} \mbox{\hyperlink{view_8c_a343e4f854a0c3e5001228e209c5f025e}{mouse\+\_\+info}}
+\item 
+vbe\+\_\+mode\+\_\+info\+\_\+t \mbox{\hyperlink{view_8c_a3f79b04e621cae90f2c5ad2786ee153f}{vbe\+\_\+info}}
+\item 
+\mbox{\hyperlink{structtime__struct}{time\+\_\+struct}} \mbox{\hyperlink{view_8c_a83584b4bcf9fc72ecf17c5d20309825b}{rtc\+\_\+time}}
+\item 
+\mbox{\hyperlink{structdate__struct}{date\+\_\+struct}} \mbox{\hyperlink{view_8c_a253dcdf218cd3d461ec40cbc0064a2c5}{rtc\+\_\+date}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{view_8c_a39ad944a9c99eecebef79b21fc740a51}\label{view_8c_a39ad944a9c99eecebef79b21fc740a51}} 
+\index{view.c@{view.c}!display\_real\_time@{display\_real\_time}}
+\index{display\_real\_time@{display\_real\_time}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{display\_real\_time()}{display\_real\_time()}}
+{\footnotesize\ttfamily void display\+\_\+real\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 143 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_aaf8d2823d69671157906d7886a1e7a88}\label{view_8c_aaf8d2823d69671157906d7886a1e7a88}} 
+\index{view.c@{view.c}!draw\_blocks@{draw\_blocks}}
+\index{draw\_blocks@{draw\_blocks}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_blocks()}{draw\_blocks()}}
+{\footnotesize\ttfamily void draw\+\_\+blocks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 109 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_ab2228f2ccfcd83918d3ba2db2075b3da}\label{view_8c_ab2228f2ccfcd83918d3ba2db2075b3da}} 
+\index{view.c@{view.c}!draw\_chrono\_buttons@{draw\_chrono\_buttons}}
+\index{draw\_chrono\_buttons@{draw\_chrono\_buttons}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_chrono\_buttons()}{draw\_chrono\_buttons()}}
+{\footnotesize\ttfamily void draw\+\_\+chrono\+\_\+buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_ae8af2748ebe21f0f3b88222e8b2e01e4}\label{view_8c_ae8af2748ebe21f0f3b88222e8b2e01e4}} 
+\index{view.c@{view.c}!draw\_chrono\_menu@{draw\_chrono\_menu}}
+\index{draw\_chrono\_menu@{draw\_chrono\_menu}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_chrono\_menu()}{draw\_chrono\_menu()}}
+{\footnotesize\ttfamily void draw\+\_\+chrono\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a42f4903ab89aff9e3ee0206c52cf710a}\label{view_8c_a42f4903ab89aff9e3ee0206c52cf710a}} 
+\index{view.c@{view.c}!draw\_mouse@{draw\_mouse}}
+\index{draw\_mouse@{draw\_mouse}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_mouse()}{draw\_mouse()}}
+{\footnotesize\ttfamily void draw\+\_\+mouse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 136 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a8fe6fe827e29e6b0cb98cda00dc38355}\label{view_8c_a8fe6fe827e29e6b0cb98cda00dc38355}} 
+\index{view.c@{view.c}!draw\_new\_frame@{draw\_new\_frame}}
+\index{draw\_new\_frame@{draw\_new\_frame}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_new\_frame()}{draw\_new\_frame()}}
+{\footnotesize\ttfamily void draw\+\_\+new\+\_\+frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 35 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a22b96eaa3619b65051c90472dcd7c815}\label{view_8c_a22b96eaa3619b65051c90472dcd7c815}} 
+\index{view.c@{view.c}!draw\_sprite\_button@{draw\_sprite\_button}}
+\index{draw\_sprite\_button@{draw\_sprite\_button}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_sprite\_button()}{draw\_sprite\_button()}}
+{\footnotesize\ttfamily int draw\+\_\+sprite\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$}]{sprite,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 226 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a6db4230a0003a09515d78b790d8ec52d}\label{view_8c_a6db4230a0003a09515d78b790d8ec52d}} 
+\index{view.c@{view.c}!draw\_sprite\_xpm@{draw\_sprite\_xpm}}
+\index{draw\_sprite\_xpm@{draw\_sprite\_xpm}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_sprite\_xpm()}{draw\_sprite\_xpm()}}
+{\footnotesize\ttfamily int draw\+\_\+sprite\+\_\+xpm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$}]{sprite,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 205 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a4f3d01370e91e93f6b4fe1f9d8201e9f}\label{view_8c_a4f3d01370e91e93f6b4fe1f9d8201e9f}} 
+\index{view.c@{view.c}!draw\_time@{draw\_time}}
+\index{draw\_time@{draw\_time}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_time()}{draw\_time()}}
+{\footnotesize\ttfamily void draw\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a4d706a974ca5b3414d1335d482649851}\label{view_8c_a4d706a974ca5b3414d1335d482649851}} 
+\index{view.c@{view.c}!draw\_timer\_input@{draw\_timer\_input}}
+\index{draw\_timer\_input@{draw\_timer\_input}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_timer\_input()}{draw\_timer\_input()}}
+{\footnotesize\ttfamily void draw\+\_\+timer\+\_\+input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 121 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a51eb7b324ebbbd5826cd3ea58cc78b93}\label{view_8c_a51eb7b324ebbbd5826cd3ea58cc78b93}} 
+\index{view.c@{view.c}!draw\_timer\_menu@{draw\_timer\_menu}}
+\index{draw\_timer\_menu@{draw\_timer\_menu}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_timer\_menu()}{draw\_timer\_menu()}}
+{\footnotesize\ttfamily void draw\+\_\+timer\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a35fdaef5ab3741f883fd8ed9dcac5c71}\label{view_8c_a35fdaef5ab3741f883fd8ed9dcac5c71}} 
+\index{view.c@{view.c}!draw\_toolbar@{draw\_toolbar}}
+\index{draw\_toolbar@{draw\_toolbar}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_toolbar()}{draw\_toolbar()}}
+{\footnotesize\ttfamily void draw\+\_\+toolbar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 196 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a3ad9f04212e7602618a0dd7ad4afbd4e}\label{view_8c_a3ad9f04212e7602618a0dd7ad4afbd4e}} 
+\index{view.c@{view.c}!set\_frame\_buffers@{set\_frame\_buffers}}
+\index{set\_frame\_buffers@{set\_frame\_buffers}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{set\_frame\_buffers()}{set\_frame\_buffers()}}
+{\footnotesize\ttfamily int set\+\_\+frame\+\_\+buffers (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a0d157d997329169f936545f9985e334b}\label{view_8c_a0d157d997329169f936545f9985e334b}} 
+\index{view.c@{view.c}!swap\_buffers@{swap\_buffers}}
+\index{swap\_buffers@{swap\_buffers}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{swap\_buffers()}{swap\_buffers()}}
+{\footnotesize\ttfamily void swap\+\_\+buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file view.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{view_8c_a5d7d41c450228146c9c902c582f0c289}\label{view_8c_a5d7d41c450228146c9c902c582f0c289}} 
+\index{view.c@{view.c}!drawing\_frame\_buffer@{drawing\_frame\_buffer}}
+\index{drawing\_frame\_buffer@{drawing\_frame\_buffer}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{drawing\_frame\_buffer}{drawing\_frame\_buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ drawing\+\_\+frame\+\_\+buffer}
+
+
+
+Definition at line 6 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a0edf3f8c28b403daaa9927c7e883696a}\label{view_8c_a0edf3f8c28b403daaa9927c7e883696a}} 
+\index{view.c@{view.c}!frame\_buffer\_size@{frame\_buffer\_size}}
+\index{frame\_buffer\_size@{frame\_buffer\_size}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{frame\_buffer\_size}{frame\_buffer\_size}}
+{\footnotesize\ttfamily uint32\+\_\+t frame\+\_\+buffer\+\_\+size}
+
+
+
+Definition at line 7 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a9c4d5f857a98e5753d9a1b65a5b237e8}\label{view_8c_a9c4d5f857a98e5753d9a1b65a5b237e8}} 
+\index{view.c@{view.c}!main\_frame\_buffer@{main\_frame\_buffer}}
+\index{main\_frame\_buffer@{main\_frame\_buffer}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{main\_frame\_buffer}{main\_frame\_buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ main\+\_\+frame\+\_\+buffer}
+
+
+
+Definition at line 4 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a343e4f854a0c3e5001228e209c5f025e}\label{view_8c_a343e4f854a0c3e5001228e209c5f025e}} 
+\index{view.c@{view.c}!mouse\_info@{mouse\_info}}
+\index{mouse\_info@{mouse\_info}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_info}{mouse\_info}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_mouse_info}{Mouse\+Info}} mouse\+\_\+info\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 7 of file mouse.\+c.
+
+\mbox{\Hypertarget{view_8c_a253dcdf218cd3d461ec40cbc0064a2c5}\label{view_8c_a253dcdf218cd3d461ec40cbc0064a2c5}} 
+\index{view.c@{view.c}!rtc\_date@{rtc\_date}}
+\index{rtc\_date@{rtc\_date}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_date}{rtc\_date}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structdate__struct}{date\+\_\+struct}} rtc\+\_\+date\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 9 of file rtc.\+c.
+
+\mbox{\Hypertarget{view_8c_a83584b4bcf9fc72ecf17c5d20309825b}\label{view_8c_a83584b4bcf9fc72ecf17c5d20309825b}} 
+\index{view.c@{view.c}!rtc\_time@{rtc\_time}}
+\index{rtc\_time@{rtc\_time}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_time}{rtc\_time}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtime__struct}{time\+\_\+struct}} rtc\+\_\+time\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 8 of file rtc.\+c.
+
+\mbox{\Hypertarget{view_8c_aa0b878733cd01083e20d9c85310285b7}\label{view_8c_aa0b878733cd01083e20d9c85310285b7}} 
+\index{view.c@{view.c}!secondary\_frame\_buffer@{secondary\_frame\_buffer}}
+\index{secondary\_frame\_buffer@{secondary\_frame\_buffer}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{secondary\_frame\_buffer}{secondary\_frame\_buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ secondary\+\_\+frame\+\_\+buffer}
+
+
+
+Definition at line 5 of file view.\+c.
+
+\mbox{\Hypertarget{view_8c_a3f79b04e621cae90f2c5ad2786ee153f}\label{view_8c_a3f79b04e621cae90f2c5ad2786ee153f}} 
+\index{view.c@{view.c}!vbe\_info@{vbe\_info}}
+\index{vbe\_info@{vbe\_info}!view.c@{view.c}}
+\doxysubsubsection{\texorpdfstring{vbe\_info}{vbe\_info}}
+{\footnotesize\ttfamily vbe\+\_\+mode\+\_\+info\+\_\+t vbe\+\_\+info\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 3 of file graphic.\+c.
+

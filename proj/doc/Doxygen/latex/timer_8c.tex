@@ -1,0 +1,145 @@
+\hypertarget{timer_8c}{}\doxysection{/home/neves/reps/\+LCOM/shared/proj/src/controller/timer/timer.c File Reference}
+\label{timer_8c}\index{/home/neves/reps/LCOM/shared/proj/src/controller/timer/timer.c@{/home/neves/reps/LCOM/shared/proj/src/controller/timer/timer.c}}
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{timer_8c_ab4e83d60b7a7cf5f89712347087289ec}{timer\+\_\+subscribe\+\_\+ints}} ()
+\begin{DoxyCompactList}\small\item\em Subscribes the Timer interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{timer_8c_afabd21de449be154dd65d5fdb2d8045d}{timer\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes the Timer interrupts. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{timer_8c_a949875f081b370ebe2f78d0238d0e476}{timer\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em Timer Interrupt Handler. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{timer_8c_a703c60b40c8c49607d6ecb6fef82d27a}{timer\+\_\+get\+\_\+conf}} (uint8\+\_\+t timer, uint8\+\_\+t $\ast$st)
+\begin{DoxyCompactList}\small\item\em Gets the configuration of the timer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{timer_8c_af2c04fa8e97ffa748fd3f612886a92a7}{timer\+\_\+set\+\_\+frequency}} (uint8\+\_\+t timer, uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Sets the frequency of the timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{timer_8c_a96e6321e488d93a8134897510c435eb7}{timer\+\_\+hook\+\_\+id}} = 0
+\item 
+int \mbox{\hyperlink{timer_8c_a0f08eb193e0aedb134a1481913b6a823}{timer\+\_\+counter}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{timer_8c_a703c60b40c8c49607d6ecb6fef82d27a}\label{timer_8c_a703c60b40c8c49607d6ecb6fef82d27a}} 
+\index{timer.c@{timer.c}!timer\_get\_conf@{timer\_get\_conf}}
+\index{timer\_get\_conf@{timer\_get\_conf}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_get\_conf()}{timer\_get\_conf()}}
+{\footnotesize\ttfamily int() timer\+\_\+get\+\_\+conf (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer,  }\item[{uint8\+\_\+t $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+Gets the configuration of the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The timer number (0, 1, or 2) \\
+\hline
+{\em st} & Pointer to store the configuration\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8c_a949875f081b370ebe2f78d0238d0e476}\label{timer_8c_a949875f081b370ebe2f78d0238d0e476}} 
+\index{timer.c@{timer.c}!timer\_ih@{timer\_ih}}
+\index{timer\_ih@{timer\_ih}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_ih()}{timer\_ih()}}
+{\footnotesize\ttfamily void() timer\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Timer Interrupt Handler. 
+
+Increments the timer\+\_\+counter variable 
+
+Definition at line 16 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8c_af2c04fa8e97ffa748fd3f612886a92a7}\label{timer_8c_af2c04fa8e97ffa748fd3f612886a92a7}} 
+\index{timer.c@{timer.c}!timer\_set\_frequency@{timer\_set\_frequency}}
+\index{timer\_set\_frequency@{timer\_set\_frequency}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_set\_frequency()}{timer\_set\_frequency()}}
+{\footnotesize\ttfamily int() timer\+\_\+set\+\_\+frequency (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer,  }\item[{uint32\+\_\+t}]{freq }\end{DoxyParamCaption})}
+
+
+
+Sets the frequency of the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The timer number (0, 1, or 2) \\
+\hline
+{\em freq} & The frequency to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8c_ab4e83d60b7a7cf5f89712347087289ec}\label{timer_8c_ab4e83d60b7a7cf5f89712347087289ec}} 
+\index{timer.c@{timer.c}!timer\_subscribe\_ints@{timer\_subscribe\_ints}}
+\index{timer\_subscribe\_ints@{timer\_subscribe\_ints}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_subscribe\_ints()}{timer\_subscribe\_ints()}}
+{\footnotesize\ttfamily int() timer\+\_\+subscribe\+\_\+ints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Subscribes the Timer interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 6 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8c_afabd21de449be154dd65d5fdb2d8045d}\label{timer_8c_afabd21de449be154dd65d5fdb2d8045d}} 
+\index{timer.c@{timer.c}!timer\_unsubscribe\_int@{timer\_unsubscribe\_int}}
+\index{timer\_unsubscribe\_int@{timer\_unsubscribe\_int}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_unsubscribe\_int()}{timer\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() timer\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes the Timer interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 11 of file timer.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{timer_8c_a0f08eb193e0aedb134a1481913b6a823}\label{timer_8c_a0f08eb193e0aedb134a1481913b6a823}} 
+\index{timer.c@{timer.c}!timer\_counter@{timer\_counter}}
+\index{timer\_counter@{timer\_counter}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_counter}{timer\_counter}}
+{\footnotesize\ttfamily int timer\+\_\+counter = 0}
+
+
+
+Definition at line 4 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8c_a96e6321e488d93a8134897510c435eb7}\label{timer_8c_a96e6321e488d93a8134897510c435eb7}} 
+\index{timer.c@{timer.c}!timer\_hook\_id@{timer\_hook\_id}}
+\index{timer\_hook\_id@{timer\_hook\_id}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_hook\_id}{timer\_hook\_id}}
+{\footnotesize\ttfamily int timer\+\_\+hook\+\_\+id = 0}
+
+
+
+Definition at line 3 of file timer.\+c.
+

@@ -1,0 +1,8 @@
+<map id="draw_chrono_menu" name="draw_chrono_menu">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,140,83"/>
+<area shape="rect" id="node2" href="$view_8c.html#ab2228f2ccfcd83918d3ba2db2075b3da" title=" " alt="" coords="188,5,335,32"/>
+<area shape="rect" id="node3" href="$view_8c.html#a6db4230a0003a09515d78b790d8ec52d" title=" " alt="" coords="383,56,504,83"/>
+<area shape="rect" id="node5" href="$graphic_8c.html#a2701840f175c88c778bcb38c9b599bfe" title="Draws a rectangle on a buffer." alt="" coords="206,107,317,133"/>
+<area shape="rect" id="node4" href="$graphic_8c.html#aac0e6c0ef6d9620a1998ef2ceae31389" title="Draws a pixel on a buffer." alt="" coords="552,81,636,108"/>
+<area shape="rect" id="node6" href="$graphic_8c.html#ab994218125e850a14cba707afec522eb" title="Draws a line of pixels on a buffer." alt="" coords="405,107,482,133"/>
+</map>

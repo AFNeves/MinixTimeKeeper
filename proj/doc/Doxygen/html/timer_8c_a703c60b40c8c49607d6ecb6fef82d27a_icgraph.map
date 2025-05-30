@@ -1,0 +1,6 @@
+<map id="timer_get_conf" name="timer_get_conf">
+<area shape="rect" id="node1" title="Gets the configuration of the timer." alt="" coords="453,5,561,32"/>
+<area shape="rect" id="node2" href="$timer_8c.html#af2c04fa8e97ffa748fd3f612886a92a7" title="Sets the frequency of the timer." alt="" coords="265,5,405,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a099d48038e444c2f3e69904477527798" title=" " alt="" coords="163,5,217,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="rtc_start" name="rtc_start">
+<area shape="rect" id="node1" title="Starts the RTC." alt="" coords="5,56,76,83"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#aa05f63a90e87f4df35611289739876fa" title="Reads a RTC register." alt="" coords="275,5,345,32"/>
+<area shape="rect" id="node4" href="$rtc_8c.html#acb1eb50cf24b1160c8bd0ef35882cbc6" title="Updates the RTC&#39;s data structures." alt="" coords="124,56,207,83"/>
+<area shape="rect" id="node7" href="$rtc_8c.html#acc17643bf3781c3442b8b7555d3f7e4c" title="Writes to a RTC register." alt="" coords="129,107,201,133"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a specified port and converts it to an 8&#45;bit value." alt="" coords="413,5,504,32"/>
+<area shape="rect" id="node5" href="$rtc_8c.html#ad7b616dc7fec7d48a4eb577d971d44c2" title="Converts a BCD number to binary." alt="" coords="267,56,353,83"/>
+<area shape="rect" id="node6" href="$rtc_8c.html#af0a82bcb25c7a23c1e08333084c771f0" title="Converts the RTC&#39;s time data to 24h format." alt="" coords="255,107,365,133"/>
+</map>

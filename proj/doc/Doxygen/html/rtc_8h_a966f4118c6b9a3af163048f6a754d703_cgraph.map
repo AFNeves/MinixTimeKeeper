@@ -1,0 +1,4 @@
+<map id="rtc_stop" name="rtc_stop">
+<area shape="rect" id="node1" title="Stops the RTC." alt="" coords="5,5,75,32"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#acc17643bf3781c3442b8b7555d3f7e4c" title="Writes to a RTC register." alt="" coords="123,5,195,32"/>
+</map>

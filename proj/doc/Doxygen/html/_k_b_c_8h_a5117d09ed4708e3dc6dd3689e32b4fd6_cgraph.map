@@ -1,0 +1,4 @@
+<map id="read_KBC_output" name="read_KBC_output">
+<area shape="rect" id="node1" title="Reads the KBC output buffer." alt="" coords="5,5,131,32"/>
+<area shape="rect" id="node2" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a specified port and converts it to an 8&#45;bit value." alt="" coords="179,5,269,32"/>
+</map>

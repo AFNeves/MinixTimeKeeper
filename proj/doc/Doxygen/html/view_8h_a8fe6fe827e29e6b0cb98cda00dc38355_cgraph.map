@@ -1,0 +1,17 @@
+<map id="draw_new_frame" name="draw_new_frame">
+<area shape="rect" id="node1" title=" " alt="" coords="5,176,127,203"/>
+<area shape="rect" id="node2" href="$view_8c.html#ae8af2748ebe21f0f3b88222e8b2e01e4" title=" " alt="" coords="175,113,309,140"/>
+<area shape="rect" id="node8" href="$view_8c.html#a42f4903ab89aff9e3ee0206c52cf710a" title=" " alt="" coords="194,252,290,279"/>
+<area shape="rect" id="node9" href="$view_8c.html#a4f3d01370e91e93f6b4fe1f9d8201e9f" title=" " alt="" coords="201,56,283,83"/>
+<area shape="rect" id="node11" href="$view_8c.html#a51eb7b324ebbbd5826cd3ea58cc78b93" title=" " alt="" coords="179,176,305,203"/>
+<area shape="rect" id="node15" href="$view_8c.html#a35fdaef5ab3741f883fd8ed9dcac5c71" title=" " alt="" coords="194,353,290,380"/>
+<area shape="rect" id="node3" href="$view_8c.html#ab2228f2ccfcd83918d3ba2db2075b3da" title=" " alt="" coords="357,157,504,184"/>
+<area shape="rect" id="node4" href="$view_8c.html#a6db4230a0003a09515d78b790d8ec52d" title=" " alt="" coords="557,208,679,235"/>
+<area shape="rect" id="node6" href="$graphic_8c.html#a2701840f175c88c778bcb38c9b599bfe" title="Draws a rectangle on a buffer." alt="" coords="375,56,486,83"/>
+<area shape="rect" id="node5" href="$graphic_8c.html#aac0e6c0ef6d9620a1998ef2ceae31389" title="Draws a pixel on a buffer." alt="" coords="732,208,816,235"/>
+<area shape="rect" id="node7" href="$graphic_8c.html#ab994218125e850a14cba707afec522eb" title="Draws a line of pixels on a buffer." alt="" coords="579,107,657,133"/>
+<area shape="rect" id="node10" href="$view_8c.html#a39ad944a9c99eecebef79b21fc740a51" title=" " alt="" coords="369,5,492,32"/>
+<area shape="rect" id="node12" href="$view_8c.html#aaf8d2823d69671157906d7886a1e7a88" title=" " alt="" coords="383,309,478,336"/>
+<area shape="rect" id="node14" href="$view_8c.html#a4d706a974ca5b3414d1335d482649851" title=" " alt="" coords="370,208,491,235"/>
+<area shape="rect" id="node13" href="$view_8c.html#a22b96eaa3619b65051c90472dcd7c815" title=" " alt="" coords="552,284,684,311"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="rtc_read" name="rtc_read">
+<area shape="rect" id="node1" title="Reads a RTC register." alt="" coords="635,80,704,107"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#a139a4b66fab389f13b1d27f49b28a8d6" title="Disables the RTC&#39;s alarm." alt="" coords="463,29,587,56"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#a0b9ae809cf571f61e54712a23c65348e" title="RTC Interrupt Handler." alt="" coords="352,36,407,63"/>
+<area shape="rect" id="node5" href="$rtc_8c.html#a45c0aad3f329944c25b4552236e773ea" title="Sets the RTC&#39;s alarm." alt="" coords="474,80,575,107"/>
+<area shape="rect" id="node6" href="$rtc_8c.html#a33cc7a29b9fec623ccc69bfffcdea8ed" title="Starts the RTC." alt="" coords="344,175,415,201"/>
+<area shape="rect" id="node8" href="$rtc_8c.html#acb1eb50cf24b1160c8bd0ef35882cbc6" title="Updates the RTC&#39;s data structures." alt="" coords="483,131,566,157"/>
+<area shape="rect" id="node4" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,124,115,151"/>
+<area shape="rect" id="node7" href="$main_8c.html#a099d48038e444c2f3e69904477527798" title=" " alt="" coords="202,175,257,201"/>
+<area shape="rect" id="node9" href="$model_8c.html#a2e7983abedd3fae94a24b4775a97210f" title=" " alt="" coords="163,124,296,151"/>
+</map>

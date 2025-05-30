@@ -1,0 +1,61 @@
+\hypertarget{_k_b_c_8c}{}\doxysection{/home/neves/reps/\+LCOM/shared/proj/src/controller/\+KBC.c File Reference}
+\label{_k_b_c_8c}\index{/home/neves/reps/LCOM/shared/proj/src/controller/KBC.c@{/home/neves/reps/LCOM/shared/proj/src/controller/KBC.c}}
+{\ttfamily \#include \char`\"{}KBC.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{_k_b_c_8c_a5117d09ed4708e3dc6dd3689e32b4fd6}{read\+\_\+\+KBC\+\_\+output}} (uint8\+\_\+t $\ast$byte, uint8\+\_\+t \mbox{\hyperlink{model_8h_af03a383fdcfdf7501006a5c8d68be42b}{mouse}})
+\begin{DoxyCompactList}\small\item\em Reads the KBC output buffer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{_k_b_c_8c_a5bf52989bdb2253aaed94bd2de7b61a4}{write\+\_\+to\+\_\+\+KBC}} (uint8\+\_\+t port, uint8\+\_\+t command)
+\begin{DoxyCompactList}\small\item\em Writes a command to the KBC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_k_b_c_8c_a5117d09ed4708e3dc6dd3689e32b4fd6}\label{_k_b_c_8c_a5117d09ed4708e3dc6dd3689e32b4fd6}} 
+\index{KBC.c@{KBC.c}!read\_KBC\_output@{read\_KBC\_output}}
+\index{read\_KBC\_output@{read\_KBC\_output}!KBC.c@{KBC.c}}
+\doxysubsubsection{\texorpdfstring{read\_KBC\_output()}{read\_KBC\_output()}}
+{\footnotesize\ttfamily int() read\+\_\+\+KBC\+\_\+output (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{byte,  }\item[{uint8\+\_\+t}]{mouse }\end{DoxyParamCaption})}
+
+
+
+Reads the KBC output buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em byte} & Pointer to the byte to store the read value \\
+\hline
+{\em mouse} & Indicates if the data is from the mouse (1) or keyboard (0)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 3 of file KBC.\+c.
+
+\mbox{\Hypertarget{_k_b_c_8c_a5bf52989bdb2253aaed94bd2de7b61a4}\label{_k_b_c_8c_a5bf52989bdb2253aaed94bd2de7b61a4}} 
+\index{KBC.c@{KBC.c}!write\_to\_KBC@{write\_to\_KBC}}
+\index{write\_to\_KBC@{write\_to\_KBC}!KBC.c@{KBC.c}}
+\doxysubsubsection{\texorpdfstring{write\_to\_KBC()}{write\_to\_KBC()}}
+{\footnotesize\ttfamily int() write\+\_\+to\+\_\+\+KBC (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t}]{command }\end{DoxyParamCaption})}
+
+
+
+Writes a command to the KBC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port to write to \\
+\hline
+{\em command} & The command to write\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file KBC.\+c.
+

@@ -1,0 +1,25 @@
+var view_8c =
+[
+    [ "display_real_time", "view_8c.html#a39ad944a9c99eecebef79b21fc740a51", null ],
+    [ "draw_blocks", "view_8c.html#aaf8d2823d69671157906d7886a1e7a88", null ],
+    [ "draw_chrono_buttons", "view_8c.html#ab2228f2ccfcd83918d3ba2db2075b3da", null ],
+    [ "draw_chrono_menu", "view_8c.html#ae8af2748ebe21f0f3b88222e8b2e01e4", null ],
+    [ "draw_mouse", "view_8c.html#a42f4903ab89aff9e3ee0206c52cf710a", null ],
+    [ "draw_new_frame", "view_8c.html#a8fe6fe827e29e6b0cb98cda00dc38355", null ],
+    [ "draw_sprite_button", "view_8c.html#a22b96eaa3619b65051c90472dcd7c815", null ],
+    [ "draw_sprite_xpm", "view_8c.html#a6db4230a0003a09515d78b790d8ec52d", null ],
+    [ "draw_time", "view_8c.html#a4f3d01370e91e93f6b4fe1f9d8201e9f", null ],
+    [ "draw_timer_input", "view_8c.html#a4d706a974ca5b3414d1335d482649851", null ],
+    [ "draw_timer_menu", "view_8c.html#a51eb7b324ebbbd5826cd3ea58cc78b93", null ],
+    [ "draw_toolbar", "view_8c.html#a35fdaef5ab3741f883fd8ed9dcac5c71", null ],
+    [ "set_frame_buffers", "view_8c.html#a3ad9f04212e7602618a0dd7ad4afbd4e", null ],
+    [ "swap_buffers", "view_8c.html#a0d157d997329169f936545f9985e334b", null ],
+    [ "drawing_frame_buffer", "view_8c.html#a5d7d41c450228146c9c902c582f0c289", null ],
+    [ "frame_buffer_size", "view_8c.html#a0edf3f8c28b403daaa9927c7e883696a", null ],
+    [ "main_frame_buffer", "view_8c.html#a9c4d5f857a98e5753d9a1b65a5b237e8", null ],
+    [ "mouse_info", "view_8c.html#a343e4f854a0c3e5001228e209c5f025e", null ],
+    [ "rtc_date", "view_8c.html#a253dcdf218cd3d461ec40cbc0064a2c5", null ],
+    [ "rtc_time", "view_8c.html#a83584b4bcf9fc72ecf17c5d20309825b", null ],
+    [ "secondary_frame_buffer", "view_8c.html#aa0b878733cd01083e20d9c85310285b7", null ],
+    [ "vbe_info", "view_8c.html#a3f79b04e621cae90f2c5ad2786ee153f", null ]
+];

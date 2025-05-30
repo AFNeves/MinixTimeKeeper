@@ -1,0 +1,629 @@
+\hypertarget{_k_b_c_8h}{}\doxysection{/home/neves/reps/\+LCOM/shared/proj/src/controller/\+KBC.h File Reference}
+\label{_k_b_c_8h}\index{/home/neves/reps/LCOM/shared/proj/src/controller/KBC.h@{/home/neves/reps/LCOM/shared/proj/src/controller/KBC.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_ae36fc325bc821e866e90d0e66f9cc168}{KB\+\_\+\+IRQ}}~1
+\begin{DoxyCompactList}\small\item\em Keyboard IRQ Line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a85964cb90343bb1a029b1d1b4229f910}{MOUSE\+\_\+\+IRQ}}~12
+\begin{DoxyCompactList}\small\item\em Mouse IRQ Line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a9ae0eae3eaa54f3b2c418d8bcbd46103}{KB\+\_\+\+MASK}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)
+\begin{DoxyCompactList}\small\item\em Keyboard IRQ Mask. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a3827dd7e924d260f38f9d045860f1cbd}{MOUSE\+\_\+\+MASK}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(2)
+\begin{DoxyCompactList}\small\item\em Mouse IRQ Mask. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a68e2513cdc3954af9547889844afae6e}{KB\+\_\+\+DELAY}}~20000
+\begin{DoxyCompactList}\small\item\em Delay Between each Attempt. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a7e1856ac7c6ed757978fc30bb92ace74}{MAX\+\_\+\+ATTEMPTS}}~5
+\begin{DoxyCompactList}\small\item\em Maximum Number of Attempts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a69b1626cd295acf4cf3f8e284205b9db}{ESC\+\_\+\+BREAKCODE}}~0x81
+\begin{DoxyCompactList}\small\item\em Breakcode for the ESC key. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a2c0f8c2cc8170ddda747b0b266022e05}{BREAK\+\_\+\+CODE\+\_\+\+BIT}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)
+\begin{DoxyCompactList}\small\item\em Bit that indicates if a key is being pressed or released. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a0b4e336aad52f96e65dd212f76675d8d}{KBC\+\_\+\+STATUS\+\_\+\+REG}}~0x64
+\begin{DoxyCompactList}\small\item\em Status Register Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_aac9289c99cf0a693a211da6d6cb1bb65}{KBC\+\_\+\+IN\+\_\+\+BUF}}~0x64
+\begin{DoxyCompactList}\small\item\em Input Buffer Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_aefc1b7a81b128e9722a6d61a5b9d3e58}{KBC\+\_\+\+IN\+\_\+\+BUF\+\_\+\+ARG}}~0x60
+\begin{DoxyCompactList}\small\item\em Input Buffer Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a1ccde68b2b6d4e45b50eef1403e10bb7}{KBC\+\_\+\+OUT\+\_\+\+BUF}}~0x60
+\begin{DoxyCompactList}\small\item\em Output Buffer Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a81d2ca6759f3f3bf04556b7558aea6bc}{PARITY\+\_\+\+ERROR}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)
+\begin{DoxyCompactList}\small\item\em Parity Error Bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_aefc48d416c882f06edaf6d01779d4d74}{TIMEOUT\+\_\+\+ERROR}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)
+\begin{DoxyCompactList}\small\item\em Timeout Error Bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a01ad40c1990f8d3356e5393accbf424a}{MOUSE\+\_\+\+DATA\+\_\+\+BIT}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)
+\begin{DoxyCompactList}\small\item\em Mouse Data Available Bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a8d0b27049399df26c0ff11bcf78051fe}{FULL\+\_\+\+IN\+\_\+\+BUF}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)
+\begin{DoxyCompactList}\small\item\em Full Input Buffer Bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a48b15b591c302f251819b97f2f6273d8}{FULL\+\_\+\+OUT\+\_\+\+BUF}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)
+\begin{DoxyCompactList}\small\item\em Full Output Buffer Bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a595a5cad2d3c793963da50865b2c1b47}{KBC\+\_\+\+READ\+\_\+\+CMD}}~0x20
+\begin{DoxyCompactList}\small\item\em Read Command for the KBC. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_aaa62a6987753a109d2f7a609ce8b7334}{KBC\+\_\+\+WRITE\+\_\+\+CMD}}~0x60
+\begin{DoxyCompactList}\small\item\em Write Command for the KBC. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_ab224b7d01dd77e70d34f9da6903ee6d2}{KBC\+\_\+\+WRITE\+\_\+\+MOUSE}}~0x\+D4
+\begin{DoxyCompactList}\small\item\em Write Command for the Mouse. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a8f82294de7380affd46808117d913db7}{KBC\+\_\+\+KB\+\_\+\+INT}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)
+\begin{DoxyCompactList}\small\item\em Keyboard Interrupt Enable Bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a487b7dcf913ab27015b589df45a2d088}{KBC\+\_\+\+MOUSE\+\_\+\+INT}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)
+\begin{DoxyCompactList}\small\item\em Mouse Interrupt Enable Bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a064ec583ce5b039303686ce4c64b4f3e}{MOUSE\+\_\+\+ACK}}~0x\+FA
+\begin{DoxyCompactList}\small\item\em Mouse Acknowledgment Byte. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_aef4a299dedf83b6dc4765baab230affd}{MOUSE\+\_\+\+NACK}}~0x\+FE
+\begin{DoxyCompactList}\small\item\em Mouse Error Byte. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_ab6bdba93f96d4b0276ed357a602fe12d}{MOUSE\+\_\+\+DATA\+\_\+\+STREAM\+\_\+\+MODE}}~0x\+EA
+\begin{DoxyCompactList}\small\item\em Set Stream Mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a4ea3aea0221bdd2bdbaab6faf49be2b1}{MOUSE\+\_\+\+DATA\+\_\+\+REPORT\+\_\+\+ENABLE}}~0x\+F4
+\begin{DoxyCompactList}\small\item\em Enable Data Reporting. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a223a4c6c6b6818d6d1ae7243cddb05d0}{MOUSE\+\_\+\+DATA\+\_\+\+REPORT\+\_\+\+DISABLE}}~0x\+F5
+\begin{DoxyCompactList}\small\item\em Disable Data Reporting. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a1eea2c675d6f01577e4462da3373d848}{MOUSE\+\_\+\+OVERFLOW\+\_\+Y}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)
+\begin{DoxyCompactList}\small\item\em Y Overflow. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_ae9f52d2c85f5456d782972d8fbdbdfd9}{MOUSE\+\_\+\+OVERFLOW\+\_\+X}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)
+\begin{DoxyCompactList}\small\item\em X Overflow. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a82eb0244a7959320a66cdc287602ef66}{MOUSE\+\_\+\+SIGNAL\+\_\+Y}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)
+\begin{DoxyCompactList}\small\item\em Y Sign. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a39bb09dac9a8075798c19396a48bc220}{MOUSE\+\_\+\+SIGNAL\+\_\+X}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(4)
+\begin{DoxyCompactList}\small\item\em X Sign. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a73d6572224ad0ac84a8587615cef947c}{FIRST\+\_\+\+BYTE}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(3)
+\begin{DoxyCompactList}\small\item\em First Byte. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a5a934eaadd3536aabe6df0adf6728e8e}{MOUSE\+\_\+\+MB}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(2)
+\begin{DoxyCompactList}\small\item\em Middle Button. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a5f47c1d60579c8691054c939c1d7c20e}{MOUSE\+\_\+\+RB}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)
+\begin{DoxyCompactList}\small\item\em Right Button. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_k_b_c_8h_a81c0f94add844b0761bd142f7f708431}{MOUSE\+\_\+\+LB}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)
+\begin{DoxyCompactList}\small\item\em Left Button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{_k_b_c_8h_a5117d09ed4708e3dc6dd3689e32b4fd6}{read\+\_\+\+KBC\+\_\+output}} (uint8\+\_\+t $\ast$byte, uint8\+\_\+t \mbox{\hyperlink{model_8h_af03a383fdcfdf7501006a5c8d68be42b}{mouse}})
+\begin{DoxyCompactList}\small\item\em Reads the KBC output buffer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{_k_b_c_8h_a5bf52989bdb2253aaed94bd2de7b61a4}{write\+\_\+to\+\_\+\+KBC}} (uint8\+\_\+t port, uint8\+\_\+t command)
+\begin{DoxyCompactList}\small\item\em Writes a command to the KBC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_k_b_c_8h_a2c0f8c2cc8170ddda747b0b266022e05}\label{_k_b_c_8h_a2c0f8c2cc8170ddda747b0b266022e05}} 
+\index{KBC.h@{KBC.h}!BREAK\_CODE\_BIT@{BREAK\_CODE\_BIT}}
+\index{BREAK\_CODE\_BIT@{BREAK\_CODE\_BIT}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{BREAK\_CODE\_BIT}{BREAK\_CODE\_BIT}}
+{\footnotesize\ttfamily \#define BREAK\+\_\+\+CODE\+\_\+\+BIT~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)}
+
+
+
+Bit that indicates if a key is being pressed or released. 
+
+
+
+Definition at line 24 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a69b1626cd295acf4cf3f8e284205b9db}\label{_k_b_c_8h_a69b1626cd295acf4cf3f8e284205b9db}} 
+\index{KBC.h@{KBC.h}!ESC\_BREAKCODE@{ESC\_BREAKCODE}}
+\index{ESC\_BREAKCODE@{ESC\_BREAKCODE}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{ESC\_BREAKCODE}{ESC\_BREAKCODE}}
+{\footnotesize\ttfamily \#define ESC\+\_\+\+BREAKCODE~0x81}
+
+
+
+Breakcode for the ESC key. 
+
+
+
+Definition at line 23 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a73d6572224ad0ac84a8587615cef947c}\label{_k_b_c_8h_a73d6572224ad0ac84a8587615cef947c}} 
+\index{KBC.h@{KBC.h}!FIRST\_BYTE@{FIRST\_BYTE}}
+\index{FIRST\_BYTE@{FIRST\_BYTE}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{FIRST\_BYTE}{FIRST\_BYTE}}
+{\footnotesize\ttfamily \#define FIRST\+\_\+\+BYTE~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(3)}
+
+
+
+First Byte. 
+
+
+
+Definition at line 65 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a8d0b27049399df26c0ff11bcf78051fe}\label{_k_b_c_8h_a8d0b27049399df26c0ff11bcf78051fe}} 
+\index{KBC.h@{KBC.h}!FULL\_IN\_BUF@{FULL\_IN\_BUF}}
+\index{FULL\_IN\_BUF@{FULL\_IN\_BUF}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{FULL\_IN\_BUF}{FULL\_IN\_BUF}}
+{\footnotesize\ttfamily \#define FULL\+\_\+\+IN\+\_\+\+BUF~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)}
+
+
+
+Full Input Buffer Bit. 
+
+
+
+Definition at line 38 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a48b15b591c302f251819b97f2f6273d8}\label{_k_b_c_8h_a48b15b591c302f251819b97f2f6273d8}} 
+\index{KBC.h@{KBC.h}!FULL\_OUT\_BUF@{FULL\_OUT\_BUF}}
+\index{FULL\_OUT\_BUF@{FULL\_OUT\_BUF}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{FULL\_OUT\_BUF}{FULL\_OUT\_BUF}}
+{\footnotesize\ttfamily \#define FULL\+\_\+\+OUT\+\_\+\+BUF~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)}
+
+
+
+Full Output Buffer Bit. 
+
+
+
+Definition at line 39 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a68e2513cdc3954af9547889844afae6e}\label{_k_b_c_8h_a68e2513cdc3954af9547889844afae6e}} 
+\index{KBC.h@{KBC.h}!KB\_DELAY@{KB\_DELAY}}
+\index{KB\_DELAY@{KB\_DELAY}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KB\_DELAY}{KB\_DELAY}}
+{\footnotesize\ttfamily \#define KB\+\_\+\+DELAY~20000}
+
+
+
+Delay Between each Attempt. 
+
+
+
+Definition at line 20 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_ae36fc325bc821e866e90d0e66f9cc168}\label{_k_b_c_8h_ae36fc325bc821e866e90d0e66f9cc168}} 
+\index{KBC.h@{KBC.h}!KB\_IRQ@{KB\_IRQ}}
+\index{KB\_IRQ@{KB\_IRQ}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KB\_IRQ}{KB\_IRQ}}
+{\footnotesize\ttfamily \#define KB\+\_\+\+IRQ~1}
+
+
+
+Keyboard IRQ Line. 
+
+
+
+Definition at line 14 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a9ae0eae3eaa54f3b2c418d8bcbd46103}\label{_k_b_c_8h_a9ae0eae3eaa54f3b2c418d8bcbd46103}} 
+\index{KBC.h@{KBC.h}!KB\_MASK@{KB\_MASK}}
+\index{KB\_MASK@{KB\_MASK}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KB\_MASK}{KB\_MASK}}
+{\footnotesize\ttfamily \#define KB\+\_\+\+MASK~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)}
+
+
+
+Keyboard IRQ Mask. 
+
+
+
+Definition at line 17 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_aac9289c99cf0a693a211da6d6cb1bb65}\label{_k_b_c_8h_aac9289c99cf0a693a211da6d6cb1bb65}} 
+\index{KBC.h@{KBC.h}!KBC\_IN\_BUF@{KBC\_IN\_BUF}}
+\index{KBC\_IN\_BUF@{KBC\_IN\_BUF}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_IN\_BUF}{KBC\_IN\_BUF}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+IN\+\_\+\+BUF~0x64}
+
+
+
+Input Buffer Register. 
+
+
+
+Definition at line 29 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_aefc1b7a81b128e9722a6d61a5b9d3e58}\label{_k_b_c_8h_aefc1b7a81b128e9722a6d61a5b9d3e58}} 
+\index{KBC.h@{KBC.h}!KBC\_IN\_BUF\_ARG@{KBC\_IN\_BUF\_ARG}}
+\index{KBC\_IN\_BUF\_ARG@{KBC\_IN\_BUF\_ARG}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_IN\_BUF\_ARG}{KBC\_IN\_BUF\_ARG}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+IN\+\_\+\+BUF\+\_\+\+ARG~0x60}
+
+
+
+Input Buffer Register. 
+
+
+
+Definition at line 30 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a8f82294de7380affd46808117d913db7}\label{_k_b_c_8h_a8f82294de7380affd46808117d913db7}} 
+\index{KBC.h@{KBC.h}!KBC\_KB\_INT@{KBC\_KB\_INT}}
+\index{KBC\_KB\_INT@{KBC\_KB\_INT}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_KB\_INT}{KBC\_KB\_INT}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+KB\+\_\+\+INT~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)}
+
+
+
+Keyboard Interrupt Enable Bit. 
+
+
+
+Definition at line 49 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a487b7dcf913ab27015b589df45a2d088}\label{_k_b_c_8h_a487b7dcf913ab27015b589df45a2d088}} 
+\index{KBC.h@{KBC.h}!KBC\_MOUSE\_INT@{KBC\_MOUSE\_INT}}
+\index{KBC\_MOUSE\_INT@{KBC\_MOUSE\_INT}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_MOUSE\_INT}{KBC\_MOUSE\_INT}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+MOUSE\+\_\+\+INT~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)}
+
+
+
+Mouse Interrupt Enable Bit. 
+
+
+
+Definition at line 50 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a1ccde68b2b6d4e45b50eef1403e10bb7}\label{_k_b_c_8h_a1ccde68b2b6d4e45b50eef1403e10bb7}} 
+\index{KBC.h@{KBC.h}!KBC\_OUT\_BUF@{KBC\_OUT\_BUF}}
+\index{KBC\_OUT\_BUF@{KBC\_OUT\_BUF}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_OUT\_BUF}{KBC\_OUT\_BUF}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+OUT\+\_\+\+BUF~0x60}
+
+
+
+Output Buffer Register. 
+
+
+
+Definition at line 31 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a595a5cad2d3c793963da50865b2c1b47}\label{_k_b_c_8h_a595a5cad2d3c793963da50865b2c1b47}} 
+\index{KBC.h@{KBC.h}!KBC\_READ\_CMD@{KBC\_READ\_CMD}}
+\index{KBC\_READ\_CMD@{KBC\_READ\_CMD}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_READ\_CMD}{KBC\_READ\_CMD}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+READ\+\_\+\+CMD~0x20}
+
+
+
+Read Command for the KBC. 
+
+
+
+Definition at line 43 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a0b4e336aad52f96e65dd212f76675d8d}\label{_k_b_c_8h_a0b4e336aad52f96e65dd212f76675d8d}} 
+\index{KBC.h@{KBC.h}!KBC\_STATUS\_REG@{KBC\_STATUS\_REG}}
+\index{KBC\_STATUS\_REG@{KBC\_STATUS\_REG}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_STATUS\_REG}{KBC\_STATUS\_REG}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+STATUS\+\_\+\+REG~0x64}
+
+
+
+Status Register Register. 
+
+
+
+Definition at line 28 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_aaa62a6987753a109d2f7a609ce8b7334}\label{_k_b_c_8h_aaa62a6987753a109d2f7a609ce8b7334}} 
+\index{KBC.h@{KBC.h}!KBC\_WRITE\_CMD@{KBC\_WRITE\_CMD}}
+\index{KBC\_WRITE\_CMD@{KBC\_WRITE\_CMD}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_WRITE\_CMD}{KBC\_WRITE\_CMD}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+WRITE\+\_\+\+CMD~0x60}
+
+
+
+Write Command for the KBC. 
+
+
+
+Definition at line 44 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_ab224b7d01dd77e70d34f9da6903ee6d2}\label{_k_b_c_8h_ab224b7d01dd77e70d34f9da6903ee6d2}} 
+\index{KBC.h@{KBC.h}!KBC\_WRITE\_MOUSE@{KBC\_WRITE\_MOUSE}}
+\index{KBC\_WRITE\_MOUSE@{KBC\_WRITE\_MOUSE}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_WRITE\_MOUSE}{KBC\_WRITE\_MOUSE}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+WRITE\+\_\+\+MOUSE~0x\+D4}
+
+
+
+Write Command for the Mouse. 
+
+
+
+Definition at line 45 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a7e1856ac7c6ed757978fc30bb92ace74}\label{_k_b_c_8h_a7e1856ac7c6ed757978fc30bb92ace74}} 
+\index{KBC.h@{KBC.h}!MAX\_ATTEMPTS@{MAX\_ATTEMPTS}}
+\index{MAX\_ATTEMPTS@{MAX\_ATTEMPTS}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_ATTEMPTS}{MAX\_ATTEMPTS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+ATTEMPTS~5}
+
+
+
+Maximum Number of Attempts. 
+
+
+
+Definition at line 21 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a064ec583ce5b039303686ce4c64b4f3e}\label{_k_b_c_8h_a064ec583ce5b039303686ce4c64b4f3e}} 
+\index{KBC.h@{KBC.h}!MOUSE\_ACK@{MOUSE\_ACK}}
+\index{MOUSE\_ACK@{MOUSE\_ACK}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_ACK}{MOUSE\_ACK}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+ACK~0x\+FA}
+
+
+
+Mouse Acknowledgment Byte. 
+
+
+
+Definition at line 54 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a01ad40c1990f8d3356e5393accbf424a}\label{_k_b_c_8h_a01ad40c1990f8d3356e5393accbf424a}} 
+\index{KBC.h@{KBC.h}!MOUSE\_DATA\_BIT@{MOUSE\_DATA\_BIT}}
+\index{MOUSE\_DATA\_BIT@{MOUSE\_DATA\_BIT}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_DATA\_BIT}{MOUSE\_DATA\_BIT}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+DATA\+\_\+\+BIT~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)}
+
+
+
+Mouse Data Available Bit. 
+
+
+
+Definition at line 37 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a223a4c6c6b6818d6d1ae7243cddb05d0}\label{_k_b_c_8h_a223a4c6c6b6818d6d1ae7243cddb05d0}} 
+\index{KBC.h@{KBC.h}!MOUSE\_DATA\_REPORT\_DISABLE@{MOUSE\_DATA\_REPORT\_DISABLE}}
+\index{MOUSE\_DATA\_REPORT\_DISABLE@{MOUSE\_DATA\_REPORT\_DISABLE}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_DATA\_REPORT\_DISABLE}{MOUSE\_DATA\_REPORT\_DISABLE}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+DATA\+\_\+\+REPORT\+\_\+\+DISABLE~0x\+F5}
+
+
+
+Disable Data Reporting. 
+
+
+
+Definition at line 59 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a4ea3aea0221bdd2bdbaab6faf49be2b1}\label{_k_b_c_8h_a4ea3aea0221bdd2bdbaab6faf49be2b1}} 
+\index{KBC.h@{KBC.h}!MOUSE\_DATA\_REPORT\_ENABLE@{MOUSE\_DATA\_REPORT\_ENABLE}}
+\index{MOUSE\_DATA\_REPORT\_ENABLE@{MOUSE\_DATA\_REPORT\_ENABLE}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_DATA\_REPORT\_ENABLE}{MOUSE\_DATA\_REPORT\_ENABLE}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+DATA\+\_\+\+REPORT\+\_\+\+ENABLE~0x\+F4}
+
+
+
+Enable Data Reporting. 
+
+
+
+Definition at line 58 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_ab6bdba93f96d4b0276ed357a602fe12d}\label{_k_b_c_8h_ab6bdba93f96d4b0276ed357a602fe12d}} 
+\index{KBC.h@{KBC.h}!MOUSE\_DATA\_STREAM\_MODE@{MOUSE\_DATA\_STREAM\_MODE}}
+\index{MOUSE\_DATA\_STREAM\_MODE@{MOUSE\_DATA\_STREAM\_MODE}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_DATA\_STREAM\_MODE}{MOUSE\_DATA\_STREAM\_MODE}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+DATA\+\_\+\+STREAM\+\_\+\+MODE~0x\+EA}
+
+
+
+Set Stream Mode. 
+
+
+
+Definition at line 57 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a85964cb90343bb1a029b1d1b4229f910}\label{_k_b_c_8h_a85964cb90343bb1a029b1d1b4229f910}} 
+\index{KBC.h@{KBC.h}!MOUSE\_IRQ@{MOUSE\_IRQ}}
+\index{MOUSE\_IRQ@{MOUSE\_IRQ}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_IRQ}{MOUSE\_IRQ}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+IRQ~12}
+
+
+
+Mouse IRQ Line. 
+
+
+
+Definition at line 15 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a81c0f94add844b0761bd142f7f708431}\label{_k_b_c_8h_a81c0f94add844b0761bd142f7f708431}} 
+\index{KBC.h@{KBC.h}!MOUSE\_LB@{MOUSE\_LB}}
+\index{MOUSE\_LB@{MOUSE\_LB}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_LB}{MOUSE\_LB}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+LB~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)}
+
+
+
+Left Button. 
+
+
+
+Definition at line 68 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a3827dd7e924d260f38f9d045860f1cbd}\label{_k_b_c_8h_a3827dd7e924d260f38f9d045860f1cbd}} 
+\index{KBC.h@{KBC.h}!MOUSE\_MASK@{MOUSE\_MASK}}
+\index{MOUSE\_MASK@{MOUSE\_MASK}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_MASK}{MOUSE\_MASK}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+MASK~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(2)}
+
+
+
+Mouse IRQ Mask. 
+
+
+
+Definition at line 18 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a5a934eaadd3536aabe6df0adf6728e8e}\label{_k_b_c_8h_a5a934eaadd3536aabe6df0adf6728e8e}} 
+\index{KBC.h@{KBC.h}!MOUSE\_MB@{MOUSE\_MB}}
+\index{MOUSE\_MB@{MOUSE\_MB}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_MB}{MOUSE\_MB}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+MB~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(2)}
+
+
+
+Middle Button. 
+
+
+
+Definition at line 66 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_aef4a299dedf83b6dc4765baab230affd}\label{_k_b_c_8h_aef4a299dedf83b6dc4765baab230affd}} 
+\index{KBC.h@{KBC.h}!MOUSE\_NACK@{MOUSE\_NACK}}
+\index{MOUSE\_NACK@{MOUSE\_NACK}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_NACK}{MOUSE\_NACK}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+NACK~0x\+FE}
+
+
+
+Mouse Error Byte. 
+
+
+
+Definition at line 55 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_ae9f52d2c85f5456d782972d8fbdbdfd9}\label{_k_b_c_8h_ae9f52d2c85f5456d782972d8fbdbdfd9}} 
+\index{KBC.h@{KBC.h}!MOUSE\_OVERFLOW\_X@{MOUSE\_OVERFLOW\_X}}
+\index{MOUSE\_OVERFLOW\_X@{MOUSE\_OVERFLOW\_X}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_OVERFLOW\_X}{MOUSE\_OVERFLOW\_X}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+OVERFLOW\+\_\+X~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)}
+
+
+
+X Overflow. 
+
+
+
+Definition at line 62 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a1eea2c675d6f01577e4462da3373d848}\label{_k_b_c_8h_a1eea2c675d6f01577e4462da3373d848}} 
+\index{KBC.h@{KBC.h}!MOUSE\_OVERFLOW\_Y@{MOUSE\_OVERFLOW\_Y}}
+\index{MOUSE\_OVERFLOW\_Y@{MOUSE\_OVERFLOW\_Y}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_OVERFLOW\_Y}{MOUSE\_OVERFLOW\_Y}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+OVERFLOW\+\_\+Y~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)}
+
+
+
+Y Overflow. 
+
+
+
+Definition at line 61 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a5f47c1d60579c8691054c939c1d7c20e}\label{_k_b_c_8h_a5f47c1d60579c8691054c939c1d7c20e}} 
+\index{KBC.h@{KBC.h}!MOUSE\_RB@{MOUSE\_RB}}
+\index{MOUSE\_RB@{MOUSE\_RB}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_RB}{MOUSE\_RB}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+RB~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)}
+
+
+
+Right Button. 
+
+
+
+Definition at line 67 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a39bb09dac9a8075798c19396a48bc220}\label{_k_b_c_8h_a39bb09dac9a8075798c19396a48bc220}} 
+\index{KBC.h@{KBC.h}!MOUSE\_SIGNAL\_X@{MOUSE\_SIGNAL\_X}}
+\index{MOUSE\_SIGNAL\_X@{MOUSE\_SIGNAL\_X}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_SIGNAL\_X}{MOUSE\_SIGNAL\_X}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+SIGNAL\+\_\+X~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(4)}
+
+
+
+X Sign. 
+
+
+
+Definition at line 64 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a82eb0244a7959320a66cdc287602ef66}\label{_k_b_c_8h_a82eb0244a7959320a66cdc287602ef66}} 
+\index{KBC.h@{KBC.h}!MOUSE\_SIGNAL\_Y@{MOUSE\_SIGNAL\_Y}}
+\index{MOUSE\_SIGNAL\_Y@{MOUSE\_SIGNAL\_Y}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_SIGNAL\_Y}{MOUSE\_SIGNAL\_Y}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+SIGNAL\+\_\+Y~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)}
+
+
+
+Y Sign. 
+
+
+
+Definition at line 63 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_a81d2ca6759f3f3bf04556b7558aea6bc}\label{_k_b_c_8h_a81d2ca6759f3f3bf04556b7558aea6bc}} 
+\index{KBC.h@{KBC.h}!PARITY\_ERROR@{PARITY\_ERROR}}
+\index{PARITY\_ERROR@{PARITY\_ERROR}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{PARITY\_ERROR}{PARITY\_ERROR}}
+{\footnotesize\ttfamily \#define PARITY\+\_\+\+ERROR~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)}
+
+
+
+Parity Error Bit. 
+
+
+
+Definition at line 35 of file KBC.\+h.
+
+\mbox{\Hypertarget{_k_b_c_8h_aefc48d416c882f06edaf6d01779d4d74}\label{_k_b_c_8h_aefc48d416c882f06edaf6d01779d4d74}} 
+\index{KBC.h@{KBC.h}!TIMEOUT\_ERROR@{TIMEOUT\_ERROR}}
+\index{TIMEOUT\_ERROR@{TIMEOUT\_ERROR}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{TIMEOUT\_ERROR}{TIMEOUT\_ERROR}}
+{\footnotesize\ttfamily \#define TIMEOUT\+\_\+\+ERROR~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)}
+
+
+
+Timeout Error Bit. 
+
+
+
+Definition at line 36 of file KBC.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_k_b_c_8h_a5117d09ed4708e3dc6dd3689e32b4fd6}\label{_k_b_c_8h_a5117d09ed4708e3dc6dd3689e32b4fd6}} 
+\index{KBC.h@{KBC.h}!read\_KBC\_output@{read\_KBC\_output}}
+\index{read\_KBC\_output@{read\_KBC\_output}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{read\_KBC\_output()}{read\_KBC\_output()}}
+{\footnotesize\ttfamily int() read\+\_\+\+KBC\+\_\+output (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{byte,  }\item[{uint8\+\_\+t}]{mouse }\end{DoxyParamCaption})}
+
+
+
+Reads the KBC output buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em byte} & Pointer to the byte to store the read value \\
+\hline
+{\em mouse} & Indicates if the data is from the mouse (1) or keyboard (0)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 3 of file KBC.\+c.
+
+\mbox{\Hypertarget{_k_b_c_8h_a5bf52989bdb2253aaed94bd2de7b61a4}\label{_k_b_c_8h_a5bf52989bdb2253aaed94bd2de7b61a4}} 
+\index{KBC.h@{KBC.h}!write\_to\_KBC@{write\_to\_KBC}}
+\index{write\_to\_KBC@{write\_to\_KBC}!KBC.h@{KBC.h}}
+\doxysubsubsection{\texorpdfstring{write\_to\_KBC()}{write\_to\_KBC()}}
+{\footnotesize\ttfamily int() write\+\_\+to\+\_\+\+KBC (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t}]{command }\end{DoxyParamCaption})}
+
+
+
+Writes a command to the KBC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port to write to \\
+\hline
+{\em command} & The command to write\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file KBC.\+c.
+

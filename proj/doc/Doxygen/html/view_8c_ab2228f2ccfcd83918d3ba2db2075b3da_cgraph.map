@@ -1,0 +1,5 @@
+<map id="draw_chrono_buttons" name="draw_chrono_buttons">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node2" href="$view_8c.html#a6db4230a0003a09515d78b790d8ec52d" title=" " alt="" coords="200,5,321,32"/>
+<area shape="rect" id="node3" href="$graphic_8c.html#aac0e6c0ef6d9620a1998ef2ceae31389" title="Draws a pixel on a buffer." alt="" coords="369,5,453,32"/>
+</map>

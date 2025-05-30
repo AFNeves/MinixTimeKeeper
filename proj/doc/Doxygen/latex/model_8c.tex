@@ -1,0 +1,388 @@
+\hypertarget{model_8c}{}\doxysection{/home/neves/reps/\+LCOM/shared/proj/src/model/model.c File Reference}
+\label{model_8c}\index{/home/neves/reps/LCOM/shared/proj/src/model/model.c@{/home/neves/reps/LCOM/shared/proj/src/model/model.c}}
+{\ttfamily \#include \char`\"{}model.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sprite.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{model_8c_a834200084177d31e41dd9b28754a3312}{setup\+\_\+sprites}} ()
+\item 
+void \mbox{\hyperlink{model_8c_a8fdbc6c7bfca3ef4a8800a3cdc19d932}{destroy\+\_\+sprites}} ()
+\item 
+void \mbox{\hyperlink{model_8c_a2e7983abedd3fae94a24b4775a97210f}{update\+\_\+timer\+\_\+state}} ()
+\item 
+void \mbox{\hyperlink{model_8c_aacf177f660c44528fc3926b3cd69fb88}{update\+\_\+keyboard\+\_\+state}} ()
+\item 
+void \mbox{\hyperlink{model_8c_a6c0e969440cbe8e81188b17adb5a3e46}{insert\+\_\+new\+\_\+input}} (uint8\+\_\+t new\+\_\+input)
+\item 
+void \mbox{\hyperlink{model_8c_a6494e012a61c6f2585f3f58e9d4b020c}{delete\+\_\+last\+\_\+input}} ()
+\item 
+void \mbox{\hyperlink{model_8c_aa577e78e2462033d486b5d8fa64c7bec}{update\+\_\+mouse\+\_\+state}} ()
+\item 
+void \mbox{\hyperlink{model_8c_a0d75fecead8e243cbcb92cb8a81bd51a}{update\+\_\+chrono\+\_\+buttons}} ()
+\item 
+void \mbox{\hyperlink{model_8c_a5cfdf94b093485e1d4cc5c819a7ec74f}{update\+\_\+toolbar\+\_\+buttons}} ()
+\item 
+bool \mbox{\hyperlink{model_8c_a684842632a1dd04fc71e20d16469e96a}{is\+\_\+mouse\+\_\+over\+\_\+button}} (\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{model_8h_aa51313be2faacb739a18fdeecefbac75}{System\+State}} \mbox{\hyperlink{model_8c_ac705089b22877f6322d09a9f0f5bdb1d}{system\+State}} = \mbox{\hyperlink{model_8h_aa51313be2faacb739a18fdeecefbac75a1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}
+\item 
+\mbox{\hyperlink{model_8h_aa3041ae4242c0dd57a126d17505443b2}{Menu\+State}} \mbox{\hyperlink{model_8c_a92b62ab09159876ce3ca4dc9340931ca}{menu\+State}} = \mbox{\hyperlink{model_8h_aa3041ae4242c0dd57a126d17505443b2a02dbdba9cb715fafa9164dd7a78966a6}{RUNNING\+\_\+\+CLOCK}}
+\item 
+\mbox{\hyperlink{model_8h_ac3a0508fdb02263c5d24c5e6722b56da}{Chrono\+State}} \mbox{\hyperlink{model_8c_ab785b3023aace174135206115efd4752}{chrono\+State}} = \mbox{\hyperlink{model_8h_ac3a0508fdb02263c5d24c5e6722b56daaac132f2982b98bcaa3445e535a03ff75}{OFF}}
+\item 
+\mbox{\hyperlink{model_8h_ac3a0508fdb02263c5d24c5e6722b56da}{Chrono\+State}} \mbox{\hyperlink{model_8c_abeb84710100251566ac181df4c0c5034}{timer\+State}} = \mbox{\hyperlink{model_8h_ac3a0508fdb02263c5d24c5e6722b56daaac132f2982b98bcaa3445e535a03ff75}{OFF}}
+\item 
+int \mbox{\hyperlink{model_8c_a8c8cebc1f2e6ea08cff709609853e263}{chrono\+\_\+seconds}} = 0
+\item 
+int \mbox{\hyperlink{model_8c_ad808e5754d815902aa3f65468b2678fc}{timer\+\_\+seconds}} = 0
+\item 
+int \mbox{\hyperlink{model_8c_a0b99f7d3936161cfd2f59db795cabe02}{timer\+\_\+input}} \mbox{[}6\mbox{]} = \{0, 0, 0, 0, 0, 0\}
+\item 
+int \mbox{\hyperlink{model_8c_ad6e639bf853afe5e1b6997fd8ec1c8e5}{timer\+\_\+input\+\_\+index}} = 5
+\item 
+\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$ \mbox{\hyperlink{model_8c_af03a383fdcfdf7501006a5c8d68be42b}{mouse}}
+\item 
+\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$ \mbox{\hyperlink{model_8c_a61d0c7fc9d9720d2ceb8044442cc3806}{colon}}
+\item 
+\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$ \mbox{\hyperlink{model_8c_a10cb5702d9b0fe7aab8aa05c63186ebd}{slash}}
+\item 
+\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$ \mbox{\hyperlink{model_8c_a204005cfc4a4ffd8ba457f9266800714}{block}}
+\item 
+\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$ \mbox{\hyperlink{model_8c_a5381d21eb598fa47c0b0cdc9e9fadc1b}{days\+\_\+of\+\_\+week}} \mbox{[}7\mbox{]}
+\item 
+\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$ \mbox{\hyperlink{model_8c_a5f3876b4bd64b463a443882fa37e836d}{digits}} \mbox{[}10\mbox{]}
+\item 
+\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$ \mbox{\hyperlink{model_8c_a3532c7b63a992e124debd9f8a37c9a30}{toolbar\+\_\+buttons}} \mbox{[}3\mbox{]}
+\item 
+\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$ \mbox{\hyperlink{model_8c_a493625b9a20d271b6b2857a737923b32}{chrono\+\_\+buttons}} \mbox{[}3\mbox{]}
+\item 
+int \mbox{\hyperlink{model_8c_a0f08eb193e0aedb134a1481913b6a823}{timer\+\_\+counter}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{model_8c_aa1de7a5557e9d96b83cf03f73c92163f}{scancode}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{model_8c_a8884dab9d88cd6c24f21afc6c7144a7b}{byte\+\_\+index}}
+\item 
+\mbox{\hyperlink{struct_mouse_info}{Mouse\+Info}} \mbox{\hyperlink{model_8c_a343e4f854a0c3e5001228e209c5f025e}{mouse\+\_\+info}}
+\item 
+vbe\+\_\+mode\+\_\+info\+\_\+t \mbox{\hyperlink{model_8c_a3f79b04e621cae90f2c5ad2786ee153f}{vbe\+\_\+info}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{model_8c_a6494e012a61c6f2585f3f58e9d4b020c}\label{model_8c_a6494e012a61c6f2585f3f58e9d4b020c}} 
+\index{model.c@{model.c}!delete\_last\_input@{delete\_last\_input}}
+\index{delete\_last\_input@{delete\_last\_input}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{delete\_last\_input()}{delete\_last\_input()}}
+{\footnotesize\ttfamily void delete\+\_\+last\+\_\+input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 190 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a8fdbc6c7bfca3ef4a8800a3cdc19d932}\label{model_8c_a8fdbc6c7bfca3ef4a8800a3cdc19d932}} 
+\index{model.c@{model.c}!destroy\_sprites@{destroy\_sprites}}
+\index{destroy\_sprites@{destroy\_sprites}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{destroy\_sprites()}{destroy\_sprites()}}
+{\footnotesize\ttfamily void destroy\+\_\+sprites (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a6c0e969440cbe8e81188b17adb5a3e46}\label{model_8c_a6c0e969440cbe8e81188b17adb5a3e46}} 
+\index{model.c@{model.c}!insert\_new\_input@{insert\_new\_input}}
+\index{insert\_new\_input@{insert\_new\_input}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{insert\_new\_input()}{insert\_new\_input()}}
+{\footnotesize\ttfamily void insert\+\_\+new\+\_\+input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{new\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Definition at line 178 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a684842632a1dd04fc71e20d16469e96a}\label{model_8c_a684842632a1dd04fc71e20d16469e96a}} 
+\index{model.c@{model.c}!is\_mouse\_over\_button@{is\_mouse\_over\_button}}
+\index{is\_mouse\_over\_button@{is\_mouse\_over\_button}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{is\_mouse\_over\_button()}{is\_mouse\_over\_button()}}
+{\footnotesize\ttfamily bool is\+\_\+mouse\+\_\+over\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+Definition at line 247 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a834200084177d31e41dd9b28754a3312}\label{model_8c_a834200084177d31e41dd9b28754a3312}} 
+\index{model.c@{model.c}!setup\_sprites@{setup\_sprites}}
+\index{setup\_sprites@{setup\_sprites}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{setup\_sprites()}{setup\_sprites()}}
+{\footnotesize\ttfamily void setup\+\_\+sprites (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a0d75fecead8e243cbcb92cb8a81bd51a}\label{model_8c_a0d75fecead8e243cbcb92cb8a81bd51a}} 
+\index{model.c@{model.c}!update\_chrono\_buttons@{update\_chrono\_buttons}}
+\index{update\_chrono\_buttons@{update\_chrono\_buttons}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{update\_chrono\_buttons()}{update\_chrono\_buttons()}}
+{\footnotesize\ttfamily void update\+\_\+chrono\+\_\+buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 218 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_aacf177f660c44528fc3926b3cd69fb88}\label{model_8c_aacf177f660c44528fc3926b3cd69fb88}} 
+\index{model.c@{model.c}!update\_keyboard\_state@{update\_keyboard\_state}}
+\index{update\_keyboard\_state@{update\_keyboard\_state}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{update\_keyboard\_state()}{update\_keyboard\_state()}}
+{\footnotesize\ttfamily void update\+\_\+keyboard\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 129 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_aa577e78e2462033d486b5d8fa64c7bec}\label{model_8c_aa577e78e2462033d486b5d8fa64c7bec}} 
+\index{model.c@{model.c}!update\_mouse\_state@{update\_mouse\_state}}
+\index{update\_mouse\_state@{update\_mouse\_state}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{update\_mouse\_state()}{update\_mouse\_state()}}
+{\footnotesize\ttfamily void update\+\_\+mouse\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 204 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a2e7983abedd3fae94a24b4775a97210f}\label{model_8c_a2e7983abedd3fae94a24b4775a97210f}} 
+\index{model.c@{model.c}!update\_timer\_state@{update\_timer\_state}}
+\index{update\_timer\_state@{update\_timer\_state}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{update\_timer\_state()}{update\_timer\_state()}}
+{\footnotesize\ttfamily void update\+\_\+timer\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 109 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a5cfdf94b093485e1d4cc5c819a7ec74f}\label{model_8c_a5cfdf94b093485e1d4cc5c819a7ec74f}} 
+\index{model.c@{model.c}!update\_toolbar\_buttons@{update\_toolbar\_buttons}}
+\index{update\_toolbar\_buttons@{update\_toolbar\_buttons}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{update\_toolbar\_buttons()}{update\_toolbar\_buttons()}}
+{\footnotesize\ttfamily void update\+\_\+toolbar\+\_\+buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 233 of file model.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{model_8c_a204005cfc4a4ffd8ba457f9266800714}\label{model_8c_a204005cfc4a4ffd8ba457f9266800714}} 
+\index{model.c@{model.c}!block@{block}}
+\index{block@{block}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{block}{block}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sprite}{Sprite}}$\ast$ block}
+
+
+
+Definition at line 18 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a8884dab9d88cd6c24f21afc6c7144a7b}\label{model_8c_a8884dab9d88cd6c24f21afc6c7144a7b}} 
+\index{model.c@{model.c}!byte\_index@{byte\_index}}
+\index{byte\_index@{byte\_index}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{byte\_index}{byte\_index}}
+{\footnotesize\ttfamily uint8\+\_\+t byte\+\_\+index\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 4 of file mouse.\+c.
+
+\mbox{\Hypertarget{model_8c_a493625b9a20d271b6b2857a737923b32}\label{model_8c_a493625b9a20d271b6b2857a737923b32}} 
+\index{model.c@{model.c}!chrono\_buttons@{chrono\_buttons}}
+\index{chrono\_buttons@{chrono\_buttons}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{chrono\_buttons}{chrono\_buttons}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sprite}{Sprite}}$\ast$ chrono\+\_\+buttons\mbox{[}3\mbox{]}}
+
+
+
+Definition at line 22 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a8c8cebc1f2e6ea08cff709609853e263}\label{model_8c_a8c8cebc1f2e6ea08cff709609853e263}} 
+\index{model.c@{model.c}!chrono\_seconds@{chrono\_seconds}}
+\index{chrono\_seconds@{chrono\_seconds}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{chrono\_seconds}{chrono\_seconds}}
+{\footnotesize\ttfamily int chrono\+\_\+seconds = 0}
+
+
+
+Definition at line 9 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_ab785b3023aace174135206115efd4752}\label{model_8c_ab785b3023aace174135206115efd4752}} 
+\index{model.c@{model.c}!chronoState@{chronoState}}
+\index{chronoState@{chronoState}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{chronoState}{chronoState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{model_8h_ac3a0508fdb02263c5d24c5e6722b56da}{Chrono\+State}} chrono\+State = \mbox{\hyperlink{model_8h_ac3a0508fdb02263c5d24c5e6722b56daaac132f2982b98bcaa3445e535a03ff75}{OFF}}}
+
+
+
+Definition at line 7 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a61d0c7fc9d9720d2ceb8044442cc3806}\label{model_8c_a61d0c7fc9d9720d2ceb8044442cc3806}} 
+\index{model.c@{model.c}!colon@{colon}}
+\index{colon@{colon}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{colon}{colon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sprite}{Sprite}}$\ast$ colon}
+
+
+
+Definition at line 16 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a5381d21eb598fa47c0b0cdc9e9fadc1b}\label{model_8c_a5381d21eb598fa47c0b0cdc9e9fadc1b}} 
+\index{model.c@{model.c}!days\_of\_week@{days\_of\_week}}
+\index{days\_of\_week@{days\_of\_week}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{days\_of\_week}{days\_of\_week}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sprite}{Sprite}}$\ast$ days\+\_\+of\+\_\+week\mbox{[}7\mbox{]}}
+
+
+
+Definition at line 19 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a5f3876b4bd64b463a443882fa37e836d}\label{model_8c_a5f3876b4bd64b463a443882fa37e836d}} 
+\index{model.c@{model.c}!digits@{digits}}
+\index{digits@{digits}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{digits}{digits}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sprite}{Sprite}}$\ast$ digits\mbox{[}10\mbox{]}}
+
+
+
+Definition at line 20 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a92b62ab09159876ce3ca4dc9340931ca}\label{model_8c_a92b62ab09159876ce3ca4dc9340931ca}} 
+\index{model.c@{model.c}!menuState@{menuState}}
+\index{menuState@{menuState}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{menuState}{menuState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{model_8h_aa3041ae4242c0dd57a126d17505443b2}{Menu\+State}} menu\+State = \mbox{\hyperlink{model_8h_aa3041ae4242c0dd57a126d17505443b2a02dbdba9cb715fafa9164dd7a78966a6}{RUNNING\+\_\+\+CLOCK}}}
+
+
+
+Definition at line 6 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_af03a383fdcfdf7501006a5c8d68be42b}\label{model_8c_af03a383fdcfdf7501006a5c8d68be42b}} 
+\index{model.c@{model.c}!mouse@{mouse}}
+\index{mouse@{mouse}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{mouse}{mouse}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sprite}{Sprite}}$\ast$ mouse}
+
+
+
+Definition at line 15 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a343e4f854a0c3e5001228e209c5f025e}\label{model_8c_a343e4f854a0c3e5001228e209c5f025e}} 
+\index{model.c@{model.c}!mouse\_info@{mouse\_info}}
+\index{mouse\_info@{mouse\_info}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_info}{mouse\_info}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_mouse_info}{Mouse\+Info}} mouse\+\_\+info\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 7 of file mouse.\+c.
+
+\mbox{\Hypertarget{model_8c_aa1de7a5557e9d96b83cf03f73c92163f}\label{model_8c_aa1de7a5557e9d96b83cf03f73c92163f}} 
+\index{model.c@{model.c}!scancode@{scancode}}
+\index{scancode@{scancode}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{scancode}{scancode}}
+{\footnotesize\ttfamily uint8\+\_\+t scancode\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 4 of file keyboard.\+c.
+
+\mbox{\Hypertarget{model_8c_a10cb5702d9b0fe7aab8aa05c63186ebd}\label{model_8c_a10cb5702d9b0fe7aab8aa05c63186ebd}} 
+\index{model.c@{model.c}!slash@{slash}}
+\index{slash@{slash}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{slash}{slash}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sprite}{Sprite}}$\ast$ slash}
+
+
+
+Definition at line 17 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_ac705089b22877f6322d09a9f0f5bdb1d}\label{model_8c_ac705089b22877f6322d09a9f0f5bdb1d}} 
+\index{model.c@{model.c}!systemState@{systemState}}
+\index{systemState@{systemState}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{systemState}{systemState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{model_8h_aa51313be2faacb739a18fdeecefbac75}{System\+State}} system\+State = \mbox{\hyperlink{model_8h_aa51313be2faacb739a18fdeecefbac75a1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}}
+
+
+
+Definition at line 5 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a0f08eb193e0aedb134a1481913b6a823}\label{model_8c_a0f08eb193e0aedb134a1481913b6a823}} 
+\index{model.c@{model.c}!timer\_counter@{timer\_counter}}
+\index{timer\_counter@{timer\_counter}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{timer\_counter}{timer\_counter}}
+{\footnotesize\ttfamily int timer\+\_\+counter\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 4 of file timer.\+c.
+
+\mbox{\Hypertarget{model_8c_a0b99f7d3936161cfd2f59db795cabe02}\label{model_8c_a0b99f7d3936161cfd2f59db795cabe02}} 
+\index{model.c@{model.c}!timer\_input@{timer\_input}}
+\index{timer\_input@{timer\_input}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{timer\_input}{timer\_input}}
+{\footnotesize\ttfamily int timer\+\_\+input\mbox{[}6\mbox{]} = \{0, 0, 0, 0, 0, 0\}}
+
+
+
+Definition at line 11 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_ad6e639bf853afe5e1b6997fd8ec1c8e5}\label{model_8c_ad6e639bf853afe5e1b6997fd8ec1c8e5}} 
+\index{model.c@{model.c}!timer\_input\_index@{timer\_input\_index}}
+\index{timer\_input\_index@{timer\_input\_index}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{timer\_input\_index}{timer\_input\_index}}
+{\footnotesize\ttfamily int timer\+\_\+input\+\_\+index = 5}
+
+
+
+Definition at line 12 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_ad808e5754d815902aa3f65468b2678fc}\label{model_8c_ad808e5754d815902aa3f65468b2678fc}} 
+\index{model.c@{model.c}!timer\_seconds@{timer\_seconds}}
+\index{timer\_seconds@{timer\_seconds}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{timer\_seconds}{timer\_seconds}}
+{\footnotesize\ttfamily int timer\+\_\+seconds = 0}
+
+
+
+Definition at line 10 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_abeb84710100251566ac181df4c0c5034}\label{model_8c_abeb84710100251566ac181df4c0c5034}} 
+\index{model.c@{model.c}!timerState@{timerState}}
+\index{timerState@{timerState}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{timerState}{timerState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{model_8h_ac3a0508fdb02263c5d24c5e6722b56da}{Chrono\+State}} timer\+State = \mbox{\hyperlink{model_8h_ac3a0508fdb02263c5d24c5e6722b56daaac132f2982b98bcaa3445e535a03ff75}{OFF}}}
+
+
+
+Definition at line 8 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a3532c7b63a992e124debd9f8a37c9a30}\label{model_8c_a3532c7b63a992e124debd9f8a37c9a30}} 
+\index{model.c@{model.c}!toolbar\_buttons@{toolbar\_buttons}}
+\index{toolbar\_buttons@{toolbar\_buttons}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{toolbar\_buttons}{toolbar\_buttons}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sprite}{Sprite}}$\ast$ toolbar\+\_\+buttons\mbox{[}3\mbox{]}}
+
+
+
+Definition at line 21 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a3f79b04e621cae90f2c5ad2786ee153f}\label{model_8c_a3f79b04e621cae90f2c5ad2786ee153f}} 
+\index{model.c@{model.c}!vbe\_info@{vbe\_info}}
+\index{vbe\_info@{vbe\_info}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{vbe\_info}{vbe\_info}}
+{\footnotesize\ttfamily vbe\+\_\+mode\+\_\+info\+\_\+t vbe\+\_\+info\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 3 of file graphic.\+c.
+

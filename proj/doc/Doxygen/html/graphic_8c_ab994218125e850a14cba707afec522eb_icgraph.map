@@ -1,0 +1,10 @@
+<map id="draw_line" name="draw_line">
+<area shape="rect" id="node1" title="Draws a line of pixels on a buffer." alt="" coords="855,56,932,83"/>
+<area shape="rect" id="node2" href="$graphic_8c.html#a2701840f175c88c778bcb38c9b599bfe" title="Draws a rectangle on a buffer." alt="" coords="696,56,807,83"/>
+<area shape="rect" id="node3" href="$view_8c.html#ae8af2748ebe21f0f3b88222e8b2e01e4" title=" " alt="" coords="513,5,648,32"/>
+<area shape="rect" id="node7" href="$view_8c.html#a4f3d01370e91e93f6b4fe1f9d8201e9f" title=" " alt="" coords="539,56,622,83"/>
+<area shape="rect" id="node8" href="$view_8c.html#a51eb7b324ebbbd5826cd3ea58cc78b93" title=" " alt="" coords="518,107,643,133"/>
+<area shape="rect" id="node4" href="$view_8c.html#a8fe6fe827e29e6b0cb98cda00dc38355" title=" " alt="" coords="344,56,465,83"/>
+<area shape="rect" id="node5" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,56,115,83"/>
+<area shape="rect" id="node6" href="$model_8c.html#a2e7983abedd3fae94a24b4775a97210f" title=" " alt="" coords="163,81,296,108"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="update_mouse_state" name="update_mouse_state">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,148,133"/>
+<area shape="rect" id="node2" href="$mouse_8c.html#a210374b50462acdedab00df64d5cea3c" title="Mouse Interrupt Handler." alt="" coords="235,5,314,32"/>
+<area shape="rect" id="node5" href="$mouse_8c.html#a13bc1100847565997186b2115c5cba53" title="Synchronizes the mouse data." alt="" coords="227,56,323,83"/>
+<area shape="rect" id="node6" href="$model_8c.html#a0d75fecead8e243cbcb92cb8a81bd51a" title=" " alt="" coords="196,107,353,133"/>
+<area shape="rect" id="node8" href="$mouse_8c.html#a126b7dac7fae95ce33534cc85af238ed" title="Builds the MouseInfo structure." alt="" coords="207,157,342,184"/>
+<area shape="rect" id="node9" href="$model_8c.html#a5cfdf94b093485e1d4cc5c819a7ec74f" title=" " alt="" coords="196,208,353,235"/>
+<area shape="rect" id="node3" href="$_k_b_c_8c.html#a5117d09ed4708e3dc6dd3689e32b4fd6" title="Reads the KBC output buffer." alt="" coords="415,5,541,32"/>
+<area shape="rect" id="node4" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a specified port and converts it to an 8&#45;bit value." alt="" coords="603,5,693,32"/>
+<area shape="rect" id="node7" href="$model_8c.html#a684842632a1dd04fc71e20d16469e96a" title=" " alt="" coords="401,157,555,184"/>
+</map>

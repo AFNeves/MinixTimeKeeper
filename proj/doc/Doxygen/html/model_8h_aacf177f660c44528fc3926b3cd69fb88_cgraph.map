@@ -1,0 +1,8 @@
+<map id="update_keyboard_state" name="update_keyboard_state">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,163,83"/>
+<area shape="rect" id="node2" href="$model_8c.html#a6494e012a61c6f2585f3f58e9d4b020c" title=" " alt="" coords="211,5,331,32"/>
+<area shape="rect" id="node3" href="$model_8c.html#a6c0e969440cbe8e81188b17adb5a3e46" title=" " alt="" coords="211,56,331,83"/>
+<area shape="rect" id="node4" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title="Keyboard Interrupt Handler." alt="" coords="241,107,301,133"/>
+<area shape="rect" id="node5" href="$_k_b_c_8c.html#a5117d09ed4708e3dc6dd3689e32b4fd6" title="Reads the KBC output buffer." alt="" coords="379,107,504,133"/>
+<area shape="rect" id="node6" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a specified port and converts it to an 8&#45;bit value." alt="" coords="552,107,643,133"/>
+</map>

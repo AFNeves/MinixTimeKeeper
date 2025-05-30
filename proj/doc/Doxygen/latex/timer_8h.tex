@@ -1,0 +1,459 @@
+\hypertarget{timer_8h}{}\doxysection{/home/neves/reps/\+LCOM/shared/proj/src/controller/timer/timer.h File Reference}
+\label{timer_8h}\index{/home/neves/reps/LCOM/shared/proj/src/controller/timer/timer.h@{/home/neves/reps/LCOM/shared/proj/src/controller/timer/timer.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../utils.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{timer_8h_a7095fb363d08f6646611f9a47806647b}{TIMER\+\_\+\+IRQ}}~0
+\begin{DoxyCompactList}\small\item\em Timer IRQ Line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_ae41604e470c014060c92349437078e03}{TIMER\+\_\+\+MASK}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)
+\begin{DoxyCompactList}\small\item\em Timer IRQ Mask. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_acf926951944b6cf370b7229ebd50dd8b}{TIMER\+\_\+\+FREQ}}~1193182
+\begin{DoxyCompactList}\small\item\em Default Timer Frequency. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_acc9ff9df4a9674a1ce9ba08fc4a4679e}{TIMER\+\_\+0}}~0x40
+\begin{DoxyCompactList}\small\item\em Timer 0 Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_ac62c99c2a9289891c1b83052242cca49}{TIMER\+\_\+1}}~0x41
+\begin{DoxyCompactList}\small\item\em Timer 1 Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a1f34f18ad0ab8cace46b615773b48735}{TIMER\+\_\+2}}~0x42
+\begin{DoxyCompactList}\small\item\em Timer 2 Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a282832448fb0281ef53d243c1cd48491}{TIMER\+\_\+\+CTRL}}~0x43
+\begin{DoxyCompactList}\small\item\em Control Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a6a4822642d40c248435692324a818010}{TIMER\+\_\+\+SEL0}}~0x00
+\begin{DoxyCompactList}\small\item\em Control Word for Timer 0. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a8349623fd8d99f9cc5d8ae29d78594fc}{TIMER\+\_\+\+SEL1}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)
+\begin{DoxyCompactList}\small\item\em Control Word for Timer 1. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a142a255de0dbc48aeabd45fc10c33672}{TIMER\+\_\+\+SEL2}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)
+\begin{DoxyCompactList}\small\item\em Control Word for Timer 2. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_ac18cb814ebd0d67235392c330e0e3504}{TIMER\+\_\+\+LSB}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(4)
+\begin{DoxyCompactList}\small\item\em Initialize Counter LSB only. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a2a8a6d363c612d756cd8d78480f7cd04}{TIMER\+\_\+\+MSB}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)
+\begin{DoxyCompactList}\small\item\em Initialize Counter MSB only. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a8c0f1933323274c765e23837e4fbc8c7}{TIMER\+\_\+\+LSB\+\_\+\+MSB}}~(\mbox{\hyperlink{timer_8h_ac18cb814ebd0d67235392c330e0e3504}{TIMER\+\_\+\+LSB}} $\vert$ \mbox{\hyperlink{timer_8h_a2a8a6d363c612d756cd8d78480f7cd04}{TIMER\+\_\+\+MSB}})
+\begin{DoxyCompactList}\small\item\em Initialize LSB first and MSB afterwards. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a4745cbf21da3d3fea5dbb080b2b73bac}{TIMER\+\_\+\+SQR\+\_\+\+WAVE}}~(\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(2) $\vert$ \mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1))
+\begin{DoxyCompactList}\small\item\em Mode 3\+: Square Wave Generator Mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a5d4449e0fa1cf4a4d107a48a04a1265f}{TIMER\+\_\+\+RATE\+\_\+\+GEN}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(2)
+\begin{DoxyCompactList}\small\item\em Mode 2\+: Rate Generator Mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a325b992a371d5d981c4eceff42fa5956}{TIMER\+\_\+\+BCD}}~0x01
+\begin{DoxyCompactList}\small\item\em BCD Mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_ad2913dcf2f91453317bd035589ac0a7d}{TIMER\+\_\+\+BIN}}~0x00
+\begin{DoxyCompactList}\small\item\em Binary Mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a6c248216df24b5e9d907d126d80bd195}{TIMER\+\_\+\+RB\+\_\+\+COUNT\+\_\+}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)
+\begin{DoxyCompactList}\small\item\em Read Count Value. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a08b4952bb7058684a3f8f66be04dd45e}{TIMER\+\_\+\+RB\+\_\+\+STATUS\+\_\+}}~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(4)
+\begin{DoxyCompactList}\small\item\em Read Status Value. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_af598b17740e07842a0545af512714711}{TIMER\+\_\+\+RB\+\_\+\+SEL}}(n)~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}((n) + 1)
+\begin{DoxyCompactList}\small\item\em Select Timer for Read-\/\+Back. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{timer_8h_a4c2eecbfb96744a9c2af71dba75ecb18}{TIMER\+\_\+\+RB\+\_\+\+CMD}}~(\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7) $\vert$ \mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(6))
+\begin{DoxyCompactList}\small\item\em Read Back Command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{timer_8h_ab4e83d60b7a7cf5f89712347087289ec}{timer\+\_\+subscribe\+\_\+ints}} ()
+\begin{DoxyCompactList}\small\item\em Subscribes the Timer interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{timer_8h_afabd21de449be154dd65d5fdb2d8045d}{timer\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes the Timer interrupts. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{timer_8h_a949875f081b370ebe2f78d0238d0e476}{timer\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em Timer Interrupt Handler. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{timer_8h_a703c60b40c8c49607d6ecb6fef82d27a}{timer\+\_\+get\+\_\+conf}} (uint8\+\_\+t timer, uint8\+\_\+t $\ast$st)
+\begin{DoxyCompactList}\small\item\em Gets the configuration of the timer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{timer_8h_af2c04fa8e97ffa748fd3f612886a92a7}{timer\+\_\+set\+\_\+frequency}} (uint8\+\_\+t timer, uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Sets the frequency of the timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{timer_8h_acc9ff9df4a9674a1ce9ba08fc4a4679e}\label{timer_8h_acc9ff9df4a9674a1ce9ba08fc4a4679e}} 
+\index{timer.h@{timer.h}!TIMER\_0@{TIMER\_0}}
+\index{TIMER\_0@{TIMER\_0}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_0}{TIMER\_0}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+0~0x40}
+
+
+
+Timer 0 Register. 
+
+
+
+Definition at line 20 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_ac62c99c2a9289891c1b83052242cca49}\label{timer_8h_ac62c99c2a9289891c1b83052242cca49}} 
+\index{timer.h@{timer.h}!TIMER\_1@{TIMER\_1}}
+\index{TIMER\_1@{TIMER\_1}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_1}{TIMER\_1}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+1~0x41}
+
+
+
+Timer 1 Register. 
+
+
+
+Definition at line 21 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a1f34f18ad0ab8cace46b615773b48735}\label{timer_8h_a1f34f18ad0ab8cace46b615773b48735}} 
+\index{timer.h@{timer.h}!TIMER\_2@{TIMER\_2}}
+\index{TIMER\_2@{TIMER\_2}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_2}{TIMER\_2}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+2~0x42}
+
+
+
+Timer 2 Register. 
+
+
+
+Definition at line 22 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a325b992a371d5d981c4eceff42fa5956}\label{timer_8h_a325b992a371d5d981c4eceff42fa5956}} 
+\index{timer.h@{timer.h}!TIMER\_BCD@{TIMER\_BCD}}
+\index{TIMER\_BCD@{TIMER\_BCD}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_BCD}{TIMER\_BCD}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+BCD~0x01}
+
+
+
+BCD Mode. 
+
+
+
+Definition at line 46 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_ad2913dcf2f91453317bd035589ac0a7d}\label{timer_8h_ad2913dcf2f91453317bd035589ac0a7d}} 
+\index{timer.h@{timer.h}!TIMER\_BIN@{TIMER\_BIN}}
+\index{TIMER\_BIN@{TIMER\_BIN}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_BIN}{TIMER\_BIN}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+BIN~0x00}
+
+
+
+Binary Mode. 
+
+
+
+Definition at line 47 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a282832448fb0281ef53d243c1cd48491}\label{timer_8h_a282832448fb0281ef53d243c1cd48491}} 
+\index{timer.h@{timer.h}!TIMER\_CTRL@{TIMER\_CTRL}}
+\index{TIMER\_CTRL@{TIMER\_CTRL}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_CTRL}{TIMER\_CTRL}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+CTRL~0x43}
+
+
+
+Control Register. 
+
+
+
+Definition at line 23 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_acf926951944b6cf370b7229ebd50dd8b}\label{timer_8h_acf926951944b6cf370b7229ebd50dd8b}} 
+\index{timer.h@{timer.h}!TIMER\_FREQ@{TIMER\_FREQ}}
+\index{TIMER\_FREQ@{TIMER\_FREQ}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_FREQ}{TIMER\_FREQ}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+FREQ~1193182}
+
+
+
+Default Timer Frequency. 
+
+
+
+Definition at line 16 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a7095fb363d08f6646611f9a47806647b}\label{timer_8h_a7095fb363d08f6646611f9a47806647b}} 
+\index{timer.h@{timer.h}!TIMER\_IRQ@{TIMER\_IRQ}}
+\index{TIMER\_IRQ@{TIMER\_IRQ}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_IRQ}{TIMER\_IRQ}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+IRQ~0}
+
+
+
+Timer IRQ Line. 
+
+
+
+Definition at line 14 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_ac18cb814ebd0d67235392c330e0e3504}\label{timer_8h_ac18cb814ebd0d67235392c330e0e3504}} 
+\index{timer.h@{timer.h}!TIMER\_LSB@{TIMER\_LSB}}
+\index{TIMER\_LSB@{TIMER\_LSB}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_LSB}{TIMER\_LSB}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+LSB~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(4)}
+
+
+
+Initialize Counter LSB only. 
+
+
+
+Definition at line 35 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a8c0f1933323274c765e23837e4fbc8c7}\label{timer_8h_a8c0f1933323274c765e23837e4fbc8c7}} 
+\index{timer.h@{timer.h}!TIMER\_LSB\_MSB@{TIMER\_LSB\_MSB}}
+\index{TIMER\_LSB\_MSB@{TIMER\_LSB\_MSB}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_LSB\_MSB}{TIMER\_LSB\_MSB}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+LSB\+\_\+\+MSB~(\mbox{\hyperlink{timer_8h_ac18cb814ebd0d67235392c330e0e3504}{TIMER\+\_\+\+LSB}} $\vert$ \mbox{\hyperlink{timer_8h_a2a8a6d363c612d756cd8d78480f7cd04}{TIMER\+\_\+\+MSB}})}
+
+
+
+Initialize LSB first and MSB afterwards. 
+
+
+
+Definition at line 37 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_ae41604e470c014060c92349437078e03}\label{timer_8h_ae41604e470c014060c92349437078e03}} 
+\index{timer.h@{timer.h}!TIMER\_MASK@{TIMER\_MASK}}
+\index{TIMER\_MASK@{TIMER\_MASK}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_MASK}{TIMER\_MASK}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+MASK~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)}
+
+
+
+Timer IRQ Mask. 
+
+
+
+Definition at line 15 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a2a8a6d363c612d756cd8d78480f7cd04}\label{timer_8h_a2a8a6d363c612d756cd8d78480f7cd04}} 
+\index{timer.h@{timer.h}!TIMER\_MSB@{TIMER\_MSB}}
+\index{TIMER\_MSB@{TIMER\_MSB}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_MSB}{TIMER\_MSB}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+MSB~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)}
+
+
+
+Initialize Counter MSB only. 
+
+
+
+Definition at line 36 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a5d4449e0fa1cf4a4d107a48a04a1265f}\label{timer_8h_a5d4449e0fa1cf4a4d107a48a04a1265f}} 
+\index{timer.h@{timer.h}!TIMER\_RATE\_GEN@{TIMER\_RATE\_GEN}}
+\index{TIMER\_RATE\_GEN@{TIMER\_RATE\_GEN}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_RATE\_GEN}{TIMER\_RATE\_GEN}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+RATE\+\_\+\+GEN~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(2)}
+
+
+
+Mode 2\+: Rate Generator Mode. 
+
+
+
+Definition at line 42 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a4c2eecbfb96744a9c2af71dba75ecb18}\label{timer_8h_a4c2eecbfb96744a9c2af71dba75ecb18}} 
+\index{timer.h@{timer.h}!TIMER\_RB\_CMD@{TIMER\_RB\_CMD}}
+\index{TIMER\_RB\_CMD@{TIMER\_RB\_CMD}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_RB\_CMD}{TIMER\_RB\_CMD}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+RB\+\_\+\+CMD~(\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7) $\vert$ \mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(6))}
+
+
+
+Read Back Command. 
+
+
+
+Definition at line 54 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a6c248216df24b5e9d907d126d80bd195}\label{timer_8h_a6c248216df24b5e9d907d126d80bd195}} 
+\index{timer.h@{timer.h}!TIMER\_RB\_COUNT\_@{TIMER\_RB\_COUNT\_}}
+\index{TIMER\_RB\_COUNT\_@{TIMER\_RB\_COUNT\_}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_RB\_COUNT\_}{TIMER\_RB\_COUNT\_}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+RB\+\_\+\+COUNT\+\_\+~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)}
+
+
+
+Read Count Value. 
+
+
+
+Definition at line 51 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_af598b17740e07842a0545af512714711}\label{timer_8h_af598b17740e07842a0545af512714711}} 
+\index{timer.h@{timer.h}!TIMER\_RB\_SEL@{TIMER\_RB\_SEL}}
+\index{TIMER\_RB\_SEL@{TIMER\_RB\_SEL}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_RB\_SEL}{TIMER\_RB\_SEL}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+RB\+\_\+\+SEL(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}((n) + 1)}
+
+
+
+Select Timer for Read-\/\+Back. 
+
+
+
+Definition at line 53 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a08b4952bb7058684a3f8f66be04dd45e}\label{timer_8h_a08b4952bb7058684a3f8f66be04dd45e}} 
+\index{timer.h@{timer.h}!TIMER\_RB\_STATUS\_@{TIMER\_RB\_STATUS\_}}
+\index{TIMER\_RB\_STATUS\_@{TIMER\_RB\_STATUS\_}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_RB\_STATUS\_}{TIMER\_RB\_STATUS\_}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+RB\+\_\+\+STATUS\+\_\+~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(4)}
+
+
+
+Read Status Value. 
+
+
+
+Definition at line 52 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a6a4822642d40c248435692324a818010}\label{timer_8h_a6a4822642d40c248435692324a818010}} 
+\index{timer.h@{timer.h}!TIMER\_SEL0@{TIMER\_SEL0}}
+\index{TIMER\_SEL0@{TIMER\_SEL0}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SEL0}{TIMER\_SEL0}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+SEL0~0x00}
+
+
+
+Control Word for Timer 0. 
+
+
+
+Definition at line 29 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a8349623fd8d99f9cc5d8ae29d78594fc}\label{timer_8h_a8349623fd8d99f9cc5d8ae29d78594fc}} 
+\index{timer.h@{timer.h}!TIMER\_SEL1@{TIMER\_SEL1}}
+\index{TIMER\_SEL1@{TIMER\_SEL1}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SEL1}{TIMER\_SEL1}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+SEL1~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)}
+
+
+
+Control Word for Timer 1. 
+
+
+
+Definition at line 30 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a142a255de0dbc48aeabd45fc10c33672}\label{timer_8h_a142a255de0dbc48aeabd45fc10c33672}} 
+\index{timer.h@{timer.h}!TIMER\_SEL2@{TIMER\_SEL2}}
+\index{TIMER\_SEL2@{TIMER\_SEL2}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SEL2}{TIMER\_SEL2}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+SEL2~\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)}
+
+
+
+Control Word for Timer 2. 
+
+
+
+Definition at line 31 of file timer.\+h.
+
+\mbox{\Hypertarget{timer_8h_a4745cbf21da3d3fea5dbb080b2b73bac}\label{timer_8h_a4745cbf21da3d3fea5dbb080b2b73bac}} 
+\index{timer.h@{timer.h}!TIMER\_SQR\_WAVE@{TIMER\_SQR\_WAVE}}
+\index{TIMER\_SQR\_WAVE@{TIMER\_SQR\_WAVE}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SQR\_WAVE}{TIMER\_SQR\_WAVE}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+SQR\+\_\+\+WAVE~(\mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(2) $\vert$ \mbox{\hyperlink{utils_8h_a3a8ea58898cb58fc96013383d39f482c}{BIT}}(1))}
+
+
+
+Mode 3\+: Square Wave Generator Mode. 
+
+
+
+Definition at line 41 of file timer.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{timer_8h_a703c60b40c8c49607d6ecb6fef82d27a}\label{timer_8h_a703c60b40c8c49607d6ecb6fef82d27a}} 
+\index{timer.h@{timer.h}!timer\_get\_conf@{timer\_get\_conf}}
+\index{timer\_get\_conf@{timer\_get\_conf}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{timer\_get\_conf()}{timer\_get\_conf()}}
+{\footnotesize\ttfamily int() timer\+\_\+get\+\_\+conf (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer,  }\item[{uint8\+\_\+t $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+Gets the configuration of the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The timer number (0, 1, or 2) \\
+\hline
+{\em st} & Pointer to store the configuration\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8h_a949875f081b370ebe2f78d0238d0e476}\label{timer_8h_a949875f081b370ebe2f78d0238d0e476}} 
+\index{timer.h@{timer.h}!timer\_ih@{timer\_ih}}
+\index{timer\_ih@{timer\_ih}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{timer\_ih()}{timer\_ih()}}
+{\footnotesize\ttfamily void() timer\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Timer Interrupt Handler. 
+
+Increments the timer\+\_\+counter variable 
+
+Definition at line 16 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8h_af2c04fa8e97ffa748fd3f612886a92a7}\label{timer_8h_af2c04fa8e97ffa748fd3f612886a92a7}} 
+\index{timer.h@{timer.h}!timer\_set\_frequency@{timer\_set\_frequency}}
+\index{timer\_set\_frequency@{timer\_set\_frequency}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{timer\_set\_frequency()}{timer\_set\_frequency()}}
+{\footnotesize\ttfamily int() timer\+\_\+set\+\_\+frequency (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer,  }\item[{uint32\+\_\+t}]{freq }\end{DoxyParamCaption})}
+
+
+
+Sets the frequency of the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The timer number (0, 1, or 2) \\
+\hline
+{\em freq} & The frequency to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8h_ab4e83d60b7a7cf5f89712347087289ec}\label{timer_8h_ab4e83d60b7a7cf5f89712347087289ec}} 
+\index{timer.h@{timer.h}!timer\_subscribe\_ints@{timer\_subscribe\_ints}}
+\index{timer\_subscribe\_ints@{timer\_subscribe\_ints}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{timer\_subscribe\_ints()}{timer\_subscribe\_ints()}}
+{\footnotesize\ttfamily int() timer\+\_\+subscribe\+\_\+ints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Subscribes the Timer interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 6 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8h_afabd21de449be154dd65d5fdb2d8045d}\label{timer_8h_afabd21de449be154dd65d5fdb2d8045d}} 
+\index{timer.h@{timer.h}!timer\_unsubscribe\_int@{timer\_unsubscribe\_int}}
+\index{timer\_unsubscribe\_int@{timer\_unsubscribe\_int}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{timer\_unsubscribe\_int()}{timer\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() timer\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes the Timer interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 11 of file timer.\+c.
+

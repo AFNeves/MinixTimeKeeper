@@ -1,0 +1,7 @@
+<map id="rtc_set_alarm" name="rtc_set_alarm">
+<area shape="rect" id="node1" title="Sets the RTC&#39;s alarm." alt="" coords="5,56,107,83"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#a46ea16a06054ae769df1742907290242" title="Converts a binary number to BCD." alt="" coords="155,5,240,32"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#aa05f63a90e87f4df35611289739876fa" title="Reads a RTC register." alt="" coords="163,56,232,83"/>
+<area shape="rect" id="node5" href="$rtc_8c.html#acc17643bf3781c3442b8b7555d3f7e4c" title="Writes to a RTC register." alt="" coords="161,107,233,133"/>
+<area shape="rect" id="node4" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a specified port and converts it to an 8&#45;bit value." alt="" coords="288,56,379,83"/>
+</map>

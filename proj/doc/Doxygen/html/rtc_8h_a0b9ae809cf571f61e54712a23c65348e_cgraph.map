@@ -1,0 +1,10 @@
+<map id="rtc_ih" name="rtc_ih">
+<area shape="rect" id="node1" title="RTC Interrupt Handler." alt="" coords="5,56,60,83"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#a139a4b66fab389f13b1d27f49b28a8d6" title="Disables the RTC&#39;s alarm." alt="" coords="108,5,232,32"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#aa05f63a90e87f4df35611289739876fa" title="Reads a RTC register." alt="" coords="301,56,370,83"/>
+<area shape="rect" id="node6" href="$rtc_8c.html#acb1eb50cf24b1160c8bd0ef35882cbc6" title="Updates the RTC&#39;s data structures." alt="" coords="129,107,211,133"/>
+<area shape="rect" id="node5" href="$rtc_8c.html#acc17643bf3781c3442b8b7555d3f7e4c" title="Writes to a RTC register." alt="" coords="299,5,371,32"/>
+<area shape="rect" id="node4" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a specified port and converts it to an 8&#45;bit value." alt="" coords="439,56,529,83"/>
+<area shape="rect" id="node7" href="$rtc_8c.html#ad7b616dc7fec7d48a4eb577d971d44c2" title="Converts a BCD number to binary." alt="" coords="293,107,378,133"/>
+<area shape="rect" id="node8" href="$rtc_8c.html#af0a82bcb25c7a23c1e08333084c771f0" title="Converts the RTC&#39;s time data to 24h format." alt="" coords="280,157,391,184"/>
+</map>

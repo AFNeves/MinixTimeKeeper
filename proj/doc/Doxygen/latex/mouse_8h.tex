@@ -1,0 +1,122 @@
+\hypertarget{mouse_8h}{}\doxysection{/home/neves/reps/\+LCOM/shared/proj/src/controller/mouse/mouse.h File Reference}
+\label{mouse_8h}\index{/home/neves/reps/LCOM/shared/proj/src/controller/mouse/mouse.h@{/home/neves/reps/LCOM/shared/proj/src/controller/mouse/mouse.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../\+KBC.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../video/graphic.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{mouse_8h_a08895a8a691590216c1e72bbf1b2d333}{mouse\+\_\+subscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Subscribes the Mouse interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}{mouse\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes the Mouse interrupts. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{mouse_8h_a210374b50462acdedab00df64d5cea3c}{mouse\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em Mouse Interrupt Handler. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{mouse_8h_a13bc1100847565997186b2115c5cba53}{mouse\+\_\+sync}} ()
+\begin{DoxyCompactList}\small\item\em Synchronizes the mouse data. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{mouse_8h_a126b7dac7fae95ce33534cc85af238ed}{update\+\_\+mouse\+\_\+info}} ()
+\begin{DoxyCompactList}\small\item\em Builds the \mbox{\hyperlink{struct_mouse_info}{Mouse\+Info}} structure. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_a38d52a9770ba9b635e98e4968ae7c330}{mouse\+\_\+write\+\_\+command}} (uint8\+\_\+t command)
+\begin{DoxyCompactList}\small\item\em Writes a command to the mouse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mouse_8h_a210374b50462acdedab00df64d5cea3c}\label{mouse_8h_a210374b50462acdedab00df64d5cea3c}} 
+\index{mouse.h@{mouse.h}!mouse\_ih@{mouse\_ih}}
+\index{mouse\_ih@{mouse\_ih}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_ih()}{mouse\_ih()}}
+{\footnotesize\ttfamily void() mouse\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Mouse Interrupt Handler. 
+
+Reads the KBC\textquotesingle{}s output buffer and stores the scancode 
+
+Definition at line 20 of file mouse.\+c.
+
+\mbox{\Hypertarget{mouse_8h_a08895a8a691590216c1e72bbf1b2d333}\label{mouse_8h_a08895a8a691590216c1e72bbf1b2d333}} 
+\index{mouse.h@{mouse.h}!mouse\_subscribe\_int@{mouse\_subscribe\_int}}
+\index{mouse\_subscribe\_int@{mouse\_subscribe\_int}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_subscribe\_int()}{mouse\_subscribe\_int()}}
+{\footnotesize\ttfamily int() mouse\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Subscribes the Mouse interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 10 of file mouse.\+c.
+
+\mbox{\Hypertarget{mouse_8h_a13bc1100847565997186b2115c5cba53}\label{mouse_8h_a13bc1100847565997186b2115c5cba53}} 
+\index{mouse.h@{mouse.h}!mouse\_sync@{mouse\_sync}}
+\index{mouse\_sync@{mouse\_sync}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_sync()}{mouse\_sync()}}
+{\footnotesize\ttfamily void() mouse\+\_\+sync (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Synchronizes the mouse data. 
+
+Stores the mouse data in the mouse\+\_\+data array 
+
+Definition at line 25 of file mouse.\+c.
+
+\mbox{\Hypertarget{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}\label{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}} 
+\index{mouse.h@{mouse.h}!mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}}
+\index{mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_unsubscribe\_int()}{mouse\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() mouse\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes the Mouse interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file mouse.\+c.
+
+\mbox{\Hypertarget{mouse_8h_a38d52a9770ba9b635e98e4968ae7c330}\label{mouse_8h_a38d52a9770ba9b635e98e4968ae7c330}} 
+\index{mouse.h@{mouse.h}!mouse\_write\_command@{mouse\_write\_command}}
+\index{mouse\_write\_command@{mouse\_write\_command}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_write\_command()}{mouse\_write\_command()}}
+{\footnotesize\ttfamily int() mouse\+\_\+write\+\_\+command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command }\end{DoxyParamCaption})}
+
+
+
+Writes a command to the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to be sent to the mouse\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file mouse.\+c.
+
+\mbox{\Hypertarget{mouse_8h_a126b7dac7fae95ce33534cc85af238ed}\label{mouse_8h_a126b7dac7fae95ce33534cc85af238ed}} 
+\index{mouse.h@{mouse.h}!update\_mouse\_info@{update\_mouse\_info}}
+\index{update\_mouse\_info@{update\_mouse\_info}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{update\_mouse\_info()}{update\_mouse\_info()}}
+{\footnotesize\ttfamily void() update\+\_\+mouse\+\_\+info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Builds the \mbox{\hyperlink{struct_mouse_info}{Mouse\+Info}} structure. 
+
+Builds the \mbox{\hyperlink{struct_mouse_info}{Mouse\+Info}} structure based on the mouse data 
+
+Definition at line 35 of file mouse.\+c.
+

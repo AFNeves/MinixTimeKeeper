@@ -1,0 +1,220 @@
+\hypertarget{graphic_8c}{}\doxysection{/home/neves/reps/\+LCOM/shared/proj/src/controller/video/graphic.c File Reference}
+\label{graphic_8c}\index{/home/neves/reps/LCOM/shared/proj/src/controller/video/graphic.c@{/home/neves/reps/LCOM/shared/proj/src/controller/video/graphic.c}}
+{\ttfamily \#include \char`\"{}graphic.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{graphic_8c_a967432a6c8128a907b937b0f3f4b4472}{set\+\_\+graphic\+\_\+mode}} (uint16\+\_\+t submode)
+\begin{DoxyCompactList}\small\item\em Sets the graphics mode using VESA BIOS Extensions. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphic_8c_a62f63672fd06c462a0873e30f5e32ef8}{set\+\_\+text\+\_\+mode}} ()
+\begin{DoxyCompactList}\small\item\em Sets the text mode using VESA BIOS Extensions. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphic_8c_ac50005645b76a08eff8126607633420f}{set\+\_\+frame\+\_\+buffer}} (uint16\+\_\+t mode, uint8\+\_\+t $\ast$$\ast$frame\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Sets the frame buffer for the specified mode. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphic_8c_aac0e6c0ef6d9620a1998ef2ceae31389}{draw\+\_\+pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t color, uint8\+\_\+t $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws a pixel on a buffer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphic_8c_ab994218125e850a14cba707afec522eb}{draw\+\_\+line}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t len, uint32\+\_\+t color, uint8\+\_\+t $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws a line of pixels on a buffer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphic_8c_a2701840f175c88c778bcb38c9b599bfe}{draw\+\_\+rectangle}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height, uint32\+\_\+t color, uint8\+\_\+t $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws a rectangle on a buffer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphic_8c_a55bce0314dd9cb2ed7451653da186523}{draw\+\_\+\+XPM}} (xpm\+\_\+map\+\_\+t xpm, uint16\+\_\+t x, uint16\+\_\+t y, uint8\+\_\+t $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws a XPM image on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vbe\+\_\+mode\+\_\+info\+\_\+t \mbox{\hyperlink{graphic_8c_a3f79b04e621cae90f2c5ad2786ee153f}{vbe\+\_\+info}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{graphic_8c_ab994218125e850a14cba707afec522eb}\label{graphic_8c_ab994218125e850a14cba707afec522eb}} 
+\index{graphic.c@{graphic.c}!draw\_line@{draw\_line}}
+\index{draw\_line@{draw\_line}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{draw\_line()}{draw\_line()}}
+{\footnotesize\ttfamily int() draw\+\_\+line (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint32\+\_\+t}]{color,  }\item[{uint8\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws a line of pixels on a buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The X coordinate of the starting pixel. \\
+\hline
+{\em y} & The Y coordinate of the starting pixel. \\
+\hline
+{\em len} & The length of the line in pixels. \\
+\hline
+{\em color} & The color of the line. \\
+\hline
+{\em buffer} & The buffer where the line will be drawn.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file graphic.\+c.
+
+\mbox{\Hypertarget{graphic_8c_aac0e6c0ef6d9620a1998ef2ceae31389}\label{graphic_8c_aac0e6c0ef6d9620a1998ef2ceae31389}} 
+\index{graphic.c@{graphic.c}!draw\_pixel@{draw\_pixel}}
+\index{draw\_pixel@{draw\_pixel}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{draw\_pixel()}{draw\_pixel()}}
+{\footnotesize\ttfamily int() draw\+\_\+pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint32\+\_\+t}]{color,  }\item[{uint8\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws a pixel on a buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The X coordinate of the pixel. \\
+\hline
+{\em y} & The Y coordinate of the pixel. \\
+\hline
+{\em color} & The color of the pixel. \\
+\hline
+{\em buffer} & The buffer where the pixel will be drawn.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file graphic.\+c.
+
+\mbox{\Hypertarget{graphic_8c_a2701840f175c88c778bcb38c9b599bfe}\label{graphic_8c_a2701840f175c88c778bcb38c9b599bfe}} 
+\index{graphic.c@{graphic.c}!draw\_rectangle@{draw\_rectangle}}
+\index{draw\_rectangle@{draw\_rectangle}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{draw\_rectangle()}{draw\_rectangle()}}
+{\footnotesize\ttfamily int() draw\+\_\+rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height,  }\item[{uint32\+\_\+t}]{color,  }\item[{uint8\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws a rectangle on a buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The X coordinate of the top-\/left corner. \\
+\hline
+{\em y} & The Y coordinate of the top-\/left corner. \\
+\hline
+{\em width} & The width of the rectangle. \\
+\hline
+{\em height} & The height of the rectangle. \\
+\hline
+{\em color} & The color of the rectangle. \\
+\hline
+{\em buffer} & The buffer where the rectangle will be drawn.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file graphic.\+c.
+
+\mbox{\Hypertarget{graphic_8c_a55bce0314dd9cb2ed7451653da186523}\label{graphic_8c_a55bce0314dd9cb2ed7451653da186523}} 
+\index{graphic.c@{graphic.c}!draw\_XPM@{draw\_XPM}}
+\index{draw\_XPM@{draw\_XPM}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{draw\_XPM()}{draw\_XPM()}}
+{\footnotesize\ttfamily int() draw\+\_\+\+XPM (\begin{DoxyParamCaption}\item[{xpm\+\_\+map\+\_\+t}]{xpm,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint8\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws a XPM image on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xpm} & The XPM image to draw. \\
+\hline
+{\em x} & The x coordinate of the top-\/left corner. \\
+\hline
+{\em y} & The y coordinate of the top-\/left corner.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file graphic.\+c.
+
+\mbox{\Hypertarget{graphic_8c_ac50005645b76a08eff8126607633420f}\label{graphic_8c_ac50005645b76a08eff8126607633420f}} 
+\index{graphic.c@{graphic.c}!set\_frame\_buffer@{set\_frame\_buffer}}
+\index{set\_frame\_buffer@{set\_frame\_buffer}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{set\_frame\_buffer()}{set\_frame\_buffer()}}
+{\footnotesize\ttfamily int() set\+\_\+frame\+\_\+buffer (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode,  }\item[{uint8\+\_\+t $\ast$$\ast$}]{frame\+\_\+buffer }\end{DoxyParamCaption})}
+
+
+
+Sets the frame buffer for the specified mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The mode to set. \\
+\hline
+{\em frame\+\_\+buffer} & The frame buffer pointer to be used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file graphic.\+c.
+
+\mbox{\Hypertarget{graphic_8c_a967432a6c8128a907b937b0f3f4b4472}\label{graphic_8c_a967432a6c8128a907b937b0f3f4b4472}} 
+\index{graphic.c@{graphic.c}!set\_graphic\_mode@{set\_graphic\_mode}}
+\index{set\_graphic\_mode@{set\_graphic\_mode}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{set\_graphic\_mode()}{set\_graphic\_mode()}}
+{\footnotesize\ttfamily int() set\+\_\+graphic\+\_\+mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{submode }\end{DoxyParamCaption})}
+
+
+
+Sets the graphics mode using VESA BIOS Extensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em submode} & The mode to set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 5 of file graphic.\+c.
+
+\mbox{\Hypertarget{graphic_8c_a62f63672fd06c462a0873e30f5e32ef8}\label{graphic_8c_a62f63672fd06c462a0873e30f5e32ef8}} 
+\index{graphic.c@{graphic.c}!set\_text\_mode@{set\_text\_mode}}
+\index{set\_text\_mode@{set\_text\_mode}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{set\_text\_mode()}{set\_text\_mode()}}
+{\footnotesize\ttfamily int() set\+\_\+text\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets the text mode using VESA BIOS Extensions. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file graphic.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{graphic_8c_a3f79b04e621cae90f2c5ad2786ee153f}\label{graphic_8c_a3f79b04e621cae90f2c5ad2786ee153f}} 
+\index{graphic.c@{graphic.c}!vbe\_info@{vbe\_info}}
+\index{vbe\_info@{vbe\_info}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{vbe\_info}{vbe\_info}}
+{\footnotesize\ttfamily vbe\+\_\+mode\+\_\+info\+\_\+t vbe\+\_\+info}
+
+
+
+Definition at line 3 of file graphic.\+c.
+

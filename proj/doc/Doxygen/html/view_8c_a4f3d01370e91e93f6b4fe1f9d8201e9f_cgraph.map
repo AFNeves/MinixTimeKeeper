@@ -1,0 +1,8 @@
+<map id="draw_time" name="draw_time">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,88,57"/>
+<area shape="rect" id="node2" href="$view_8c.html#a39ad944a9c99eecebef79b21fc740a51" title=" " alt="" coords="136,5,259,32"/>
+<area shape="rect" id="node5" href="$graphic_8c.html#a2701840f175c88c778bcb38c9b599bfe" title="Draws a rectangle on a buffer." alt="" coords="142,56,253,83"/>
+<area shape="rect" id="node3" href="$view_8c.html#a6db4230a0003a09515d78b790d8ec52d" title=" " alt="" coords="307,5,428,32"/>
+<area shape="rect" id="node4" href="$graphic_8c.html#aac0e6c0ef6d9620a1998ef2ceae31389" title="Draws a pixel on a buffer." alt="" coords="476,31,560,57"/>
+<area shape="rect" id="node6" href="$graphic_8c.html#ab994218125e850a14cba707afec522eb" title="Draws a line of pixels on a buffer." alt="" coords="329,56,406,83"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="write_to_KBC" name="write_to_KBC">
+<area shape="rect" id="node1" title="Writes a command to the KBC." alt="" coords="493,31,596,57"/>
+<area shape="rect" id="node2" href="$mouse_8c.html#a38d52a9770ba9b635e98e4968ae7c330" title="Writes a command to the mouse." alt="" coords="285,31,445,57"/>
+<area shape="rect" id="node3" href="$main_8c.html#a099d48038e444c2f3e69904477527798" title=" " alt="" coords="173,5,227,32"/>
+<area shape="rect" id="node5" href="$main_8c.html#abdcc0cd526b667641db5dc072cc162c4" title=" " alt="" coords="163,56,237,83"/>
+<area shape="rect" id="node4" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,115,57"/>
+</map>
