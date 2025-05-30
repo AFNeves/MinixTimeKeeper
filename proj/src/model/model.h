@@ -12,6 +12,7 @@
 #include "model/sprite.h"
 #include "config.h"
 
+#include "xpm/colon.xpm"
 #include "xpm/mouse.xpm"
 #include "xpm/num_0.xpm"
 #include "xpm/num_1.xpm"

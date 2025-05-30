@@ -14,6 +14,7 @@ extern Sprite *mouse;
 extern Sprite *buttonStart;
 extern Sprite *buttonPause;
 extern Sprite *buttonReset;
+extern Sprite *colon;
 extern Sprite *digit_sprites[10];
 
 int buttonStart_x = 100, buttonStart_y = 400;
@@ -130,8 +131,9 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 }
 
 void display_real_time() {
-    int x = 50, y = 50;
+    int midX = mode_info.XResolution / 2;
     int dx = 55;
+    int y = 50;
 
     int digits[6] = {
         time_info.hours / 10, time_info.hours % 10,
@@ -139,14 +141,14 @@ void display_real_time() {
         time_info.seconds / 10, time_info.seconds % 10
     };
 
-    draw_sprite_xpm(digit_sprites[digits[0]], x, y);
-    draw_sprite_xpm(digit_sprites[digits[1]], x + dx, y);
-    //draw_sprite_xpm(colon_sprite, x + 2*dx, y);
-    draw_sprite_xpm(digit_sprites[digits[2]], x + 3*dx, y);
-    draw_sprite_xpm(digit_sprites[digits[3]], x + 4*dx, y);
-    //draw_sprite_xpm(colon_sprite, x + 5*dx, y);
-    draw_sprite_xpm(digit_sprites[digits[4]], x + 6*dx, y);
-    draw_sprite_xpm(digit_sprites[digits[5]], x + 7*dx, y);
+    draw_sprite_xpm(digit_sprites[digits[0]], midX - 4 * dx, y);
+    draw_sprite_xpm(digit_sprites[digits[1]], midX - 3 * dx, y);
+    draw_sprite_xpm(colon, midX - 2 * dx, y);
+    draw_sprite_xpm(digit_sprites[digits[2]],midX - dx, y);
+    draw_sprite_xpm(digit_sprites[digits[3]],midX, y);
+    draw_sprite_xpm(colon, midX + dx, y);
+    draw_sprite_xpm(digit_sprites[digits[4]], midX + 2 * dx, y);
+    draw_sprite_xpm(digit_sprites[digits[5]], midX + 3 * dx, y);
 }
 
 void draw_text(const char *text, int x, int y, uint32_t color) {

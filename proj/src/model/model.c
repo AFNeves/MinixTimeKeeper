@@ -11,12 +11,14 @@ Sprite *mouse;
 Sprite *buttonStart;
 Sprite *buttonPause;
 Sprite *buttonReset;
+Sprite *colon;
 Sprite *digit_sprites[10];
 
 
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
     mouse = create_sprite_xpm((xpm_map_t) mouse_xpm);
+    colon = create_sprite_xpm((xpm_map_t) colon_xpm);
 
     digit_sprites[0] = create_sprite_xpm((xpm_map_t) digit_0_xpm);
     digit_sprites[1] = create_sprite_xpm((xpm_map_t) digit_1_xpm);
@@ -29,9 +31,9 @@ void setup_sprites() {
     digit_sprites[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
     digit_sprites[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
 
-    buttonStart = create_sprite_button(20, 10, GREEN);
-    buttonPause = create_sprite_button(20, 10, YELLOW);
-    buttonReset = create_sprite_button(20, 10, RED);
+    buttonStart = create_sprite_button(60, 40, GREEN);
+    buttonPause = create_sprite_button(60, 40, YELLOW);
+    buttonReset = create_sprite_button(60, 40, RED);
 
 }
 
