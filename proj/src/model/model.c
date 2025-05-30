@@ -44,18 +44,6 @@ void setup_sprites() {
     toolbar_buttons[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
     toolbar_buttons[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
 
-    toolbar_button_sprites[0] = create_sprite_xpm((xpm_map_t) clock_xpm);
-    toolbar_button_sprites[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
-    toolbar_button_sprites[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
-
-    days_of_week[0] = create_sprite_xpm((xpm_map_t) mon_xpm);
-    days_of_week[1] = create_sprite_xpm((xpm_map_t) tue_xpm);
-    days_of_week[2] = create_sprite_xpm((xpm_map_t) wed_xpm);
-    days_of_week[3] = create_sprite_xpm((xpm_map_t) thu_xpm);
-    days_of_week[4] = create_sprite_xpm((xpm_map_t) fri_xpm);
-    days_of_week[5] = create_sprite_xpm((xpm_map_t) sat_xpm);
-    days_of_week[6] = create_sprite_xpm((xpm_map_t) sun_xpm);
-
     int toolbar_dx = 55;
     int toolbarX = mode_info.XResolution / 4;
     int toolbarY = 4 * mode_info.YResolution / 5;
@@ -76,6 +64,16 @@ void setup_sprites() {
         chrono_buttons[i]->x = (chrono_x +  2* i * chrono_x) - chrono_dx;
         chrono_buttons[i]->y = chrono_y;
     }
+
+
+    days_of_week[0] = create_sprite_xpm((xpm_map_t) mon_xpm);
+    days_of_week[1] = create_sprite_xpm((xpm_map_t) tue_xpm);
+    days_of_week[2] = create_sprite_xpm((xpm_map_t) wed_xpm);
+    days_of_week[3] = create_sprite_xpm((xpm_map_t) thu_xpm);
+    days_of_week[4] = create_sprite_xpm((xpm_map_t) fri_xpm);
+    days_of_week[5] = create_sprite_xpm((xpm_map_t) sat_xpm);
+    days_of_week[6] = create_sprite_xpm((xpm_map_t) sun_xpm);
+
 }
 
 // É boa prática antes de acabar o programa libertar a memória alocada
@@ -172,6 +170,7 @@ void insert_new_input(uint8_t new_input) {
         }
         timer_input[5] = new_input;
         timer_input_index++;
+        printf("Input %d added to timer input\n", new_input);
     }
 }
 

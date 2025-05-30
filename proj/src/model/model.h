@@ -77,8 +77,6 @@ extern ChronoState chronoState;
 extern ChronoState timerState;
 
 
-
-
 void update_timer_state();
 void update_keyboard_state();
 void update_mouse_state();
