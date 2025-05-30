@@ -1,5 +1,7 @@
 #include "mouse.h"
 #include "../video/graphic.h"
+#include "KBC.h"
+#include "i8042.h"
 
 int mouse_hook_id = 2;
 uint8_t byte_index = 0;
@@ -21,7 +23,12 @@ int (mouse_unsubscribe_int)()
 
 void (mouse_ih)()
 {
-    read_KBC_output(&mouse_byte, 1);
+    uint8_t status;
+    util_sys_inb(KBC_STATUS_REG, &status);
+
+    if((status & FULL_OUT_BUF) && (status & MOUSE_DATA_BIT)){
+        read_KBC_output(&mouse_byte, 1);
+    }
 }
 
 void (mouse_sync)()

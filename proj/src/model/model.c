@@ -13,6 +13,7 @@ Sprite *buttonPause;
 Sprite *buttonReset;
 Sprite *colon;
 Sprite *digit_sprites[10];
+Sprite *slash;
 
 
 // Criação dos objetos via XPM e via comum
@@ -30,6 +31,7 @@ void setup_sprites() {
     digit_sprites[7] = create_sprite_xpm((xpm_map_t) digit_7_xpm);
     digit_sprites[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
     digit_sprites[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
+    slash = create_sprite_xpm((xpm_map_t) slash_xpm);
 
     buttonStart = create_sprite_button(60, 40, GREEN);
     buttonPause = create_sprite_button(60, 40, YELLOW);
@@ -43,6 +45,7 @@ void destroy_sprites() {
     destroy_sprite(buttonStart);
     destroy_sprite(buttonPause);
     destroy_sprite(buttonReset);
+    destroy_sprite(slash);
 
     for (int i = 0; i < 10; i++)
         destroy_sprite(digit_sprites[i]);

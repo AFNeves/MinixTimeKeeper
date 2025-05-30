@@ -16,6 +16,7 @@ extern Sprite *buttonPause;
 extern Sprite *buttonReset;
 extern Sprite *colon;
 extern Sprite *digit_sprites[10];
+extern Sprite *slash;
 
 int buttonStart_x = 100, buttonStart_y = 400;
 int buttonPause_x = 400, buttonPause_y = 400;
@@ -133,23 +134,51 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 void display_real_time() {
     int midX = mode_info.XResolution / 2;
     int dx = 55;
-    int y = 50;
+    int y_date = 20; // data
+    int y_time = 100; // hora
 
-    int digits[6] = {
+    // ---- DATA ---- (DIA/MÊS/ANO)
+    int year = time_info.year;
+    int digits_date[8] = {
+        time_info.day / 10, time_info.day % 10,
+        time_info.month / 10, time_info.month % 10,
+        (year / 1000) % 10, (year / 100) % 10, (year / 10) % 10, year % 10
+    };
+
+
+    // desenhar dia
+    draw_sprite_xpm(digit_sprites[digits_date[0]], midX - 6 * dx, y_date);
+    draw_sprite_xpm(digit_sprites[digits_date[1]], midX - 5 * dx, y_date);
+    draw_sprite_xpm(slash, midX - 4 * dx, y_date);
+
+    // desenhar mês
+    draw_sprite_xpm(digit_sprites[digits_date[2]], midX - 3 * dx, y_date);
+    draw_sprite_xpm(digit_sprites[digits_date[3]], midX - 2 * dx, y_date);
+    draw_sprite_xpm(slash, midX - dx, y_date);
+
+    // desenhar ano completo (YYYY)
+    draw_sprite_xpm(digit_sprites[digits_date[4]], midX, y_date);
+    draw_sprite_xpm(digit_sprites[digits_date[5]], midX + dx, y_date);
+    draw_sprite_xpm(digit_sprites[digits_date[6]], midX + 2 * dx, y_date);
+    draw_sprite_xpm(digit_sprites[digits_date[7]], midX + 3 * dx, y_date);
+
+    // ---- HORA ---- (HH:MM:SS)
+    int digits_time[6] = {
         time_info.hours / 10, time_info.hours % 10,
         time_info.minutes / 10, time_info.minutes % 10,
         time_info.seconds / 10, time_info.seconds % 10
     };
 
-    draw_sprite_xpm(digit_sprites[digits[0]], midX - 4 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[1]], midX - 3 * dx, y);
-    draw_sprite_xpm(colon, midX - 2 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[2]],midX - dx, y);
-    draw_sprite_xpm(digit_sprites[digits[3]],midX, y);
-    draw_sprite_xpm(colon, midX + dx, y);
-    draw_sprite_xpm(digit_sprites[digits[4]], midX + 2 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[5]], midX + 3 * dx, y);
+    draw_sprite_xpm(digit_sprites[digits_time[0]], midX - 3 * dx, y_time);
+    draw_sprite_xpm(digit_sprites[digits_time[1]], midX - 2 * dx, y_time);
+    draw_sprite_xpm(colon, midX - dx, y_time);
+    draw_sprite_xpm(digit_sprites[digits_time[2]], midX, y_time);
+    draw_sprite_xpm(digit_sprites[digits_time[3]], midX + dx, y_time);
+    draw_sprite_xpm(colon, midX + 2 * dx, y_time);
+    draw_sprite_xpm(digit_sprites[digits_time[4]], midX + 3 * dx, y_time);
+    draw_sprite_xpm(digit_sprites[digits_time[5]], midX + 4 * dx, y_time);
 }
+
 
 void draw_text(const char *text, int x, int y, uint32_t color) {
     for (int i = 0; text[i] != '\0'; i++) {

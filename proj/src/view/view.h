@@ -16,6 +16,7 @@ extern uint8_t *main_frame_buffer;
 extern Sprite *buttonStart;
 extern Sprite *buttonPause;
 extern Sprite *buttonReset;
+extern Sprite *slash;
 extern int buttonStart_x;
 extern int buttonStart_y;
 extern int buttonPause_x;

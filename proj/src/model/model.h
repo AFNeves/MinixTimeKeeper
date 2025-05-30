@@ -24,6 +24,7 @@
 #include "xpm/num_7.xpm"
 #include "xpm/num_8.xpm"
 #include "xpm/num_9.xpm"
+#include "xpm/slash.xpm"
 
 typedef enum {
     RUNNING,
