@@ -85,7 +85,7 @@ void update_chrono_buttons();
 void update_toolbar_buttons();
 void setup_sprites();
 void destroy_sprites();
-void insert_new_input(uint8_t scancode);
+void insert_new_input(int new_input);
 void delete_last_input();
 
 // Helper functions

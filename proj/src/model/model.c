@@ -149,39 +149,37 @@ void update_keyboard_state() {
 
 
     if (menuState == TIMER) {
+        int digit = -1;
         switch (scancode) {
-            case ONE_KEY:
-            case TWO_KEY:
-            case THREE_KEY:
-            case FOUR_KEY:
-            case FIVE_KEY:
-            case SIX_KEY:
-            case SEVEN_KEY:
-            case EIGHT_KEY:
-            case NINE_KEY:
-            case ZERO_KEY:
-                insert_new_input(scancode);
-                break;
+            case ONE_KEY: digit = 1; break;
+            case TWO_KEY: digit = 2; break;
+            case THREE_KEY: digit = 3;  break;
+            case FOUR_KEY: digit = 4; break;
+            case FIVE_KEY: digit = 5; break;
+            case SIX_KEY: digit = 6; break;
+            case SEVEN_KEY: digit = 7; break;
+            case EIGHT_KEY: digit = 8; break;
+            case NINE_KEY: digit = 9; break;
+            case ZERO_KEY: digit = 0; break;
+            case BACKSPACE_KEY: delete_last_input();break;
 
-            case BACKSPACE_KEY: 
-                delete_last_input();
-                break;
-
-            default:
-                break;
+            default: digit = -1;  break;
+        }
+        if (digit >= 0 && digit <= 9) {
+            insert_new_input(digit);
         }
     }
 }
 
 
 
-void insert_new_input(uint8_t new_input) {
+void insert_new_input(int new_input) {
     if (timer_input_length < 6) {
         // Shift existing input to the left
         for (int i = 0; i < 5; i++) {
             timer_input[i] = timer_input[i + 1];
         }
-        // Put the new input at the end
+        printf("Inserting new input: %d\n", new_input);
         timer_input[5] = new_input;
         timer_input_length++;
     }

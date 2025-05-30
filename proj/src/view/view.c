@@ -130,7 +130,7 @@ void draw_timer_input() {
         if (i > 5) j = i - 2;
         
         if (i == 2 || i == 5)  draw_sprite_xpm(colon, x + i * dx, y);
-        else  draw_sprite_xpm(digits[timer_input[j - 1]], x + i * dx, y);
+        else  draw_sprite_xpm(digits[timer_input[j]], x + i * dx, y);
     }
 
 }   
