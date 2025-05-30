@@ -1,60 +1,76 @@
 #include "model.h"
+#include "sprite.h"
 
 // Variáveis externas importantes à construção e manipulação do modelo
 SystemState systemState = RUNNING;
-MenuState menuState = START;
+MenuState menuState = RUNNING_CLOCK;
 ChronoState chronoState = OFF;
 int chrono_seconds = 0;
 
 // Objetos a construir e manipular com a mudança de estados
 Sprite *mouse;
-Sprite *buttonStart;
-Sprite *buttonPause;
-Sprite *buttonReset;
 Sprite *colon;
-Sprite *digit_sprites[10];
+Sprite *slash;
+Sprite *digits[10];
+Sprite *toolbar_buttons[3];
+Sprite *chrono_buttons[3];
 
-// Timer Counter
-extern int timer_counter;
-
-// Keyboard Scancode
-extern uint8_t scancode;
-
-// Mouse Information
-extern uint8_t byte_index;
-extern MouseInfo mouse_info;
 
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
     mouse = create_sprite_xpm((xpm_map_t) mouse_xpm);
     colon = create_sprite_xpm((xpm_map_t) colon_xpm);
 
-    digit_sprites[0] = create_sprite_xpm((xpm_map_t) digit_0_xpm);
-    digit_sprites[1] = create_sprite_xpm((xpm_map_t) digit_1_xpm);
-    digit_sprites[2] = create_sprite_xpm((xpm_map_t) digit_2_xpm);
-    digit_sprites[3] = create_sprite_xpm((xpm_map_t) digit_3_xpm);
-    digit_sprites[4] = create_sprite_xpm((xpm_map_t) digit_4_xpm);
-    digit_sprites[5] = create_sprite_xpm((xpm_map_t) digit_5_xpm);
-    digit_sprites[6] = create_sprite_xpm((xpm_map_t) digit_6_xpm);
-    digit_sprites[7] = create_sprite_xpm((xpm_map_t) digit_7_xpm);
-    digit_sprites[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
-    digit_sprites[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
+    digits[0] = create_sprite_xpm((xpm_map_t) digit_0_xpm);
+    digits[1] = create_sprite_xpm((xpm_map_t) digit_1_xpm);
+    digits[2] = create_sprite_xpm((xpm_map_t) digit_2_xpm);
+    digits[3] = create_sprite_xpm((xpm_map_t) digit_3_xpm);
+    digits[4] = create_sprite_xpm((xpm_map_t) digit_4_xpm);
+    digits[5] = create_sprite_xpm((xpm_map_t) digit_5_xpm);
+    digits[6] = create_sprite_xpm((xpm_map_t) digit_6_xpm);
+    digits[7] = create_sprite_xpm((xpm_map_t) digit_7_xpm);
+    digits[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
+    digits[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
+    slash = create_sprite_xpm((xpm_map_t) slash_xpm);
 
-    buttonStart = create_sprite_button(60, 40, GREEN);
-    buttonPause = create_sprite_button(60, 40, YELLOW);
-    buttonReset = create_sprite_button(60, 40, RED);
+    toolbar_buttons[0] = create_sprite_xpm((xpm_map_t) clock_xpm);
+    toolbar_buttons[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
+    toolbar_buttons[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
 
+    int toolbar_dx = 55;
+    int toolbarX = mode_info.XResolution / 4;
+    int toolbarY = 4 * mode_info.YResolution / 5;
+    for (int i = 0; i < 3; i++) {
+        toolbar_buttons[i]->x = (toolbarX + i * toolbarX) - 0.5 * toolbar_dx;
+        toolbar_buttons[i]->y = toolbarY;
+    }
+
+    chrono_buttons[0] = create_sprite_xpm((xpm_map_t) start_xpm);
+    chrono_buttons[1] = create_sprite_xpm((xpm_map_t) pause_xpm);
+    chrono_buttons[2] = create_sprite_xpm((xpm_map_t) reset_xpm);
+
+    int chrono_x = mode_info.XResolution / 5;
+    int chrono_y = mode_info.YResolution / 2;
+    int chrono_dx = 100;
+
+    for (int i = 0; i < 3; i++) {
+        chrono_buttons[i]->x = (chrono_x +  2* i * chrono_x) - chrono_dx;
+        chrono_buttons[i]->y = chrono_y;
+    }
 }
 
 // É boa prática antes de acabar o programa libertar a memória alocada
 void destroy_sprites() {
     destroy_sprite(mouse);
-    destroy_sprite(buttonStart);
-    destroy_sprite(buttonPause);
-    destroy_sprite(buttonReset);
+    destroy_sprite(slash);
+    destroy_sprite(colon);
 
     for (int i = 0; i < 10; i++)
-        destroy_sprite(digit_sprites[i]);
+        destroy_sprite(digits[i]);
+    
+    for (int i = 0; i < 3; i++)
+        destroy_sprite(toolbar_buttons[i]);
+
 }
 
 // Na altura da interrupção há troca dos buffers e incremento do contador
@@ -65,11 +81,17 @@ void update_timer_state() {
         if (chronoState == ON) {
             chrono_seconds++;
         }
+        update_rtc_state();
     }
 
-    draw_new_frame();
-
     if (DOUBLE_BUFFER) swap_buffers();
+}
+
+// Como o Real Time Clock é um módulo mais pesado, 
+// devemos só atualizar os valores quando passa um segundo
+void update_rtc_state() {
+    rtc_update();
+    draw_new_frame();
 }
 
 // Sempre que uma nova tecla é pressionada há avaliação do scancode.
@@ -83,14 +105,19 @@ void update_keyboard_state() {
             systemState = EXIT;
             break;
         case S_KEY:
-            menuState = START;
+            menuState = RUNNING_CLOCK;
             break;
         case C_KEY:
             menuState = CHRONO;
             break;
+        case T_KEY:
+            menuState = TIMER;
+            break;
+
         default:
             break;
     }
+    draw_new_frame();
 }
 
 
@@ -98,33 +125,47 @@ void update_keyboard_state() {
 // - muda o seu estado interno (x, y, left_pressed, right_pressed) - mouse_sync_info();
 // - pode mudar o estado do botão por baixo dele - update_buttons_state();
 void update_mouse_state() {
-    mouse_ih();
+    (mouse_ih)();
     mouse_sync();
 
     if (byte_index == 3) {
-        update_mouse_info();
+        mouse_make_packet();
         byte_index = 0;
         if (menuState == CHRONO) {
             update_chrono_buttons();
-        }
+        } 
+        update_toolbar_buttons();
+        draw_new_frame();
     } 
     
 }
 
 void update_chrono_buttons() {
-    if (mouse_info.lb) {
-        if (is_mouse_over_button(buttonStart, buttonStart_x, buttonStart_y))
+    if (mouse_info.left_click) {
+        if (is_mouse_over_button(chrono_buttons[0],chrono_buttons[0]->x, chrono_buttons[0]->y))
             chronoState = ON;
 
-        else if (is_mouse_over_button(buttonPause, buttonPause_x, buttonPause_y))
+        else if (is_mouse_over_button(chrono_buttons[1], chrono_buttons[1]->x, chrono_buttons[1]->y))
             chronoState = OFF; 
 
-        else if (is_mouse_over_button(buttonReset, buttonReset_x, buttonReset_y)) {
+        else if (is_mouse_over_button(chrono_buttons[2], chrono_buttons[2]->x, chrono_buttons[2]->y)) {
             chronoState = OFF;
             chrono_seconds = 0;
         }
     }
 }
+
+void update_toolbar_buttons() {
+    if (mouse_info.left_click) {
+        if (is_mouse_over_button(toolbar_buttons[0], toolbar_buttons[0]->x, toolbar_buttons[0]->y)) {
+            menuState = RUNNING_CLOCK;
+        } else if (is_mouse_over_button(toolbar_buttons[1], toolbar_buttons[0]->x, toolbar_buttons[0]->y)) {
+            menuState = CHRONO;
+        } else if (is_mouse_over_button(toolbar_buttons[2], toolbar_buttons[0]->x, toolbar_buttons[0]->y)) {
+            menuState = TIMER;
+        }
+    }
+}   
 
 
 

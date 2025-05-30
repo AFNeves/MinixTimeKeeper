@@ -1,12 +1,12 @@
 /* XPM */
-static char *_6ad6c1cb0174f5d9e0fe948fe696bca220MMq6TEOkDlPzT[] = {
+static char *clock_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "70 70 5 1 ",
 "  c None",
-". c black",
+". c #00000000",
 "X c #F5B100",
 "o c #6490FF",
-"O c white",
+"O c #FFFFFFFF",
 /* pixels */
 "             ............................................             ",
 "             .XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.             ",

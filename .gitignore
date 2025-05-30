@@ -9,6 +9,7 @@
 **/*.depend
 **/*.gdbinit
 **/debug/
+**/*.txt
 
 # MACOS specific file
 .DS_Store

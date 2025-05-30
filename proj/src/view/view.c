@@ -9,27 +9,7 @@ uint32_t frame_buffer_size;
 extern MenuState menuState;
 extern int chrono_seconds;
 
-// Objetos
-extern Sprite *mouse;
-extern Sprite *buttonStart;
-extern Sprite *buttonPause;
-extern Sprite *buttonReset;
-extern Sprite *colon;
-extern Sprite *digit_sprites[10];
 
-// Mouse Information
-extern MouseInfo mouse_info;
-
-// Graphical Information
-extern vbe_mode_info_t vbe_info;
-
-// RTC Data Structures
-extern time_struct rtc_time;
-extern date_struct rtc_date;
-
-int buttonStart_x = 100, buttonStart_y = 400;
-int buttonPause_x = 400, buttonPause_y = 400;
-int buttonReset_x = 700, buttonReset_y = 400;
 
 static const uint8_t font8x8_basic[128][8] = {
   ['A'] = {0x18,0x24,0x42,0x7E,0x42,0x42,0x42,0x00},
@@ -43,7 +23,7 @@ static const uint8_t font8x8_basic[128][8] = {
 
 int set_frame_buffers(uint16_t mode) {
     if (set_frame_buffer(mode, &main_frame_buffer)) return 1;
-    frame_buffer_size = vbe_info.XResolution * vbe_info.YResolution * ((vbe_info.BitsPerPixel + 7) / 8);
+    frame_buffer_size = mode_info.XResolution * mode_info.YResolution * ((mode_info.BitsPerPixel + 7) / 8);
     if (DOUBLE_BUFFER) {
         secondary_frame_buffer = (uint8_t *) malloc(frame_buffer_size);
         drawing_frame_buffer = secondary_frame_buffer;
@@ -59,8 +39,8 @@ void swap_buffers() {
 
 void draw_new_frame() {
     switch (menuState) {
-        case START:
-            draw_initial_menu();
+        case RUNNING_CLOCK:
+            draw_time();
             break;
         case CHRONO:
             draw_chrono_menu();
@@ -69,40 +49,43 @@ void draw_new_frame() {
             // draw_timer_menu();
             break;
     }
+    draw_toolbar();
     draw_mouse();
 }
 
-void draw_initial_menu() {
-    draw_rectangle(0, 0, vbe_info.XResolution, vbe_info.YResolution, RED, drawing_frame_buffer);
+void draw_time() {
+    draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, PRESSED, drawing_frame_buffer);
     display_real_time();
 }
 
 
 void draw_chrono_menu() {
-    draw_rectangle(0, 0, vbe_info.XResolution, vbe_info.YResolution, DARKBLUE, drawing_frame_buffer);
+    draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, DARKBLUE, drawing_frame_buffer);
     draw_chrono_buttons();
-
+    
     int minutes = chrono_seconds / 60;
     int seconds = chrono_seconds % 60;
 
-    int x = vbe_info.XResolution / 2 - 4 * 55;
+    int dx = 55;
+    int x = mode_info.XResolution / 2 - 2.5 * dx;
     int y = 100;
 
-    draw_sprite_xpm(digit_sprites[minutes / 10], x, y);
-    draw_sprite_xpm(digit_sprites[minutes % 10], x + 55, y);
-    draw_sprite_xpm(digit_sprites[seconds / 10], x + 165, y);
-    draw_sprite_xpm(digit_sprites[seconds % 10], x + 220, y);
+    draw_sprite_xpm(digits[minutes / 10], x, y);
+    draw_sprite_xpm(digits[minutes % 10], x + dx, y);
+    draw_sprite_xpm(digits[minutes / 10], x, y);
+    draw_sprite_xpm(digits[minutes % 10], x + dx, y);
+    draw_sprite_xpm(colon, x + 2 * dx, y);
+    draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
+    draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
+    draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
+    draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
 }
 
 void draw_chrono_buttons() {
-    draw_sprite_button(buttonStart, buttonStart_x, buttonStart_y);
-    draw_text("START", buttonStart_x + 10, buttonStart_y + 10, WHITE);
+    for (int i = 0; i < 3; i++) {
+        draw_sprite_xpm(chrono_buttons[i], chrono_buttons[i]->x, chrono_buttons[i]->y);
+    }
 
-    draw_sprite_button(buttonPause, buttonPause_x, buttonPause_y);
-    draw_text("PAUSE", buttonPause_x + 10, buttonPause_y + 10, WHITE);
-
-    draw_sprite_button(buttonReset, buttonReset_x, buttonReset_y);
-    draw_text("RESET", buttonReset_x + 10, buttonReset_y + 10, WHITE);
 }
 
 
@@ -141,25 +124,68 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 }
 
 void display_real_time() {
-    int midX = vbe_info.XResolution / 2;
+    
     int dx = 55;
+    int x = mode_info.XResolution / 2 - 5 * dx;
     int y = 50;
+    int midX = mode_info.XResolution / 2;
+    int y_date = y + 75;
 
-    int digits[6] = {
-        rtc_time.hours / 10, rtc_time.hours % 10,
-        rtc_time.minutes / 10, rtc_time.minutes % 10,
-        rtc_time.seconds / 10, rtc_time.seconds % 10
+    // ---- DATA ---- (DIA/MÊS/ANO)
+    int year = time_info.year;
+    int digits_date[8] = {
+        time_info.day / 10, time_info.day % 10,
+        time_info.month / 10, time_info.month % 10,
+        (year / 1000) % 10, (year / 100) % 10, (year / 10) % 10, year % 10
     };
 
-    draw_sprite_xpm(digit_sprites[digits[0]], midX - 4 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[1]], midX - 3 * dx, y);
-    draw_sprite_xpm(colon, midX - 2 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[2]],midX - dx, y);
-    draw_sprite_xpm(digit_sprites[digits[3]],midX, y);
-    draw_sprite_xpm(colon, midX + dx, y);
-    draw_sprite_xpm(digit_sprites[digits[4]], midX + 2 * dx, y);
-    draw_sprite_xpm(digit_sprites[digits[5]], midX + 3 * dx, y);
+
+    // desenhar dia
+    draw_sprite_xpm(digits[digits_date[0]], midX - 6 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[1]], midX - 5 * dx, y_date);
+    draw_sprite_xpm(slash, midX - 4 * dx, y_date);
+
+    // desenhar mês
+    draw_sprite_xpm(digits[digits_date[2]], midX - 3 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[3]], midX - 2 * dx, y_date);
+    draw_sprite_xpm(slash, midX - dx, y_date);
+
+    // desenhar ano completo (YYYY)
+    draw_sprite_xpm(digits[digits_date[4]], midX, y_date);
+    draw_sprite_xpm(digits[digits_date[5]], midX + dx, y_date);
+    draw_sprite_xpm(digits[digits_date[6]], midX + 2 * dx, y_date);
+    draw_sprite_xpm(digits[digits_date[7]], midX + 3 * dx, y_date);
+
+    // ---- HORA ---- (HH:MM:SS)
+    int digits_time[6] = {
+        time_info.hours / 10, time_info.hours % 10,
+        time_info.minutes / 10, time_info.minutes % 10,
+        time_info.seconds / 10, time_info.seconds % 10
+    };
+
+    draw_sprite_xpm(digits[digits_time[0]], x +  dx, y);
+    draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y);
+    draw_sprite_xpm(digits[digits_time[0]], x +  dx, y);
+    draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y);
+    draw_sprite_xpm(colon, x + 3 * dx, y);
+    draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y);
+    draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y);
+    draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y);
+    draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y);
+    draw_sprite_xpm(colon, x + 6 * dx, y);
+    draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y);
+    draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y);
+    draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y);
+    draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y);
 }
+
+void draw_toolbar() {
+    for (int i = 0; i < 3; i++) {
+        draw_sprite_xpm(toolbar_buttons[i], toolbar_buttons[i]->x, toolbar_buttons[i]->y);
+    }
+}
+
+
 
 void draw_text(const char *text, int x, int y, uint32_t color) {
     for (int i = 0; text[i] != '\0'; i++) {
