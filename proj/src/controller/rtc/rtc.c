@@ -34,7 +34,7 @@ int (rtc_start)()
     uint8_t output;
     if (rtc_read(RTC_REG_B, &output)) return 1;
 
-    rtc_mode = (output & RTC_DM) ? 1 : 0;
+    rtc_mode = output & RTC_DM;
     rtc_time_format = output & RTC_24HR;
 
     rtc_original_config = output; // Save original config
@@ -77,16 +77,12 @@ int (rtc_update)()
             rtc_date.month = rtc_mode ? output : bcd_to_bin(output);
 
             if (rtc_read(RTC_YEAR, &output)) return 1;
-            rtc_date.year = bcd_to_bin(output);
+            rtc_date.year = rtc_mode ? output : bcd_to_bin(output);
 
-            // Corrige o ano para 4 dígitos
-            if (rtc_date.year < 50)
-                rtc_date.year += 2000;
-            else
-                rtc_date.year += 1900;
-            
             if (rtc_read(RTC_DAY_OF_WEEK, &output)) return 1;
             rtc_date.dayNumber = rtc_mode ? output : bcd_to_bin(output);
+
+            rtc_date.year += (rtc_date.year < 50) ? 2000 : 1900;
 
             if (!rtc_time_format) convert_to_24h();
 

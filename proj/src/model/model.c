@@ -15,6 +15,18 @@ Sprite *digits[10];
 Sprite *toolbar_buttons[3];
 Sprite *chrono_buttons[3];
 
+// Timer Counter
+extern int timer_counter;
+
+// Keyboard Scancode
+extern uint8_t scancode;
+
+// Mouse Information
+extern uint8_t byte_index;
+extern MouseInfo mouse_info;
+
+// VBE Mode Information
+extern vbe_mode_info_t vbe_info;
 
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
@@ -38,8 +50,8 @@ void setup_sprites() {
     toolbar_buttons[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
 
     int toolbar_dx = 55;
-    int toolbarX = mode_info.XResolution / 4;
-    int toolbarY = 4 * mode_info.YResolution / 5;
+    int toolbarX = vbe_info.XResolution / 4;
+    int toolbarY = 4 * vbe_info.YResolution / 5;
     for (int i = 0; i < 3; i++) {
         toolbar_buttons[i]->x = (toolbarX + i * toolbarX) - 0.5 * toolbar_dx;
         toolbar_buttons[i]->y = toolbarY;
@@ -49,8 +61,8 @@ void setup_sprites() {
     chrono_buttons[1] = create_sprite_xpm((xpm_map_t) pause_xpm);
     chrono_buttons[2] = create_sprite_xpm((xpm_map_t) reset_xpm);
 
-    int chrono_x = mode_info.XResolution / 5;
-    int chrono_y = mode_info.YResolution / 2;
+    int chrono_x = vbe_info.XResolution / 5;
+    int chrono_y = vbe_info.YResolution / 2;
     int chrono_dx = 100;
 
     for (int i = 0; i < 3; i++) {
@@ -81,17 +93,11 @@ void update_timer_state() {
         if (chronoState == ON) {
             chrono_seconds++;
         }
-        update_rtc_state();
     }
 
-    if (DOUBLE_BUFFER) swap_buffers();
-}
-
-// Como o Real Time Clock é um módulo mais pesado, 
-// devemos só atualizar os valores quando passa um segundo
-void update_rtc_state() {
-    rtc_update();
     draw_new_frame();
+
+    if (DOUBLE_BUFFER) swap_buffers();
 }
 
 // Sempre que uma nova tecla é pressionada há avaliação do scancode.
@@ -117,7 +123,6 @@ void update_keyboard_state() {
         default:
             break;
     }
-    draw_new_frame();
 }
 
 
@@ -129,19 +134,18 @@ void update_mouse_state() {
     mouse_sync();
 
     if (byte_index == 3) {
-        mouse_make_packet();
+        update_mouse_info();
         byte_index = 0;
         if (menuState == CHRONO) {
             update_chrono_buttons();
         } 
         update_toolbar_buttons();
-        draw_new_frame();
     } 
     
 }
 
 void update_chrono_buttons() {
-    if (mouse_info.left_click) {
+    if (mouse_info.lb) {
         if (is_mouse_over_button(chrono_buttons[0],chrono_buttons[0]->x, chrono_buttons[0]->y))
             chronoState = ON;
 
@@ -156,7 +160,7 @@ void update_chrono_buttons() {
 }
 
 void update_toolbar_buttons() {
-    if (mouse_info.left_click) {
+    if (mouse_info.lb) {
         if (is_mouse_over_button(toolbar_buttons[0], toolbar_buttons[0]->x, toolbar_buttons[0]->y)) {
             menuState = RUNNING_CLOCK;
         } else if (is_mouse_over_button(toolbar_buttons[1], toolbar_buttons[0]->x, toolbar_buttons[0]->y)) {
