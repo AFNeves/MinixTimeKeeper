@@ -82,9 +82,9 @@ int (rtc_update)()
             if (rtc_read(RTC_DAY_OF_WEEK, &output)) return 1;
             rtc_date.dayNumber = rtc_mode ? output : bcd_to_bin(output);
 
-            rtc_date.year += (rtc_date.year < 50) ? 2000 : 1900;
-
             if (!rtc_time_format) convert_to_24h();
+
+            rtc_date.year += 2000;
 
             return 0;
         }
