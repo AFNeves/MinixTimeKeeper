@@ -55,6 +55,7 @@ extern int timer_seconds;
 extern int timer_input[6];
 extern int timer_input_length;
 
+
 typedef enum {
     RUNNING,
     EXIT,

@@ -74,13 +74,20 @@ void draw_chrono_menu() {
 }
 
 
-
 void draw_chrono_buttons() {
-    for (int i = 0; i < 3; i++) {
-        draw_sprite_xpm(chrono_buttons[i], chrono_buttons[i]->x, chrono_buttons[i]->y);
-    }
+    int spacing = 80; 
+    int total_width = 3 * chrono_buttons[0]->width + 2 * spacing;
+    int start_x = vbe_info.XResolution / 2 - total_width / 2;
+    int y = 250;
 
+    for (int i = 0; i < 3; i++) {
+        int x = start_x + i * (chrono_buttons[i]->width + spacing);
+        draw_sprite_xpm(chrono_buttons[i], x, y);
+        chrono_buttons[i]->x = x; 
+        chrono_buttons[i]->y = y;
+    }
 }
+
 
 
 
