@@ -1,4 +1,5 @@
-# VSCode settings
+# Editor settings
+.idea/
 **/.vscode/
 **/.clang-format
 
@@ -9,8 +10,6 @@
 **/*.gdbinit
 **/debug/
 **/*.txt
-
-**/proj
 
 # MACOS specific file
 .DS_Store

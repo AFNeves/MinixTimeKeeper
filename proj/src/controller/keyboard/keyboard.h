@@ -1,21 +1,18 @@
 #ifndef _LCOM_KEYBOARD_H_
 #define _LCOM_KEYBOARD_H_
 
-#define KEYBOARD_MASK BIT(1)
-
 #include <lcom/lcf.h>
-#include <stdint.h>
-#include "../utils.h"
-#include "KBC.h"
 
-extern uint8_t scancode;
+#include <stdint.h>
+
+#include "../KBC.h"
 
 /**
  * @brief Subscribes the Keyboard interrupts
- * 
+ *
  * @return Return 0 upon success and non-zero otherwise
  */
-int (keyboard_subscribe_interrupts)();
+int (keyboard_subscribe_int)();
 
 /**
  * @brief Unsubscribes the Keyboard interrupts
