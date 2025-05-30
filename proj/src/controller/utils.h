@@ -11,9 +11,12 @@
 
 /* ---------- Data Structures ---------- */
 
+/**
+ * @brief Data structure that holds the information about the mouse.
+ */
 typedef struct {
-    int16_t x, y;
-    uint8_t lb, rb;
+    int16_t x, y;   /**< @brief Mouse X and Y Coordinates */
+    uint8_t lb, rb; /**< @brief Mouse Left and Right Button States */
 } MouseInfo;
 
 /**
