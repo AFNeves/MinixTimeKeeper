@@ -116,6 +116,7 @@ void update_timer_state() {
 // - o menuState: se S, C, T forem pressionados, leva a um dos menus (start, chrono, timer) disponíveis
 void update_keyboard_state() {
     (kbc_ih)();
+    printf("Scancode: 0x%02X\n", scancode);
 
     switch (scancode) {
         case Q_KEY:
@@ -169,19 +170,19 @@ void insert_new_input(uint8_t new_input) {
             timer_input[i] = timer_input[i + 1];
         }
         timer_input[5] = new_input;
-        timer_input_index++;
+        timer_input_index--;
         printf("Input %d added to timer input\n", new_input);
     }
 }
 
 
 void delete_last_input() {
-    if (timer_input_index != 5) { // if it's 5, it's empty
+    if (timer_input_index < 5) { // if it's 5, it's empty
         for (int i = 5; i >= 0 ; i--) {
             timer_input[i] = timer_input[i - 1];
         }
         timer_input[0] = 0; 
-        timer_input_index--;
+        timer_input_index++;
     }
 }
 

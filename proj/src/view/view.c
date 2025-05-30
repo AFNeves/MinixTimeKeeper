@@ -81,18 +81,10 @@ void draw_timer_menu() {
     draw_chrono_buttons();
 
     if (timerState == OFF) {
-        draw_blocks();
-        if (timer_input_index < 5) draw_timer_input();
-        
-    } //else {
+        if (timer_input_index < 6) draw_timer_input();
+        else draw_blocks();
+    }   
     
-        //int minutes = timer_seconds / 60;
-        //int seconds = timer_seconds % 60;
-
-        //int dx = 55;
-        //int x = mode_info.XResolution / 2 - 4 * dx;
-        //int y = 100;
-    //}
 }
 
 

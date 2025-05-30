@@ -18,7 +18,7 @@
 #define G_KEY 0x22
 #define E_KEY 0x12
 #define C_KEY 0x2E
-#define T_KEY 0x2C
+#define T_KEY 0x14
 #define BACKSPACE_KEY 0x0E
 
 #define ONE_KEY 0x02
