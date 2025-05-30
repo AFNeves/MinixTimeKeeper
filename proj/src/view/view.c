@@ -135,9 +135,9 @@ void display_real_time() {
     
     int dx = 55;
     int x = vbe_info.XResolution / 2 - 5 * dx;
-    int y = 50;
+    int y_time = 50;
     int midX = vbe_info.XResolution / 2;
-    int y_date = y + 75;
+    int y_date = y_time + 75;
 
     // ---- DATA ---- (DIA/MÊS/ANO)
     int year = rtc_date.year;
@@ -180,11 +180,11 @@ void display_real_time() {
     draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y_time);
 
     // ---- DIA DA SEMANA ----
-    int day_index = (time_info.dayNumber + 5) % 7;
+    int day_index = (rtc_date.dayNumber + 5) % 7;
 
     int x_day = midX - days_of_week[day_index]->width / 2;
 
-    draw_sprite_xpm(days_of_week[day_index], x_day, y_day);
+    draw_sprite_xpm(days_of_week[day_index], x_day, 200);
 }
 
 
