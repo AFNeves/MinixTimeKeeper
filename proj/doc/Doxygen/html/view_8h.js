@@ -9,6 +9,7 @@ var view_8h =
     [ "draw_sprite_button", "view_8h.html#a22b96eaa3619b65051c90472dcd7c815", null ],
     [ "draw_sprite_xpm", "view_8h.html#a6db4230a0003a09515d78b790d8ec52d", null ],
     [ "draw_time", "view_8h.html#a4f3d01370e91e93f6b4fe1f9d8201e9f", null ],
+    [ "draw_timer", "view_8h.html#a69c7542a511aa6ef573c19d127565cd6", null ],
     [ "draw_timer_input", "view_8h.html#a4d706a974ca5b3414d1335d482649851", null ],
     [ "draw_timer_menu", "view_8h.html#a51eb7b324ebbbd5826cd3ea58cc78b93", null ],
     [ "draw_toolbar", "view_8h.html#a35fdaef5ab3741f883fd8ed9dcac5c71", null ],

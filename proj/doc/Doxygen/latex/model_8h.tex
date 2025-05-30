@@ -65,11 +65,13 @@ void \mbox{\hyperlink{model_8h_a0d75fecead8e243cbcb92cb8a81bd51a}{update\+\_\+ch
 \item 
 void \mbox{\hyperlink{model_8h_a5cfdf94b093485e1d4cc5c819a7ec74f}{update\+\_\+toolbar\+\_\+buttons}} ()
 \item 
+void \mbox{\hyperlink{model_8h_a566938ed172ca2bf3b3bf14419e6338b}{update\+\_\+timer\+\_\+buttons}} ()
+\item 
 void \mbox{\hyperlink{model_8h_a834200084177d31e41dd9b28754a3312}{setup\+\_\+sprites}} ()
 \item 
 void \mbox{\hyperlink{model_8h_a8fdbc6c7bfca3ef4a8800a3cdc19d932}{destroy\+\_\+sprites}} ()
 \item 
-void \mbox{\hyperlink{model_8h_ad053afad8e6447274555272008ca6e59}{insert\+\_\+new\+\_\+input}} (uint8\+\_\+t \mbox{\hyperlink{model_8c_aa1de7a5557e9d96b83cf03f73c92163f}{scancode}})
+void \mbox{\hyperlink{model_8h_aa8032b0e33c8aa2e2a37aaa0043f2850}{insert\+\_\+new\+\_\+input}} (int new\+\_\+input)
 \item 
 void \mbox{\hyperlink{model_8h_a6494e012a61c6f2585f3f58e9d4b020c}{delete\+\_\+last\+\_\+input}} ()
 \item 
@@ -100,7 +102,7 @@ int \mbox{\hyperlink{model_8h_ad808e5754d815902aa3f65468b2678fc}{timer\+\_\+seco
 \item 
 int \mbox{\hyperlink{model_8h_a0b99f7d3936161cfd2f59db795cabe02}{timer\+\_\+input}} \mbox{[}6\mbox{]}
 \item 
-int \mbox{\hyperlink{model_8h_ad6e639bf853afe5e1b6997fd8ec1c8e5}{timer\+\_\+input\+\_\+index}}
+int \mbox{\hyperlink{model_8h_a56c360fc8fd0322d222feff7c360660e}{timer\+\_\+input\+\_\+length}}
 \item 
 \mbox{\hyperlink{model_8h_aa51313be2faacb739a18fdeecefbac75}{System\+State}} \mbox{\hyperlink{model_8h_ac705089b22877f6322d09a9f0f5bdb1d}{system\+State}}
 \item 
@@ -131,7 +133,7 @@ OFF&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 69 of file model.\+h.
+Definition at line 70 of file model.\+h.
 
 \mbox{\Hypertarget{model_8h_aa3041ae4242c0dd57a126d17505443b2}\label{model_8h_aa3041ae4242c0dd57a126d17505443b2}} 
 \index{model.h@{model.h}!MenuState@{MenuState}}
@@ -155,7 +157,7 @@ TIMER&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 63 of file model.\+h.
+Definition at line 64 of file model.\+h.
 
 \mbox{\Hypertarget{model_8h_aa51313be2faacb739a18fdeecefbac75}\label{model_8h_aa51313be2faacb739a18fdeecefbac75}} 
 \index{model.h@{model.h}!SystemState@{SystemState}}
@@ -175,7 +177,7 @@ EXIT&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 58 of file model.\+h.
+Definition at line 59 of file model.\+h.
 
 
 
@@ -188,7 +190,7 @@ Definition at line 58 of file model.\+h.
 
 
 
-Definition at line 190 of file model.\+c.
+Definition at line 203 of file model.\+c.
 
 \mbox{\Hypertarget{model_8h_a8fdbc6c7bfca3ef4a8800a3cdc19d932}\label{model_8h_a8fdbc6c7bfca3ef4a8800a3cdc19d932}} 
 \index{model.h@{model.h}!destroy\_sprites@{destroy\_sprites}}
@@ -200,15 +202,15 @@ Definition at line 190 of file model.\+c.
 
 Definition at line 92 of file model.\+c.
 
-\mbox{\Hypertarget{model_8h_ad053afad8e6447274555272008ca6e59}\label{model_8h_ad053afad8e6447274555272008ca6e59}} 
+\mbox{\Hypertarget{model_8h_aa8032b0e33c8aa2e2a37aaa0043f2850}\label{model_8h_aa8032b0e33c8aa2e2a37aaa0043f2850}} 
 \index{model.h@{model.h}!insert\_new\_input@{insert\_new\_input}}
 \index{insert\_new\_input@{insert\_new\_input}!model.h@{model.h}}
 \doxysubsubsection{\texorpdfstring{insert\_new\_input()}{insert\_new\_input()}}
-{\footnotesize\ttfamily void insert\+\_\+new\+\_\+input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scancode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void insert\+\_\+new\+\_\+input (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+input }\end{DoxyParamCaption})}
 
 
 
-Definition at line 178 of file model.\+c.
+Definition at line 191 of file model.\+c.
 
 \mbox{\Hypertarget{model_8h_a684842632a1dd04fc71e20d16469e96a}\label{model_8h_a684842632a1dd04fc71e20d16469e96a}} 
 \index{model.h@{model.h}!is\_mouse\_over\_button@{is\_mouse\_over\_button}}
@@ -218,7 +220,7 @@ Definition at line 178 of file model.\+c.
 
 
 
-Definition at line 247 of file model.\+c.
+Definition at line 289 of file model.\+c.
 
 \mbox{\Hypertarget{model_8h_a834200084177d31e41dd9b28754a3312}\label{model_8h_a834200084177d31e41dd9b28754a3312}} 
 \index{model.h@{model.h}!setup\_sprites@{setup\_sprites}}
@@ -238,7 +240,7 @@ Definition at line 38 of file model.\+c.
 
 
 
-Definition at line 218 of file model.\+c.
+Definition at line 235 of file model.\+c.
 
 \mbox{\Hypertarget{model_8h_aacf177f660c44528fc3926b3cd69fb88}\label{model_8h_aacf177f660c44528fc3926b3cd69fb88}} 
 \index{model.h@{model.h}!update\_keyboard\_state@{update\_keyboard\_state}}
@@ -248,7 +250,7 @@ Definition at line 218 of file model.\+c.
 
 
 
-Definition at line 129 of file model.\+c.
+Definition at line 144 of file model.\+c.
 
 \mbox{\Hypertarget{model_8h_aa577e78e2462033d486b5d8fa64c7bec}\label{model_8h_aa577e78e2462033d486b5d8fa64c7bec}} 
 \index{model.h@{model.h}!update\_mouse\_state@{update\_mouse\_state}}
@@ -258,7 +260,17 @@ Definition at line 129 of file model.\+c.
 
 
 
-Definition at line 204 of file model.\+c.
+Definition at line 220 of file model.\+c.
+
+\mbox{\Hypertarget{model_8h_a566938ed172ca2bf3b3bf14419e6338b}\label{model_8h_a566938ed172ca2bf3b3bf14419e6338b}} 
+\index{model.h@{model.h}!update\_timer\_buttons@{update\_timer\_buttons}}
+\index{update\_timer\_buttons@{update\_timer\_buttons}!model.h@{model.h}}
+\doxysubsubsection{\texorpdfstring{update\_timer\_buttons()}{update\_timer\_buttons()}}
+{\footnotesize\ttfamily void update\+\_\+timer\+\_\+buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 250 of file model.\+c.
 
 \mbox{\Hypertarget{model_8h_a2e7983abedd3fae94a24b4775a97210f}\label{model_8h_a2e7983abedd3fae94a24b4775a97210f}} 
 \index{model.h@{model.h}!update\_timer\_state@{update\_timer\_state}}
@@ -278,7 +290,7 @@ Definition at line 109 of file model.\+c.
 
 
 
-Definition at line 233 of file model.\+c.
+Definition at line 275 of file model.\+c.
 
 
 
@@ -403,11 +415,11 @@ Definition at line 5 of file model.\+c.
 
 Definition at line 11 of file model.\+c.
 
-\mbox{\Hypertarget{model_8h_ad6e639bf853afe5e1b6997fd8ec1c8e5}\label{model_8h_ad6e639bf853afe5e1b6997fd8ec1c8e5}} 
-\index{model.h@{model.h}!timer\_input\_index@{timer\_input\_index}}
-\index{timer\_input\_index@{timer\_input\_index}!model.h@{model.h}}
-\doxysubsubsection{\texorpdfstring{timer\_input\_index}{timer\_input\_index}}
-{\footnotesize\ttfamily int timer\+\_\+input\+\_\+index\hspace{0.3cm}{\ttfamily [extern]}}
+\mbox{\Hypertarget{model_8h_a56c360fc8fd0322d222feff7c360660e}\label{model_8h_a56c360fc8fd0322d222feff7c360660e}} 
+\index{model.h@{model.h}!timer\_input\_length@{timer\_input\_length}}
+\index{timer\_input\_length@{timer\_input\_length}!model.h@{model.h}}
+\doxysubsubsection{\texorpdfstring{timer\_input\_length}{timer\_input\_length}}
+{\footnotesize\ttfamily int timer\+\_\+input\+\_\+length\hspace{0.3cm}{\ttfamily [extern]}}
 
 
 

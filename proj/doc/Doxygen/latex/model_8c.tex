@@ -13,13 +13,15 @@ void \mbox{\hyperlink{model_8c_a2e7983abedd3fae94a24b4775a97210f}{update\+\_\+ti
 \item 
 void \mbox{\hyperlink{model_8c_aacf177f660c44528fc3926b3cd69fb88}{update\+\_\+keyboard\+\_\+state}} ()
 \item 
-void \mbox{\hyperlink{model_8c_a6c0e969440cbe8e81188b17adb5a3e46}{insert\+\_\+new\+\_\+input}} (uint8\+\_\+t new\+\_\+input)
+void \mbox{\hyperlink{model_8c_aa8032b0e33c8aa2e2a37aaa0043f2850}{insert\+\_\+new\+\_\+input}} (int new\+\_\+input)
 \item 
 void \mbox{\hyperlink{model_8c_a6494e012a61c6f2585f3f58e9d4b020c}{delete\+\_\+last\+\_\+input}} ()
 \item 
 void \mbox{\hyperlink{model_8c_aa577e78e2462033d486b5d8fa64c7bec}{update\+\_\+mouse\+\_\+state}} ()
 \item 
 void \mbox{\hyperlink{model_8c_a0d75fecead8e243cbcb92cb8a81bd51a}{update\+\_\+chrono\+\_\+buttons}} ()
+\item 
+void \mbox{\hyperlink{model_8c_a566938ed172ca2bf3b3bf14419e6338b}{update\+\_\+timer\+\_\+buttons}} ()
 \item 
 void \mbox{\hyperlink{model_8c_a5cfdf94b093485e1d4cc5c819a7ec74f}{update\+\_\+toolbar\+\_\+buttons}} ()
 \item 
@@ -42,7 +44,7 @@ int \mbox{\hyperlink{model_8c_ad808e5754d815902aa3f65468b2678fc}{timer\+\_\+seco
 \item 
 int \mbox{\hyperlink{model_8c_a0b99f7d3936161cfd2f59db795cabe02}{timer\+\_\+input}} \mbox{[}6\mbox{]} = \{0, 0, 0, 0, 0, 0\}
 \item 
-int \mbox{\hyperlink{model_8c_ad6e639bf853afe5e1b6997fd8ec1c8e5}{timer\+\_\+input\+\_\+index}} = 5
+int \mbox{\hyperlink{model_8c_a56c360fc8fd0322d222feff7c360660e}{timer\+\_\+input\+\_\+length}} = 0
 \item 
 \mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$ \mbox{\hyperlink{model_8c_af03a383fdcfdf7501006a5c8d68be42b}{mouse}}
 \item 
@@ -81,7 +83,7 @@ vbe\+\_\+mode\+\_\+info\+\_\+t \mbox{\hyperlink{model_8c_a3f79b04e621cae90f2c5ad
 
 
 
-Definition at line 190 of file model.\+c.
+Definition at line 203 of file model.\+c.
 
 \mbox{\Hypertarget{model_8c_a8fdbc6c7bfca3ef4a8800a3cdc19d932}\label{model_8c_a8fdbc6c7bfca3ef4a8800a3cdc19d932}} 
 \index{model.c@{model.c}!destroy\_sprites@{destroy\_sprites}}
@@ -93,15 +95,15 @@ Definition at line 190 of file model.\+c.
 
 Definition at line 92 of file model.\+c.
 
-\mbox{\Hypertarget{model_8c_a6c0e969440cbe8e81188b17adb5a3e46}\label{model_8c_a6c0e969440cbe8e81188b17adb5a3e46}} 
+\mbox{\Hypertarget{model_8c_aa8032b0e33c8aa2e2a37aaa0043f2850}\label{model_8c_aa8032b0e33c8aa2e2a37aaa0043f2850}} 
 \index{model.c@{model.c}!insert\_new\_input@{insert\_new\_input}}
 \index{insert\_new\_input@{insert\_new\_input}!model.c@{model.c}}
 \doxysubsubsection{\texorpdfstring{insert\_new\_input()}{insert\_new\_input()}}
-{\footnotesize\ttfamily void insert\+\_\+new\+\_\+input (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{new\+\_\+input }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void insert\+\_\+new\+\_\+input (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+input }\end{DoxyParamCaption})}
 
 
 
-Definition at line 178 of file model.\+c.
+Definition at line 191 of file model.\+c.
 
 \mbox{\Hypertarget{model_8c_a684842632a1dd04fc71e20d16469e96a}\label{model_8c_a684842632a1dd04fc71e20d16469e96a}} 
 \index{model.c@{model.c}!is\_mouse\_over\_button@{is\_mouse\_over\_button}}
@@ -111,7 +113,7 @@ Definition at line 178 of file model.\+c.
 
 
 
-Definition at line 247 of file model.\+c.
+Definition at line 289 of file model.\+c.
 
 \mbox{\Hypertarget{model_8c_a834200084177d31e41dd9b28754a3312}\label{model_8c_a834200084177d31e41dd9b28754a3312}} 
 \index{model.c@{model.c}!setup\_sprites@{setup\_sprites}}
@@ -131,7 +133,7 @@ Definition at line 38 of file model.\+c.
 
 
 
-Definition at line 218 of file model.\+c.
+Definition at line 235 of file model.\+c.
 
 \mbox{\Hypertarget{model_8c_aacf177f660c44528fc3926b3cd69fb88}\label{model_8c_aacf177f660c44528fc3926b3cd69fb88}} 
 \index{model.c@{model.c}!update\_keyboard\_state@{update\_keyboard\_state}}
@@ -141,7 +143,7 @@ Definition at line 218 of file model.\+c.
 
 
 
-Definition at line 129 of file model.\+c.
+Definition at line 144 of file model.\+c.
 
 \mbox{\Hypertarget{model_8c_aa577e78e2462033d486b5d8fa64c7bec}\label{model_8c_aa577e78e2462033d486b5d8fa64c7bec}} 
 \index{model.c@{model.c}!update\_mouse\_state@{update\_mouse\_state}}
@@ -151,7 +153,17 @@ Definition at line 129 of file model.\+c.
 
 
 
-Definition at line 204 of file model.\+c.
+Definition at line 220 of file model.\+c.
+
+\mbox{\Hypertarget{model_8c_a566938ed172ca2bf3b3bf14419e6338b}\label{model_8c_a566938ed172ca2bf3b3bf14419e6338b}} 
+\index{model.c@{model.c}!update\_timer\_buttons@{update\_timer\_buttons}}
+\index{update\_timer\_buttons@{update\_timer\_buttons}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{update\_timer\_buttons()}{update\_timer\_buttons()}}
+{\footnotesize\ttfamily void update\+\_\+timer\+\_\+buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 250 of file model.\+c.
 
 \mbox{\Hypertarget{model_8c_a2e7983abedd3fae94a24b4775a97210f}\label{model_8c_a2e7983abedd3fae94a24b4775a97210f}} 
 \index{model.c@{model.c}!update\_timer\_state@{update\_timer\_state}}
@@ -171,7 +183,7 @@ Definition at line 109 of file model.\+c.
 
 
 
-Definition at line 233 of file model.\+c.
+Definition at line 275 of file model.\+c.
 
 
 
@@ -336,11 +348,11 @@ Definition at line 4 of file timer.\+c.
 
 Definition at line 11 of file model.\+c.
 
-\mbox{\Hypertarget{model_8c_ad6e639bf853afe5e1b6997fd8ec1c8e5}\label{model_8c_ad6e639bf853afe5e1b6997fd8ec1c8e5}} 
-\index{model.c@{model.c}!timer\_input\_index@{timer\_input\_index}}
-\index{timer\_input\_index@{timer\_input\_index}!model.c@{model.c}}
-\doxysubsubsection{\texorpdfstring{timer\_input\_index}{timer\_input\_index}}
-{\footnotesize\ttfamily int timer\+\_\+input\+\_\+index = 5}
+\mbox{\Hypertarget{model_8c_a56c360fc8fd0322d222feff7c360660e}\label{model_8c_a56c360fc8fd0322d222feff7c360660e}} 
+\index{model.c@{model.c}!timer\_input\_length@{timer\_input\_length}}
+\index{timer\_input\_length@{timer\_input\_length}!model.c@{model.c}}
+\doxysubsubsection{\texorpdfstring{timer\_input\_length}{timer\_input\_length}}
+{\footnotesize\ttfamily int timer\+\_\+input\+\_\+length = 0}
 
 
 
