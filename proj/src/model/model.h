@@ -54,7 +54,7 @@ extern int chrono_seconds;
 extern int timer_seconds;
 extern int timer_input[6];
 extern int timer_input_index; // -1 means empty, 5 means full
-extern time
+
 typedef enum {
     RUNNING,
     EXIT,
