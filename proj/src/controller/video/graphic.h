@@ -9,6 +9,8 @@
 
 #include "VBE.h"
 
+extern vbe_mode_info_t mode_info;
+
 /**
  * @brief Sets the graphics mode using VESA BIOS Extensions.
  * 

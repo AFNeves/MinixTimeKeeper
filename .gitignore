@@ -1,4 +1,5 @@
 **/.vscode/
+**/debug/
 **/.clang-format
 **/*.gdb-init
 **/*.o

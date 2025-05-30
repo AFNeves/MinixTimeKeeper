@@ -8,6 +8,8 @@
 #include "../utils.h"
 #include "KBC.h"
 
+extern uint8_t scancode;
+
 /**
  * @brief Subscribes the Keyboard interrupts
  * 

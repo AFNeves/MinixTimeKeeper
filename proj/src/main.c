@@ -1,13 +1,6 @@
 #include <lcom/lcf.h>
-#include "controller/mouse/i8042.h"
-#include "controller/timer/timer.h"
-#include "controller/keyboard/keyboard.h"
-#include "controller/mouse/mouse.h"
-#include "controller/video/graphic.h"
-#include "controller/rtc/rtc.h"
 #include "model/model.h"
 #include "view/view.h"
-#include "config.h"
 
 extern SystemState systemState;
 
@@ -30,7 +23,7 @@ int (main)(int argc, char *argv[])
 int setup() {
 
   // Atualização da frequência
-  if (timer_set_frequency(0, GAME_FREQUENCY) != 0) return 1; //Timer 0
+  if (timer_set_frequency(0, GAME_FREQUENCY) != 0) return 1; // Frequencia do timer(60 interrupts por segundo)
 
   // Inicialização dos buffers de vídeo (double buffering)
   if (set_frame_buffers(VIDEO_MODE) != 0) return 1;
@@ -45,7 +38,6 @@ int setup() {
   if (timer_subscribe_interrupts() != 0) return 1;
   if (keyboard_subscribe_interrupts() != 0) return 1;
   if (mouse_subscribe_interrupts() != 0) return 1;
-  if (rtc_subscribe_interrupts() != 0) return 1;
 
   // Ativar stream-mode e report de dados do rato
   if (mouse_write_command(MOUSE_DATA_STREAM_MODE) != 0) return 1;
@@ -69,7 +61,6 @@ int teardown() {
   if (timer_unsubscribe_int() != 0) return 1;
   if (keyboard_unsubscribe_int() != 0) return 1;
   if (mouse_unsubscribe_int() != 0) return 1;
-  if (rtc_unsubscribe_int() != 0) return 1;
 
   // Desativar o report de dados do rato
   if (mouse_write_command(MOUSE_DATA_REPORT_DISABLE) != 0) return 1;
@@ -103,7 +94,6 @@ int (proj_main_loop)(int argc, char *argv[]) {
           if (msg.m_notify.interrupts & TIMER_MASK)    update_timer_state();
           if (msg.m_notify.interrupts & KEYBOARD_MASK) update_keyboard_state();
           if (msg.m_notify.interrupts & MOUSE_MASK)    update_mouse_state();
-          if (msg.m_notify.interrupts & RTC_MASK)      update_rtc_state();
         }
     }
   }

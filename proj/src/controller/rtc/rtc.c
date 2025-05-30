@@ -1,9 +1,9 @@
 #include "rtc.h"
 
+int rtc_hook_id = 3;
 uint8_t rtc_mode;
 uint8_t rtc_time_format;
 uint8_t rtc_int_cause;
-int rtc_hook_id = 4;
 uint8_t rtc_original_config;
 time_struct rtc_time;
 date_struct rtc_date;
