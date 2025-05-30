@@ -129,9 +129,9 @@ int draw_sprite_button(Sprite *sprite, int x, int y) {
 void display_real_time() {
     
     int x = mode_info.XResolution / 2 - 5 * dx;
-    int y = 50;
+    int y = 100;
     int midX = mode_info.XResolution / 2;
-    int y_date = y + 75;
+    int y_date = y - 75;
 
     // ---- DATA ---- (DIA/MÊS/ANO)
     int year = time_info.year;
