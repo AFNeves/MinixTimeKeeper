@@ -1,13 +1,6 @@
 #include <lcom/lcf.h>
-#include "controller/mouse/i8042.h"
-#include "controller/timer/timer.h"
-#include "controller/keyboard/keyboard.h"
-#include "controller/mouse/mouse.h"
-#include "controller/video/graphic.h"
-#include "controller/rtc/rtc.h"
 #include "model/model.h"
 #include "view/view.h"
-#include "config.h"
 
 extern SystemState systemState;
 
@@ -30,7 +23,7 @@ int (main)(int argc, char *argv[])
 int setup() {
 
   // Atualização da frequência
-  if (timer_set_frequency(0, GAME_FREQUENCY) != 0) return 1; //Timer 0
+  if (timer_set_frequency(0, GAME_FREQUENCY) != 0) return 1; // Frequencia do timer(60 interrupts por segundo)
 
   // Inicialização dos buffers de vídeo (double buffering)
   if (set_frame_buffers(VIDEO_MODE) != 0) return 1;

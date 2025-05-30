@@ -7,6 +7,8 @@
 #include "../utils.h"
 #include "i8254.h"
 
+extern int timer_counter; 
+
 /**
  * @brief Subscribes the Timer interrupts
  * 

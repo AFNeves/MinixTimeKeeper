@@ -14,6 +14,7 @@ typedef struct {
     bool left_click, right_click;
 } MouseInfo;
 
+extern uint8_t byte_index;
 extern MouseInfo mouse_info;
 
 /**

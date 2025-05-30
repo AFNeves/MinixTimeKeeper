@@ -10,17 +10,24 @@
 #include "model/sprite.h"
 #include "model/model.h"
 
+
 extern uint8_t *drawing_frame_buffer;
 extern uint8_t *main_frame_buffer;
 extern Sprite *buttonStart;
 extern Sprite *buttonPause;
 extern Sprite *buttonReset;
+extern int buttonStart_x;
+extern int buttonStart_y;
+extern int buttonPause_x;
+extern int buttonPause_y;
+extern int buttonReset_x;
+extern int buttonReset_y;
 
 
 void draw_new_frame();
 void draw_initial_menu();
-void draw_game_menu();
-void draw_finish_menu();
+void draw_chrono_menu();
+void draw_chrono_buttons();
 void draw_mouse();
 void swap_buffers();
 void display_real_time();

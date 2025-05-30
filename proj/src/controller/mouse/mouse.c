@@ -6,8 +6,8 @@ uint8_t byte_index = 0;
 uint8_t mouse_byte;
 uint8_t mouse_data[3];
 struct packet mouse_packet;
-MouseInfo mouse_info;
 extern vbe_mode_info_t mode_info;
+MouseInfo mouse_info;
 
 int (mouse_subscribe_interrupts)()
 {

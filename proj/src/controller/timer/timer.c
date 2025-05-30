@@ -1,6 +1,6 @@
 #include "timer.h"
 
-int timer_hook_id = 0;
+int timer_hook_id =  0;
 int timer_counter = 0;
 
 int (timer_subscribe_interrupts)()

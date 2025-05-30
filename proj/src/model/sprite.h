@@ -4,11 +4,10 @@
 #include "controller/video/graphic.h"
 
 typedef struct {
-    uint16_t height;
-    uint16_t width;
+    uint16_t x, y, height, width;
     uint32_t *colors;
     uint32_t color;
-    uint8_t pressed;
+    bool pressed;
 } Sprite; 
 
 Sprite *create_sprite_xpm(xpm_map_t sprite);

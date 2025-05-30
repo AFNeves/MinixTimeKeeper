@@ -1,4 +1,4 @@
-#define GAME_FREQUENCY 60     // 30, para deixar o frame rate mais lento
+#define GAME_FREQUENCY 30     // 30, para deixar o frame rate mais lento
 #define VIDEO_MODE     0x115  // 0x14C, para aumentar o ecrã
 #define DOUBLE_BUFFER  1      // 0, para desativar a otimização
 
@@ -17,3 +17,6 @@
 #define S_KEY 0x1F
 #define G_KEY 0x22
 #define E_KEY 0x12
+#define C_KEY 0x2E
+
+

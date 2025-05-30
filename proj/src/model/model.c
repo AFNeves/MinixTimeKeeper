@@ -1,39 +1,23 @@
 #include "model.h"
-#include "../view/view.h"
 
 // Variáveis externas importantes à construção e manipulação do modelo
-extern uint8_t scancode;
-extern uint8_t byte_index;
 SystemState systemState = RUNNING;
 MenuState menuState = START;
-extern MouseInfo mouse_info;
-extern vbe_mode_info_t mode_info;
-extern real_time_info time_info;
-ChronoState chronoState = CRONO_STOPPED;
+ChronoState chronoState = OFF;
 int chrono_seconds = 0;
 
 // Objetos a construir e manipular com a mudança de estados
 Sprite *mouse;
-Sprite *button1;
-Sprite *button2;
-Sprite *button3;
-Sprite *button4;
+Sprite *buttonStart;
+Sprite *buttonPause;
+Sprite *buttonReset;
 Sprite *digit_sprites[10];
-Sprite *colon_sprite;
 
-// Contador de interrupções do timer
-int timer_interrupts = 0;
 
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
     mouse = create_sprite_xpm((xpm_map_t) mouse_xpm);
-    //hand = create_sprite_xpm((xpm_map_t) hand_xpm);
-    //smile = create_sprite_xpm((xpm_map_t) smile_xpm);
-    button1 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, ORANGE);
-    button2 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, BLUE);
-    button3 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, GREEN);
-    button4 = create_sprite_button(mode_info.XResolution/2, mode_info.YResolution/2, YELLOW);        
-    
+
     digit_sprites[0] = create_sprite_xpm((xpm_map_t) digit_0_xpm);
     digit_sprites[1] = create_sprite_xpm((xpm_map_t) digit_1_xpm);
     digit_sprites[2] = create_sprite_xpm((xpm_map_t) digit_2_xpm);
@@ -44,38 +28,33 @@ void setup_sprites() {
     digit_sprites[7] = create_sprite_xpm((xpm_map_t) digit_7_xpm);
     digit_sprites[8] = create_sprite_xpm((xpm_map_t) digit_8_xpm);
     digit_sprites[9] = create_sprite_xpm((xpm_map_t) digit_9_xpm);
-    colon_sprite = create_sprite_xpm((xpm_map_t) colon_xpm);
 
-    buttonStart = create_sprite_button(0, 0, GREEN);
-    buttonPause = create_sprite_button(0, 0, YELLOW);
-    buttonReset = create_sprite_button(0, 0, RED);
+    buttonStart = create_sprite_button(20, 10, GREEN);
+    buttonPause = create_sprite_button(20, 10, YELLOW);
+    buttonReset = create_sprite_button(20, 10, RED);
 
 }
 
 // É boa prática antes de acabar o programa libertar a memória alocada
 void destroy_sprites() {
     destroy_sprite(mouse);
-    destroy_sprite(button1);
-    destroy_sprite(button2);
-    destroy_sprite(button3);
-    destroy_sprite(button4);
+    destroy_sprite(buttonStart);
+    destroy_sprite(buttonPause);
+    destroy_sprite(buttonReset);
 
     for (int i = 0; i < 10; i++)
         destroy_sprite(digit_sprites[i]);
-    destroy_sprite(colon_sprite);
 }
 
 // Na altura da interrupção há troca dos buffers e incremento do contador
 void update_timer_state() {
-    timer_interrupts++;
-    if (chronoState == CRONO_RUNNING && timer_interrupts % GAME_FREQUENCY == 0) {
-        chrono_seconds++;
-    }
+    timer_ih();
 
-    // Apenas a cada segundo (ou seja, 60 vezes por segundo -> 1 vez por segundo)
-    if (timer_interrupts % GAME_FREQUENCY == 0) {
-        rtc_update();        
-        draw_new_frame();     
+    if (timer_counter % GAME_FREQUENCY == 0) {  // A cada segundo
+        if (chronoState == ON) {
+            chrono_seconds++;
+        }
+        draw_new_frame();
     }
 
     if (DOUBLE_BUFFER) swap_buffers();
@@ -84,15 +63,17 @@ void update_timer_state() {
 // Como o Real Time Clock é um módulo mais pesado, 
 // devemos só atualizar os valores quando passa um segundo
 void update_rtc_state() {
-    if (timer_interrupts % GAME_FREQUENCY == 0) {
-        rtc_update();
+    printf("%d", timer_counter);
+    if (timer_counter % GAME_FREQUENCY == 0) {
+        rtc_ih();
+        draw_new_frame();
     }
 }
 
 // Sempre que uma nova tecla é pressionada há avaliação do scancode.
 // No caso do Template o teclado influencia:
 // - o systemState: se Q for pressionado, leva ao fim do programa
-// - o menuState: se S, G, E forem pressionados, leva a um dos menus (start, game, end) disponíveis
+// - o menuState: se S, C, T forem pressionados, leva a um dos menus (start, chrono, timer) disponíveis
 void update_keyboard_state() {
     (kbc_ih)();
     switch (scancode) {
@@ -102,31 +83,15 @@ void update_keyboard_state() {
         case S_KEY:
             menuState = START;
             break;
-        case G_KEY:
-            menuState = GAME;
+        case C_KEY:
+            menuState = CHRONO;
             break;
-        case E_KEY:
-            menuState = END;
         default:
             break;
     }
     draw_new_frame();
 }
 
-void update_chrono_buttons() {
-    if (mouse_info.left_click) {
-        if (mouse_info.x < mode_info.XResolution / 3)
-            chronoState = CRONO_RUNNING;
-
-        else if (mouse_info.x < 2 * mode_info.XResolution / 3)
-            chronoState = CRONO_PAUSED; 
-
-        else {
-            chronoState = CRONO_STOPPED;
-            chrono_seconds = 0;
-        }
-    }
-}
 
 // Sempre que há um novo pacote completo do rato
 // - muda o seu estado interno (x, y, left_pressed, right_pressed) - mouse_sync_info();
@@ -137,44 +102,37 @@ void update_mouse_state() {
 
     if (byte_index == 3) {
         mouse_make_packet();
-        update_buttons_state();
-
-        draw_new_frame();
-        if (DOUBLE_BUFFER) swap_buffers();
         byte_index = 0;
-    }
-
-    if (menuState == END) {
-        update_chrono_buttons();
+        if (menuState == CHRONO) {
+            update_chrono_buttons();
+        }
         draw_new_frame();
-        if (DOUBLE_BUFFER) swap_buffers();
-    }
-
+    } 
+    
 }
 
-// Se o rato tiver o botão esquerdo pressionado (mouse_info.left_click) então
-// muda o estado do botão no mesmo quadrante
-// Senão, todos os botões voltam a não estar pressionados (buttonX->pressed = 0;)
-void update_buttons_state() {
-
+void update_chrono_buttons() {
     if (mouse_info.left_click) {
+        if (is_mouse_over_button(buttonStart, buttonStart_x, buttonStart_y))
+            chronoState = ON;
 
-        if (mouse_info.x < mode_info.XResolution/2 && mouse_info.y < mode_info.YResolution/2)
-            button1->pressed = 1;
+        else if (is_mouse_over_button(buttonPause, buttonPause_x, buttonPause_y))
+            chronoState = OFF; 
 
-        if (mouse_info.x >= mode_info.XResolution/2 && mouse_info.y <= mode_info.YResolution/2)
-            button2->pressed = 1;
-
-        if (mouse_info.x < mode_info.XResolution/2 && mouse_info.y >= mode_info.YResolution/2)
-            button3->pressed = 1;
-
-        if (mouse_info.x >= mode_info.XResolution/2 && mouse_info.y > mode_info.YResolution/2)
-            button4->pressed = 1;
-
-    } else {
-        button1->pressed = 0;
-        button2->pressed = 0;
-        button3->pressed = 0;
-        button4->pressed = 0;
+        else if (is_mouse_over_button(buttonReset, buttonReset_x, buttonReset_y)) {
+            chronoState = OFF;
+            chrono_seconds = 0;
+        }
     }
 }
+
+
+
+bool is_mouse_over_button(Sprite* button, int x, int y) {
+    return (mouse_info.x >= x &&
+            mouse_info.x <= x + button->width &&
+            mouse_info.y >= y &&
+            mouse_info.y <= y + button->height);
+}
+
+ 

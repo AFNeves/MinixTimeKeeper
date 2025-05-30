@@ -3,17 +3,16 @@
 
 #include <minix/sysutil.h>
 #include <lcom/lcf.h>
-#include "controller/keyboard/KBC.h"
+#include "controller/timer/timer.h"
+#include "controller/keyboard/keyboard.h"
 #include "controller/mouse/mouse.h"
 #include "controller/video/graphic.h"
 #include "controller/rtc/rtc.h"
-//#include "xpm/hand.xpm"
-#include "xpm/mouse.xpm"
-//#include "xpm/smile.xpm"
 #include "view/view.h"
 #include "model/sprite.h"
 #include "config.h"
 
+#include "xpm/mouse.xpm"
 #include "xpm/num_0.xpm"
 #include "xpm/num_1.xpm"
 #include "xpm/num_2.xpm"
@@ -24,7 +23,6 @@
 #include "xpm/num_7.xpm"
 #include "xpm/num_8.xpm"
 #include "xpm/num_9.xpm"
-#include "xpm/colon.xpm"
 
 typedef enum {
     RUNNING,
@@ -33,26 +31,26 @@ typedef enum {
 
 typedef enum {
     START,
-    GAME,
-    END
+    CHRONO,
+    TIMER
 } MenuState;
 
 typedef enum {
-    CRONO_STOPPED,
-    CRONO_RUNNING,
-    CRONO_PAUSED
+    ON,
+    OFF
 } ChronoState;
 
-extern ChronoState chronoState;
-extern int chrono_seconds;
 
 
 void update_timer_state();
 void update_keyboard_state();
 void update_mouse_state();
-void update_buttons_state();
 void update_rtc_state();
+void update_chrono_buttons();
 void setup_sprites();
 void destroy_sprites();
+
+// Helper functions
+bool is_mouse_over_button(Sprite* button, int x, int y);
 
 #endif
