@@ -98,8 +98,7 @@ int (rtc_update)()
             time_info.month    = rtc_date.month;
             time_info.year     = rtc_date.year;
             time_info.dayNumber = rtc_date.dayNumber;
-
-
+            
             return 0;
         }
 

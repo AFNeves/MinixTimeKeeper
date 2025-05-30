@@ -28,6 +28,13 @@
 #include "xpm/timer.xpm"
 #include "xpm/chrono.xpm"
 #include "xpm/clock.xpm"
+#include "xpm/sun.xpm"
+#include "xpm/mon.xpm"
+#include "xpm/tue.xpm"
+#include "xpm/wed.xpm"
+#include "xpm/thu.xpm"
+#include "xpm/fri.xpm"
+#include "xpm/sat.xpm"
 #include "xpm/start.xpm"
 #include "xpm/pause.xpm"
 #include "xpm/reset.xpm"
@@ -36,7 +43,10 @@
 extern Sprite *mouse;
 extern Sprite *colon;
 extern Sprite *slash;
+
 extern Sprite *block;
+
+extern Sprite *days_of_week[7];
 extern Sprite *digits[10];
 extern Sprite *toolbar_buttons[3];
 extern Sprite *chrono_buttons[3];

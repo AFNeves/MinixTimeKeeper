@@ -3,8 +3,8 @@ static char *colon_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "50 70 3 1 ",
 "  c None",
-". c #00000000",
-"X c #FFFFFFFF",
+". c #000000",
+"X c #FFFFFF",
 /* pixels */
 "                                                  ",
 "                                                  ",

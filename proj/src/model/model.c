@@ -16,6 +16,7 @@ Sprite *mouse;
 Sprite *colon;
 Sprite *slash;
 Sprite *block;
+Sprite *days_of_week[7];
 Sprite *digits[10];
 Sprite *toolbar_buttons[3];
 Sprite *chrono_buttons[3];
@@ -42,6 +43,18 @@ void setup_sprites() {
     toolbar_buttons[0] = create_sprite_xpm((xpm_map_t) clock_xpm);
     toolbar_buttons[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
     toolbar_buttons[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
+
+    toolbar_button_sprites[0] = create_sprite_xpm((xpm_map_t) clock_xpm);
+    toolbar_button_sprites[1] = create_sprite_xpm((xpm_map_t) chrono_xpm);
+    toolbar_button_sprites[2] = create_sprite_xpm((xpm_map_t) timer_xpm);
+
+    days_of_week[0] = create_sprite_xpm((xpm_map_t) mon_xpm);
+    days_of_week[1] = create_sprite_xpm((xpm_map_t) tue_xpm);
+    days_of_week[2] = create_sprite_xpm((xpm_map_t) wed_xpm);
+    days_of_week[3] = create_sprite_xpm((xpm_map_t) thu_xpm);
+    days_of_week[4] = create_sprite_xpm((xpm_map_t) fri_xpm);
+    days_of_week[5] = create_sprite_xpm((xpm_map_t) sat_xpm);
+    days_of_week[6] = create_sprite_xpm((xpm_map_t) sun_xpm);
 
     int toolbar_dx = 55;
     int toolbarX = mode_info.XResolution / 4;
@@ -76,6 +89,9 @@ void destroy_sprites() {
     
     for (int i = 0; i < 3; i++)
         destroy_sprite(toolbar_buttons[i]);
+
+    for (int i = 0; i < 7; i++)
+        destroy_sprite(days_of_week[i]);
 
 }
 
