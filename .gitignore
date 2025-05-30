@@ -1,4 +1,5 @@
-# VSCode settings
+# Editor settings
+.idea/
 **/.vscode/
 **/.clang-format
 
