@@ -43,11 +43,17 @@
 extern Sprite *mouse;
 extern Sprite *colon;
 extern Sprite *slash;
-extern Sprite *days_of_week[7];
 
+extern Sprite *block;
+
+extern Sprite *days_of_week[7];
 extern Sprite *digits[10];
 extern Sprite *toolbar_buttons[3];
 extern Sprite *chrono_buttons[3];
+extern int chrono_seconds;
+extern int timer_seconds;
+extern int timer_input[6];
+extern int timer_input_index; // -1 means empty, 5 means full
 
 typedef enum {
     RUNNING,
@@ -65,7 +71,10 @@ typedef enum {
     OFF
 } ChronoState;
 
-
+extern SystemState systemState;
+extern MenuState menuState;
+extern ChronoState chronoState;
+extern ChronoState timerState;
 
 
 void update_timer_state();
@@ -75,8 +84,10 @@ void update_chrono_buttons();
 void update_toolbar_buttons();
 void setup_sprites();
 void destroy_sprites();
+void insert_new_input(uint8_t scancode);
+void delete_last_input();
 
 // Helper functions
-bool is_mouse_over_button(Sprite* button, int x, int y);
+bool is_mouse_over_button(Sprite* button);
 
 #endif

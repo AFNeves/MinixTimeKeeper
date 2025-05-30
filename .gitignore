@@ -11,5 +11,7 @@
 **/debug/
 **/*.txt
 
+**/proj
+
 # MACOS specific file
 .DS_Store
