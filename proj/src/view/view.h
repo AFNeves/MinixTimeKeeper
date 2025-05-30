@@ -7,6 +7,7 @@
 #include "controller/video/graphic.h"
 #include "controller/mouse/mouse.h"
 #include "controller/rtc/rtc.h"
+#include "controller/utils.h"
 #include "model/sprite.h"
 #include "model/model.h"
 

@@ -46,7 +46,6 @@ typedef enum {
 void update_timer_state();
 void update_keyboard_state();
 void update_mouse_state();
-void update_rtc_state();
 void update_chrono_buttons();
 void setup_sprites();
 void destroy_sprites();

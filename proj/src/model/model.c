@@ -56,17 +56,11 @@ void update_timer_state() {
         if (chronoState == ON) {
             chrono_seconds++;
         }
-        update_rtc_state();
     }
 
-    if (DOUBLE_BUFFER) swap_buffers();
-}
-
-// Como o Real Time Clock é um módulo mais pesado, 
-// devemos só atualizar os valores quando passa um segundo
-void update_rtc_state() {
-    rtc_update();
     draw_new_frame();
+
+    if (DOUBLE_BUFFER) swap_buffers();
 }
 
 // Sempre que uma nova tecla é pressionada há avaliação do scancode.
@@ -88,7 +82,6 @@ void update_keyboard_state() {
         default:
             break;
     }
-    draw_new_frame();
 }
 
 
@@ -105,7 +98,6 @@ void update_mouse_state() {
         if (menuState == CHRONO) {
             update_chrono_buttons();
         }
-        draw_new_frame();
     } 
     
 }

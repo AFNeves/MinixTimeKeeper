@@ -17,6 +17,10 @@ extern Sprite *buttonReset;
 extern Sprite *colon;
 extern Sprite *digit_sprites[10];
 
+// RTC Data Structures
+extern time_struct rtc_time;
+extern date_struct rtc_date;
+
 int buttonStart_x = 100, buttonStart_y = 400;
 int buttonPause_x = 400, buttonPause_y = 400;
 int buttonReset_x = 700, buttonReset_y = 400;
@@ -136,9 +140,9 @@ void display_real_time() {
     int y = 50;
 
     int digits[6] = {
-        time_info.hours / 10, time_info.hours % 10,
-        time_info.minutes / 10, time_info.minutes % 10,
-        time_info.seconds / 10, time_info.seconds % 10
+        rtc_time.hours / 10, rtc_time.hours % 10,
+        rtc_time.minutes / 10, rtc_time.minutes % 10,
+        rtc_time.seconds / 10, rtc_time.seconds % 10
     };
 
     draw_sprite_xpm(digit_sprites[digits[0]], midX - 4 * dx, y);
