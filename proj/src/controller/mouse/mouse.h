@@ -5,9 +5,7 @@
 
 #include <lcom/lcf.h>
 #include <stdint.h>
-#include "../utils.h"
-#include "i8042.h"
-#include "KBC.h"
+#include "../KBC.h"
 
 typedef struct {
     int x, y;

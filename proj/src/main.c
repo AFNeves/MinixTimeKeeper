@@ -36,7 +36,7 @@ int setup() {
 
   // Ativação das interrupções dos dispositivos
   if (timer_subscribe_ints() != 0) return 1;
-  if (keyboard_subscribe_interrupts() != 0) return 1;
+  if (keyboard_subscribe_int() != 0) return 1;
   if (mouse_subscribe_interrupts() != 0) return 1;
   if (rtc_subscribe_int() != 0) return 1;
 
@@ -97,7 +97,7 @@ int (proj_main_loop)(int argc, char *argv[]) {
       switch(_ENDPOINT_P(msg.m_source)) {
         case HARDWARE: 
           if (msg.m_notify.interrupts & TIMER_MASK)    update_timer_state();
-          if (msg.m_notify.interrupts & KEYBOARD_MASK) update_keyboard_state();
+          if (msg.m_notify.interrupts & KB_MASK)       update_keyboard_state();
           if (msg.m_notify.interrupts & MOUSE_MASK)    update_mouse_state();
           if (msg.m_notify.interrupts & RTC_MASK)      rtc_ih();
         }

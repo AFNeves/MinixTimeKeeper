@@ -17,6 +17,9 @@ Sprite *digit_sprites[10];
 // Timer Counter
 extern int timer_counter;
 
+// Keyboard Scancode
+extern uint8_t scancode;
+
 // Criação dos objetos via XPM e via comum
 void setup_sprites() {
     mouse = create_sprite_xpm((xpm_map_t) mouse_xpm);

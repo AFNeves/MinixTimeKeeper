@@ -5,7 +5,6 @@
 
 #include <stdint.h>
 
-#include "../utils.h"
 #include "../KBC.h"
 
 /**
