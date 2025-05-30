@@ -14,8 +14,8 @@
 #define RTC_IRQ  8      /**< @brief RTC IRQ Line */
 #define RTC_MASK BIT(3) /**< @brief RTC Interrupt Mask */
 
-#define RTC_DELAY        1000 /**< @brief Standard Delay value */
-#define RTC_MAX_ATTEMPTS 5    /**< @brief Maximum number of attempts */
+#define RTC_DELAY        1000 /**< @brief Standard Delay Value */
+#define RTC_MAX_ATTEMPTS 5    /**< @brief Maximum Number of Attempts */
 
 /* Register Address */
 
