@@ -25,7 +25,7 @@ typedef struct {
 typedef struct {
     uint8_t day;       /**< @brief Day */
     uint8_t month;     /**< @brief Month */
-    uint8_t year;      /**< @brief Year */
+    uint16_t year;      /**< @brief Year */
     uint8_t dayNumber; /**< @brief Day of the Week */
 } date_struct;
 

@@ -35,12 +35,10 @@
 
 extern Sprite *mouse;
 extern Sprite *colon;
+extern Sprite *slash;
 extern Sprite *digits[10];
 extern Sprite *toolbar_buttons[3];
-extern Sprite* chrono_buttons[3];
-extern Sprite *slash;
-
-
+extern Sprite *chrono_buttons[3];
 
 typedef enum {
     RUNNING,

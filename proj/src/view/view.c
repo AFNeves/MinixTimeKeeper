@@ -72,7 +72,11 @@ void draw_chrono_menu() {
 
     draw_sprite_xpm(digits[minutes / 10], x, y);
     draw_sprite_xpm(digits[minutes % 10], x + dx, y);
+    draw_sprite_xpm(digits[minutes / 10], x, y);
+    draw_sprite_xpm(digits[minutes % 10], x + dx, y);
     draw_sprite_xpm(colon, x + 2 * dx, y);
+    draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
+    draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
     draw_sprite_xpm(digits[seconds / 10], x + 3*dx, y);
     draw_sprite_xpm(digits[seconds % 10], x + 4*dx, y);
 }
@@ -161,10 +165,16 @@ void display_real_time() {
 
     draw_sprite_xpm(digits[digits_time[0]], x +  dx, y);
     draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y);
+    draw_sprite_xpm(digits[digits_time[0]], x +  dx, y);
+    draw_sprite_xpm(digits[digits_time[1]], x + 2 * dx, y);
     draw_sprite_xpm(colon, x + 3 * dx, y);
     draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y);
     draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y);
+    draw_sprite_xpm(digits[digits_time[2]],x + 4 * dx, y);
+    draw_sprite_xpm(digits[digits_time[3]],x + 5 * dx, y);
     draw_sprite_xpm(colon, x + 6 * dx, y);
+    draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y);
+    draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y);
     draw_sprite_xpm(digits[digits_time[4]], x + 7 * dx, y);
     draw_sprite_xpm(digits[digits_time[5]], x + 8 * dx, y);
 }
@@ -174,6 +184,7 @@ void draw_toolbar() {
         draw_sprite_xpm(toolbar_buttons[i], toolbar_buttons[i]->x, toolbar_buttons[i]->y);
     }
 }
+
 
 
 void draw_text(const char *text, int x, int y, uint32_t color) {
