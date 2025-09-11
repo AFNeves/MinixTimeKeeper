@@ -1,0 +1,1115 @@
+\begin{theindex}
+
+  \item {/home/neves/reps/LCOM/shared/proj/src/config.h}, 
+		\hyperpage{11}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/KBC.c}, 
+		\hyperpage{17}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/KBC.h}, 
+		\hyperpage{18}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/keyboard/keyboard.c}, 
+		\hyperpage{28}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/keyboard/keyboard.h}, 
+		\hyperpage{30}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/mouse/mouse.c}, 
+		\hyperpage{31}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/mouse/mouse.h}, 
+		\hyperpage{34}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/rtc/rtc.c}, 
+		\hyperpage{36}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/rtc/rtc.h}, 
+		\hyperpage{43}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/timer/timer.c}, 
+		\hyperpage{56}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/timer/timer.h}, 
+		\hyperpage{58}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/utils.c}, 
+		\hyperpage{66}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/utils.h}, 
+		\hyperpage{68}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/video/graphic.c}, 
+		\hyperpage{70}
+  \item {/home/neves/reps/LCOM/shared/proj/src/controller/video/graphic.h}, 
+		\hyperpage{74}
+  \item {/home/neves/reps/LCOM/shared/proj/src/main.c}, \hyperpage{78}
+  \item {/home/neves/reps/LCOM/shared/proj/src/model/model.c}, 
+		\hyperpage{80}
+  \item {/home/neves/reps/LCOM/shared/proj/src/model/model.h}, 
+		\hyperpage{86}
+  \item {/home/neves/reps/LCOM/shared/proj/src/model/sprite.c}, 
+		\hyperpage{93}
+  \item {/home/neves/reps/LCOM/shared/proj/src/model/sprite.h}, 
+		\hyperpage{94}
+  \item {/home/neves/reps/LCOM/shared/proj/src/view/view.c}, 
+		\hyperpage{95}
+  \item {/home/neves/reps/LCOM/shared/proj/src/view/view.h}, 
+		\hyperpage{100}
+
+  \indexspace
+
+  \item {BACKSPACE\_KEY}
+    \subitem {config.h}, \hyperpage{12}
+  \item {bcd\_to\_bin}
+    \subitem {rtc.c}, \hyperpage{37}
+    \subitem {rtc.h}, \hyperpage{51}
+  \item {bin\_to\_bcd}
+    \subitem {rtc.c}, \hyperpage{37}
+    \subitem {rtc.h}, \hyperpage{52}
+  \item {BIT}
+    \subitem {utils.h}, \hyperpage{68}
+  \item {BLACK}
+    \subitem {config.h}, \hyperpage{12}
+  \item {block}
+    \subitem {model.c}, \hyperpage{83}
+    \subitem {model.h}, \hyperpage{91}
+  \item {BLUE}
+    \subitem {config.h}, \hyperpage{12}
+  \item {BREAK\_CODE\_BIT}
+    \subitem {KBC.h}, \hyperpage{20}
+  \item {byte\_index}
+    \subitem {model.c}, \hyperpage{83}
+    \subitem {mouse.c}, \hyperpage{33}
+
+  \indexspace
+
+  \item {C\_KEY}
+    \subitem {config.h}, \hyperpage{12}
+  \item {CHRONO}
+    \subitem {model.h}, \hyperpage{88}
+  \item {chrono\_buttons}
+    \subitem {model.c}, \hyperpage{83}
+    \subitem {model.h}, \hyperpage{91}
+  \item {chrono\_seconds}
+    \subitem {model.c}, \hyperpage{83}
+    \subitem {model.h}, \hyperpage{91}
+  \item {ChronoState}
+    \subitem {model.h}, \hyperpage{88}
+  \item {chronoState}
+    \subitem {model.c}, \hyperpage{83}
+    \subitem {model.h}, \hyperpage{91}
+  \item {cleanup}
+    \subitem {main.c}, \hyperpage{79}
+  \item {colon}
+    \subitem {model.c}, \hyperpage{83}
+    \subitem {model.h}, \hyperpage{91}
+  \item {color}
+    \subitem {Sprite}, \hyperpage{8}
+  \item {colors}
+    \subitem {Sprite}, \hyperpage{8}
+  \item {config.h}
+    \subitem {BACKSPACE\_KEY}, \hyperpage{12}
+    \subitem {BLACK}, \hyperpage{12}
+    \subitem {BLUE}, \hyperpage{12}
+    \subitem {C\_KEY}, \hyperpage{12}
+    \subitem {DARKBLUE}, \hyperpage{12}
+    \subitem {DOUBLE\_BUFFER}, \hyperpage{12}
+    \subitem {E\_KEY}, \hyperpage{13}
+    \subitem {EIGHT\_KEY}, \hyperpage{13}
+    \subitem {FIVE\_KEY}, \hyperpage{13}
+    \subitem {FOUR\_KEY}, \hyperpage{13}
+    \subitem {G\_KEY}, \hyperpage{13}
+    \subitem {GAME\_FREQUENCY}, \hyperpage{13}
+    \subitem {GREEN}, \hyperpage{14}
+    \subitem {NINE\_KEY}, \hyperpage{14}
+    \subitem {ONE\_KEY}, \hyperpage{14}
+    \subitem {ORANGE}, \hyperpage{14}
+    \subitem {PRESSED}, \hyperpage{14}
+    \subitem {Q\_KEY}, \hyperpage{14}
+    \subitem {RED}, \hyperpage{15}
+    \subitem {S\_KEY}, \hyperpage{15}
+    \subitem {SEVEN\_KEY}, \hyperpage{15}
+    \subitem {SIX\_KEY}, \hyperpage{15}
+    \subitem {T\_KEY}, \hyperpage{15}
+    \subitem {THREE\_KEY}, \hyperpage{15}
+    \subitem {TRANSPARENT}, \hyperpage{16}
+    \subitem {TWO\_KEY}, \hyperpage{16}
+    \subitem {VIDEO\_MODE}, \hyperpage{16}
+    \subitem {WHITE}, \hyperpage{16}
+    \subitem {YELLOW}, \hyperpage{16}
+    \subitem {ZERO\_KEY}, \hyperpage{16}
+  \item {convert\_to\_24h}
+    \subitem {rtc.c}, \hyperpage{38}
+    \subitem {rtc.h}, \hyperpage{52}
+  \item {create\_sprite\_button}
+    \subitem {sprite.c}, \hyperpage{94}
+    \subitem {sprite.h}, \hyperpage{95}
+  \item {create\_sprite\_xpm}
+    \subitem {sprite.c}, \hyperpage{94}
+    \subitem {sprite.h}, \hyperpage{95}
+
+  \indexspace
+
+  \item {DARKBLUE}
+    \subitem {config.h}, \hyperpage{12}
+  \item {date\_struct}, \hyperpage{5}
+    \subitem {day}, \hyperpage{5}
+    \subitem {dayNumber}, \hyperpage{5}
+    \subitem {month}, \hyperpage{6}
+    \subitem {year}, \hyperpage{6}
+  \item {day}
+    \subitem {date\_struct}, \hyperpage{5}
+  \item {dayNumber}
+    \subitem {date\_struct}, \hyperpage{5}
+  \item {days\_of\_week}
+    \subitem {model.c}, \hyperpage{84}
+    \subitem {model.h}, \hyperpage{91}
+  \item {delete\_last\_input}
+    \subitem {model.c}, \hyperpage{81}
+    \subitem {model.h}, \hyperpage{89}
+  \item {destroy\_sprite}
+    \subitem {sprite.c}, \hyperpage{94}
+    \subitem {sprite.h}, \hyperpage{95}
+  \item {destroy\_sprites}
+    \subitem {model.c}, \hyperpage{81}
+    \subitem {model.h}, \hyperpage{89}
+  \item {digits}
+    \subitem {model.c}, \hyperpage{84}
+    \subitem {model.h}, \hyperpage{92}
+  \item {display\_real\_time}
+    \subitem {view.c}, \hyperpage{96}
+    \subitem {view.h}, \hyperpage{101}
+  \item {DOUBLE\_BUFFER}
+    \subitem {config.h}, \hyperpage{12}
+  \item {draw\_blocks}
+    \subitem {view.c}, \hyperpage{96}
+    \subitem {view.h}, \hyperpage{101}
+  \item {draw\_chrono\_buttons}
+    \subitem {view.c}, \hyperpage{96}
+    \subitem {view.h}, \hyperpage{101}
+  \item {draw\_chrono\_menu}
+    \subitem {view.c}, \hyperpage{97}
+    \subitem {view.h}, \hyperpage{101}
+  \item {draw\_line}
+    \subitem {graphic.c}, \hyperpage{70}
+    \subitem {graphic.h}, \hyperpage{75}
+  \item {draw\_mouse}
+    \subitem {view.c}, \hyperpage{97}
+    \subitem {view.h}, \hyperpage{101}
+  \item {draw\_new\_frame}
+    \subitem {view.c}, \hyperpage{97}
+    \subitem {view.h}, \hyperpage{101}
+  \item {draw\_pixel}
+    \subitem {graphic.c}, \hyperpage{71}
+    \subitem {graphic.h}, \hyperpage{76}
+  \item {draw\_rectangle}
+    \subitem {graphic.c}, \hyperpage{71}
+    \subitem {graphic.h}, \hyperpage{76}
+  \item {draw\_sprite\_button}
+    \subitem {view.c}, \hyperpage{97}
+    \subitem {view.h}, \hyperpage{102}
+  \item {draw\_sprite\_xpm}
+    \subitem {view.c}, \hyperpage{97}
+    \subitem {view.h}, \hyperpage{102}
+  \item {draw\_time}
+    \subitem {view.c}, \hyperpage{97}
+    \subitem {view.h}, \hyperpage{102}
+  \item {draw\_timer}
+    \subitem {view.h}, \hyperpage{102}
+  \item {draw\_timer\_input}
+    \subitem {view.c}, \hyperpage{98}
+    \subitem {view.h}, \hyperpage{102}
+  \item {draw\_timer\_menu}
+    \subitem {view.c}, \hyperpage{98}
+    \subitem {view.h}, \hyperpage{102}
+  \item {draw\_toolbar}
+    \subitem {view.c}, \hyperpage{98}
+    \subitem {view.h}, \hyperpage{103}
+  \item {draw\_XPM}
+    \subitem {graphic.c}, \hyperpage{72}
+    \subitem {graphic.h}, \hyperpage{77}
+  \item {drawing\_frame\_buffer}
+    \subitem {view.c}, \hyperpage{99}
+    \subitem {view.h}, \hyperpage{103}
+
+  \indexspace
+
+  \item {E\_KEY}
+    \subitem {config.h}, \hyperpage{13}
+  \item {EIGHT\_KEY}
+    \subitem {config.h}, \hyperpage{13}
+  \item {ESC\_BREAKCODE}
+    \subitem {KBC.h}, \hyperpage{20}
+  \item {EXIT}
+    \subitem {model.h}, \hyperpage{88}
+
+  \indexspace
+
+  \item {FIRST\_BYTE}
+    \subitem {KBC.h}, \hyperpage{20}
+  \item {FIVE\_KEY}
+    \subitem {config.h}, \hyperpage{13}
+  \item {FOUR\_KEY}
+    \subitem {config.h}, \hyperpage{13}
+  \item {frame\_buffer\_size}
+    \subitem {view.c}, \hyperpage{99}
+  \item {FULL\_IN\_BUF}
+    \subitem {KBC.h}, \hyperpage{20}
+  \item {FULL\_OUT\_BUF}
+    \subitem {KBC.h}, \hyperpage{20}
+
+  \indexspace
+
+  \item {G\_KEY}
+    \subitem {config.h}, \hyperpage{13}
+  \item {GAME\_FREQUENCY}
+    \subitem {config.h}, \hyperpage{13}
+  \item {graphic.c}
+    \subitem {draw\_line}, \hyperpage{70}
+    \subitem {draw\_pixel}, \hyperpage{71}
+    \subitem {draw\_rectangle}, \hyperpage{71}
+    \subitem {draw\_XPM}, \hyperpage{72}
+    \subitem {set\_frame\_buffer}, \hyperpage{72}
+    \subitem {set\_graphic\_mode}, \hyperpage{73}
+    \subitem {set\_text\_mode}, \hyperpage{73}
+    \subitem {vbe\_info}, \hyperpage{73}
+  \item {graphic.h}
+    \subitem {draw\_line}, \hyperpage{75}
+    \subitem {draw\_pixel}, \hyperpage{76}
+    \subitem {draw\_rectangle}, \hyperpage{76}
+    \subitem {draw\_XPM}, \hyperpage{77}
+    \subitem {set\_frame\_buffer}, \hyperpage{77}
+    \subitem {set\_graphic\_mode}, \hyperpage{78}
+    \subitem {set\_text\_mode}, \hyperpage{78}
+    \subitem {VBE\_1024x768\_INDEXED}, \hyperpage{74}
+    \subitem {VBE\_1152x864}, \hyperpage{75}
+    \subitem {VBE\_1280x1024}, \hyperpage{75}
+    \subitem {VBE\_640x480}, \hyperpage{75}
+    \subitem {VBE\_800x600}, \hyperpage{75}
+  \item {GREEN}
+    \subitem {config.h}, \hyperpage{14}
+
+  \indexspace
+
+  \item {height}
+    \subitem {Sprite}, \hyperpage{8}
+  \item {hours}
+    \subitem {time\_struct}, \hyperpage{10}
+
+  \indexspace
+
+  \item {insert\_new\_input}
+    \subitem {model.c}, \hyperpage{81}
+    \subitem {model.h}, \hyperpage{89}
+  \item {is\_mouse\_over\_button}
+    \subitem {model.c}, \hyperpage{81}
+    \subitem {model.h}, \hyperpage{89}
+
+  \indexspace
+
+  \item {KB\_DELAY}
+    \subitem {KBC.h}, \hyperpage{21}
+  \item {kb\_hook\_id}
+    \subitem {keyboard.c}, \hyperpage{29}
+  \item {KB\_IRQ}
+    \subitem {KBC.h}, \hyperpage{21}
+  \item {KB\_MASK}
+    \subitem {KBC.h}, \hyperpage{21}
+  \item {KBC.c}
+    \subitem {read\_KBC\_output}, \hyperpage{17}
+    \subitem {write\_to\_KBC}, \hyperpage{17}
+  \item {KBC.h}
+    \subitem {BREAK\_CODE\_BIT}, \hyperpage{20}
+    \subitem {ESC\_BREAKCODE}, \hyperpage{20}
+    \subitem {FIRST\_BYTE}, \hyperpage{20}
+    \subitem {FULL\_IN\_BUF}, \hyperpage{20}
+    \subitem {FULL\_OUT\_BUF}, \hyperpage{20}
+    \subitem {KB\_DELAY}, \hyperpage{21}
+    \subitem {KB\_IRQ}, \hyperpage{21}
+    \subitem {KB\_MASK}, \hyperpage{21}
+    \subitem {KBC\_IN\_BUF}, \hyperpage{21}
+    \subitem {KBC\_IN\_BUF\_ARG}, \hyperpage{21}
+    \subitem {KBC\_KB\_INT}, \hyperpage{22}
+    \subitem {KBC\_MOUSE\_INT}, \hyperpage{22}
+    \subitem {KBC\_OUT\_BUF}, \hyperpage{22}
+    \subitem {KBC\_READ\_CMD}, \hyperpage{22}
+    \subitem {KBC\_STATUS\_REG}, \hyperpage{22}
+    \subitem {KBC\_WRITE\_CMD}, \hyperpage{23}
+    \subitem {KBC\_WRITE\_MOUSE}, \hyperpage{23}
+    \subitem {MAX\_ATTEMPTS}, \hyperpage{23}
+    \subitem {MOUSE\_ACK}, \hyperpage{23}
+    \subitem {MOUSE\_DATA\_BIT}, \hyperpage{23}
+    \subitem {MOUSE\_DATA\_REPORT\_DISABLE}, \hyperpage{24}
+    \subitem {MOUSE\_DATA\_REPORT\_ENABLE}, \hyperpage{24}
+    \subitem {MOUSE\_DATA\_STREAM\_MODE}, \hyperpage{24}
+    \subitem {MOUSE\_IRQ}, \hyperpage{24}
+    \subitem {MOUSE\_LB}, \hyperpage{24}
+    \subitem {MOUSE\_MASK}, \hyperpage{25}
+    \subitem {MOUSE\_MB}, \hyperpage{25}
+    \subitem {MOUSE\_NACK}, \hyperpage{25}
+    \subitem {MOUSE\_OVERFLOW\_X}, \hyperpage{25}
+    \subitem {MOUSE\_OVERFLOW\_Y}, \hyperpage{25}
+    \subitem {MOUSE\_RB}, \hyperpage{26}
+    \subitem {MOUSE\_SIGNAL\_X}, \hyperpage{26}
+    \subitem {MOUSE\_SIGNAL\_Y}, \hyperpage{26}
+    \subitem {PARITY\_ERROR}, \hyperpage{26}
+    \subitem {read\_KBC\_output}, \hyperpage{27}
+    \subitem {TIMEOUT\_ERROR}, \hyperpage{26}
+    \subitem {write\_to\_KBC}, \hyperpage{27}
+  \item {kbc\_ih}
+    \subitem {keyboard.c}, \hyperpage{28}
+    \subitem {keyboard.h}, \hyperpage{30}
+  \item {KBC\_IN\_BUF}
+    \subitem {KBC.h}, \hyperpage{21}
+  \item {KBC\_IN\_BUF\_ARG}
+    \subitem {KBC.h}, \hyperpage{21}
+  \item {KBC\_KB\_INT}
+    \subitem {KBC.h}, \hyperpage{22}
+  \item {KBC\_MOUSE\_INT}
+    \subitem {KBC.h}, \hyperpage{22}
+  \item {KBC\_OUT\_BUF}
+    \subitem {KBC.h}, \hyperpage{22}
+  \item {KBC\_READ\_CMD}
+    \subitem {KBC.h}, \hyperpage{22}
+  \item {KBC\_STATUS\_REG}
+    \subitem {KBC.h}, \hyperpage{22}
+  \item {KBC\_WRITE\_CMD}
+    \subitem {KBC.h}, \hyperpage{23}
+  \item {KBC\_WRITE\_MOUSE}
+    \subitem {KBC.h}, \hyperpage{23}
+  \item {keyboard.c}
+    \subitem {kb\_hook\_id}, \hyperpage{29}
+    \subitem {kbc\_ih}, \hyperpage{28}
+    \subitem {keyboard\_subscribe\_int}, \hyperpage{28}
+    \subitem {keyboard\_unsubscribe\_int}, \hyperpage{29}
+    \subitem {scancode}, \hyperpage{29}
+  \item {keyboard.h}
+    \subitem {kbc\_ih}, \hyperpage{30}
+    \subitem {keyboard\_subscribe\_int}, \hyperpage{30}
+    \subitem {keyboard\_unsubscribe\_int}, \hyperpage{30}
+  \item {keyboard\_subscribe\_int}
+    \subitem {keyboard.c}, \hyperpage{28}
+    \subitem {keyboard.h}, \hyperpage{30}
+  \item {keyboard\_unsubscribe\_int}
+    \subitem {keyboard.c}, \hyperpage{29}
+    \subitem {keyboard.h}, \hyperpage{30}
+
+  \indexspace
+
+  \item {lb}
+    \subitem {MouseInfo}, \hyperpage{7}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{79}
+  \item {main.c}
+    \subitem {cleanup}, \hyperpage{79}
+    \subitem {main}, \hyperpage{79}
+    \subitem {proj\_main\_loop}, \hyperpage{79}
+    \subitem {setup}, \hyperpage{79}
+    \subitem {systemState}, \hyperpage{80}
+  \item {main\_frame\_buffer}
+    \subitem {view.c}, \hyperpage{99}
+    \subitem {view.h}, \hyperpage{103}
+  \item {MAX\_ATTEMPTS}
+    \subitem {KBC.h}, \hyperpage{23}
+  \item {MenuState}
+    \subitem {model.h}, \hyperpage{88}
+  \item {menuState}
+    \subitem {model.c}, \hyperpage{84}
+    \subitem {model.h}, \hyperpage{92}
+  \item {minutes}
+    \subitem {time\_struct}, \hyperpage{10}
+  \item {model.c}
+    \subitem {block}, \hyperpage{83}
+    \subitem {byte\_index}, \hyperpage{83}
+    \subitem {chrono\_buttons}, \hyperpage{83}
+    \subitem {chrono\_seconds}, \hyperpage{83}
+    \subitem {chronoState}, \hyperpage{83}
+    \subitem {colon}, \hyperpage{83}
+    \subitem {days\_of\_week}, \hyperpage{84}
+    \subitem {delete\_last\_input}, \hyperpage{81}
+    \subitem {destroy\_sprites}, \hyperpage{81}
+    \subitem {digits}, \hyperpage{84}
+    \subitem {insert\_new\_input}, \hyperpage{81}
+    \subitem {is\_mouse\_over\_button}, \hyperpage{81}
+    \subitem {menuState}, \hyperpage{84}
+    \subitem {mouse}, \hyperpage{84}
+    \subitem {mouse\_info}, \hyperpage{84}
+    \subitem {scancode}, \hyperpage{84}
+    \subitem {setup\_sprites}, \hyperpage{81}
+    \subitem {slash}, \hyperpage{85}
+    \subitem {systemState}, \hyperpage{85}
+    \subitem {timer\_counter}, \hyperpage{85}
+    \subitem {timer\_input}, \hyperpage{85}
+    \subitem {timer\_input\_length}, \hyperpage{85}
+    \subitem {timer\_seconds}, \hyperpage{85}
+    \subitem {timerState}, \hyperpage{86}
+    \subitem {toolbar\_buttons}, \hyperpage{86}
+    \subitem {update\_chrono\_buttons}, \hyperpage{81}
+    \subitem {update\_keyboard\_state}, \hyperpage{82}
+    \subitem {update\_mouse\_state}, \hyperpage{82}
+    \subitem {update\_timer\_buttons}, \hyperpage{82}
+    \subitem {update\_timer\_state}, \hyperpage{82}
+    \subitem {update\_toolbar\_buttons}, \hyperpage{82}
+    \subitem {vbe\_info}, \hyperpage{86}
+  \item {model.h}
+    \subitem {block}, \hyperpage{91}
+    \subitem {CHRONO}, \hyperpage{88}
+    \subitem {chrono\_buttons}, \hyperpage{91}
+    \subitem {chrono\_seconds}, \hyperpage{91}
+    \subitem {ChronoState}, \hyperpage{88}
+    \subitem {chronoState}, \hyperpage{91}
+    \subitem {colon}, \hyperpage{91}
+    \subitem {days\_of\_week}, \hyperpage{91}
+    \subitem {delete\_last\_input}, \hyperpage{89}
+    \subitem {destroy\_sprites}, \hyperpage{89}
+    \subitem {digits}, \hyperpage{92}
+    \subitem {EXIT}, \hyperpage{88}
+    \subitem {insert\_new\_input}, \hyperpage{89}
+    \subitem {is\_mouse\_over\_button}, \hyperpage{89}
+    \subitem {MenuState}, \hyperpage{88}
+    \subitem {menuState}, \hyperpage{92}
+    \subitem {mouse}, \hyperpage{92}
+    \subitem {OFF}, \hyperpage{88}
+    \subitem {ON}, \hyperpage{88}
+    \subitem {RUNNING}, \hyperpage{88}
+    \subitem {RUNNING\_CLOCK}, \hyperpage{88}
+    \subitem {setup\_sprites}, \hyperpage{89}
+    \subitem {slash}, \hyperpage{92}
+    \subitem {SystemState}, \hyperpage{88}
+    \subitem {systemState}, \hyperpage{92}
+    \subitem {TIMER}, \hyperpage{88}
+    \subitem {timer\_input}, \hyperpage{92}
+    \subitem {timer\_input\_length}, \hyperpage{93}
+    \subitem {timer\_seconds}, \hyperpage{93}
+    \subitem {timerState}, \hyperpage{93}
+    \subitem {toolbar\_buttons}, \hyperpage{93}
+    \subitem {update\_chrono\_buttons}, \hyperpage{89}
+    \subitem {update\_keyboard\_state}, \hyperpage{90}
+    \subitem {update\_mouse\_state}, \hyperpage{90}
+    \subitem {update\_timer\_buttons}, \hyperpage{90}
+    \subitem {update\_timer\_state}, \hyperpage{90}
+    \subitem {update\_toolbar\_buttons}, \hyperpage{90}
+  \item {month}
+    \subitem {date\_struct}, \hyperpage{6}
+  \item {mouse}
+    \subitem {model.c}, \hyperpage{84}
+    \subitem {model.h}, \hyperpage{92}
+  \item {mouse.c}
+    \subitem {byte\_index}, \hyperpage{33}
+    \subitem {mouse\_byte}, \hyperpage{33}
+    \subitem {mouse\_data}, \hyperpage{33}
+    \subitem {mouse\_hook\_id}, \hyperpage{33}
+    \subitem {mouse\_ih}, \hyperpage{31}
+    \subitem {mouse\_info}, \hyperpage{34}
+    \subitem {mouse\_subscribe\_int}, \hyperpage{32}
+    \subitem {mouse\_sync}, \hyperpage{32}
+    \subitem {mouse\_unsubscribe\_int}, \hyperpage{32}
+    \subitem {mouse\_write\_command}, \hyperpage{32}
+    \subitem {update\_mouse\_info}, \hyperpage{33}
+    \subitem {vbe\_info}, \hyperpage{34}
+  \item {mouse.h}
+    \subitem {mouse\_ih}, \hyperpage{35}
+    \subitem {mouse\_subscribe\_int}, \hyperpage{35}
+    \subitem {mouse\_sync}, \hyperpage{35}
+    \subitem {mouse\_unsubscribe\_int}, \hyperpage{35}
+    \subitem {mouse\_write\_command}, \hyperpage{35}
+    \subitem {update\_mouse\_info}, \hyperpage{36}
+  \item {MOUSE\_ACK}
+    \subitem {KBC.h}, \hyperpage{23}
+  \item {mouse\_byte}
+    \subitem {mouse.c}, \hyperpage{33}
+  \item {mouse\_data}
+    \subitem {mouse.c}, \hyperpage{33}
+  \item {MOUSE\_DATA\_BIT}
+    \subitem {KBC.h}, \hyperpage{23}
+  \item {MOUSE\_DATA\_REPORT\_DISABLE}
+    \subitem {KBC.h}, \hyperpage{24}
+  \item {MOUSE\_DATA\_REPORT\_ENABLE}
+    \subitem {KBC.h}, \hyperpage{24}
+  \item {MOUSE\_DATA\_STREAM\_MODE}
+    \subitem {KBC.h}, \hyperpage{24}
+  \item {mouse\_hook\_id}
+    \subitem {mouse.c}, \hyperpage{33}
+  \item {mouse\_ih}
+    \subitem {mouse.c}, \hyperpage{31}
+    \subitem {mouse.h}, \hyperpage{35}
+  \item {mouse\_info}
+    \subitem {model.c}, \hyperpage{84}
+    \subitem {mouse.c}, \hyperpage{34}
+    \subitem {view.c}, \hyperpage{99}
+  \item {MOUSE\_IRQ}
+    \subitem {KBC.h}, \hyperpage{24}
+  \item {MOUSE\_LB}
+    \subitem {KBC.h}, \hyperpage{24}
+  \item {MOUSE\_MASK}
+    \subitem {KBC.h}, \hyperpage{25}
+  \item {MOUSE\_MB}
+    \subitem {KBC.h}, \hyperpage{25}
+  \item {MOUSE\_NACK}
+    \subitem {KBC.h}, \hyperpage{25}
+  \item {MOUSE\_OVERFLOW\_X}
+    \subitem {KBC.h}, \hyperpage{25}
+  \item {MOUSE\_OVERFLOW\_Y}
+    \subitem {KBC.h}, \hyperpage{25}
+  \item {MOUSE\_RB}
+    \subitem {KBC.h}, \hyperpage{26}
+  \item {MOUSE\_SIGNAL\_X}
+    \subitem {KBC.h}, \hyperpage{26}
+  \item {MOUSE\_SIGNAL\_Y}
+    \subitem {KBC.h}, \hyperpage{26}
+  \item {mouse\_subscribe\_int}
+    \subitem {mouse.c}, \hyperpage{32}
+    \subitem {mouse.h}, \hyperpage{35}
+  \item {mouse\_sync}
+    \subitem {mouse.c}, \hyperpage{32}
+    \subitem {mouse.h}, \hyperpage{35}
+  \item {mouse\_unsubscribe\_int}
+    \subitem {mouse.c}, \hyperpage{32}
+    \subitem {mouse.h}, \hyperpage{35}
+  \item {mouse\_write\_command}
+    \subitem {mouse.c}, \hyperpage{32}
+    \subitem {mouse.h}, \hyperpage{35}
+  \item {MouseInfo}, \hyperpage{6}
+    \subitem {lb}, \hyperpage{7}
+    \subitem {rb}, \hyperpage{7}
+    \subitem {x}, \hyperpage{7}
+    \subitem {y}, \hyperpage{7}
+
+  \indexspace
+
+  \item {NINE\_KEY}
+    \subitem {config.h}, \hyperpage{14}
+
+  \indexspace
+
+  \item {OFF}
+    \subitem {model.h}, \hyperpage{88}
+  \item {ON}
+    \subitem {model.h}, \hyperpage{88}
+  \item {ONE\_KEY}
+    \subitem {config.h}, \hyperpage{14}
+  \item {ORANGE}
+    \subitem {config.h}, \hyperpage{14}
+
+  \indexspace
+
+  \item {PARITY\_ERROR}
+    \subitem {KBC.h}, \hyperpage{26}
+  \item {PRESSED}
+    \subitem {config.h}, \hyperpage{14}
+  \item {pressed}
+    \subitem {Sprite}, \hyperpage{8}
+  \item {proj\_main\_loop}
+    \subitem {main.c}, \hyperpage{79}
+
+  \indexspace
+
+  \item {Q\_KEY}
+    \subitem {config.h}, \hyperpage{14}
+
+  \indexspace
+
+  \item {rb}
+    \subitem {MouseInfo}, \hyperpage{7}
+  \item {read\_KBC\_output}
+    \subitem {KBC.c}, \hyperpage{17}
+    \subitem {KBC.h}, \hyperpage{27}
+  \item {RED}
+    \subitem {config.h}, \hyperpage{15}
+  \item {rtc.c}
+    \subitem {bcd\_to\_bin}, \hyperpage{37}
+    \subitem {bin\_to\_bcd}, \hyperpage{37}
+    \subitem {convert\_to\_24h}, \hyperpage{38}
+    \subitem {rtc\_date}, \hyperpage{42}
+    \subitem {rtc\_disable\_alarm}, \hyperpage{38}
+    \subitem {rtc\_hook\_id}, \hyperpage{42}
+    \subitem {rtc\_ih}, \hyperpage{38}
+    \subitem {rtc\_int\_cause}, \hyperpage{42}
+    \subitem {rtc\_mode}, \hyperpage{42}
+    \subitem {rtc\_original\_config}, \hyperpage{42}
+    \subitem {rtc\_read}, \hyperpage{38}
+    \subitem {rtc\_set\_alarm}, \hyperpage{39}
+    \subitem {rtc\_start}, \hyperpage{39}
+    \subitem {rtc\_stop}, \hyperpage{39}
+    \subitem {rtc\_subscribe\_int}, \hyperpage{40}
+    \subitem {rtc\_time}, \hyperpage{43}
+    \subitem {rtc\_time\_format}, \hyperpage{43}
+    \subitem {rtc\_unsubscribe\_int}, \hyperpage{40}
+    \subitem {rtc\_update}, \hyperpage{40}
+    \subitem {rtc\_write}, \hyperpage{41}
+  \item {rtc.h}
+    \subitem {bcd\_to\_bin}, \hyperpage{51}
+    \subitem {bin\_to\_bcd}, \hyperpage{52}
+    \subitem {convert\_to\_24h}, \hyperpage{52}
+    \subitem {RTC\_24HR}, \hyperpage{45}
+    \subitem {RTC\_ADDR\_REG}, \hyperpage{45}
+    \subitem {RTC\_AF}, \hyperpage{45}
+    \subitem {RTC\_AIE}, \hyperpage{46}
+    \subitem {RTC\_DATA\_REG}, \hyperpage{46}
+    \subitem {RTC\_DAY\_OF\_MONTH}, \hyperpage{46}
+    \subitem {RTC\_DAY\_OF\_WEEK}, \hyperpage{46}
+    \subitem {RTC\_DELAY}, \hyperpage{46}
+    \subitem {rtc\_disable\_alarm}, \hyperpage{52}
+    \subitem {RTC\_DM}, \hyperpage{47}
+    \subitem {RTC\_HOURS}, \hyperpage{47}
+    \subitem {RTC\_HOURS\_ALARM}, \hyperpage{47}
+    \subitem {rtc\_ih}, \hyperpage{52}
+    \subitem {RTC\_IRQ}, \hyperpage{47}
+    \subitem {RTC\_IRQF}, \hyperpage{47}
+    \subitem {RTC\_MASK}, \hyperpage{48}
+    \subitem {RTC\_MAX\_ATTEMPTS}, \hyperpage{48}
+    \subitem {RTC\_MINUTES}, \hyperpage{48}
+    \subitem {RTC\_MINUTES\_ALARM}, \hyperpage{48}
+    \subitem {RTC\_MONTH}, \hyperpage{48}
+    \subitem {RTC\_PF}, \hyperpage{49}
+    \subitem {RTC\_PIE}, \hyperpage{49}
+    \subitem {rtc\_read}, \hyperpage{53}
+    \subitem {RTC\_REG\_A}, \hyperpage{49}
+    \subitem {RTC\_REG\_B}, \hyperpage{49}
+    \subitem {RTC\_REG\_C}, \hyperpage{49}
+    \subitem {RTC\_REG\_D}, \hyperpage{50}
+    \subitem {RTC\_SECONDS}, \hyperpage{50}
+    \subitem {RTC\_SECONDS\_ALARM}, \hyperpage{50}
+    \subitem {RTC\_SET}, \hyperpage{50}
+    \subitem {rtc\_set\_alarm}, \hyperpage{53}
+    \subitem {rtc\_start}, \hyperpage{53}
+    \subitem {rtc\_stop}, \hyperpage{54}
+    \subitem {rtc\_subscribe\_int}, \hyperpage{54}
+    \subitem {RTC\_UF}, \hyperpage{50}
+    \subitem {RTC\_UIE}, \hyperpage{51}
+    \subitem {RTC\_UIP}, \hyperpage{51}
+    \subitem {rtc\_unsubscribe\_int}, \hyperpage{54}
+    \subitem {rtc\_update}, \hyperpage{55}
+    \subitem {rtc\_write}, \hyperpage{55}
+    \subitem {RTC\_YEAR}, \hyperpage{51}
+  \item {RTC\_24HR}
+    \subitem {rtc.h}, \hyperpage{45}
+  \item {RTC\_ADDR\_REG}
+    \subitem {rtc.h}, \hyperpage{45}
+  \item {RTC\_AF}
+    \subitem {rtc.h}, \hyperpage{45}
+  \item {RTC\_AIE}
+    \subitem {rtc.h}, \hyperpage{46}
+  \item {RTC\_DATA\_REG}
+    \subitem {rtc.h}, \hyperpage{46}
+  \item {rtc\_date}
+    \subitem {rtc.c}, \hyperpage{42}
+    \subitem {view.c}, \hyperpage{99}
+  \item {RTC\_DAY\_OF\_MONTH}
+    \subitem {rtc.h}, \hyperpage{46}
+  \item {RTC\_DAY\_OF\_WEEK}
+    \subitem {rtc.h}, \hyperpage{46}
+  \item {RTC\_DELAY}
+    \subitem {rtc.h}, \hyperpage{46}
+  \item {rtc\_disable\_alarm}
+    \subitem {rtc.c}, \hyperpage{38}
+    \subitem {rtc.h}, \hyperpage{52}
+  \item {RTC\_DM}
+    \subitem {rtc.h}, \hyperpage{47}
+  \item {rtc\_hook\_id}
+    \subitem {rtc.c}, \hyperpage{42}
+  \item {RTC\_HOURS}
+    \subitem {rtc.h}, \hyperpage{47}
+  \item {RTC\_HOURS\_ALARM}
+    \subitem {rtc.h}, \hyperpage{47}
+  \item {rtc\_ih}
+    \subitem {rtc.c}, \hyperpage{38}
+    \subitem {rtc.h}, \hyperpage{52}
+  \item {rtc\_int\_cause}
+    \subitem {rtc.c}, \hyperpage{42}
+  \item {RTC\_IRQ}
+    \subitem {rtc.h}, \hyperpage{47}
+  \item {RTC\_IRQF}
+    \subitem {rtc.h}, \hyperpage{47}
+  \item {RTC\_MASK}
+    \subitem {rtc.h}, \hyperpage{48}
+  \item {RTC\_MAX\_ATTEMPTS}
+    \subitem {rtc.h}, \hyperpage{48}
+  \item {RTC\_MINUTES}
+    \subitem {rtc.h}, \hyperpage{48}
+  \item {RTC\_MINUTES\_ALARM}
+    \subitem {rtc.h}, \hyperpage{48}
+  \item {rtc\_mode}
+    \subitem {rtc.c}, \hyperpage{42}
+  \item {RTC\_MONTH}
+    \subitem {rtc.h}, \hyperpage{48}
+  \item {rtc\_original\_config}
+    \subitem {rtc.c}, \hyperpage{42}
+  \item {RTC\_PF}
+    \subitem {rtc.h}, \hyperpage{49}
+  \item {RTC\_PIE}
+    \subitem {rtc.h}, \hyperpage{49}
+  \item {rtc\_read}
+    \subitem {rtc.c}, \hyperpage{38}
+    \subitem {rtc.h}, \hyperpage{53}
+  \item {RTC\_REG\_A}
+    \subitem {rtc.h}, \hyperpage{49}
+  \item {RTC\_REG\_B}
+    \subitem {rtc.h}, \hyperpage{49}
+  \item {RTC\_REG\_C}
+    \subitem {rtc.h}, \hyperpage{49}
+  \item {RTC\_REG\_D}
+    \subitem {rtc.h}, \hyperpage{50}
+  \item {RTC\_SECONDS}
+    \subitem {rtc.h}, \hyperpage{50}
+  \item {RTC\_SECONDS\_ALARM}
+    \subitem {rtc.h}, \hyperpage{50}
+  \item {RTC\_SET}
+    \subitem {rtc.h}, \hyperpage{50}
+  \item {rtc\_set\_alarm}
+    \subitem {rtc.c}, \hyperpage{39}
+    \subitem {rtc.h}, \hyperpage{53}
+  \item {rtc\_start}
+    \subitem {rtc.c}, \hyperpage{39}
+    \subitem {rtc.h}, \hyperpage{53}
+  \item {rtc\_stop}
+    \subitem {rtc.c}, \hyperpage{39}
+    \subitem {rtc.h}, \hyperpage{54}
+  \item {rtc\_subscribe\_int}
+    \subitem {rtc.c}, \hyperpage{40}
+    \subitem {rtc.h}, \hyperpage{54}
+  \item {rtc\_time}
+    \subitem {rtc.c}, \hyperpage{43}
+    \subitem {view.c}, \hyperpage{99}
+  \item {rtc\_time\_format}
+    \subitem {rtc.c}, \hyperpage{43}
+  \item {RTC\_UF}
+    \subitem {rtc.h}, \hyperpage{50}
+  \item {RTC\_UIE}
+    \subitem {rtc.h}, \hyperpage{51}
+  \item {RTC\_UIP}
+    \subitem {rtc.h}, \hyperpage{51}
+  \item {rtc\_unsubscribe\_int}
+    \subitem {rtc.c}, \hyperpage{40}
+    \subitem {rtc.h}, \hyperpage{54}
+  \item {rtc\_update}
+    \subitem {rtc.c}, \hyperpage{40}
+    \subitem {rtc.h}, \hyperpage{55}
+  \item {rtc\_write}
+    \subitem {rtc.c}, \hyperpage{41}
+    \subitem {rtc.h}, \hyperpage{55}
+  \item {RTC\_YEAR}
+    \subitem {rtc.h}, \hyperpage{51}
+  \item {RUNNING}
+    \subitem {model.h}, \hyperpage{88}
+  \item {RUNNING\_CLOCK}
+    \subitem {model.h}, \hyperpage{88}
+
+  \indexspace
+
+  \item {S\_KEY}
+    \subitem {config.h}, \hyperpage{15}
+  \item {scancode}
+    \subitem {keyboard.c}, \hyperpage{29}
+    \subitem {model.c}, \hyperpage{84}
+  \item {secondary\_frame\_buffer}
+    \subitem {view.c}, \hyperpage{100}
+  \item {seconds}
+    \subitem {time\_struct}, \hyperpage{10}
+  \item {set\_frame\_buffer}
+    \subitem {graphic.c}, \hyperpage{72}
+    \subitem {graphic.h}, \hyperpage{77}
+  \item {set\_frame\_buffers}
+    \subitem {view.c}, \hyperpage{98}
+    \subitem {view.h}, \hyperpage{103}
+  \item {set\_graphic\_mode}
+    \subitem {graphic.c}, \hyperpage{73}
+    \subitem {graphic.h}, \hyperpage{78}
+  \item {set\_text\_mode}
+    \subitem {graphic.c}, \hyperpage{73}
+    \subitem {graphic.h}, \hyperpage{78}
+  \item {setup}
+    \subitem {main.c}, \hyperpage{79}
+  \item {setup\_sprites}
+    \subitem {model.c}, \hyperpage{81}
+    \subitem {model.h}, \hyperpage{89}
+  \item {SEVEN\_KEY}
+    \subitem {config.h}, \hyperpage{15}
+  \item {SIX\_KEY}
+    \subitem {config.h}, \hyperpage{15}
+  \item {slash}
+    \subitem {model.c}, \hyperpage{85}
+    \subitem {model.h}, \hyperpage{92}
+  \item {Sprite}, \hyperpage{8}
+    \subitem {color}, \hyperpage{8}
+    \subitem {colors}, \hyperpage{8}
+    \subitem {height}, \hyperpage{8}
+    \subitem {pressed}, \hyperpage{8}
+    \subitem {width}, \hyperpage{9}
+    \subitem {x}, \hyperpage{9}
+    \subitem {y}, \hyperpage{9}
+  \item {sprite.c}
+    \subitem {create\_sprite\_button}, \hyperpage{94}
+    \subitem {create\_sprite\_xpm}, \hyperpage{94}
+    \subitem {destroy\_sprite}, \hyperpage{94}
+  \item {sprite.h}
+    \subitem {create\_sprite\_button}, \hyperpage{95}
+    \subitem {create\_sprite\_xpm}, \hyperpage{95}
+    \subitem {destroy\_sprite}, \hyperpage{95}
+  \item {swap\_buffers}
+    \subitem {view.c}, \hyperpage{98}
+    \subitem {view.h}, \hyperpage{103}
+  \item {SystemState}
+    \subitem {model.h}, \hyperpage{88}
+  \item {systemState}
+    \subitem {main.c}, \hyperpage{80}
+    \subitem {model.c}, \hyperpage{85}
+    \subitem {model.h}, \hyperpage{92}
+
+  \indexspace
+
+  \item {T\_KEY}
+    \subitem {config.h}, \hyperpage{15}
+  \item {THREE\_KEY}
+    \subitem {config.h}, \hyperpage{15}
+  \item {time\_struct}, \hyperpage{9}
+    \subitem {hours}, \hyperpage{10}
+    \subitem {minutes}, \hyperpage{10}
+    \subitem {seconds}, \hyperpage{10}
+  \item {TIMEOUT\_ERROR}
+    \subitem {KBC.h}, \hyperpage{26}
+  \item {TIMER}
+    \subitem {model.h}, \hyperpage{88}
+  \item {timer.c}
+    \subitem {timer\_counter}, \hyperpage{58}
+    \subitem {timer\_get\_conf}, \hyperpage{56}
+    \subitem {timer\_hook\_id}, \hyperpage{58}
+    \subitem {timer\_ih}, \hyperpage{56}
+    \subitem {timer\_set\_frequency}, \hyperpage{57}
+    \subitem {timer\_subscribe\_ints}, \hyperpage{57}
+    \subitem {timer\_unsubscribe\_int}, \hyperpage{57}
+  \item {timer.h}
+    \subitem {TIMER\_0}, \hyperpage{60}
+    \subitem {TIMER\_1}, \hyperpage{60}
+    \subitem {TIMER\_2}, \hyperpage{60}
+    \subitem {TIMER\_BCD}, \hyperpage{60}
+    \subitem {TIMER\_BIN}, \hyperpage{61}
+    \subitem {TIMER\_CTRL}, \hyperpage{61}
+    \subitem {TIMER\_FREQ}, \hyperpage{61}
+    \subitem {timer\_get\_conf}, \hyperpage{64}
+    \subitem {timer\_ih}, \hyperpage{65}
+    \subitem {TIMER\_IRQ}, \hyperpage{61}
+    \subitem {TIMER\_LSB}, \hyperpage{61}
+    \subitem {TIMER\_LSB\_MSB}, \hyperpage{62}
+    \subitem {TIMER\_MASK}, \hyperpage{62}
+    \subitem {TIMER\_MSB}, \hyperpage{62}
+    \subitem {TIMER\_RATE\_GEN}, \hyperpage{62}
+    \subitem {TIMER\_RB\_CMD}, \hyperpage{62}
+    \subitem {TIMER\_RB\_COUNT\_}, \hyperpage{63}
+    \subitem {TIMER\_RB\_SEL}, \hyperpage{63}
+    \subitem {TIMER\_RB\_STATUS\_}, \hyperpage{63}
+    \subitem {TIMER\_SEL0}, \hyperpage{63}
+    \subitem {TIMER\_SEL1}, \hyperpage{63}
+    \subitem {TIMER\_SEL2}, \hyperpage{64}
+    \subitem {timer\_set\_frequency}, \hyperpage{65}
+    \subitem {TIMER\_SQR\_WAVE}, \hyperpage{64}
+    \subitem {timer\_subscribe\_ints}, \hyperpage{65}
+    \subitem {timer\_unsubscribe\_int}, \hyperpage{65}
+  \item {TIMER\_0}
+    \subitem {timer.h}, \hyperpage{60}
+  \item {TIMER\_1}
+    \subitem {timer.h}, \hyperpage{60}
+  \item {TIMER\_2}
+    \subitem {timer.h}, \hyperpage{60}
+  \item {TIMER\_BCD}
+    \subitem {timer.h}, \hyperpage{60}
+  \item {TIMER\_BIN}
+    \subitem {timer.h}, \hyperpage{61}
+  \item {timer\_counter}
+    \subitem {model.c}, \hyperpage{85}
+    \subitem {timer.c}, \hyperpage{58}
+  \item {TIMER\_CTRL}
+    \subitem {timer.h}, \hyperpage{61}
+  \item {TIMER\_FREQ}
+    \subitem {timer.h}, \hyperpage{61}
+  \item {timer\_get\_conf}
+    \subitem {timer.c}, \hyperpage{56}
+    \subitem {timer.h}, \hyperpage{64}
+  \item {timer\_hook\_id}
+    \subitem {timer.c}, \hyperpage{58}
+  \item {timer\_ih}
+    \subitem {timer.c}, \hyperpage{56}
+    \subitem {timer.h}, \hyperpage{65}
+  \item {timer\_input}
+    \subitem {model.c}, \hyperpage{85}
+    \subitem {model.h}, \hyperpage{92}
+  \item {timer\_input\_length}
+    \subitem {model.c}, \hyperpage{85}
+    \subitem {model.h}, \hyperpage{93}
+  \item {TIMER\_IRQ}
+    \subitem {timer.h}, \hyperpage{61}
+  \item {TIMER\_LSB}
+    \subitem {timer.h}, \hyperpage{61}
+  \item {TIMER\_LSB\_MSB}
+    \subitem {timer.h}, \hyperpage{62}
+  \item {TIMER\_MASK}
+    \subitem {timer.h}, \hyperpage{62}
+  \item {TIMER\_MSB}
+    \subitem {timer.h}, \hyperpage{62}
+  \item {TIMER\_RATE\_GEN}
+    \subitem {timer.h}, \hyperpage{62}
+  \item {TIMER\_RB\_CMD}
+    \subitem {timer.h}, \hyperpage{62}
+  \item {TIMER\_RB\_COUNT\_}
+    \subitem {timer.h}, \hyperpage{63}
+  \item {TIMER\_RB\_SEL}
+    \subitem {timer.h}, \hyperpage{63}
+  \item {TIMER\_RB\_STATUS\_}
+    \subitem {timer.h}, \hyperpage{63}
+  \item {timer\_seconds}
+    \subitem {model.c}, \hyperpage{85}
+    \subitem {model.h}, \hyperpage{93}
+  \item {TIMER\_SEL0}
+    \subitem {timer.h}, \hyperpage{63}
+  \item {TIMER\_SEL1}
+    \subitem {timer.h}, \hyperpage{63}
+  \item {TIMER\_SEL2}
+    \subitem {timer.h}, \hyperpage{64}
+  \item {timer\_set\_frequency}
+    \subitem {timer.c}, \hyperpage{57}
+    \subitem {timer.h}, \hyperpage{65}
+  \item {TIMER\_SQR\_WAVE}
+    \subitem {timer.h}, \hyperpage{64}
+  \item {timer\_subscribe\_ints}
+    \subitem {timer.c}, \hyperpage{57}
+    \subitem {timer.h}, \hyperpage{65}
+  \item {timer\_unsubscribe\_int}
+    \subitem {timer.c}, \hyperpage{57}
+    \subitem {timer.h}, \hyperpage{65}
+  \item {timerState}
+    \subitem {model.c}, \hyperpage{86}
+    \subitem {model.h}, \hyperpage{93}
+  \item {toolbar\_buttons}
+    \subitem {model.c}, \hyperpage{86}
+    \subitem {model.h}, \hyperpage{93}
+  \item {TRANSPARENT}
+    \subitem {config.h}, \hyperpage{16}
+  \item {TWO\_KEY}
+    \subitem {config.h}, \hyperpage{16}
+
+  \indexspace
+
+  \item {update\_chrono\_buttons}
+    \subitem {model.c}, \hyperpage{81}
+    \subitem {model.h}, \hyperpage{89}
+  \item {update\_keyboard\_state}
+    \subitem {model.c}, \hyperpage{82}
+    \subitem {model.h}, \hyperpage{90}
+  \item {update\_mouse\_info}
+    \subitem {mouse.c}, \hyperpage{33}
+    \subitem {mouse.h}, \hyperpage{36}
+  \item {update\_mouse\_state}
+    \subitem {model.c}, \hyperpage{82}
+    \subitem {model.h}, \hyperpage{90}
+  \item {update\_timer\_buttons}
+    \subitem {model.c}, \hyperpage{82}
+    \subitem {model.h}, \hyperpage{90}
+  \item {update\_timer\_state}
+    \subitem {model.c}, \hyperpage{82}
+    \subitem {model.h}, \hyperpage{90}
+  \item {update\_toolbar\_buttons}
+    \subitem {model.c}, \hyperpage{82}
+    \subitem {model.h}, \hyperpage{90}
+  \item {util\_get\_LSB}
+    \subitem {utils.c}, \hyperpage{66}
+    \subitem {utils.h}, \hyperpage{68}
+  \item {util\_get\_MSB}
+    \subitem {utils.c}, \hyperpage{67}
+    \subitem {utils.h}, \hyperpage{69}
+  \item {util\_sys\_inb}
+    \subitem {utils.c}, \hyperpage{67}
+    \subitem {utils.h}, \hyperpage{69}
+  \item {utils.c}
+    \subitem {util\_get\_LSB}, \hyperpage{66}
+    \subitem {util\_get\_MSB}, \hyperpage{67}
+    \subitem {util\_sys\_inb}, \hyperpage{67}
+  \item {utils.h}
+    \subitem {BIT}, \hyperpage{68}
+    \subitem {util\_get\_LSB}, \hyperpage{68}
+    \subitem {util\_get\_MSB}, \hyperpage{69}
+    \subitem {util\_sys\_inb}, \hyperpage{69}
+
+  \indexspace
+
+  \item {VBE\_1024x768\_INDEXED}
+    \subitem {graphic.h}, \hyperpage{74}
+  \item {VBE\_1152x864}
+    \subitem {graphic.h}, \hyperpage{75}
+  \item {VBE\_1280x1024}
+    \subitem {graphic.h}, \hyperpage{75}
+  \item {VBE\_640x480}
+    \subitem {graphic.h}, \hyperpage{75}
+  \item {VBE\_800x600}
+    \subitem {graphic.h}, \hyperpage{75}
+  \item {vbe\_info}
+    \subitem {graphic.c}, \hyperpage{73}
+    \subitem {model.c}, \hyperpage{86}
+    \subitem {mouse.c}, \hyperpage{34}
+    \subitem {view.c}, \hyperpage{100}
+  \item {VIDEO\_MODE}
+    \subitem {config.h}, \hyperpage{16}
+  \item {view.c}
+    \subitem {display\_real\_time}, \hyperpage{96}
+    \subitem {draw\_blocks}, \hyperpage{96}
+    \subitem {draw\_chrono\_buttons}, \hyperpage{96}
+    \subitem {draw\_chrono\_menu}, \hyperpage{97}
+    \subitem {draw\_mouse}, \hyperpage{97}
+    \subitem {draw\_new\_frame}, \hyperpage{97}
+    \subitem {draw\_sprite\_button}, \hyperpage{97}
+    \subitem {draw\_sprite\_xpm}, \hyperpage{97}
+    \subitem {draw\_time}, \hyperpage{97}
+    \subitem {draw\_timer\_input}, \hyperpage{98}
+    \subitem {draw\_timer\_menu}, \hyperpage{98}
+    \subitem {draw\_toolbar}, \hyperpage{98}
+    \subitem {drawing\_frame\_buffer}, \hyperpage{99}
+    \subitem {frame\_buffer\_size}, \hyperpage{99}
+    \subitem {main\_frame\_buffer}, \hyperpage{99}
+    \subitem {mouse\_info}, \hyperpage{99}
+    \subitem {rtc\_date}, \hyperpage{99}
+    \subitem {rtc\_time}, \hyperpage{99}
+    \subitem {secondary\_frame\_buffer}, \hyperpage{100}
+    \subitem {set\_frame\_buffers}, \hyperpage{98}
+    \subitem {swap\_buffers}, \hyperpage{98}
+    \subitem {vbe\_info}, \hyperpage{100}
+  \item {view.h}
+    \subitem {display\_real\_time}, \hyperpage{101}
+    \subitem {draw\_blocks}, \hyperpage{101}
+    \subitem {draw\_chrono\_buttons}, \hyperpage{101}
+    \subitem {draw\_chrono\_menu}, \hyperpage{101}
+    \subitem {draw\_mouse}, \hyperpage{101}
+    \subitem {draw\_new\_frame}, \hyperpage{101}
+    \subitem {draw\_sprite\_button}, \hyperpage{102}
+    \subitem {draw\_sprite\_xpm}, \hyperpage{102}
+    \subitem {draw\_time}, \hyperpage{102}
+    \subitem {draw\_timer}, \hyperpage{102}
+    \subitem {draw\_timer\_input}, \hyperpage{102}
+    \subitem {draw\_timer\_menu}, \hyperpage{102}
+    \subitem {draw\_toolbar}, \hyperpage{103}
+    \subitem {drawing\_frame\_buffer}, \hyperpage{103}
+    \subitem {main\_frame\_buffer}, \hyperpage{103}
+    \subitem {set\_frame\_buffers}, \hyperpage{103}
+    \subitem {swap\_buffers}, \hyperpage{103}
+
+  \indexspace
+
+  \item {WHITE}
+    \subitem {config.h}, \hyperpage{16}
+  \item {width}
+    \subitem {Sprite}, \hyperpage{9}
+  \item {write\_to\_KBC}
+    \subitem {KBC.c}, \hyperpage{17}
+    \subitem {KBC.h}, \hyperpage{27}
+
+  \indexspace
+
+  \item {x}
+    \subitem {MouseInfo}, \hyperpage{7}
+    \subitem {Sprite}, \hyperpage{9}
+
+  \indexspace
+
+  \item {y}
+    \subitem {MouseInfo}, \hyperpage{7}
+    \subitem {Sprite}, \hyperpage{9}
+  \item {year}
+    \subitem {date\_struct}, \hyperpage{6}
+  \item {YELLOW}
+    \subitem {config.h}, \hyperpage{16}
+
+  \indexspace
+
+  \item {ZERO\_KEY}
+    \subitem {config.h}, \hyperpage{16}
+
+\end{theindex}

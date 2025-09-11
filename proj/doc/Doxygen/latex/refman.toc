@@ -1,0 +1,429 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Data Structure Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Data Structures}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Data Structure Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}date\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Struct Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Field Documentation}{5}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}day}{5}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}dayNumber}{6}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}month}{6}{subsubsection.3.1.2.3}%
+\contentsline {subsubsection}{\numberline {3.1.2.4}year}{6}{subsubsection.3.1.2.4}%
+\contentsline {section}{\numberline {3.2}Mouse\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info Struct Reference}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{7}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Field Documentation}{7}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}lb}{7}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}rb}{7}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}x}{7}{subsubsection.3.2.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.2.4}y}{7}{subsubsection.3.2.2.4}%
+\contentsline {section}{\numberline {3.3}Sprite Struct Reference}{8}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{8}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Field Documentation}{8}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}color}{8}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}colors}{8}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}height}{8}{subsubsection.3.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.3.2.4}pressed}{9}{subsubsection.3.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.3.2.5}width}{9}{subsubsection.3.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.3.2.6}x}{9}{subsubsection.3.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.3.2.7}y}{9}{subsubsection.3.3.2.7}%
+\contentsline {section}{\numberline {3.4}time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Struct Reference}{9}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Detailed Description}{10}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Field Documentation}{10}{subsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.1}hours}{10}{subsubsection.3.4.2.1}%
+\contentsline {subsubsection}{\numberline {3.4.2.2}minutes}{10}{subsubsection.3.4.2.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.3}seconds}{10}{subsubsection.3.4.2.3}%
+\contentsline {chapter}{\numberline {4}File Documentation}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/config.h File Reference}{11}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Macro Definition Documentation}{12}{subsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.1}BACKSPACE\_KEY}{12}{subsubsection.4.1.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.2}BLACK}{12}{subsubsection.4.1.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.1.3}BLUE}{12}{subsubsection.4.1.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.1.4}C\_KEY}{12}{subsubsection.4.1.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.1.5}DARKBLUE}{12}{subsubsection.4.1.1.5}%
+\contentsline {subsubsection}{\numberline {4.1.1.6}DOUBLE\_BUFFER}{13}{subsubsection.4.1.1.6}%
+\contentsline {subsubsection}{\numberline {4.1.1.7}E\_KEY}{13}{subsubsection.4.1.1.7}%
+\contentsline {subsubsection}{\numberline {4.1.1.8}EIGHT\_KEY}{13}{subsubsection.4.1.1.8}%
+\contentsline {subsubsection}{\numberline {4.1.1.9}FIVE\_KEY}{13}{subsubsection.4.1.1.9}%
+\contentsline {subsubsection}{\numberline {4.1.1.10}FOUR\_KEY}{13}{subsubsection.4.1.1.10}%
+\contentsline {subsubsection}{\numberline {4.1.1.11}G\_KEY}{13}{subsubsection.4.1.1.11}%
+\contentsline {subsubsection}{\numberline {4.1.1.12}GAME\_FREQUENCY}{14}{subsubsection.4.1.1.12}%
+\contentsline {subsubsection}{\numberline {4.1.1.13}GREEN}{14}{subsubsection.4.1.1.13}%
+\contentsline {subsubsection}{\numberline {4.1.1.14}NINE\_KEY}{14}{subsubsection.4.1.1.14}%
+\contentsline {subsubsection}{\numberline {4.1.1.15}ONE\_KEY}{14}{subsubsection.4.1.1.15}%
+\contentsline {subsubsection}{\numberline {4.1.1.16}ORANGE}{14}{subsubsection.4.1.1.16}%
+\contentsline {subsubsection}{\numberline {4.1.1.17}PRESSED}{14}{subsubsection.4.1.1.17}%
+\contentsline {subsubsection}{\numberline {4.1.1.18}Q\_KEY}{15}{subsubsection.4.1.1.18}%
+\contentsline {subsubsection}{\numberline {4.1.1.19}RED}{15}{subsubsection.4.1.1.19}%
+\contentsline {subsubsection}{\numberline {4.1.1.20}S\_KEY}{15}{subsubsection.4.1.1.20}%
+\contentsline {subsubsection}{\numberline {4.1.1.21}SEVEN\_KEY}{15}{subsubsection.4.1.1.21}%
+\contentsline {subsubsection}{\numberline {4.1.1.22}SIX\_KEY}{15}{subsubsection.4.1.1.22}%
+\contentsline {subsubsection}{\numberline {4.1.1.23}T\_KEY}{15}{subsubsection.4.1.1.23}%
+\contentsline {subsubsection}{\numberline {4.1.1.24}THREE\_KEY}{16}{subsubsection.4.1.1.24}%
+\contentsline {subsubsection}{\numberline {4.1.1.25}TRANSPARENT}{16}{subsubsection.4.1.1.25}%
+\contentsline {subsubsection}{\numberline {4.1.1.26}TWO\_KEY}{16}{subsubsection.4.1.1.26}%
+\contentsline {subsubsection}{\numberline {4.1.1.27}VIDEO\_MODE}{16}{subsubsection.4.1.1.27}%
+\contentsline {subsubsection}{\numberline {4.1.1.28}WHITE}{16}{subsubsection.4.1.1.28}%
+\contentsline {subsubsection}{\numberline {4.1.1.29}YELLOW}{16}{subsubsection.4.1.1.29}%
+\contentsline {subsubsection}{\numberline {4.1.1.30}ZERO\_KEY}{17}{subsubsection.4.1.1.30}%
+\contentsline {section}{\numberline {4.2}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}KBC.c File Reference}{17}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Function Documentation}{17}{subsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.1.1}read\_KBC\_output()}{17}{subsubsection.4.2.1.1}%
+\contentsline {subsubsection}{\numberline {4.2.1.2}write\_to\_KBC()}{18}{subsubsection.4.2.1.2}%
+\contentsline {section}{\numberline {4.3}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}KBC.h File Reference}{18}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Macro Definition Documentation}{20}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}BREAK\_CODE\_BIT}{20}{subsubsection.4.3.1.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.2}ESC\_BREAKCODE}{20}{subsubsection.4.3.1.2}%
+\contentsline {subsubsection}{\numberline {4.3.1.3}FIRST\_BYTE}{20}{subsubsection.4.3.1.3}%
+\contentsline {subsubsection}{\numberline {4.3.1.4}FULL\_IN\_BUF}{20}{subsubsection.4.3.1.4}%
+\contentsline {subsubsection}{\numberline {4.3.1.5}FULL\_OUT\_BUF}{21}{subsubsection.4.3.1.5}%
+\contentsline {subsubsection}{\numberline {4.3.1.6}KB\_DELAY}{21}{subsubsection.4.3.1.6}%
+\contentsline {subsubsection}{\numberline {4.3.1.7}KB\_IRQ}{21}{subsubsection.4.3.1.7}%
+\contentsline {subsubsection}{\numberline {4.3.1.8}KB\_MASK}{21}{subsubsection.4.3.1.8}%
+\contentsline {subsubsection}{\numberline {4.3.1.9}KBC\_IN\_BUF}{21}{subsubsection.4.3.1.9}%
+\contentsline {subsubsection}{\numberline {4.3.1.10}KBC\_IN\_BUF\_ARG}{22}{subsubsection.4.3.1.10}%
+\contentsline {subsubsection}{\numberline {4.3.1.11}KBC\_KB\_INT}{22}{subsubsection.4.3.1.11}%
+\contentsline {subsubsection}{\numberline {4.3.1.12}KBC\_MOUSE\_INT}{22}{subsubsection.4.3.1.12}%
+\contentsline {subsubsection}{\numberline {4.3.1.13}KBC\_OUT\_BUF}{22}{subsubsection.4.3.1.13}%
+\contentsline {subsubsection}{\numberline {4.3.1.14}KBC\_READ\_CMD}{22}{subsubsection.4.3.1.14}%
+\contentsline {subsubsection}{\numberline {4.3.1.15}KBC\_STATUS\_REG}{23}{subsubsection.4.3.1.15}%
+\contentsline {subsubsection}{\numberline {4.3.1.16}KBC\_WRITE\_CMD}{23}{subsubsection.4.3.1.16}%
+\contentsline {subsubsection}{\numberline {4.3.1.17}KBC\_WRITE\_MOUSE}{23}{subsubsection.4.3.1.17}%
+\contentsline {subsubsection}{\numberline {4.3.1.18}MAX\_ATTEMPTS}{23}{subsubsection.4.3.1.18}%
+\contentsline {subsubsection}{\numberline {4.3.1.19}MOUSE\_ACK}{23}{subsubsection.4.3.1.19}%
+\contentsline {subsubsection}{\numberline {4.3.1.20}MOUSE\_DATA\_BIT}{24}{subsubsection.4.3.1.20}%
+\contentsline {subsubsection}{\numberline {4.3.1.21}MOUSE\_DATA\_REPORT\_DISABLE}{24}{subsubsection.4.3.1.21}%
+\contentsline {subsubsection}{\numberline {4.3.1.22}MOUSE\_DATA\_REPORT\_ENABLE}{24}{subsubsection.4.3.1.22}%
+\contentsline {subsubsection}{\numberline {4.3.1.23}MOUSE\_DATA\_STREAM\_MODE}{24}{subsubsection.4.3.1.23}%
+\contentsline {subsubsection}{\numberline {4.3.1.24}MOUSE\_IRQ}{24}{subsubsection.4.3.1.24}%
+\contentsline {subsubsection}{\numberline {4.3.1.25}MOUSE\_LB}{25}{subsubsection.4.3.1.25}%
+\contentsline {subsubsection}{\numberline {4.3.1.26}MOUSE\_MASK}{25}{subsubsection.4.3.1.26}%
+\contentsline {subsubsection}{\numberline {4.3.1.27}MOUSE\_MB}{25}{subsubsection.4.3.1.27}%
+\contentsline {subsubsection}{\numberline {4.3.1.28}MOUSE\_NACK}{25}{subsubsection.4.3.1.28}%
+\contentsline {subsubsection}{\numberline {4.3.1.29}MOUSE\_OVERFLOW\_X}{25}{subsubsection.4.3.1.29}%
+\contentsline {subsubsection}{\numberline {4.3.1.30}MOUSE\_OVERFLOW\_Y}{26}{subsubsection.4.3.1.30}%
+\contentsline {subsubsection}{\numberline {4.3.1.31}MOUSE\_RB}{26}{subsubsection.4.3.1.31}%
+\contentsline {subsubsection}{\numberline {4.3.1.32}MOUSE\_SIGNAL\_X}{26}{subsubsection.4.3.1.32}%
+\contentsline {subsubsection}{\numberline {4.3.1.33}MOUSE\_SIGNAL\_Y}{26}{subsubsection.4.3.1.33}%
+\contentsline {subsubsection}{\numberline {4.3.1.34}PARITY\_ERROR}{26}{subsubsection.4.3.1.34}%
+\contentsline {subsubsection}{\numberline {4.3.1.35}TIMEOUT\_ERROR}{27}{subsubsection.4.3.1.35}%
+\contentsline {subsection}{\numberline {4.3.2}Function Documentation}{27}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}read\_KBC\_output()}{27}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}write\_to\_KBC()}{27}{subsubsection.4.3.2.2}%
+\contentsline {section}{\numberline {4.4}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/keyboard/keyboard.c File Reference}{28}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Function Documentation}{28}{subsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.1.1}kbc\_ih()}{28}{subsubsection.4.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.4.1.2}keyboard\_subscribe\_int()}{29}{subsubsection.4.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.4.1.3}keyboard\_unsubscribe\_int()}{29}{subsubsection.4.4.1.3}%
+\contentsline {subsection}{\numberline {4.4.2}Variable Documentation}{29}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}kb\_hook\_id}{29}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}scancode}{29}{subsubsection.4.4.2.2}%
+\contentsline {section}{\numberline {4.5}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/keyboard/keyboard.h File Reference}{30}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Function Documentation}{30}{subsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.1}kbc\_ih()}{30}{subsubsection.4.5.1.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.2}keyboard\_subscribe\_int()}{30}{subsubsection.4.5.1.2}%
+\contentsline {subsubsection}{\numberline {4.5.1.3}keyboard\_unsubscribe\_int()}{31}{subsubsection.4.5.1.3}%
+\contentsline {section}{\numberline {4.6}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/mouse/mouse.c File Reference}{31}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Function Documentation}{31}{subsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.1.1}mouse\_ih()}{32}{subsubsection.4.6.1.1}%
+\contentsline {subsubsection}{\numberline {4.6.1.2}mouse\_subscribe\_int()}{32}{subsubsection.4.6.1.2}%
+\contentsline {subsubsection}{\numberline {4.6.1.3}mouse\_sync()}{32}{subsubsection.4.6.1.3}%
+\contentsline {subsubsection}{\numberline {4.6.1.4}mouse\_unsubscribe\_int()}{32}{subsubsection.4.6.1.4}%
+\contentsline {subsubsection}{\numberline {4.6.1.5}mouse\_write\_command()}{32}{subsubsection.4.6.1.5}%
+\contentsline {subsubsection}{\numberline {4.6.1.6}update\_mouse\_info()}{33}{subsubsection.4.6.1.6}%
+\contentsline {subsection}{\numberline {4.6.2}Variable Documentation}{33}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}byte\_index}{33}{subsubsection.4.6.2.1}%
+\contentsline {subsubsection}{\numberline {4.6.2.2}mouse\_byte}{33}{subsubsection.4.6.2.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.3}mouse\_data}{33}{subsubsection.4.6.2.3}%
+\contentsline {subsubsection}{\numberline {4.6.2.4}mouse\_hook\_id}{34}{subsubsection.4.6.2.4}%
+\contentsline {subsubsection}{\numberline {4.6.2.5}mouse\_info}{34}{subsubsection.4.6.2.5}%
+\contentsline {subsubsection}{\numberline {4.6.2.6}vbe\_info}{34}{subsubsection.4.6.2.6}%
+\contentsline {section}{\numberline {4.7}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/mouse/mouse.h File Reference}{34}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Function Documentation}{35}{subsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.1.1}mouse\_ih()}{35}{subsubsection.4.7.1.1}%
+\contentsline {subsubsection}{\numberline {4.7.1.2}mouse\_subscribe\_int()}{35}{subsubsection.4.7.1.2}%
+\contentsline {subsubsection}{\numberline {4.7.1.3}mouse\_sync()}{35}{subsubsection.4.7.1.3}%
+\contentsline {subsubsection}{\numberline {4.7.1.4}mouse\_unsubscribe\_int()}{35}{subsubsection.4.7.1.4}%
+\contentsline {subsubsection}{\numberline {4.7.1.5}mouse\_write\_command()}{35}{subsubsection.4.7.1.5}%
+\contentsline {subsubsection}{\numberline {4.7.1.6}update\_mouse\_info()}{36}{subsubsection.4.7.1.6}%
+\contentsline {section}{\numberline {4.8}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/rtc/rtc.c File Reference}{36}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Function Documentation}{37}{subsection.4.8.1}%
+\contentsline {subsubsection}{\numberline {4.8.1.1}bcd\_to\_bin()}{37}{subsubsection.4.8.1.1}%
+\contentsline {subsubsection}{\numberline {4.8.1.2}bin\_to\_bcd()}{37}{subsubsection.4.8.1.2}%
+\contentsline {subsubsection}{\numberline {4.8.1.3}convert\_to\_24h()}{38}{subsubsection.4.8.1.3}%
+\contentsline {subsubsection}{\numberline {4.8.1.4}rtc\_disable\_alarm()}{38}{subsubsection.4.8.1.4}%
+\contentsline {subsubsection}{\numberline {4.8.1.5}rtc\_ih()}{38}{subsubsection.4.8.1.5}%
+\contentsline {subsubsection}{\numberline {4.8.1.6}rtc\_read()}{38}{subsubsection.4.8.1.6}%
+\contentsline {subsubsection}{\numberline {4.8.1.7}rtc\_set\_alarm()}{39}{subsubsection.4.8.1.7}%
+\contentsline {subsubsection}{\numberline {4.8.1.8}rtc\_start()}{39}{subsubsection.4.8.1.8}%
+\contentsline {subsubsection}{\numberline {4.8.1.9}rtc\_stop()}{40}{subsubsection.4.8.1.9}%
+\contentsline {subsubsection}{\numberline {4.8.1.10}rtc\_subscribe\_int()}{40}{subsubsection.4.8.1.10}%
+\contentsline {subsubsection}{\numberline {4.8.1.11}rtc\_unsubscribe\_int()}{40}{subsubsection.4.8.1.11}%
+\contentsline {subsubsection}{\numberline {4.8.1.12}rtc\_update()}{41}{subsubsection.4.8.1.12}%
+\contentsline {subsubsection}{\numberline {4.8.1.13}rtc\_write()}{41}{subsubsection.4.8.1.13}%
+\contentsline {subsection}{\numberline {4.8.2}Variable Documentation}{42}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}rtc\_date}{42}{subsubsection.4.8.2.1}%
+\contentsline {subsubsection}{\numberline {4.8.2.2}rtc\_hook\_id}{42}{subsubsection.4.8.2.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.3}rtc\_int\_cause}{42}{subsubsection.4.8.2.3}%
+\contentsline {subsubsection}{\numberline {4.8.2.4}rtc\_mode}{42}{subsubsection.4.8.2.4}%
+\contentsline {subsubsection}{\numberline {4.8.2.5}rtc\_original\_config}{43}{subsubsection.4.8.2.5}%
+\contentsline {subsubsection}{\numberline {4.8.2.6}rtc\_time}{43}{subsubsection.4.8.2.6}%
+\contentsline {subsubsection}{\numberline {4.8.2.7}rtc\_time\_format}{43}{subsubsection.4.8.2.7}%
+\contentsline {section}{\numberline {4.9}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/rtc/rtc.h File Reference}{43}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Macro Definition Documentation}{45}{subsection.4.9.1}%
+\contentsline {subsubsection}{\numberline {4.9.1.1}RTC\_24HR}{45}{subsubsection.4.9.1.1}%
+\contentsline {subsubsection}{\numberline {4.9.1.2}RTC\_ADDR\_REG}{45}{subsubsection.4.9.1.2}%
+\contentsline {subsubsection}{\numberline {4.9.1.3}RTC\_AF}{46}{subsubsection.4.9.1.3}%
+\contentsline {subsubsection}{\numberline {4.9.1.4}RTC\_AIE}{46}{subsubsection.4.9.1.4}%
+\contentsline {subsubsection}{\numberline {4.9.1.5}RTC\_DATA\_REG}{46}{subsubsection.4.9.1.5}%
+\contentsline {subsubsection}{\numberline {4.9.1.6}RTC\_DAY\_OF\_MONTH}{46}{subsubsection.4.9.1.6}%
+\contentsline {subsubsection}{\numberline {4.9.1.7}RTC\_DAY\_OF\_WEEK}{46}{subsubsection.4.9.1.7}%
+\contentsline {subsubsection}{\numberline {4.9.1.8}RTC\_DELAY}{47}{subsubsection.4.9.1.8}%
+\contentsline {subsubsection}{\numberline {4.9.1.9}RTC\_DM}{47}{subsubsection.4.9.1.9}%
+\contentsline {subsubsection}{\numberline {4.9.1.10}RTC\_HOURS}{47}{subsubsection.4.9.1.10}%
+\contentsline {subsubsection}{\numberline {4.9.1.11}RTC\_HOURS\_ALARM}{47}{subsubsection.4.9.1.11}%
+\contentsline {subsubsection}{\numberline {4.9.1.12}RTC\_IRQ}{47}{subsubsection.4.9.1.12}%
+\contentsline {subsubsection}{\numberline {4.9.1.13}RTC\_IRQF}{48}{subsubsection.4.9.1.13}%
+\contentsline {subsubsection}{\numberline {4.9.1.14}RTC\_MASK}{48}{subsubsection.4.9.1.14}%
+\contentsline {subsubsection}{\numberline {4.9.1.15}RTC\_MAX\_ATTEMPTS}{48}{subsubsection.4.9.1.15}%
+\contentsline {subsubsection}{\numberline {4.9.1.16}RTC\_MINUTES}{48}{subsubsection.4.9.1.16}%
+\contentsline {subsubsection}{\numberline {4.9.1.17}RTC\_MINUTES\_ALARM}{48}{subsubsection.4.9.1.17}%
+\contentsline {subsubsection}{\numberline {4.9.1.18}RTC\_MONTH}{49}{subsubsection.4.9.1.18}%
+\contentsline {subsubsection}{\numberline {4.9.1.19}RTC\_PF}{49}{subsubsection.4.9.1.19}%
+\contentsline {subsubsection}{\numberline {4.9.1.20}RTC\_PIE}{49}{subsubsection.4.9.1.20}%
+\contentsline {subsubsection}{\numberline {4.9.1.21}RTC\_REG\_A}{49}{subsubsection.4.9.1.21}%
+\contentsline {subsubsection}{\numberline {4.9.1.22}RTC\_REG\_B}{49}{subsubsection.4.9.1.22}%
+\contentsline {subsubsection}{\numberline {4.9.1.23}RTC\_REG\_C}{50}{subsubsection.4.9.1.23}%
+\contentsline {subsubsection}{\numberline {4.9.1.24}RTC\_REG\_D}{50}{subsubsection.4.9.1.24}%
+\contentsline {subsubsection}{\numberline {4.9.1.25}RTC\_SECONDS}{50}{subsubsection.4.9.1.25}%
+\contentsline {subsubsection}{\numberline {4.9.1.26}RTC\_SECONDS\_ALARM}{50}{subsubsection.4.9.1.26}%
+\contentsline {subsubsection}{\numberline {4.9.1.27}RTC\_SET}{50}{subsubsection.4.9.1.27}%
+\contentsline {subsubsection}{\numberline {4.9.1.28}RTC\_UF}{51}{subsubsection.4.9.1.28}%
+\contentsline {subsubsection}{\numberline {4.9.1.29}RTC\_UIE}{51}{subsubsection.4.9.1.29}%
+\contentsline {subsubsection}{\numberline {4.9.1.30}RTC\_UIP}{51}{subsubsection.4.9.1.30}%
+\contentsline {subsubsection}{\numberline {4.9.1.31}RTC\_YEAR}{51}{subsubsection.4.9.1.31}%
+\contentsline {subsection}{\numberline {4.9.2}Function Documentation}{51}{subsection.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.1}bcd\_to\_bin()}{51}{subsubsection.4.9.2.1}%
+\contentsline {subsubsection}{\numberline {4.9.2.2}bin\_to\_bcd()}{52}{subsubsection.4.9.2.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.3}convert\_to\_24h()}{52}{subsubsection.4.9.2.3}%
+\contentsline {subsubsection}{\numberline {4.9.2.4}rtc\_disable\_alarm()}{52}{subsubsection.4.9.2.4}%
+\contentsline {subsubsection}{\numberline {4.9.2.5}rtc\_ih()}{53}{subsubsection.4.9.2.5}%
+\contentsline {subsubsection}{\numberline {4.9.2.6}rtc\_read()}{53}{subsubsection.4.9.2.6}%
+\contentsline {subsubsection}{\numberline {4.9.2.7}rtc\_set\_alarm()}{53}{subsubsection.4.9.2.7}%
+\contentsline {subsubsection}{\numberline {4.9.2.8}rtc\_start()}{54}{subsubsection.4.9.2.8}%
+\contentsline {subsubsection}{\numberline {4.9.2.9}rtc\_stop()}{54}{subsubsection.4.9.2.9}%
+\contentsline {subsubsection}{\numberline {4.9.2.10}rtc\_subscribe\_int()}{54}{subsubsection.4.9.2.10}%
+\contentsline {subsubsection}{\numberline {4.9.2.11}rtc\_unsubscribe\_int()}{55}{subsubsection.4.9.2.11}%
+\contentsline {subsubsection}{\numberline {4.9.2.12}rtc\_update()}{55}{subsubsection.4.9.2.12}%
+\contentsline {subsubsection}{\numberline {4.9.2.13}rtc\_write()}{55}{subsubsection.4.9.2.13}%
+\contentsline {section}{\numberline {4.10}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/timer/timer.c File Reference}{56}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Function Documentation}{56}{subsection.4.10.1}%
+\contentsline {subsubsection}{\numberline {4.10.1.1}timer\_get\_conf()}{56}{subsubsection.4.10.1.1}%
+\contentsline {subsubsection}{\numberline {4.10.1.2}timer\_ih()}{57}{subsubsection.4.10.1.2}%
+\contentsline {subsubsection}{\numberline {4.10.1.3}timer\_set\_frequency()}{57}{subsubsection.4.10.1.3}%
+\contentsline {subsubsection}{\numberline {4.10.1.4}timer\_subscribe\_ints()}{57}{subsubsection.4.10.1.4}%
+\contentsline {subsubsection}{\numberline {4.10.1.5}timer\_unsubscribe\_int()}{58}{subsubsection.4.10.1.5}%
+\contentsline {subsection}{\numberline {4.10.2}Variable Documentation}{58}{subsection.4.10.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.1}timer\_counter}{58}{subsubsection.4.10.2.1}%
+\contentsline {subsubsection}{\numberline {4.10.2.2}timer\_hook\_id}{58}{subsubsection.4.10.2.2}%
+\contentsline {section}{\numberline {4.11}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/timer/timer.h File Reference}{58}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Macro Definition Documentation}{60}{subsection.4.11.1}%
+\contentsline {subsubsection}{\numberline {4.11.1.1}TIMER\_0}{60}{subsubsection.4.11.1.1}%
+\contentsline {subsubsection}{\numberline {4.11.1.2}TIMER\_1}{60}{subsubsection.4.11.1.2}%
+\contentsline {subsubsection}{\numberline {4.11.1.3}TIMER\_2}{60}{subsubsection.4.11.1.3}%
+\contentsline {subsubsection}{\numberline {4.11.1.4}TIMER\_BCD}{61}{subsubsection.4.11.1.4}%
+\contentsline {subsubsection}{\numberline {4.11.1.5}TIMER\_BIN}{61}{subsubsection.4.11.1.5}%
+\contentsline {subsubsection}{\numberline {4.11.1.6}TIMER\_CTRL}{61}{subsubsection.4.11.1.6}%
+\contentsline {subsubsection}{\numberline {4.11.1.7}TIMER\_FREQ}{61}{subsubsection.4.11.1.7}%
+\contentsline {subsubsection}{\numberline {4.11.1.8}TIMER\_IRQ}{61}{subsubsection.4.11.1.8}%
+\contentsline {subsubsection}{\numberline {4.11.1.9}TIMER\_LSB}{62}{subsubsection.4.11.1.9}%
+\contentsline {subsubsection}{\numberline {4.11.1.10}TIMER\_LSB\_MSB}{62}{subsubsection.4.11.1.10}%
+\contentsline {subsubsection}{\numberline {4.11.1.11}TIMER\_MASK}{62}{subsubsection.4.11.1.11}%
+\contentsline {subsubsection}{\numberline {4.11.1.12}TIMER\_MSB}{62}{subsubsection.4.11.1.12}%
+\contentsline {subsubsection}{\numberline {4.11.1.13}TIMER\_RATE\_GEN}{62}{subsubsection.4.11.1.13}%
+\contentsline {subsubsection}{\numberline {4.11.1.14}TIMER\_RB\_CMD}{63}{subsubsection.4.11.1.14}%
+\contentsline {subsubsection}{\numberline {4.11.1.15}TIMER\_RB\_COUNT\_}{63}{subsubsection.4.11.1.15}%
+\contentsline {subsubsection}{\numberline {4.11.1.16}TIMER\_RB\_SEL}{63}{subsubsection.4.11.1.16}%
+\contentsline {subsubsection}{\numberline {4.11.1.17}TIMER\_RB\_STATUS\_}{63}{subsubsection.4.11.1.17}%
+\contentsline {subsubsection}{\numberline {4.11.1.18}TIMER\_SEL0}{63}{subsubsection.4.11.1.18}%
+\contentsline {subsubsection}{\numberline {4.11.1.19}TIMER\_SEL1}{64}{subsubsection.4.11.1.19}%
+\contentsline {subsubsection}{\numberline {4.11.1.20}TIMER\_SEL2}{64}{subsubsection.4.11.1.20}%
+\contentsline {subsubsection}{\numberline {4.11.1.21}TIMER\_SQR\_WAVE}{64}{subsubsection.4.11.1.21}%
+\contentsline {subsection}{\numberline {4.11.2}Function Documentation}{64}{subsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.1}timer\_get\_conf()}{64}{subsubsection.4.11.2.1}%
+\contentsline {subsubsection}{\numberline {4.11.2.2}timer\_ih()}{65}{subsubsection.4.11.2.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.3}timer\_set\_frequency()}{65}{subsubsection.4.11.2.3}%
+\contentsline {subsubsection}{\numberline {4.11.2.4}timer\_subscribe\_ints()}{65}{subsubsection.4.11.2.4}%
+\contentsline {subsubsection}{\numberline {4.11.2.5}timer\_unsubscribe\_int()}{66}{subsubsection.4.11.2.5}%
+\contentsline {section}{\numberline {4.12}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/utils.c File Reference}{66}{section.4.12}%
+\contentsline {subsection}{\numberline {4.12.1}Function Documentation}{66}{subsection.4.12.1}%
+\contentsline {subsubsection}{\numberline {4.12.1.1}util\_get\_LSB()}{66}{subsubsection.4.12.1.1}%
+\contentsline {subsubsection}{\numberline {4.12.1.2}util\_get\_MSB()}{67}{subsubsection.4.12.1.2}%
+\contentsline {subsubsection}{\numberline {4.12.1.3}util\_sys\_inb()}{67}{subsubsection.4.12.1.3}%
+\contentsline {section}{\numberline {4.13}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/utils.h File Reference}{68}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Macro Definition Documentation}{68}{subsection.4.13.1}%
+\contentsline {subsubsection}{\numberline {4.13.1.1}BIT}{68}{subsubsection.4.13.1.1}%
+\contentsline {subsection}{\numberline {4.13.2}Function Documentation}{68}{subsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.1}util\_get\_LSB()}{68}{subsubsection.4.13.2.1}%
+\contentsline {subsubsection}{\numberline {4.13.2.2}util\_get\_MSB()}{69}{subsubsection.4.13.2.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.3}util\_sys\_inb()}{69}{subsubsection.4.13.2.3}%
+\contentsline {section}{\numberline {4.14}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/video/graphic.c File Reference}{70}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}Function Documentation}{70}{subsection.4.14.1}%
+\contentsline {subsubsection}{\numberline {4.14.1.1}draw\_line()}{70}{subsubsection.4.14.1.1}%
+\contentsline {subsubsection}{\numberline {4.14.1.2}draw\_pixel()}{71}{subsubsection.4.14.1.2}%
+\contentsline {subsubsection}{\numberline {4.14.1.3}draw\_rectangle()}{71}{subsubsection.4.14.1.3}%
+\contentsline {subsubsection}{\numberline {4.14.1.4}draw\_XPM()}{72}{subsubsection.4.14.1.4}%
+\contentsline {subsubsection}{\numberline {4.14.1.5}set\_frame\_buffer()}{72}{subsubsection.4.14.1.5}%
+\contentsline {subsubsection}{\numberline {4.14.1.6}set\_graphic\_mode()}{73}{subsubsection.4.14.1.6}%
+\contentsline {subsubsection}{\numberline {4.14.1.7}set\_text\_mode()}{73}{subsubsection.4.14.1.7}%
+\contentsline {subsection}{\numberline {4.14.2}Variable Documentation}{73}{subsection.4.14.2}%
+\contentsline {subsubsection}{\numberline {4.14.2.1}vbe\_info}{74}{subsubsection.4.14.2.1}%
+\contentsline {section}{\numberline {4.15}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/controller/video/graphic.h File Reference}{74}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Macro Definition Documentation}{74}{subsection.4.15.1}%
+\contentsline {subsubsection}{\numberline {4.15.1.1}VBE\_1024x768\_INDEXED}{75}{subsubsection.4.15.1.1}%
+\contentsline {subsubsection}{\numberline {4.15.1.2}VBE\_1152x864}{75}{subsubsection.4.15.1.2}%
+\contentsline {subsubsection}{\numberline {4.15.1.3}VBE\_1280x1024}{75}{subsubsection.4.15.1.3}%
+\contentsline {subsubsection}{\numberline {4.15.1.4}VBE\_640x480}{75}{subsubsection.4.15.1.4}%
+\contentsline {subsubsection}{\numberline {4.15.1.5}VBE\_800x600}{75}{subsubsection.4.15.1.5}%
+\contentsline {subsection}{\numberline {4.15.2}Function Documentation}{75}{subsection.4.15.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.1}draw\_line()}{75}{subsubsection.4.15.2.1}%
+\contentsline {subsubsection}{\numberline {4.15.2.2}draw\_pixel()}{76}{subsubsection.4.15.2.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.3}draw\_rectangle()}{76}{subsubsection.4.15.2.3}%
+\contentsline {subsubsection}{\numberline {4.15.2.4}draw\_XPM()}{77}{subsubsection.4.15.2.4}%
+\contentsline {subsubsection}{\numberline {4.15.2.5}set\_frame\_buffer()}{77}{subsubsection.4.15.2.5}%
+\contentsline {subsubsection}{\numberline {4.15.2.6}set\_graphic\_mode()}{78}{subsubsection.4.15.2.6}%
+\contentsline {subsubsection}{\numberline {4.15.2.7}set\_text\_mode()}{78}{subsubsection.4.15.2.7}%
+\contentsline {section}{\numberline {4.16}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/main.c File Reference}{78}{section.4.16}%
+\contentsline {subsection}{\numberline {4.16.1}Function Documentation}{79}{subsection.4.16.1}%
+\contentsline {subsubsection}{\numberline {4.16.1.1}cleanup()}{79}{subsubsection.4.16.1.1}%
+\contentsline {subsubsection}{\numberline {4.16.1.2}main()}{79}{subsubsection.4.16.1.2}%
+\contentsline {subsubsection}{\numberline {4.16.1.3}proj\_main\_loop()}{79}{subsubsection.4.16.1.3}%
+\contentsline {subsubsection}{\numberline {4.16.1.4}setup()}{79}{subsubsection.4.16.1.4}%
+\contentsline {subsection}{\numberline {4.16.2}Variable Documentation}{80}{subsection.4.16.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.1}systemState}{80}{subsubsection.4.16.2.1}%
+\contentsline {section}{\numberline {4.17}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/model/model.c File Reference}{80}{section.4.17}%
+\contentsline {subsection}{\numberline {4.17.1}Function Documentation}{81}{subsection.4.17.1}%
+\contentsline {subsubsection}{\numberline {4.17.1.1}delete\_last\_input()}{81}{subsubsection.4.17.1.1}%
+\contentsline {subsubsection}{\numberline {4.17.1.2}destroy\_sprites()}{81}{subsubsection.4.17.1.2}%
+\contentsline {subsubsection}{\numberline {4.17.1.3}insert\_new\_input()}{81}{subsubsection.4.17.1.3}%
+\contentsline {subsubsection}{\numberline {4.17.1.4}is\_mouse\_over\_button()}{81}{subsubsection.4.17.1.4}%
+\contentsline {subsubsection}{\numberline {4.17.1.5}setup\_sprites()}{81}{subsubsection.4.17.1.5}%
+\contentsline {subsubsection}{\numberline {4.17.1.6}update\_chrono\_buttons()}{82}{subsubsection.4.17.1.6}%
+\contentsline {subsubsection}{\numberline {4.17.1.7}update\_keyboard\_state()}{82}{subsubsection.4.17.1.7}%
+\contentsline {subsubsection}{\numberline {4.17.1.8}update\_mouse\_state()}{82}{subsubsection.4.17.1.8}%
+\contentsline {subsubsection}{\numberline {4.17.1.9}update\_timer\_buttons()}{82}{subsubsection.4.17.1.9}%
+\contentsline {subsubsection}{\numberline {4.17.1.10}update\_timer\_state()}{82}{subsubsection.4.17.1.10}%
+\contentsline {subsubsection}{\numberline {4.17.1.11}update\_toolbar\_buttons()}{82}{subsubsection.4.17.1.11}%
+\contentsline {subsection}{\numberline {4.17.2}Variable Documentation}{83}{subsection.4.17.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.1}block}{83}{subsubsection.4.17.2.1}%
+\contentsline {subsubsection}{\numberline {4.17.2.2}byte\_index}{83}{subsubsection.4.17.2.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.3}chrono\_buttons}{83}{subsubsection.4.17.2.3}%
+\contentsline {subsubsection}{\numberline {4.17.2.4}chrono\_seconds}{83}{subsubsection.4.17.2.4}%
+\contentsline {subsubsection}{\numberline {4.17.2.5}chronoState}{83}{subsubsection.4.17.2.5}%
+\contentsline {subsubsection}{\numberline {4.17.2.6}colon}{84}{subsubsection.4.17.2.6}%
+\contentsline {subsubsection}{\numberline {4.17.2.7}days\_of\_week}{84}{subsubsection.4.17.2.7}%
+\contentsline {subsubsection}{\numberline {4.17.2.8}digits}{84}{subsubsection.4.17.2.8}%
+\contentsline {subsubsection}{\numberline {4.17.2.9}menuState}{84}{subsubsection.4.17.2.9}%
+\contentsline {subsubsection}{\numberline {4.17.2.10}mouse}{84}{subsubsection.4.17.2.10}%
+\contentsline {subsubsection}{\numberline {4.17.2.11}mouse\_info}{84}{subsubsection.4.17.2.11}%
+\contentsline {subsubsection}{\numberline {4.17.2.12}scancode}{85}{subsubsection.4.17.2.12}%
+\contentsline {subsubsection}{\numberline {4.17.2.13}slash}{85}{subsubsection.4.17.2.13}%
+\contentsline {subsubsection}{\numberline {4.17.2.14}systemState}{85}{subsubsection.4.17.2.14}%
+\contentsline {subsubsection}{\numberline {4.17.2.15}timer\_counter}{85}{subsubsection.4.17.2.15}%
+\contentsline {subsubsection}{\numberline {4.17.2.16}timer\_input}{85}{subsubsection.4.17.2.16}%
+\contentsline {subsubsection}{\numberline {4.17.2.17}timer\_input\_length}{85}{subsubsection.4.17.2.17}%
+\contentsline {subsubsection}{\numberline {4.17.2.18}timer\_seconds}{86}{subsubsection.4.17.2.18}%
+\contentsline {subsubsection}{\numberline {4.17.2.19}timerState}{86}{subsubsection.4.17.2.19}%
+\contentsline {subsubsection}{\numberline {4.17.2.20}toolbar\_buttons}{86}{subsubsection.4.17.2.20}%
+\contentsline {subsubsection}{\numberline {4.17.2.21}vbe\_info}{86}{subsubsection.4.17.2.21}%
+\contentsline {section}{\numberline {4.18}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/model/model.h File Reference}{86}{section.4.18}%
+\contentsline {subsection}{\numberline {4.18.1}Enumeration Type Documentation}{88}{subsection.4.18.1}%
+\contentsline {subsubsection}{\numberline {4.18.1.1}ChronoState}{88}{subsubsection.4.18.1.1}%
+\contentsline {subsubsection}{\numberline {4.18.1.2}MenuState}{88}{subsubsection.4.18.1.2}%
+\contentsline {subsubsection}{\numberline {4.18.1.3}SystemState}{88}{subsubsection.4.18.1.3}%
+\contentsline {subsection}{\numberline {4.18.2}Function Documentation}{89}{subsection.4.18.2}%
+\contentsline {subsubsection}{\numberline {4.18.2.1}delete\_last\_input()}{89}{subsubsection.4.18.2.1}%
+\contentsline {subsubsection}{\numberline {4.18.2.2}destroy\_sprites()}{89}{subsubsection.4.18.2.2}%
+\contentsline {subsubsection}{\numberline {4.18.2.3}insert\_new\_input()}{89}{subsubsection.4.18.2.3}%
+\contentsline {subsubsection}{\numberline {4.18.2.4}is\_mouse\_over\_button()}{89}{subsubsection.4.18.2.4}%
+\contentsline {subsubsection}{\numberline {4.18.2.5}setup\_sprites()}{89}{subsubsection.4.18.2.5}%
+\contentsline {subsubsection}{\numberline {4.18.2.6}update\_chrono\_buttons()}{90}{subsubsection.4.18.2.6}%
+\contentsline {subsubsection}{\numberline {4.18.2.7}update\_keyboard\_state()}{90}{subsubsection.4.18.2.7}%
+\contentsline {subsubsection}{\numberline {4.18.2.8}update\_mouse\_state()}{90}{subsubsection.4.18.2.8}%
+\contentsline {subsubsection}{\numberline {4.18.2.9}update\_timer\_buttons()}{90}{subsubsection.4.18.2.9}%
+\contentsline {subsubsection}{\numberline {4.18.2.10}update\_timer\_state()}{90}{subsubsection.4.18.2.10}%
+\contentsline {subsubsection}{\numberline {4.18.2.11}update\_toolbar\_buttons()}{90}{subsubsection.4.18.2.11}%
+\contentsline {subsection}{\numberline {4.18.3}Variable Documentation}{91}{subsection.4.18.3}%
+\contentsline {subsubsection}{\numberline {4.18.3.1}block}{91}{subsubsection.4.18.3.1}%
+\contentsline {subsubsection}{\numberline {4.18.3.2}chrono\_buttons}{91}{subsubsection.4.18.3.2}%
+\contentsline {subsubsection}{\numberline {4.18.3.3}chrono\_seconds}{91}{subsubsection.4.18.3.3}%
+\contentsline {subsubsection}{\numberline {4.18.3.4}chronoState}{91}{subsubsection.4.18.3.4}%
+\contentsline {subsubsection}{\numberline {4.18.3.5}colon}{91}{subsubsection.4.18.3.5}%
+\contentsline {subsubsection}{\numberline {4.18.3.6}days\_of\_week}{92}{subsubsection.4.18.3.6}%
+\contentsline {subsubsection}{\numberline {4.18.3.7}digits}{92}{subsubsection.4.18.3.7}%
+\contentsline {subsubsection}{\numberline {4.18.3.8}menuState}{92}{subsubsection.4.18.3.8}%
+\contentsline {subsubsection}{\numberline {4.18.3.9}mouse}{92}{subsubsection.4.18.3.9}%
+\contentsline {subsubsection}{\numberline {4.18.3.10}slash}{92}{subsubsection.4.18.3.10}%
+\contentsline {subsubsection}{\numberline {4.18.3.11}systemState}{92}{subsubsection.4.18.3.11}%
+\contentsline {subsubsection}{\numberline {4.18.3.12}timer\_input}{93}{subsubsection.4.18.3.12}%
+\contentsline {subsubsection}{\numberline {4.18.3.13}timer\_input\_length}{93}{subsubsection.4.18.3.13}%
+\contentsline {subsubsection}{\numberline {4.18.3.14}timer\_seconds}{93}{subsubsection.4.18.3.14}%
+\contentsline {subsubsection}{\numberline {4.18.3.15}timerState}{93}{subsubsection.4.18.3.15}%
+\contentsline {subsubsection}{\numberline {4.18.3.16}toolbar\_buttons}{93}{subsubsection.4.18.3.16}%
+\contentsline {section}{\numberline {4.19}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/model/sprite.c File Reference}{93}{section.4.19}%
+\contentsline {subsection}{\numberline {4.19.1}Function Documentation}{94}{subsection.4.19.1}%
+\contentsline {subsubsection}{\numberline {4.19.1.1}create\_sprite\_button()}{94}{subsubsection.4.19.1.1}%
+\contentsline {subsubsection}{\numberline {4.19.1.2}create\_sprite\_xpm()}{94}{subsubsection.4.19.1.2}%
+\contentsline {subsubsection}{\numberline {4.19.1.3}destroy\_sprite()}{94}{subsubsection.4.19.1.3}%
+\contentsline {section}{\numberline {4.20}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/model/sprite.h File Reference}{94}{section.4.20}%
+\contentsline {subsection}{\numberline {4.20.1}Function Documentation}{95}{subsection.4.20.1}%
+\contentsline {subsubsection}{\numberline {4.20.1.1}create\_sprite\_button()}{95}{subsubsection.4.20.1.1}%
+\contentsline {subsubsection}{\numberline {4.20.1.2}create\_sprite\_xpm()}{95}{subsubsection.4.20.1.2}%
+\contentsline {subsubsection}{\numberline {4.20.1.3}destroy\_sprite()}{95}{subsubsection.4.20.1.3}%
+\contentsline {section}{\numberline {4.21}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/view/view.c File Reference}{95}{section.4.21}%
+\contentsline {subsection}{\numberline {4.21.1}Function Documentation}{96}{subsection.4.21.1}%
+\contentsline {subsubsection}{\numberline {4.21.1.1}display\_real\_time()}{96}{subsubsection.4.21.1.1}%
+\contentsline {subsubsection}{\numberline {4.21.1.2}draw\_blocks()}{96}{subsubsection.4.21.1.2}%
+\contentsline {subsubsection}{\numberline {4.21.1.3}draw\_chrono\_buttons()}{97}{subsubsection.4.21.1.3}%
+\contentsline {subsubsection}{\numberline {4.21.1.4}draw\_chrono\_menu()}{97}{subsubsection.4.21.1.4}%
+\contentsline {subsubsection}{\numberline {4.21.1.5}draw\_mouse()}{97}{subsubsection.4.21.1.5}%
+\contentsline {subsubsection}{\numberline {4.21.1.6}draw\_new\_frame()}{97}{subsubsection.4.21.1.6}%
+\contentsline {subsubsection}{\numberline {4.21.1.7}draw\_sprite\_button()}{97}{subsubsection.4.21.1.7}%
+\contentsline {subsubsection}{\numberline {4.21.1.8}draw\_sprite\_xpm()}{97}{subsubsection.4.21.1.8}%
+\contentsline {subsubsection}{\numberline {4.21.1.9}draw\_time()}{98}{subsubsection.4.21.1.9}%
+\contentsline {subsubsection}{\numberline {4.21.1.10}draw\_timer\_input()}{98}{subsubsection.4.21.1.10}%
+\contentsline {subsubsection}{\numberline {4.21.1.11}draw\_timer\_menu()}{98}{subsubsection.4.21.1.11}%
+\contentsline {subsubsection}{\numberline {4.21.1.12}draw\_toolbar()}{98}{subsubsection.4.21.1.12}%
+\contentsline {subsubsection}{\numberline {4.21.1.13}set\_frame\_buffers()}{98}{subsubsection.4.21.1.13}%
+\contentsline {subsubsection}{\numberline {4.21.1.14}swap\_buffers()}{98}{subsubsection.4.21.1.14}%
+\contentsline {subsection}{\numberline {4.21.2}Variable Documentation}{99}{subsection.4.21.2}%
+\contentsline {subsubsection}{\numberline {4.21.2.1}drawing\_frame\_buffer}{99}{subsubsection.4.21.2.1}%
+\contentsline {subsubsection}{\numberline {4.21.2.2}frame\_buffer\_size}{99}{subsubsection.4.21.2.2}%
+\contentsline {subsubsection}{\numberline {4.21.2.3}main\_frame\_buffer}{99}{subsubsection.4.21.2.3}%
+\contentsline {subsubsection}{\numberline {4.21.2.4}mouse\_info}{99}{subsubsection.4.21.2.4}%
+\contentsline {subsubsection}{\numberline {4.21.2.5}rtc\_date}{99}{subsubsection.4.21.2.5}%
+\contentsline {subsubsection}{\numberline {4.21.2.6}rtc\_time}{100}{subsubsection.4.21.2.6}%
+\contentsline {subsubsection}{\numberline {4.21.2.7}secondary\_frame\_buffer}{100}{subsubsection.4.21.2.7}%
+\contentsline {subsubsection}{\numberline {4.21.2.8}vbe\_info}{100}{subsubsection.4.21.2.8}%
+\contentsline {section}{\numberline {4.22}/home/neves/reps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LCOM/shared/proj/src/view/view.h File Reference}{100}{section.4.22}%
+\contentsline {subsection}{\numberline {4.22.1}Function Documentation}{101}{subsection.4.22.1}%
+\contentsline {subsubsection}{\numberline {4.22.1.1}display\_real\_time()}{101}{subsubsection.4.22.1.1}%
+\contentsline {subsubsection}{\numberline {4.22.1.2}draw\_blocks()}{101}{subsubsection.4.22.1.2}%
+\contentsline {subsubsection}{\numberline {4.22.1.3}draw\_chrono\_buttons()}{101}{subsubsection.4.22.1.3}%
+\contentsline {subsubsection}{\numberline {4.22.1.4}draw\_chrono\_menu()}{101}{subsubsection.4.22.1.4}%
+\contentsline {subsubsection}{\numberline {4.22.1.5}draw\_mouse()}{101}{subsubsection.4.22.1.5}%
+\contentsline {subsubsection}{\numberline {4.22.1.6}draw\_new\_frame()}{102}{subsubsection.4.22.1.6}%
+\contentsline {subsubsection}{\numberline {4.22.1.7}draw\_sprite\_button()}{102}{subsubsection.4.22.1.7}%
+\contentsline {subsubsection}{\numberline {4.22.1.8}draw\_sprite\_xpm()}{102}{subsubsection.4.22.1.8}%
+\contentsline {subsubsection}{\numberline {4.22.1.9}draw\_time()}{102}{subsubsection.4.22.1.9}%
+\contentsline {subsubsection}{\numberline {4.22.1.10}draw\_timer()}{102}{subsubsection.4.22.1.10}%
+\contentsline {subsubsection}{\numberline {4.22.1.11}draw\_timer\_input()}{102}{subsubsection.4.22.1.11}%
+\contentsline {subsubsection}{\numberline {4.22.1.12}draw\_timer\_menu()}{103}{subsubsection.4.22.1.12}%
+\contentsline {subsubsection}{\numberline {4.22.1.13}draw\_toolbar()}{103}{subsubsection.4.22.1.13}%
+\contentsline {subsubsection}{\numberline {4.22.1.14}set\_frame\_buffers()}{103}{subsubsection.4.22.1.14}%
+\contentsline {subsubsection}{\numberline {4.22.1.15}swap\_buffers()}{103}{subsubsection.4.22.1.15}%
+\contentsline {subsection}{\numberline {4.22.2}Variable Documentation}{103}{subsection.4.22.2}%
+\contentsline {subsubsection}{\numberline {4.22.2.1}drawing\_frame\_buffer}{103}{subsubsection.4.22.2.1}%
+\contentsline {subsubsection}{\numberline {4.22.2.2}main\_frame\_buffer}{103}{subsubsection.4.22.2.2}%
+\contentsline {chapter}{Index}{105}{section*.45}%
