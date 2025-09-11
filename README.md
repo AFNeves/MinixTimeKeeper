@@ -57,10 +57,10 @@ This project was built to run on a **special variant of MinixOS** used at FEUP.
 This project includes full technical documentation generated with **Doxygen**.
 
 * **HTML Documentation**:
-  Open [`proj/doc/html/index.html`](proj/doc/html/index.html) in your browser to explore the API and code structure.
+  Open [`proj/doc/html/index.html`](proj/doc/Doxygen/html/index.html) in your browser to explore the API and code structure.
 
 * **PDF Documentation**:
-  Open [`proj/doc/latex/refman.pdf`](proj/doc/latex/refman.pdf) for a compiled PDF reference manual.
+  Open [`proj/doc/latex/refman.pdf`](proj/doc/Doxygen/latex/refman.pdf) for a compiled PDF reference manual.
 
 If you want to regenerate the documentation:
 
