@@ -2,7 +2,8 @@
 
 ## 📖 Description
 
-A MinixOS-based C application combining custom device drivers with a basic clock program, developed for the **Computer Laboratory course at FEUP**. The project integrates drivers for the timer, keyboard, mouse, RTC, and graphics into a working system that can:
+A MinixOS-based C application combining custom device drivers with a basic clock program, developed for the **Computer Laboratory course at FEUP**.
+The project integrates drivers for the timer, keyboard, mouse, RTC, and graphics into a working system that can:
 
 * Display the current time
 * Run a countdown timer
@@ -10,23 +11,21 @@ A MinixOS-based C application combining custom device drivers with a basic clock
 
 This project was built to run on a **special variant of MinixOS** used at FEUP.
 
----
-
 ## ⚙️ Features
 
-* Custom device drivers:
+* **Custom device drivers**:
 
-  * **Timer**
-  * **Keyboard**
-  * **Mouse**
-  * **RTC (Real-Time Clock)**
-  * **Graphics (VBE)**
-* Clock modes:
+  * Timer
+  * Keyboard
+  * Mouse
+  * RTC (Real-Time Clock)
+  * Graphics (VBE)
+* **Clock modes**:
 
   * Real-time clock
   * Timer
   * Chronometer
-* Simple user interface rendered with XPM sprites
+* **User interface** rendered with XPM sprites
 
 ## 🚀 How to Build & Run
 
@@ -45,21 +44,39 @@ This project was built to run on a **special variant of MinixOS** used at FEUP.
    make
    ```
 
-3. Run the application inside the MinixOS environment using the lcom_run command:
+3. Run the application inside the MinixOS environment using:
 
    ```bash
    lcom_run proj
    ```
 
-4. To stop the application, press the `Q` key.
+4. To stop the application, press the **`Q` key**.
 
 ## 📘 Documentation
 
-Doxygen was used to generate technical documentation. The output will be available in HTML and LaTeX/PDF formats.
+This project includes full technical documentation generated with **Doxygen**.
 
-HTML index can be accessed [here](proj/doc/html/index.html).
+* **HTML Documentation**:
+  Open [`proj/doc/html/index.html`](proj/doc/html/index.html) in your browser to explore the API and code structure.
 
-LaTeX/PDF documentation can be found [here](proj/doc/latex/refman.pdf).
+* **PDF Documentation**:
+  Open [`proj/doc/latex/refman.pdf`](proj/doc/latex/refman.pdf) for a compiled PDF reference manual.
+
+If you want to regenerate the documentation:
+
+```bash
+cd proj/doc/Doxygen
+doxygen Doxyfile
+```
+
+The HTML output will be generated in `proj/doc/html/` and LaTeX sources in `proj/doc/latex/`. You can then compile the LaTeX to PDF with:
+
+```bash
+cd proj/doc/latex
+make
+```
+
+The result will be `refman.pdf`.
 
 ## 👥 Group Members
 
